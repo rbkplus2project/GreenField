@@ -105,3 +105,4 @@ dist
 
 # Files
 *.json
+frontend/bundle.js
