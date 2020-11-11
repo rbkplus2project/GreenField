@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
-import { Provider } from 'react-redux';
+import { Provider, Connect } from 'react-redux';
 import rootReducer from './reducers/rootReducer';
 import NavBar from './NavBar.jsx';
 import NavBar from './GameView.jsx';
@@ -30,6 +30,15 @@ class App extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        username: state.username,
+        password: state.password
+    
+    }
+}
+
+
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('app'));
 
-export default App;
+export default Connect(mapStateToProps)(App);
