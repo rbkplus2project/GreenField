@@ -1,11 +1,10 @@
 /* General Styles */
 body {
-    background-image: url('photos/neon.jpg');
+    background-image: url('media/neon.jpg');
     background-color: purple;
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
-    height:500px;
     color:red;
     font-weight: bold;
     text-align: center;
@@ -14,7 +13,7 @@ body {
     align-items: center;
     flex-flow: column;
 }
-button{
+input[type='button'], button{
     border: 4px groove purple;
     border-radius: 12px;
     font-weight: bold;
@@ -25,7 +24,7 @@ button{
     width:200px;
     outline: none;
 }
-input[type='text'], textarea{
+input[type='text'], input[type='number'], input[type='password'], textarea{
     color:red;
     font-weight: bold;
     text-align: center;
@@ -35,12 +34,12 @@ input[type='text'], textarea{
     width:200px;
     outline: none;
 }
-input[type='text']::placeholder, textarea::placeholder{
+input[type='text']::placeholder,input[type='number']::placeholder, input[type='password']::placeholder, textarea::placeholder{
     color:gray;
     font-weight: bold;
     text-align: center;
 }
-input[type='text']:hover, textarea:hover, button:hover, .house:hover, .arrow:hover{
+input:hover, textarea:hover, button:hover, .navitem:hover{
     background-color: cyan;
 }
 
@@ -57,14 +56,21 @@ input[type='text']:hover, textarea:hover, button:hover, .house:hover, .arrow:hov
     align-items: center;
     flex-flow: row;
 }
+.center{
+    position: absolute;
+    top:30%;
+}
+.hide{
+    display:none;
+}
 
 /* Menu Styles */
-#menu{
+.menu{
     position:fixed;
     top:5px;
     right:5px;
 }
-.house{
+.navitem{
     border: 4px groove purple;
     border-radius: 12px;
     height: 50px;
