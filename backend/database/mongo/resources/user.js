@@ -1,7 +1,7 @@
 // create user schema
 const mongoose=require('mongoose')
 let userSchema=mongoose.Schema({
-    username:String,
+    username:{type:String,unique:true},
     passoword:String,
     salt:String
 })
