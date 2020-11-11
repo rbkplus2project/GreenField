@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongo = require('./database/mongo');
+const hash = require('./middleware/hash.js');
 
 let app = express();
 
@@ -12,8 +13,7 @@ app.use(express.static(__dirname + '/../frontend'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/user/signup', require('./middleware/hash.js'));
-app.use('/user', require('./database/mongo/resources/userRouter'));
+app.use('/user', hash);
 
 
 let port = 3000;
