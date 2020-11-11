@@ -18,3 +18,6 @@ userRouter.route('/login')
     .post((req, res) => {
     // req.body = username, pass
     });
+
+    
+module.exports = userRouter;
