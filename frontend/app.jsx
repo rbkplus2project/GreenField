@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import {createStore} from 'redux';
+import { Provider } from 'react-redux'
+import rootReducer from './reducers/rootReducer'
 import NavBar from './NavBar.jsx';
 import NavBar from './GameView.jsx';
 import NavBar from './GameList.jsx';
 import NavBar from './Footer.jsx';
+
+const store = createStore(rootReducer);
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -24,6 +30,6 @@ class App extends Component {
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('app'));
 
 export default App;
