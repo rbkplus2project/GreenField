@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar';
+import ReactDOM from 'react-dom';
+import NavBar from './NavBar.jsx';
 
 class App extends Component {
     constructor(props) {
@@ -7,30 +8,17 @@ class App extends Component {
         this.state = {
            
         };
-        console.log(this.state);
     }
 
-    addPhoto = (photo) => {
-        
-        });
-    }
-    handleCallback = (Data) => {
-        
-    }
-    handleCallback1 = (data) => {
-       
-    }
     render() {
         return (
             <div className="main">
-                <Navbar callback={this.handleCallback} />
-                <Formphoto handleAdd={this.state.show} callback={this.handleCallback} callback1={this.handleCallback1} addPhoto={this.addPhoto} />
-                <Photo photo={this.state} />
-                {/* <Gallery photos={this.state.photos}/> */}
-
+                <NavBar />
             </div>
         );
     }
 }
+
+ReactDOM.render(<App />, document.getElementById('app'));
 
 export default App;
