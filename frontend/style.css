@@ -1,0 +1,94 @@
+/* General Styles */
+body {
+    background-image: url('photos/neon.jpg');
+    background-color: purple;
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    height:500px;
+    color:red;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+button{
+    border: 4px groove purple;
+    border-radius: 12px;
+    font-weight: bold;
+    text-align: center;
+    color:red;
+    background-color: transparent;
+    height:30px;
+    width:200px;
+    outline: none;
+}
+input[type='text'], textarea{
+    color:red;
+    font-weight: bold;
+    text-align: center;
+    background-color: transparent;
+    border-radius: 12px;
+    height:30px;
+    width:200px;
+    outline: none;
+}
+input[type='text']::placeholder, textarea::placeholder{
+    color:gray;
+    font-weight: bold;
+    text-align: center;
+}
+input[type='text']:hover, textarea:hover, button:hover, .house:hover, .arrow:hover{
+    background-color: cyan;
+}
+
+/* Flex Flow Styles */
+.column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row;
+}
+
+/* Menu Styles */
+#menu{
+    position:fixed;
+    top:5px;
+    right:5px;
+}
+.house{
+    border: 4px groove purple;
+    border-radius: 12px;
+    height: 50px;
+    width: 50px;
+    background-color: transparent;
+}
+.arrow{
+    height: 50px;
+    width: 50px;
+}
+
+/* Game One Styles */
+.tower{
+    border: 5px solid red;
+    height : 400px;
+    width : 100px;
+    margin : 30px;
+    display: flex;
+    flex-flow: column-reverse;
+}
+.fire{
+    width : 100px;
+    height : 50%;
+}
+.fire:hover{
+    background-color: cyan;
+}
