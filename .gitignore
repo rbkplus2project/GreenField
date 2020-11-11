@@ -105,5 +105,3 @@ dist
 
 # Files
 *.json
-frontend/index.html
-.gitignore
