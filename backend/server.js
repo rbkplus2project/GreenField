@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const mongo = require('./database/mongo');
-const mysql = require('./database/mysql');
+// const mongo = require('./database/mongo');
+// const mysql = require('./database/mysql');
 
 let app = express();
 
