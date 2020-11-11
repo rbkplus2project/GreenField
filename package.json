@@ -2,9 +2,9 @@
   "name": "green-field",
   "version": "1.0.0",
   "description": "game website",
-  "main": "server/server.js",
+  "main": "backend/server.js",
   "scripts": {
-    "start": "nodemon server",
+    "start": "nodemon backend/server.js",
     "react": "webpack -d --watch"
   },
   "author": "team3",
