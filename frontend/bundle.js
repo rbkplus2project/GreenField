@@ -73,10 +73,9 @@
 /*!**************************!*\
   !*** ./frontend/app.jsx ***!
   \**************************/
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-eval("//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMC5qcyIsInNvdXJjZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///0\n");
+eval("throw new Error(\"Module build failed: SyntaxError: D:/Desktop/pic/me work/plus2/tasks/GreenField-1/frontend/app.jsx: Unexpected token (13:13)\\n\\n  11 |     }\\n  12 | \\n> 13 |     addPhoto = (photo) => {\\n     |              ^\\n  14 |         \\n  15 |         });\\n  16 |     }\\n\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMC5qcyIsInNvdXJjZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///0\n");
 
 /***/ })
 /******/ ]);
