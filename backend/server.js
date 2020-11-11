@@ -5,6 +5,7 @@ const mysql = require('./database/mysql');
 
 let app = express();
 
+app.use(mongo());
 app.use(express.static(__dirname + '/../frontend'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
