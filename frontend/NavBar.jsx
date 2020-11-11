@@ -1,31 +1,23 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar';
-
-class App extends Component {
+import SignupForm from './SignupForm.jsx';
+import RegisterForm from './RegisterForm.jsx';
+class NavBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
 
         };
-        console.log(this.state);
     }
 
-}
-handleCallback = (Data) => {
-
-}
-handleCallback1 = (data) => {
-
-}
-render() {
-    return (
-        <div className="main">
-            <Navbar/>
-            <Formphoto  />
-            <Photo />
-        </div>
-    );
-}
+    render() {
+        return (
+            <div className="main">
+                <RegisterForm />
+                <SignupForm />
+            </div>
+        );
+    }
 }
 
-export default App;
+
+export default NavBar;
