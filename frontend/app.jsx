@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
-import { Provider } from 'react-redux'
-import rootReducer from './reducers/rootReducer'
+import { Provider } from 'react-redux';
+import rootReducer from './reducers/rootReducer';
 import NavBar from './NavBar.jsx';
 import NavBar from './GameView.jsx';
 import NavBar from './GameList.jsx';
