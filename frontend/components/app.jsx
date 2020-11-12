@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 import { Provider, Connect } from 'react-redux';
-import rootReducer from './reducers/rootReducer';
+//import rootReducer from './reducers/rootReducer.js';
 import NavBar from './NavBar.jsx';
-import NavBar from './GameView.jsx';
-import NavBar from './GameList.jsx';
-import NavBar from './Footer.jsx';
+import GameView from './GameView.jsx';
+import GameList from './GameList.jsx';
+import Footer from './Footer.jsx';
 
 const store = createStore(rootReducer);
 

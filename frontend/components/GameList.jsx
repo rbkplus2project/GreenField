@@ -10,16 +10,16 @@ class GameList extends Component {
         return (
             <div>
                 <div>
-                    <img src={ }></img>
+                    <img src=""></img>
                 </div>
                 <div>
-                    <img src={ }></img>
+                    <img src=""></img>
                 </div>
                 <div>
-                    <img src={ }></img>
+                    <img src=""></img>
                 </div>
                 <div>
-                    <img src={ }></img>
+                    <img src=""></img>
                 </div>
             </div>
         )
