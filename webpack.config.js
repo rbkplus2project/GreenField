@@ -1,5 +1,5 @@
 var path = require('path');
-var SRC_DIR = path.join(__dirname, '/frontend');
+var SRC_DIR = path.join(__dirname, '/frontend/components');
 var DIST_DIR = path.join(__dirname, '/frontend');
 
 module.exports = {
