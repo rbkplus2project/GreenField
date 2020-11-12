@@ -1,5 +1,5 @@
 var path = require('path');
-var SRC_DIR = path.join(__dirname, '/frontend');
+var SRC_DIR = path.join(__dirname, '/frontend/components');
 var DIST_DIR = path.join(__dirname, '/frontend');
 
 module.exports = {
@@ -9,13 +9,15 @@ module.exports = {
     path: DIST_DIR
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.jsx?/,
-        include: SRC_DIR,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015']
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['react', 'es2015']
+          }
         }
       }
     ]
