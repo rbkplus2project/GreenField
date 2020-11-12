@@ -27,7 +27,7 @@ class RegisterForm extends Component {
             })
     }
 
-    getData (){
+    getData = () => {
         let options = {
             url: `http://localhost:3000/`,
             method: 'get',
@@ -36,7 +36,7 @@ class RegisterForm extends Component {
         axios(options)
             .then((results) => {
                 console.log(results);
-                
+
             })
 
             .catch((err) => {
@@ -45,8 +45,8 @@ class RegisterForm extends Component {
 
     }
 
-    handleChange (e) {
-        setState({ [e.target.id]: e.target.value})
+    handleChange = (e) => {
+        setState({ [e.target.id]: e.target.value })
     }
 
     render() {

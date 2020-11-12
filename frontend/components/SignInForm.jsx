@@ -27,7 +27,7 @@ class SignInForm extends Component {
             })
     }
 
-    getData (){
+    getData = () => {
         let options = {
             url: `http://localhost:3000/`,
             method: 'get',
@@ -45,7 +45,7 @@ class SignInForm extends Component {
 
     }
 
-    handleChange(e){
+    handleChange = (e) => {
         setState({ [e.target.id]: e.target.value })
     }
 
@@ -54,7 +54,7 @@ class SignInForm extends Component {
             <div>
                 <form id="signIn" onSubmit={this.handleSubmit}>
                     <h3>Sign In</h3>
-                    
+
                     <label htmlFor="username">User Name:</label><br />
                     <input type="text" id="username" name="username" placeholder="Enter your name" onChange={this.handleChange} /><br />
 
