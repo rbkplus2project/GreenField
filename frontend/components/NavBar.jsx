@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SignupForm from './SignupForm.jsx';
 import RegisterForm from './RegisterForm.jsx';
+import SignInForm from './SignInForm.jsx';
 
 class NavBar extends Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class NavBar extends Component {
         return (
             <div className="main">
                 <RegisterForm />
-                <SignupForm />
+                <SignInForm />
             </div>
         );
     }

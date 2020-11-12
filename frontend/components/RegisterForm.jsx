@@ -12,7 +12,7 @@ class RegisterForm extends Component {
         this.getData=this.getData.bind(this)
         this.handleChange=this.handleChange.bind(this)
     }
-    handleSubmit (e){
+    handleSubmit = (e) => {
         let options = {
             url: `http://localhost:3000/`,
             method: 'post',
@@ -30,7 +30,7 @@ class RegisterForm extends Component {
             })
     }
 
-    getData (){
+    getData = () => {
         let options = {
             url: `http://localhost:3000/`,
             method: 'get',
@@ -48,26 +48,29 @@ class RegisterForm extends Component {
 
     }
 
-    handleChange (e) {
+    handleChange = (e) => {
         setState({ [e.target.id]: e.target.value})
     }
 
     render() {
         return (
-            <form id="register" onSubmit={this.handleSubmit}>
-                <h3>Register</h3>
+            
+            <form id="register"  className='center' onSubmit={this.handleSubmit}>
+                <h1>Gamesio</h1><br />
+                <div className= 'Column'>
+                <label htmlFor="username">User Name:</label>
+                <input type="text" id="username" name="username"  onChange={this.handleChange} />
 
-                <label htmlFor="username">User Name:</label><br />
-                <input type="text" id="username" name="username" placeholder="Enter your name" onChange={this.handleChange} /><br />
+                <label htmlFor="Password">Password:</label>
+                <input type="password" id="password" name="password"  onChange={this.handleChange} />
 
-                <label htmlFor="Password">Password:</label><br />
-                <input type="password" id="password" name="password" placeholder="Enter password photo" onChange={this.handleChange} /><br />
-
-                <label htmlFor="confirmPassword">Confirm Password:</label><br />
-                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Passward" onChange={this.handleChange} /><br />
-
-                <button id="submit">Register</button>
+                <label htmlFor="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword"  onChange={this.handleChange} />
+                </div><br/>
+                <div className='column'>
+                <button id="submit">Register</button><br />
                 <button id="cancel" onClick={this.onTrigger}>Cancel</button>
+                </div>
             </form>
         )
     }
