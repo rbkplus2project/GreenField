@@ -2,6 +2,7 @@ const userRouter = require ('express').Router();
 const User = require('./user.js');
 const userCtrl = require('./userController.js');
 const bcrypt = require('bcrypt');
+const { Callbacks } = require('jquery');
 
 userRouter.route('/signup')
     .post((req, res)=>{
@@ -31,6 +32,17 @@ userRouter.route('/login')
           }
         }
       });
+    });
+userRouter.route('/removeuser')
+    .delete((req, res)=>{
+      userCtrl.delete(req.body, (err,data)=>{
+        if(err){
+          res.sendStatus(500)
+        }else{
+          res.json(data)
+        }
+      })
+
     });
 
     
