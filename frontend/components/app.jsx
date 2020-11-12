@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
-import { Provider, Connect } from 'react-redux';
-import rootReducer from './reducers/rootReducer';
+// import {createStore} from 'redux';
+// import { Provider, connect } from 'react-redux';
+// import rootReducer from '../reducers/rootReducer.js';
 import NavBar from './NavBar.jsx';
-import NavBar from './GameView.jsx';
-import NavBar from './GameList.jsx';
-import NavBar from './Footer.jsx';
+import GameView from './GameView.jsx';
+import GameList from './GameList.jsx';
+import Footer from './Footer.jsx';
 
-const store = createStore(rootReducer);
+// const store = createStore(rootReducer);
 
 class App extends Component {
     constructor(props) {
@@ -30,15 +30,19 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        username: state.username,
-        password: state.password
+// const mapStateToProps = (state) => {
+//     return {
+//         username: state.username,
+//         password: state.password
     
-    }
-}
+//     }
+// }
 
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('app'));
+// ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('app'));
 
-export default Connect(mapStateToProps)(App);
+ReactDOM.render(<App />, document.getElementById('app'));
+export default App
+// export default connect(mapStateToProps)(App);
+
+
