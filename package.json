@@ -2,9 +2,9 @@
   "name": "green-field",
   "version": "1.0.0",
   "description": "game website",
-  "main": "server/server.js",
+  "main": "backend/server.js",
   "scripts": {
-    "start": "nodemon server",
+    "start": "nodemon backend/server.js",
     "react": "webpack -d --watch"
   },
   "author": "team3",
@@ -12,7 +12,6 @@
   "license": "UNLICENSED",
   "dependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.23.0",
     "bcrypt": "^5.0.0",
