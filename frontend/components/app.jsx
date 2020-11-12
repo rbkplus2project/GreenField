@@ -8,7 +8,6 @@ import GameView from './GameView.jsx';
 import GameList from './GameList.jsx';
 import Footer from './Footer.jsx';
 
-
 // const store = createStore(rootReducer);
 
 class App extends Component {
@@ -45,4 +44,5 @@ class App extends Component {
 ReactDOM.render(<App />, document.getElementById('app'));
 export default App
 // export default connect(mapStateToProps)(App);
+
 
