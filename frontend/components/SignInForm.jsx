@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 const axios = require('axios');
-class SignupForm extends Component {
+class SignInForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
             username: null,
             password: null
         }
-        this.handleSubmit=this.handleSubmit.bind(this)
-        this.getData=this.getData.bind(this)
-        this.handleChange=this.handleChange.bind(this)
     }
 
-    handleSubmit (e){
+    handleSubmit = () => {
         let options = {
             url: `http://localhost:3000/`,
             method: 'post',
@@ -30,7 +27,7 @@ class SignupForm extends Component {
             })
     }
 
-    getData (){
+    getData = () => {
         let options = {
             url: `http://localhost:3000/`,
             method: 'get',
@@ -48,7 +45,7 @@ class SignupForm extends Component {
 
     }
 
-    handleChange(e){
+    handleChange = (e) => {
         setState({ [e.target.id]: e.target.value })
     }
 
@@ -57,7 +54,7 @@ class SignupForm extends Component {
             <div>
                 <form id="signIn" onSubmit={this.handleSubmit}>
                     <h3>Sign In</h3>
-                    
+
                     <label htmlFor="username">User Name:</label><br />
                     <input type="text" id="username" name="username" placeholder="Enter your name" onChange={this.handleChange} /><br />
 
@@ -73,4 +70,4 @@ class SignupForm extends Component {
 }
 
 
-export default SignupForm;
+export default SignInForm;

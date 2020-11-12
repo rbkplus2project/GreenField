@@ -9,9 +9,10 @@ class RegisterForm extends Component {
             confirmpassword: null
         }
     }
-    handleSubmit = (e) => {
+  
+    handleSubmit = () => {
         let options = {
-            url: `http://localhost:3000/${path}`,
+            url: `http://localhost:3000/`,
             method: 'post',
             data: { username: this.state.username, password: this.state.password }
         }
@@ -29,14 +30,14 @@ class RegisterForm extends Component {
 
     getData = () => {
         let options = {
-            url: `http://localhost:3000/${path}`,
+            url: `http://localhost:3000/`,
             method: 'get',
         }
 
         axios(options)
             .then((results) => {
                 console.log(results);
-                
+
             })
 
             .catch((err) => {
@@ -46,7 +47,8 @@ class RegisterForm extends Component {
     }
 
     handleChange = (e) => {
-        setState({ [e.target.id]: e.target.value})
+        setState({ [e.target.id]: e.target.value })
+
     }
 
     render() {

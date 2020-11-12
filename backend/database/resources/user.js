@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 let userSchema = mongoose.Schema({
   username: {type: String, unique: true},
   password: String,
-  salt: String
+  salt: String,
+  games: Array
 });
 
 let User = mongoose.model('User', userSchema);
