@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-let gameSchema = mongoose({
+let gameSchema = mongoose.Schema({
     
 });
 
 let Game = mongoose.model('Game', gameSchema);
 
-export default Game;
+module.exports = Game;
