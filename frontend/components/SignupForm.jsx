@@ -13,7 +13,7 @@ class SignupForm extends Component {
         let options = {
             url: `http://localhost:3000/${path}`,
             method: 'post',
-            data: { usdername: this.state.username, password: this.state.password }
+            data: { username: this.state.username, password: this.state.password }
         }
 
         axios(options)
@@ -58,7 +58,7 @@ class SignupForm extends Component {
                     <label htmlFor="username">User Name:</label><br />
                     <input type="text" id="username" name="username" placeholder="Enter your name" onChange={this.handleChange} /><br />
 
-                    <label htmlFor="Password">Passward:</label><br />
+                    <label htmlFor="Password">Password:</label><br />
                     <input type="password" id="password" name="password" placeholder="Enter password photo" onChange={this.handleChange} /><br />
 
                     <button id="submit">Sign In</button>
