@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 const axios = require('axios');
-class SignupForm extends Component {
+class SignInForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +12,7 @@ class SignupForm extends Component {
         this.handleChange=this.handleChange.bind(this)
     }
 
-    handleSubmit (e){
+    handleSubmit = (e) => {
         let options = {
             url: `http://localhost:3000/`,
             method: 'post',
@@ -30,7 +30,7 @@ class SignupForm extends Component {
             })
     }
 
-    getData (){
+    getData = () => {
         let options = {
             url: `http://localhost:3000/`,
             method: 'get',
@@ -48,24 +48,25 @@ class SignupForm extends Component {
 
     }
 
-    handleChange(e){
+    handleChange = (e) => {
         setState({ [e.target.id]: e.target.value })
     }
 
     render() {
         return (
             <div>
-                <form id="signIn" onSubmit={this.handleSubmit}>
-                    <h3>Sign In</h3>
-                    
-                    <label htmlFor="username">User Name:</label><br />
-                    <input type="text" id="username" name="username" placeholder="Enter your name" onChange={this.handleChange} /><br />
-
-                    <label htmlFor="Password">Password:</label><br />
-                    <input type="password" id="password" name="password" placeholder="Enter password photo" onChange={this.handleChange} /><br />
-
-                    <button id="submit">Sign In</button>
+                <form id="signIn" className='center' onSubmit={this.handleSubmit}>
+                    <h1>Gamesio</h1> <br />
+                    <div className='column'>
+                    <span htmlFor="username">User Name:</span>
+                    <input type="text" id="username" name="username"  onChange={this.handleChange} />
+                    <span htmlFor="Password">Password:</span>
+                    <input type="password" id="password" name="password"  onChange={this.handleChange} />
+                    </div><br/>
+                    <div className='column'>
+                    <button id="submit">Sign In</button><br />
                     <button id="cancel" onClick={this.onTrigger}>Cancel</button>
+                    </div>
                 </form>
             </div>
         )
@@ -73,4 +74,4 @@ class SignupForm extends Component {
 }
 
 
-export default SignupForm;
+export default SignInForm;
