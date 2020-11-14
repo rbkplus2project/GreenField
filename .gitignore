@@ -104,8 +104,5 @@ dist
 .tern-port
 
 # Files
-*.json
-
 bundle.js
-
 bundle.js.LICENSE.txt
