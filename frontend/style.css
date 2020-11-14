@@ -68,7 +68,7 @@ input:hover, textarea:hover, button:hover, .navitem:hover{
 .menu{
     position:fixed;
     top:5px;
-    right:5px;
+    left:5px;
 }
 .navitem{
     border: 4px groove purple;
