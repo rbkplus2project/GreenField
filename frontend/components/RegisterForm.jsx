@@ -11,6 +11,7 @@ class RegisterForm extends Component {
         confirmpassword: null
     }
     }
+
     handleSubmit = (e) => {
         e.preventDefault();
         let options = {
@@ -50,6 +51,7 @@ class RegisterForm extends Component {
 
     handleChange = (e) => {
         setState({ [e.target.id]: e.target.value })
+
     }
 
     onTrigger = () => {
