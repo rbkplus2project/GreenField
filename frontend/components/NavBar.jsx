@@ -1,24 +1,50 @@
 import React, { Component } from 'react';
-import SignupForm from './SignupForm.jsx';
+import { connect } from 'react-redux';
+import SignInForm from './SignInForm.jsx';
 import RegisterForm from './RegisterForm.jsx';
+import { Register, SignIn } from '../actions/actions.js';
 
 class NavBar extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+    }
 
-        };
+    onTrigger1 = () => {
+        let x = "show";
+        this.props.changex(x);
+        console.log(this.props);
+    }
+    onTrigger = () => {
+        let y = "show";
+        this.props.changey(y);
+        console.log("test///");
     }
 
     render() {
+        // console.log("here===>", this.props);
         return (
             <div className="main">
+                <button id="cancel1" onClick={this.onTrigger1}>Register</button>
+                <button id="cancel" onClick={this.onTrigger}>Sign In</button>
                 <RegisterForm />
-                <SignupForm />
+                <SignInForm />
             </div>
         );
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        test: state.test,
+        register: state.register,
+        SignIn: state.signIn
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changex: (x) => { dispatch(Register(x)) },
+        changey: (y) => { dispatch(SignIn(y)) }
+    }
+}
 
-export default NavBar;
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

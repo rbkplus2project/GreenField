@@ -1,7 +1,8 @@
-const userRouter = require ('express').Router();
+const userRouter = require('express').Router();
 const User = require('./user.js');
 const userCtrl = require('./userController.js');
 const bcrypt = require('bcrypt');
+const { Callbacks } = require('jquery');
 
 userRouter.route('/signup')
     .post((req, res)=>{
@@ -25,12 +26,23 @@ userRouter.route('/login')
         } else {
           var newHash = bcrypt.hashSync(req.body.password, data[0]._doc.salt);
           if (newHash === data[0]._doc.password) {
-            res.sendStatus(200);
+            res.json(data[0]._doc);
           } else {
             res.status(400).send('password incorrect');
           }
         }
       });
+    });
+userRouter.route('/removeuser')
+    .delete((req, res)=>{
+      userCtrl.delete(req.body, (err, data)=>{
+        if (err) {
+          res.sendStatus(500);
+        } else {
+          res.json(data);
+        }
+      });
+
     });
 
     

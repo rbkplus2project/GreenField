@@ -7,11 +7,14 @@ class SignupForm extends Component {
             username: null,
             password: null
         }
+        this.handleSubmit=this.handleSubmit.bind(this)
+        this.getData=this.getData.bind(this)
+        this.handleChange=this.handleChange.bind(this)
     }
 
-    handleSubmit = (e) => {
+    handleSubmit (e){
         let options = {
-            url: `http://localhost:3000/${path}`,
+            url: `http://localhost:3000/`,
             method: 'post',
             data: { username: this.state.username, password: this.state.password }
         }
@@ -27,9 +30,9 @@ class SignupForm extends Component {
             })
     }
 
-    getData = () => {
+    getData (){
         let options = {
-            url: `http://localhost:3000/${path}`,
+            url: `http://localhost:3000/`,
             method: 'get',
         }
 
@@ -45,7 +48,7 @@ class SignupForm extends Component {
 
     }
 
-    handleChange = (e) => {
+    handleChange(e){
         setState({ [e.target.id]: e.target.value })
     }
 
