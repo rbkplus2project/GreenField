@@ -12,3 +12,6 @@ exports.find = function (req, res) {
 exports.delete = function(req, res) {
   User.remove(req, res);
 };
+// exports.updateUsers=function(req,res){
+//   User.updateUsers(req,res);
+// }
