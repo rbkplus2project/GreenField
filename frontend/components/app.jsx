@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-// import {createStore} from 'redux';
-// import { Provider, connect } from 'react-redux';
-// import rootReducer from '../reducers/rootReducer.js';
+import {createStore} from 'redux';
+import { Provider} from 'react-redux';
+import rootReducer from '../reducers/rootReducer.js';
+// import RegisterForm from './RegisterForm.jsx';
 import NavBar from './NavBar.jsx';
 import GameView from './GameView.jsx';
 import GameList from './GameList.jsx';
 import Footer from './Footer.jsx';
 
-// const store = createStore(rootReducer);
+const store = createStore(rootReducer);
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-           
-        };
     }
 
     render() {
@@ -25,24 +23,16 @@ class App extends Component {
                 <GameView />
                 <GameList />
                 <Footer />
+                {/* <RegisterForm /> */}
             </div>
         );
     }
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         username: state.username,
-//         password: state.password
-    
-//     }
-// }
 
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('app'));
 
-// ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('app'));
+export default App;
 
-ReactDOM.render(<App />, document.getElementById('app'));
-export default App
-// export default connect(mapStateToProps)(App);
 
 
