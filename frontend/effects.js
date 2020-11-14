@@ -7,4 +7,6 @@ $("input").on("mouseenter", function(){
 });
 
 // Opens & closes menu on click
+
+
 $("#openmenu, #closemenu").on("click",()=>{$("#navclosed").toggleClass("hide");$("#navopened").toggleClass("hide")})

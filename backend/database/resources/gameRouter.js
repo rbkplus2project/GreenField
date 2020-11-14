@@ -2,6 +2,17 @@ const gameRouter = require('express').Router();
 const gameCtrl = require('./gameController');
 
 
+gameRouter.route('/')
+    .get((req, res) => {
+      gameCtrl.find({}, (err, data) => {
+        if (err) {
+          res.sendStatus(400);
+        } else {
+          res.json(data);
+        }
+      });
+    });
+
 gameRouter.route('/:game')
     .get((req, res) => {
     //   res.json(req.params);
