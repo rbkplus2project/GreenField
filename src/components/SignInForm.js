@@ -1,26 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Register, SignIn } from '../actions/actions.js';
+// import { Register, SignIn } from '../actions/actions.js';
 const axios = require('axios');
 class SignInForm extends Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         username: null,
+    //         password: null
+    //     }
+    // }
 
     handleSubmit = (e) => {
         e.preventDefault();
+        let input = $('#signIn-form').serializeArray();
         let options = {
-            url: `http://localhost:3000/`,
+            url: `http://localhost:3000/user/login`,
             method: 'post',
-            data: { username: this.state.username, password: this.state.password }
+            data: { username: input[0].value, password: input[1].value }
         }
 
         axios(options)
             .then((results) => {
                 console.log(results);
-                this.getData();       // what is the received data will be ?
+                // this.getData();       // what is the received data will be ?
             })
 
             .catch((err) => {
                 console.log("error here ====>", err);
             })
+
+
     }
 
     // getData = () => {
@@ -53,7 +63,7 @@ class SignInForm extends Component {
 
     render() {
         return (
-            <div id="signIn" style={{ display: this.props.SignIn === "show" ? "block" : "none" }}>
+            <div id="signIn">
                 <form id="signIn-form" onSubmit={this.handleSubmit}>
                     <h3>Sign In</h3>
 
@@ -71,17 +81,18 @@ class SignInForm extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        test: state.test,
-        register: state.register,
-        SignIn: state.SignIn
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        changey: (y) => { dispatch(SignIn(y)) }
-    }
-}
+// const mapStateToProps = (state) => {
+//     return {
+//         test: state.test,
+//         register: state.register,
+//         SignIn: state.SignIn
+//     }
+// }
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         changey: (y) => { dispatch(SignIn(y)) }
+//     }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInForm);
+// export default connect(mapStateToProps, mapDispatchToProps)(SignInForm);
+export default SignInForm;
