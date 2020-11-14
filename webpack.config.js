@@ -1,5 +1,5 @@
 var path = require('path');
-var SRC_DIR = path.join(__dirname, '/frontend');
+var SRC_DIR = path.join(__dirname, '/frontend/components');
 var DIST_DIR = path.join(__dirname, '/frontend');
 
 module.exports = {
@@ -7,6 +7,10 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: DIST_DIR
+  },
+  devServer: {
+    inline: false,
+    contentBase: "./frontend",
   },
   module: {
     rules: [
@@ -16,10 +20,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['react', 'es2015']
+            presets: ['@babel/react', '@babel/preset-env'],
+            plugins: ['transform-class-properties']
           }
         }
       }
     ]
   }
-}
+};
