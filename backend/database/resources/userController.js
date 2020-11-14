@@ -9,6 +9,6 @@ exports.find = function (req, res) {
   User.find(req, res);
 };
 
-exports.deleate = function(req, res) {
+exports.delete = function(req, res) {
   User.remove(req, res);
 };
