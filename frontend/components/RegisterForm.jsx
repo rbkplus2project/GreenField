@@ -62,15 +62,8 @@ class RegisterForm extends Component {
     // }
 
     onTrigger = () => {
-        let x = "show";
-        if (this.props.register == "hide") {
-            this.props.changex(x);
-        }
-        else {
             x = "hide";
             this.props.changex(x);
-        }
-        // console.log(this.props);
     }
 
     render() {
@@ -79,17 +72,20 @@ class RegisterForm extends Component {
             <div id="register" className="center" style={{ display: this.props.register === "show" ? "" : "none" }}>
                 <form id="register-form" onSubmit={this.handleSubmit}>
                     <h1>Register</h1>
-
+                    <br/>
+                    <div class="column">
                     <label htmlFor="username1">User Name:</label>
-                    <input type="text" id="username1" name="username1" placeholder="Enter your name" onChange={this.handleChange} />
-
+                    <input type="text" id="username1" name="username1" onChange={this.handleChange} /><br/>
                     <label htmlFor="Password1">Password:</label>
-                    <input type="password" id="password1" name="password1" placeholder="Enter password photo" onChange={this.handleChange} />
-
+                    <input type="password" id="password1" name="password1" onChange={this.handleChange} /><br/>
                     <label htmlFor="confirmPassword">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Passward" onChange={this.handleChange} />
-
-                    <button id="submit1">Register</button>
+                    <input type="password" id="confirmPassword" name="confirmPassword" onChange={this.handleChange} />
+                    </div>
+                    <br/>
+                    <div class="column">
+                    <button id="submit1">Register</button><br/>
+                    <button id="Cancel" onClick={this.onTrigger}>Cancel</button>
+                    </div>
                 </form>
             </div>
         )

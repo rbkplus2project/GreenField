@@ -58,24 +58,26 @@ class SignInForm extends Component {
     onTrigger = () => {
         let y = "hide";
         this.props.changey(y);
-        // console.log("test///");
     }
 
     render() {
         return (
-            <div id="signIn" style={{ display: this.props.SignIn === "show" ? "block" : "none" }}>
+            <div id="signIn" className="center" style={{ display: this.props.SignIn === "show" ? "" : "none" }}>
                 <form id="signIn-form" onSubmit={this.handleSubmit}>
-                    <h3>Sign In</h3>
-
-                    <label htmlFor="username">User Name:</label><br />
-                    <input type="text" id="username" name="username" placeholder="Enter your name" onChange={this.handleChange} /><br />
-
-                    <label htmlFor="Password">Password:</label><br />
-                    <input type="password" id="password" name="password" placeholder="Enter password photo" onChange={this.handleChange} /><br />
-
-                    <button id="submit">Sign In</button>
+                    <h1>Sign In</h1>
+                    <br/>
+                    <div class="column">
+                    <label htmlFor="username">User Name:</label>
+                    <input type="text" id="username" name="username" onChange={this.handleChange} /><br/>
+                    <label htmlFor="Password">Password:</label>
+                    <input type="password" id="password" name="password" onChange={this.handleChange} />
+                    </div>
+                    <br/>
+                    <div class="column">
+                    <button id="submit">Sign In</button><br/>
+                    <button id="Cancel" onClick={this.onTrigger}>Cancel</button>
+                    </div>
                 </form>
-                <button id="cancel" onClick={this.onTrigger}>Cancel</button>
             </div>
         )
     }
