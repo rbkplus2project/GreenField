@@ -5,7 +5,7 @@
   "main": "backend/server.js",
   "scripts": {
     "start": "nodemon backend/server.js",
-    "react": "webpack -d --watch"
+    "react": "webpack --watch"
   },
   "author": "team3",
   "private": true,
