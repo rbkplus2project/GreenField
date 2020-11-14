@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Register, SignIn } from '../actions/actions.js';
+import { Register, SignIn } from '../actions/actions.js';
 const axios = require('axios');
 class SignInForm extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         username: null,
-    //         password: null
-    //     }
-    // }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -48,9 +41,9 @@ class SignInForm extends Component {
 
     // }
 
-    handleChange = (e) => {
-        setState({ [e.target.id]: e.target.value })
-    }
+    // handleChange = (e) => {
+    //     setState({ [e.target.id]: e.target.value })
+    // }
 
     onTrigger = () => {
         let y = "hide";
