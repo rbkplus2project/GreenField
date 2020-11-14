@@ -11,22 +11,24 @@ class NavBar extends Component {
 
     onTrigger1 = () => {
         let x = "show";
+        let y = "hide"
         if (this.props.register == "hide") {
             this.props.changex(x);
+            this.props.changey(y);
         }
         else {
-            x = "hide";
-            this.props.changex(x);
+            this.props.changex(y);
         }
     }
 
     onTrigger = () => {
-        let y = "show";
+        let x = "show"
+        let y = "hide";
         if (this.props.SignIn == "hide") {
-            this.props.changey(y);
+            this.props.changey(x);
+            this.props.changex(y);
         }
         else {
-            y = "hide";
             this.props.changey(y);
         }
     }
