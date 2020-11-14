@@ -33,10 +33,11 @@ userRouter.route('/login')
         }
       });
     });
+
 userRouter.route('/removeuser')
     .delete((req, res)=>{
       userCtrl.delete(req.body, (err,data)=>{
-        if(err){
+        if (err) { 
           res.sendStatus(500)
         }else{
           res.json(data)
@@ -45,5 +46,34 @@ userRouter.route('/removeuser')
 
     });
 
+    
+
+    // var updateUsers = function(userName, updatedData, callback){
+    //     Users.findOneAndUpdate({
+    //       userName: userName
+    //     },
+    //     {
+    //       $set: updatedData
+    //     }, callback)
+    //   };
+
+    
+    // var findRate = function(data,callback){
+    //   var uName = data.userName;
+    //   var rating = data.rating;
+    //   Users.findOne({userName:uName},function(err,data){
+    
+    //     if(err){
+    //       console.log('error');
+    //     } else {
+    //       data.rating.rate+ = rating;
+    //       data.rating.total+ = 1;
+    //       data.save(function(err){
+    //         console.log('success');
+    //       })
+    //     }
+    //   })
+    // }
+    
     
 module.exports = userRouter;
