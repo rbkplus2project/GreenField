@@ -105,4 +105,7 @@ dist
 
 # Files
 *.json
+
 bundle.js
+
+bundle.js.LICENSE.txt
