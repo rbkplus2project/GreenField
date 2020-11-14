@@ -3,32 +3,39 @@ import { connect } from 'react-redux';
 // import { Register, SignIn } from '../actions/actions.js';
 const axios = require('axios');
 class RegisterForm extends Component {
-    constructor(props) {
-        super(props);
-    this.state = {
-        username: null,
-        password: null,
-        confirmpassword: null
-    }
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         username: null,
+    //         password: null,
+    //         confirmpassword: null
+    //     }
+    // }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let options = {
-            url: `http://localhost:3000/user/signup`,
-            method: 'post',
-            data: { username: this.state.username, password: this.state.password }
+        let input = $('#register-form').serializeArray();
+        // console.log(input);
+        if (input[1].value === input[2].value) {
+            let options = {
+                url: `http://localhost:3000/user/signup`,
+                method: 'post',
+                data: { username: input[0].value, password: input[1].value }
+            }
+
+            axios(options)
+                .then((results) => {
+                    console.log(results);
+                    // this.getData();       // what is the received data will be ?
+                })
+
+                .catch((err) => {
+                    console.log("error here ====>", err);
+                })
         }
-
-        axios(options)
-            .then((results) => {
-                console.log(results);
-                this.getData();       // what is the received data will be ?
-            })
-
-            .catch((err) => {
-                console.log("error here ====>", err);
-            })
+        else {
+            alert("Password don't match");
+        }
     }
 
     // getData = () => {
@@ -49,21 +56,27 @@ class RegisterForm extends Component {
 
     // }
 
-    handleChange = (e) => {
-        setState({ [e.target.id]: e.target.value })
+    // handleChange = (e) => {
+    //     setState({ [e.target.id]: e.target.value })
 
-    }
+    // }
 
     onTrigger = () => {
-        let x = "hide";
-        this.props.changex(x);
-        // console.log("test///");
+        let x = "show";
+        if (this.props.register == "hide") {
+            this.props.changex(x);
+        }
+        else {
+            x = "hide";
+            this.props.changex(x);
+        }
+        // console.log(this.props);
     }
 
     render() {
-        console.log("here===>", this.props);
+        // console.log("here===>", this.props);
         return (
-            <div id="register" style={{ display: this.props.register ==="show" ?"block":"none" }}>
+            <div id="register" style={{ display: this.props.register === "show" ? "block" : "none" }}>
                 <form id="register-form" onSubmit={this.handleSubmit}>
                     <h3>Register</h3>
 
@@ -93,7 +106,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        changex: (x) => { dispatch(Registerr(x)) }
+        changex: (x) => { dispatch(Register(x)) }
     }
 }
 

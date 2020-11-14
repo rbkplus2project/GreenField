@@ -2,12 +2,13 @@ const initState = {
     test: [
         { username: "ahamd", password: "123"}
     ],
-    register: "",
-    SignIn: ""
+    register: "hide",
+    SignIn: "hide",
+    showMenu: "hide"
 }
 
 const rootReducer = (state = initState, action) => {
-    // console.log("action====>", action);
+    console.log("action====>", action);
     if (action.type === "Show_REGISTER"){
         return {
             ...state,
@@ -18,6 +19,12 @@ const rootReducer = (state = initState, action) => {
         return {
             ...state,
             SignIn: action.SignIn
+        }
+    }
+    else if (action.type === "Show_MENU") {
+        return {
+            ...state,
+            showMenu: action.showMenu
         }
     }
     return state;
