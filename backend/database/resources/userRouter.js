@@ -19,6 +19,8 @@ userRouter.route('/login')
     .post((req, res) => {
       userCtrl.find({ username: req.body.username }, (err, data) => {
         if (err) {
+          res.sendStatus(500);
+        } else if (data.length === 0) {
           res.status(404).send('user not found');
         } else {
           var newHash = bcrypt.hashSync(req.body.password, data[0]._doc.salt);
