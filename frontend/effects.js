@@ -5,11 +5,3 @@ $("input").on("mouseenter", function(){
 		'autoplay':'autoplay'
 	})
 });
-
-// Opens & closes menu on click
-$("#openmenu, #closemenu").on("mouseover",()=>{$("#navclosed").toggleClass("hide");$("#navopened").toggleClass("hide")})
-
-
-// buttons before react
-$("#login").on("click",()=>{$("#signin").toggleClass("hide");$("#landing").toggleClass("hide")})
-$("#register1, #register2").on("click",()=>{$("#signup").toggleClass("hide");$("#signin").toggleClass("hide")})
