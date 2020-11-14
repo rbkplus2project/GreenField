@@ -5,6 +5,7 @@
   "main": "backend/server.js",
   "scripts": {
     "start": "nodemon backend/server.js",
+    "build": "./node_modules/.bin/webpack -w",
     "react": "./node_modules/.bin/webpack -w"
   },
   "author": "team3",
