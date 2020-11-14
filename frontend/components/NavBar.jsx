@@ -12,19 +12,16 @@ class NavBar extends Component {
     onTrigger1 = () => {
         let x = "show";
         this.props.changex(x);
-        console.log(this.props);
     }
     onTrigger = () => {
         let y = "show";
         this.props.changey(y);
-        console.log("test///");
     }
 
     render() {
         // console.log("here===>", this.props);
         return (
             <div id="navclosed" className="menu">
-                <img id="openmenu" class="arrow" src="media/rightarrow.png" onClick=""></img>
                 <button id="cancel1" onClick={this.onTrigger1}>Register</button>
                 <button id="cancel" onClick={this.onTrigger}>Sign In</button>
                 <RegisterForm />
