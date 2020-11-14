@@ -13,21 +13,24 @@ class SignInForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        let input = $('#signIn-form').serializeArray();
         let options = {
-            url: `http://localhost:3000/`,
+            url: `http://localhost:3000/user/login`,
             method: 'post',
-            data: { username: this.state.username, password: this.state.password }
+            data: { username: input[0].value, password: input[1].value }
         }
 
         axios(options)
             .then((results) => {
                 console.log(results);
-                this.getData();       // what is the received data will be ?
+                // this.getData();       // what is the received data will be ?
             })
 
             .catch((err) => {
                 console.log("error here ====>", err);
             })
+
+
     }
 
     // getData = () => {
