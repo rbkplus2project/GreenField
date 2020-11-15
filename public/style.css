@@ -1,17 +1,17 @@
-/*body {
-    background-image: url('media/neon.jpg');
-    background-color: purple;
+body {
+    /* background-image: url('media/neon.jpg'); */
+    /* background-color: purple; */
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
     color:red;
     font-weight: bold;
     text-align: center;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     flex-flow: column;
-}*/
+}
 input[type='button'], button{
     border: 4px groove purple;
     border-radius: 12px;
@@ -147,12 +147,10 @@ a{
     margin: 0;
     background: #adceed;
   }
-  /* .games-container{
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
-    grid-gap: 50px 30px;
+  .games-container{
+      /* display: flex;  */
     justify-content: center;
-    align-content: center;
-  } */
+    align-items: center;
+    flex-flow: wrap-reverse;
+  }
  

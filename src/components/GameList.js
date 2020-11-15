@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import { Zoom } from 'react-slideshow-image';
 // import ImageFadeIn from "react-image-fade-in";
-
 
 class GameList extends Component {
     constructor(props) {
@@ -9,8 +8,6 @@ class GameList extends Component {
         this.state = {
         }
     }        
-    handleClick = (e) => {
-    }
     render() {
         return (
             <div className="games-container">
@@ -18,22 +15,17 @@ class GameList extends Component {
                 <Game2/>
                 <Game3/>
                 <Game4/>
-                {/* <div className="games-item">
-                    <img src="https://picsum.photos/400/300" alt="" onClick={this.handleClick}></img>
-                </div >
-                <div className="games-item">
-                    <img src="https://picsum.photos/400/300" alt="" onClick={this.handleClick}></img>
-                </div>
-                <div className="games-item">
-                    <img src="https://picsum.photos/400/300" alt="" onClick={this.handleClick}></img>
-                </div>
-                <div className="games-item">
-                    <img src="https://picsum.photos/400/300" alt="" onClick={this.handleClick}></img>
-                </div> */}
             </div>
         )
     }
 }
+const handleClick = (e) => {
+    console.log('The link was clicked.');
+}
+const handleMouseOver = (e) => {
+    console.log('Mouse Hover');
+  };
+
 const Game1 = () => {
     const images = [
         "https://image.shutterstock.com/image-vector/memory-game-preschool-children-vector-260nw-1200034981.jpg",
@@ -52,7 +44,8 @@ const Game1 = () => {
             <Zoom {...zoomInProperties}>
                 {images.map((each, index) => (
                     <div key={index} style={{ width: "50%" }}>
-                        <img style={{ objectFit: "cover", width: "100%" }} src={each} alt="" />
+                        <img style={{ objectFit: "cover", width: "100%" }} src={each} alt="" onClick={handleClick}
+                        onMouseOver={handleMouseOver} />
                     </div>
                 ))}
             </Zoom>
@@ -77,7 +70,8 @@ const Game2 = () => {
             <Zoom {...zoomInProperties}>
                 {images.map((each, index) => (
                     <div key={index} style={{ width: "50%" }}>
-                        <img style={{ objectFit: "cover", width: "100%" }} src={each} alt="" />
+                        <img style={{ objectFit: "cover", width: "100%" }} src={each} alt="" onClick={handleClick}
+                        onMouseOver={handleMouseOver}/>
                     </div>
                 ))}
             </Zoom>
@@ -102,7 +96,8 @@ const Game3 = () => {
             <Zoom {...zoomInProperties}>
                 {images.map((each, index) => (
                     <div key={index} style={{ width: "50%" }}>
-                        <img style={{ objectFit: "cover", width: "100%" }} src={each} alt="" />
+                        <img style={{ objectFit: "cover", width: "100%" }} src={each} alt="" onClick={handleClick}
+                        onMouseOver={handleMouseOver}/>
                     </div>
                 ))}
             </Zoom>
@@ -127,7 +122,8 @@ const Game4 = () => {
             <Zoom {...zoomInProperties}>
                 {images.map((each, index) => (
                     <div key={index} style={{ width: "50%" }}>
-                        <img style={{ objectFit: "cover", width: "100%" }} src={each} alt="" />
+                        <img style={{ objectFit: "cover", width: "100%" }} src={each} alt="" onClick={handleClick}
+                        onMouseOver={handleMouseOver}/>
                     </div>
                 ))}
             </Zoom>
