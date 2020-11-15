@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Register, SignIn } from '../actions/actions.js';
 import {$} from 'jquery';
-const axios = require('axios');
+import axios from 'axios';
 class SignUpForm extends Component {
     // constructor(props) {
     //     super(props);
