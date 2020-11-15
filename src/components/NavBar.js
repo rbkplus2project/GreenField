@@ -86,7 +86,7 @@
 // import './App.css';
 import { Link, NaveLink } from 'react-router-dom';
 
-function Login() {
+function NavBar() {
   return (
     <div >
       <Link to="/signup">
@@ -99,4 +99,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default NavBar;
