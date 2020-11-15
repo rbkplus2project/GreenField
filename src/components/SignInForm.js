@@ -52,10 +52,6 @@ class SignInForm extends Component {
 
     // }
 
-    // handleChange = (e) => {
-    //     setState({ [e.target.id]: e.target.value })
-    // }
-
     onTrigger = () => {
         let y = "hide";
         this.props.changey(y);
@@ -69,10 +65,10 @@ class SignInForm extends Component {
                     <h3>Sign In</h3>
 
                     <label htmlFor="username">User Name:</label><br />
-                    <input type="text" id="username" name="username" placeholder="Enter your name" onChange={this.handleChange} /><br />
+                    <input type="text" id="username" name="username" placeholder="Enter your name"/><br />
 
                     <label htmlFor="Password">Password:</label><br />
-                    <input type="password" id="password" name="password" placeholder="Enter password photo" onChange={this.handleChange} /><br />
+                    <input type="password" id="password" name="password" placeholder="Enter password photo"/><br/>
 
                     <button id="submit">Sign In</button>
                 </form>

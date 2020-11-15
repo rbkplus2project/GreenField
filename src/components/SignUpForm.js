@@ -15,7 +15,7 @@ class SignUpForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let input = $('#register-form').serializeArray();
+        let input = $('#signUp-form').serializeArray();
         // console.log(input);
         if (input[1].value === input[2].value) {
             let options = {
@@ -57,11 +57,6 @@ class SignUpForm extends Component {
 
     // }
 
-    // handleChange = (e) => {
-    //     setState({ [e.target.id]: e.target.value })
-
-    // }
-
     onTrigger = () => {
         let x = "show";
         if (this.props.register == "hide") {
@@ -77,18 +72,18 @@ class SignUpForm extends Component {
     render() {
         // console.log("here===>", this.props);
         return (
-            <div id="register" >
-                <form id="register-form" onSubmit={this.handleSubmit}>
+            <div id="signUp" >
+                <form id="signUp-form" onSubmit={this.handleSubmit}>
                     <h3>Register</h3>
 
                     <label htmlFor="username1">User Name:</label><br />
-                    <input type="text" id="username1" name="username1" placeholder="Enter your name" onChange={this.handleChange} /><br />
+                    <input type="text" id="username1" name="username1" placeholder="Enter your name" /><br />
 
                     <label htmlFor="Password1">Password:</label><br />
-                    <input type="password" id="password1" name="password1" placeholder="Enter password photo" onChange={this.handleChange} /><br />
+                    <input type="password" id="password1" name="password1" placeholder="Enter password photo"/><br/>
 
                     <label htmlFor="confirmPassword">Confirm Password:</label><br />
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Passward" onChange={this.handleChange} /><br />
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Passward" /><br />
 
                     <button id="submit1">Register</button>
                 </form>
