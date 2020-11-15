@@ -27,7 +27,6 @@ class SignUpForm extends Component {
             axios(options)
                 .then((results) => {
                     console.log(results);
-                    // this.getData();       // what is the received data will be ?
                 })
 
                 .catch((err) => {
@@ -74,7 +73,7 @@ class SignUpForm extends Component {
         return (
             <div id="signUp" >
                 <form id="signUp-form" onSubmit={this.handleSubmit}>
-                    <h3>Register</h3>
+                    <h3>Sign Up</h3>
 
                     <label htmlFor="username1">User Name:</label><br />
                     <input type="text" id="username1" name="username1" placeholder="Enter your name" /><br />
@@ -85,9 +84,11 @@ class SignUpForm extends Component {
                     <label htmlFor="confirmPassword">Confirm Password:</label><br />
                     <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Passward" /><br />
 
-                    <button id="submit1">Register</button>
+                    <button id="submit1">Sign Up</button>
                 </form>
-                <button id="cancel1" onClick={this.onTrigger}>Cancel</button>
+                <div>
+                    <p>Already have an account? <a href="http://localhost:3000/login">Log in</a></p>
+                </div>
             </div>
         )
     }
