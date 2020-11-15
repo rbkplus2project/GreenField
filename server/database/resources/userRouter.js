@@ -1,4 +1,5 @@
 const userRouter = require ('express').Router();
+
 const userCtrl = require('./userController.js');
 const bcrypt = require('bcrypt');
 
@@ -15,6 +16,7 @@ userRouter.route('/signup')
     });
 
 userRouter.route('/signin')
+
     .post((req, res) => {
       userCtrl.find({ username: req.body.username }, (err, data) => {
         if (err) {
