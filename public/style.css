@@ -37,9 +37,7 @@ input[type='text']::placeholder,input[type='number']::placeholder, input[type='p
 input:hover, textarea:hover, button:hover, .navitem:hover{
     background-color: cyan;
 }
-a{
-    display: block;
-}
+
 .column{
     display: flex;
     justify-content: center;
@@ -50,7 +48,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-flow: row;
+    flex-flow: row wrap;
 }
 .center{
     position: fixed;
@@ -63,25 +61,29 @@ a{
 }
 .menu{
     position:fixed;
-    top:5px;
-    left:5px;
+    top:10px;
+    left:10px;
     z-index: 500;
-    background-color: violet;
-    padding: 5px;
-    border-radius: 15px;
-    border:purple groove 4px;
 }
 .navitem{
-    border: 4px groove purple;
-    border-radius: 12px;
+    background-color: violet;
+    border: 3px groove purple;
+    margin-left: 3px;
+    border-radius: 30px;
     height: 50px;
     width: 50px;
-    background-color: transparent;
+    outline: none;
 }
-.arrow{
-    padding: 5px;
-    height: 50px;
-    width: 50px;
+.gameitem{
+    display: inline-block;
+    width: 44vw;
+    margin: 3vw 1vw 0vw 1vw;
+    padding: 10px;
+    border: 5px solid purple;
+}
+.gameimg{
+    height: 50vh;
+    width: 100%;
 }
 
   .each-slide > div {
@@ -89,28 +91,19 @@ a{
     align-items: center;
     justify-content: center;
     background-size: cover;
-    height: 100vh;
+    height: 92vh;
+    width: 100vw;
   }
-  
-  .each-slide span {
-    font-size: 20px;
-    background: #efefef;
-    text-align: center;
-  }
-  
   .each-fade {
     display: flex;
   }
-  
   .each-fade .image-container {
     width: 75%;
     overflow: hidden;
   }
-  
   .each-fade .image-container img {
     width: 100%;
   }
-  
   .each-fade h2 {
     width: 25%;
     display: flex;

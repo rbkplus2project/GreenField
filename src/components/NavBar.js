@@ -18,9 +18,9 @@ class NavBar extends Component {
     render() {
         return (
             <div className="menu" >
-                <img id="openmenu" className="arrow" alt="" src="./media/rightarrow.png" onClick={this.handleClick} style={{ display: this.props.showMenu === "show" ? "none" : "" }}></img>
+                <img id="openmenu" className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleClick} style={{ display: this.props.showMenu === "show" ? "none" : "" }}></img>
                 <nav id="img-logo" className="row" style={{ display: this.props.showMenu === "show" ? "" : "none" }} >
-                    <img id="openmenu" className="arrow" alt="" src="./media/leftarrow.png" onClick={this.handleClick}></img>
+                    <img id="openmenu" className="navitem" alt="" src="./media/leftarrow.png" onClick={this.handleClick}></img>
                     <input type="image" className="navitem" alt="Search" src="./media/search.png"></input>
                     <Link to="/">
                     <input type="image" className="navitem" alt="Home" src="./media/house.png"></input>
