@@ -18,7 +18,6 @@ const properties = {
 
 const GameView = () => {
     return (
-        <div className='center'>
         <Slide {...properties}>
           <div className="each-slide">
             <div style={{'backgroundImage': `url(${slideImages[0]})`}}>
@@ -33,7 +32,6 @@ const GameView = () => {
             </div>
           </div>
         </Slide>
-        </div>
       )
 }
 
