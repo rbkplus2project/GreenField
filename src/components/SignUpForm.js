@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Register, SignIn } from '../actions/actions.js';
 import {$} from 'jquery';
 import axios from 'axios';
 class SignUpForm extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         username: null,
-    //         password: null,
-    //         confirmpassword: null
-    //     }
-    // }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -65,11 +56,9 @@ class SignUpForm extends Component {
             x = "hide";
             this.props.changex(x);
         }
-        // console.log(this.props);
     }
 
     render() {
-        // console.log("here===>", this.props);
         return (
             <div id="signUp" >
                 <form id="signUp-form" onSubmit={this.handleSubmit}>
@@ -93,19 +82,5 @@ class SignUpForm extends Component {
         )
     }
 }
-// const mapStateToProps = (state) => {
-//     return {
-//         test: state.test,
-//         register: state.register,
-//         SignIn: state.signIn
 
-//     }
-// }
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         changex: (x) => { dispatch(Register(x)) }
-//     }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
 export default SignUpForm;
