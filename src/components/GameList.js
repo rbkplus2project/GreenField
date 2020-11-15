@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../index.css';
 
 const game1 = [
     "https://image.shutterstock.com/image-vector/memory-game-preschool-children-vector-260nw-1200034981.jpg",
@@ -7,9 +6,6 @@ const game1 = [
     "https://image.shutterstock.com/image-vector/memory-game-children-cards-transport-600w-632975588.jpg"
 ];
 const game2 = [];
-
-
-
 
 class GameList extends Component {
     constructor(props) {
@@ -24,8 +20,6 @@ class GameList extends Component {
             <div className="games-container">
                 <div className="games-item">
                     <img src="https://picsum.photos/400/300" alt="" onClick={this.handleClick}></img>
-                    
-
                 </div >
                 <div className="games-item">
                     <img src="https://picsum.photos/400/300" alt="" onClick={this.handleClick}></img>
