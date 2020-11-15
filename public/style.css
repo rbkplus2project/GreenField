@@ -1,5 +1,4 @@
-/* General Styles */
-body {
+/*body {
     background-image: url('media/neon.jpg');
     background-color: purple;
     background-repeat:no-repeat;
@@ -12,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-flow: column;
-}
+}*/
 input[type='button'], button{
     border: 4px groove purple;
     border-radius: 12px;
@@ -46,7 +45,6 @@ a{
     display: block;
 }
 
-/* Flex Flow Styles */
 .column{
     display: flex;
     justify-content: center;
@@ -69,11 +67,15 @@ a{
     display:none;
 }
 
-/* Menu Styles */
 .menu{
     position:fixed;
     top:5px;
     left:5px;
+    z-index: 1;
+    background-color: violet;
+    padding: 5px;
+    border-radius: 10px;
+    border:purple groove 4px;
 }
 .navitem{
     border: 4px groove purple;
@@ -87,7 +89,7 @@ a{
     width: 58px;
 }
 
-/* Game One Styles */
+
 .tower{
     border: 5px solid red;
     height : 400px;
@@ -102,4 +104,48 @@ a{
 }
 .fire:hover{
     background-color: cyan;
-}
+} 
+
+/* Slide Shows */
+
+  
+  
+  
+  .each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 100vh;
+  }
+  
+  .each-slide span {
+    padding: 20px;
+    font-size: 20px;
+    background: #efefef;
+    text-align: center;
+  }
+  
+  .each-fade {
+    display: flex;
+  }
+  
+  .each-fade .image-container {
+    width: 75%;
+    overflow: hidden;
+  }
+  
+  .each-fade .image-container img {
+    width: 100%;
+  }
+  
+  .each-fade h2 {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background: #adceed;
+  }
+
+ 
