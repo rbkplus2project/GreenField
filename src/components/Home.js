@@ -4,16 +4,16 @@ import GameList from './GameList'
 import {Redirect} from 'react-router-dom'
 
 let Home = () => {
-    if (localStorage.getItem('gamesio')) {
+    // if (localStorage.getItem('gamesio')) {
         return (
         <div>
             <GameView />
             <GameList />
         </div>
         )
-    } else {
-        return <Redirect to="/signin" />
-    }
+    // } else {
+    //     return <Redirect to="/signin" />
+    // }
 }
 
 export default Home;
