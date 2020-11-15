@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Register, SignIn } from '../actions/actions.js';
+import {$} from 'jquery';
 const axios = require('axios');
 class SignUpForm extends Component {
     // constructor(props) {
@@ -96,18 +97,19 @@ class SignUpForm extends Component {
         )
     }
 }
-const mapStateToProps = (state) => {
-    return {
-        test: state.test,
-        register: state.register,
-        SignIn: state.signIn
+// const mapStateToProps = (state) => {
+//     return {
+//         test: state.test,
+//         register: state.register,
+//         SignIn: state.signIn
 
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        changex: (x) => { dispatch(Register(x)) }
-    }
-}
+//     }
+// }
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         changex: (x) => { dispatch(Register(x)) }
+//     }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
+// export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
+export default SignUpForm;

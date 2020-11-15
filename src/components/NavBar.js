@@ -84,7 +84,7 @@
 // export default NavBar;
 
 // import './App.css';
-import { Link } from 'react-router-dom';
+import { Link, NaveLink } from 'react-router-dom';
 
 function Login() {
   return (
