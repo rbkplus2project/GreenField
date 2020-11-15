@@ -1,8 +1,6 @@
 const userRouter = require ('express').Router();
-const User = require('./user.js');
 const userCtrl = require('./userController.js');
 const bcrypt = require('bcrypt');
-const { Callbacks } = require('jquery');
 
 userRouter.route('/signup')
     .post((req, res)=>{
