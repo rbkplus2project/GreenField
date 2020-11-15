@@ -1,24 +1,26 @@
-import React from 'react';
-import Login from './Login';
-import SignUp from './SignUp';
-import Nav from './Nav';
-import Home from './Home';
+import React, { Component } from 'react';
+import NavBar from './NavBar.js';
+import SignInForm from './SignInForm.js';
+import SignUpForm from './SignUpForm.js';
+import Footer from './Footer.js';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+class App extends Component {
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <Nav />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/login" component={Login} />
-        </Switch>
-      </div>
-    </Router>
-  );
+    render() {
+        return (
+            <Router>
+            <div className="main">
+                <NavBar />
+                    <Switch>
+                    <Route path="/signin" component={SignInForm}/>
+                    <Route path="/signup" component={SignUpForm}/>
+                    </Switch>
+                <Footer />
+            </div>
+            </Router>
+        );
+    }
 }
 
 export default App;

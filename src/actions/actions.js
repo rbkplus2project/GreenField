@@ -1,14 +1,18 @@
-export const Register = (x) => {
+export const SignUp = (x) => {
     return {
-        type: 'Show_REGISTER',
-        test: { username: 'Yasir', password: "456"},
-        register: x,
+        type: 'Show_SignUp',
+        SignUp: x,
     }
 }
 export const SignIn = (y) => {
     return {
         type: 'Show_SignIn',
-        test: { username: 'Yasir', password: "456"},
         SignIn: y
+    }
+}
+export const showMenu = (z) => {
+    return {
+        type: 'Show_MENU',
+        showMenu: z
     }
 }
