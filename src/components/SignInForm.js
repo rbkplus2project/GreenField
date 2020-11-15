@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 const $ = require('jquery');
 class SignInForm extends Component {
      constructor(props) {
          super(props);
          this.state = {
-             username: null,
-             password: null
+             redirect: false
          }
      }
 
@@ -15,7 +14,7 @@ class SignInForm extends Component {
         e.preventDefault();
         let input = $('#signIn-form').serializeArray();
         let options = {
-            url: `http://localhost:4000/user/login`,
+            url: `http://localhost:3000/user/signin`,
             method: 'post',
             data: { username: input[0].value, password: input[1].value }
         }
@@ -23,6 +22,7 @@ class SignInForm extends Component {
         axios(options)
             .then((results) => {
                 console.log(results);
+                this.setState({redirect: true})
             })
 
             .catch((err) => {
@@ -35,7 +35,9 @@ class SignInForm extends Component {
     }
 
     render() {
-        return (
+        if (this.state.redirect) {
+            return <Redirect to="/"/>
+        } else{return (
             <div id="signIn" className="center">
                 <form id="signIn-form" onSubmit={this.handleSubmit}>
                     <h1>Sign In</h1>
@@ -53,7 +55,7 @@ class SignInForm extends Component {
                     <button>Sign Up</button><br/>
                     </Link>
             </div>
-        )
+        )}
     }
 };
 
