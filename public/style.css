@@ -1,16 +1,12 @@
 body {
-    /* background-image: url('media/neon.jpg'); */
-    /* background-color: purple; */
+    background-image: url('media/neon.jpg');
+    background-color: purple;
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
     color:red;
     font-weight: bold;
     text-align: center;
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
 }
 input[type='button'], button{
     border: 4px groove purple;
@@ -44,7 +40,6 @@ input:hover, textarea:hover, button:hover, .navitem:hover{
 a{
     display: block;
 }
-
 .column{
     display: flex;
     justify-content: center;
@@ -66,15 +61,14 @@ a{
 .hide{
     display:none;
 }
-
 .menu{
     position:fixed;
     top:5px;
     left:5px;
-    z-index: 1;
+    z-index: 500;
     background-color: violet;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 15px;
     border:purple groove 4px;
 }
 .navitem{
@@ -85,32 +79,11 @@ a{
     background-color: transparent;
 }
 .arrow{
-    height: 58px;
-    width: 58px;
+    padding: 5px;
+    height: 50px;
+    width: 50px;
 }
 
-
-.tower{
-    border: 5px solid red;
-    height : 400px;
-    width : 100px;
-    margin : 30px;
-    display: flex;
-    flex-flow: column-reverse;
-}
-.fire{
-    width : 100px;
-    height : 50%;
-}
-.fire:hover{
-    background-color: cyan;
-} 
-
-/* Slide Shows */
-
-  
-  
-  
   .each-slide > div {
     display: flex;
     align-items: center;
@@ -120,7 +93,6 @@ a{
   }
   
   .each-slide span {
-    padding: 20px;
     font-size: 20px;
     background: #efefef;
     text-align: center;
@@ -144,7 +116,6 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
     background: #adceed;
   }
   .games-container{
