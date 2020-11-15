@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../index.css';
 class GameList extends Component {
     constructor(props) {
         super(props);
@@ -7,23 +6,20 @@ class GameList extends Component {
 
         }
     }
-    handleClick = (e) => {
-
-    }
     render() {
         return (
-            <div className="games-container">
-                <div className="games-item">
-                    <img src="https://picsum.photos/400/300" alt="" onClick={this.handleClick}></img>
-                </div >
-                <div className="games-item">
-                    <img src="https://picsum.photos/400/300" alt="" onClick={this.handleClick}></img>
+            <div>
+                <div>
+                    <img alt="" src=""></img>
                 </div>
-                <div className="games-item">
-                    <img src="https://picsum.photos/400/300" alt="" onClick={this.handleClick}></img>
+                <div>
+                    <img alt="" src=""></img>
                 </div>
-                <div className="games-item">
-                    <img src="https://picsum.photos/400/300" alt="" onClick={this.handleClick}></img>
+                <div>
+                    <img alt="" src=""></img>
+                </div>
+                <div>
+                    <img alt="" src=""></img>
                 </div>
             </div>
         )
