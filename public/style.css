@@ -147,5 +147,12 @@ a{
     margin: 0;
     background: #adceed;
   }
-
+  /* .games-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-gap: 50px 30px;
+    justify-content: center;
+    align-content: center;
+  } */
  
