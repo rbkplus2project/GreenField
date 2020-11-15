@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/user/signup', require('./middleware/hash.js'));
 app.use('/user', require('./database/resources/userRouter'));
 app.use('/game', require('./database/resources/gameRouter'));
+app.use('/test', require('./database/resources/testpath'));
 
 
 let port = 3000;
