@@ -49,8 +49,6 @@ userRouter.route('/removeuser')
         res.json(data);
       }
     });
-
   });
-
-
+  
 module.exports = userRouter;
