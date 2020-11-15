@@ -1,11 +1,10 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React, { Component } from 'react';
-import NavBar from './NavBar.js';
 import SignInForm from './SignInForm.js';
 import SignUpForm from './SignUpForm.js';
+import NavBar from './NavBar.js';
 import Footer from './Footer.js';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import GameView from './GameView.js';
-import GameList from './GameList.js';
+import Home from './Home'
 
 class App extends Component {
 
@@ -15,12 +14,10 @@ class App extends Component {
             <div className="main">
                 <NavBar />
                     <Switch>
+                    <Route path="/" exact component={Home}/>
                     <Route path="/signin" component={SignInForm}/>
                     <Route path="/signup" component={SignUpForm}/>
-                    <Route path="/" component={GameView}/>
-                    {/* <Route path="/" component={GameList}/> */}
                     </Switch>
-                    <GameList/>
                 <Footer />
             </div>
             </Router>
