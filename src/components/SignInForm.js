@@ -21,7 +21,7 @@ class SignInForm extends Component {
 
         axios(options)
             .then((results) => {
-                console.log(results);
+                console.log(results.head);
                 this.setState({redirect: true})
             })
 
