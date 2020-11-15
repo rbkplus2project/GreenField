@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Zoom } from 'react-slideshow-image';
 
 class GameList extends Component {
     constructor(props) {
