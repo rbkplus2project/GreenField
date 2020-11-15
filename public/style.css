@@ -111,4 +111,28 @@ input:hover, textarea:hover, button:hover, .navitem:hover{
     align-items: center;
     background: #adceed;
   }
-  
+
+.games-container{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 50px 30px;
+  justify-content: center;
+  align-content: center;
+}
+footer {
+ margin-bottom: 0;
+}
+.main{
+  width: 100%;
+  text-align: center;
+}
+#signIn, #signUp {
+  display: inline-block;
+  margin: 0 auto;
+}
+#menu{
+  position:fixed;
+  top: 0;
+  left: 0;
+} 
