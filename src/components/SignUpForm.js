@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {$} from 'jquery';
 import axios from 'axios';
+import { Link, Redirect } from 'react-router-dom';
+const axios = require('axios');
+const $ = require('jquery');
 class SignUpForm extends Component {
+     constructor(props) {
+         super(props);
+         this.state = {
+             redirect: false
+         }
+     }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -18,6 +27,7 @@ class SignUpForm extends Component {
             axios(options)
                 .then((results) => {
                     console.log(results);
+                    this.setState({ redirect: true })
                 })
 
                 .catch((err) => {
@@ -59,28 +69,32 @@ class SignUpForm extends Component {
     }
 
     render() {
-        return (
-            <div id="signUp" >
-                <form id="signUp-form" onSubmit={this.handleSubmit}>
-                    <h3>Sign Up</h3>
-
-                    <label htmlFor="username1">User Name:</label><br />
-                    <input type="text" id="username1" name="username1" placeholder="Enter your name" /><br />
-
-                    <label htmlFor="Password1">Password:</label><br />
-                    <input type="password" id="password1" name="password1" placeholder="Enter password photo"/><br/>
-
-                    <label htmlFor="confirmPassword">Confirm Password:</label><br />
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Passward" /><br />
-
-                    <button id="submit1">Sign Up</button>
+        if (this.state.redirect) {
+            return <Redirect to="/signin"/>
+        } else {
+            return (
+                <div id="signup" className="center">
+                <form id="signup-form" onSubmit={this.handleSubmit}>
+                    <h1>Sign Up</h1>
+                    <br/>
+                    <div className="column">
+                    <label htmlFor="newusername">User Name:</label>
+                    <input type="text" id="newusername" name="newusername" onChange={this.handleChange} /><br/>
+                    <label htmlFor="newPassword">Password:</label>
+                    <input type="password" id="newPassword" name="newPassword" onChange={this.handleChange} /><br/>
+                    <label htmlFor="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" onChange={this.handleChange} />
+                    </div>
+                    <br/>
+                    <button>Sign Up</button><br/>
                 </form>
-                <div>
-                    <p>Already have an account? <a href="http://localhost:3000/login">Log in</a></p>
-                </div>
+                    <Link to="/signin">
+                    <button>Sign In</button><br/>
+                    </Link>
             </div>
         )
     }
-}
+    }
+};
 
 export default SignUpForm;
