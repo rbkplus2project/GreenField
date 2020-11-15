@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-// import { Register, SignIn } from '../actions/actions.js';
-import { $ } from 'jquery';
+import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 class SignInForm extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         username: null,
-    //         password: null
-    //     }
-    // }
+     constructor(props) {
+         super(props);
+         this.state = {
+             redirect: false
+         }
+     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         let input = $('#signIn-form').serializeArray();
         let options = {
-            url: `http://localhost:3000/user/login`,
+            url: `http://localhost:3000/user/signin`,
             method: 'post',
             data: { username: input[0].value, password: input[1].value }
         }
@@ -24,7 +21,7 @@ class SignInForm extends Component {
         axios(options)
             .then((results) => {
                 console.log(results);
-                // this.getData();       // what is the received data will be ?
+                this.setState({redirect: true})
             })
 
             .catch((err) => {
@@ -63,8 +60,10 @@ class SignInForm extends Component {
     }
 
     render() {
-        return (
-            <div id="signIn">
+        if (this.state.redirect) {
+            return <Redirect to="/"/>
+        } else{return (
+            <div id="signIn" className="center">
                 <form id="signIn-form" onSubmit={this.handleSubmit}>
                     <h3>Sign In</h3>
 
@@ -78,7 +77,7 @@ class SignInForm extends Component {
                 </form>
                 <button id="cancel" onClick={this.onTrigger}>Cancel</button>
             </div>
-        )
+        )}
     }
 }
 

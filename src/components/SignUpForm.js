@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-// import { Register, SignIn } from '../actions/actions.js';
-import {$} from 'jquery';
+import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 class SignUpForm extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         username: null,
-    //         password: null,
-    //         confirmpassword: null
-    //     }
-    // }
+     constructor(props) {
+         super(props);
+         this.state = {
+             redirect: false
+         }
+     }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -27,7 +23,7 @@ class SignUpForm extends Component {
             axios(options)
                 .then((results) => {
                     console.log(results);
-                    // this.getData();       // what is the received data will be ?
+                    this.setState({ redirect: true })
                 })
 
                 .catch((err) => {
@@ -75,41 +71,33 @@ class SignUpForm extends Component {
     }
 
     render() {
-        // console.log("here===>", this.props);
-        return (
-            <div id="register" >
-                <form id="register-form" onSubmit={this.handleSubmit}>
-                    <h3>Register</h3>
-
-                    <label htmlFor="username1">User Name:</label><br />
-                    <input type="text" id="username1" name="username1" placeholder="Enter your name" onChange={this.handleChange} /><br />
-
-                    <label htmlFor="Password1">Password:</label><br />
-                    <input type="password" id="password1" name="password1" placeholder="Enter password photo" onChange={this.handleChange} /><br />
-
-                    <label htmlFor="confirmPassword">Confirm Password:</label><br />
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Passward" onChange={this.handleChange} /><br />
-
-                    <button id="submit1">Register</button>
+        if (this.state.redirect) {
+            return <Redirect to="/signin"/>
+        } else {
+            return (
+                <div id="signup" className="center">
+                <form id="signup-form" onSubmit={this.handleSubmit}>
+                    <h1>Sign Up</h1>
+                    <br/>
+                    <div className="column">
+                    <label htmlFor="newusername">User Name:</label>
+                    <input type="text" id="newusername" name="newusername" onChange={this.handleChange} /><br/>
+                    <label htmlFor="newPassword">Password:</label>
+                    <input type="password" id="newPassword" name="newPassword" onChange={this.handleChange} /><br/>
+                    <label htmlFor="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" onChange={this.handleChange} />
+                    </div>
+                    <br/>
+                    <button>Sign Up</button><br/>
                 </form>
-                <button id="cancel1" onClick={this.onTrigger}>Cancel</button>
+                    <Link to="/signin">
+                    <button>Sign In</button><br/>
+                    </Link>
             </div>
         )
     }
-}
-// const mapStateToProps = (state) => {
-//     return {
-//         test: state.test,
-//         register: state.register,
-//         SignIn: state.signIn
-
-//     }
-// }
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         changex: (x) => { dispatch(Register(x)) }
-//     }
-// }
+    }
+};
 
 // export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
 export default SignUpForm;
