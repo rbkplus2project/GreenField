@@ -2,9 +2,9 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import React, { Component } from 'react';
 import SignInForm from './SignInForm.js';
 import SignUpForm from './SignUpForm.js';
-import Footer from './Footer.js';
 import NavBar from './NavBar.js';
-import Home from './Home.js';
+import Footer from './Footer.js';
+import Home from './Home'
 
 class App extends Component {
 
