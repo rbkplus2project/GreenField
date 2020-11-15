@@ -16,7 +16,7 @@ userRouter.route('/signup')
       // console.log(req.body);
     });
 
-userRouter.route('/login')
+userRouter.route('/signin')
     .post((req, res) => {
       userCtrl.find({ username: req.body.username }, (err, data) => {
         if (err) {

@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 const $ = require('jquery');
 class SignUpForm extends Component {
      constructor(props) {
          super(props);
          this.state = {
-             username: null,
-             password: null,
-             confirmpassword: null
+             redirect: false
          }
      }
 
@@ -17,7 +15,7 @@ class SignUpForm extends Component {
         let input = $('#signup-form').serializeArray();
         if (input[1].value === input[2].value) {
             let options = {
-                url: `http://localhost:4000/user/signup`,
+                url: `http://localhost:3000/user/signup`,
                 method: 'post',
                 data: { username: input[0].value, password: input[1].value }
             }
@@ -25,6 +23,7 @@ class SignUpForm extends Component {
             axios(options)
                 .then((results) => {
                     console.log(results);
+                    this.setState({ redirect: true })
                 })
 
                 .catch((err) => {
@@ -37,8 +36,11 @@ class SignUpForm extends Component {
     }
 
     render() {
-        return (
-            <div id="signup" className="center">
+        if (this.state.redirect) {
+            return <Redirect to="/signin"/>
+        } else {
+            return (
+                <div id="signup" className="center">
                 <form id="signup-form" onSubmit={this.handleSubmit}>
                     <h1>Sign Up</h1>
                     <br/>
@@ -53,12 +55,12 @@ class SignUpForm extends Component {
                     <br/>
                     <button>Sign Up</button><br/>
                 </form>
-                    <br/>
                     <Link to="/signin">
                     <button>Sign In</button><br/>
                     </Link>
             </div>
         )
+    }
     }
 };
 

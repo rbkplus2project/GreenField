@@ -16,7 +16,7 @@ app.use('/user', require('./database/resources/userRouter'));
 app.use('/game', require('./database/resources/gameRouter'));
 
 
-let port = 4000;
+let port = 3000;
 
 app.listen(port, () => {
   console.log('Listening on port: ' + port);
