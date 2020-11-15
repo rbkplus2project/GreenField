@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 const $ = require('jquery');
-class SignUpForm extends Component {
+class SignUp extends Component {
      constructor(props) {
          super(props);
          this.state = {
@@ -64,4 +64,4 @@ class SignUpForm extends Component {
     }
 };
 
-export default SignUpForm;
+export default SignUp;
