@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../index.css';
+// import '../index.css';
 
 const game1 = [
     "https://image.shutterstock.com/image-vector/memory-game-preschool-children-vector-260nw-1200034981.jpg",
@@ -24,8 +24,6 @@ class GameList extends Component {
             <div className="games-container">
                 <div className="games-item">
                     <img src="https://picsum.photos/400/300" alt="" onClick={this.handleClick}></img>
-                    
-
                 </div >
                 <div className="games-item">
                     <img src="https://picsum.photos/400/300" alt="" onClick={this.handleClick}></img>
