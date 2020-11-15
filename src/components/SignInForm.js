@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Register, SignIn } from '../actions/actions.js';
+import { $ } from 'jquery';
 const axios = require('axios');
 class SignInForm extends Component {
     // constructor(props) {
