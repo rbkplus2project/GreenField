@@ -1,9 +1,12 @@
 const initState = {
+    test: [
+        { username: "ahamd", password: "123"}
+    ],
     showMenu: "hide"
 }
 
 const rootReducer = (state = initState, action) => {
-    if (action.type === "Show_MENU") {
+    if (action.type === "SHOW_MENU") {
         return {
             ...state,
             showMenu: action.showMenu

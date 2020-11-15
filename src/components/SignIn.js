@@ -12,7 +12,7 @@ class SignIn extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let input = $('#signIn-form').serializeArray();
+        let input = $('#signin-form').serializeArray();
         let options = {
             url: `http://localhost:3000/user/signin`,
             method: 'post',
@@ -38,21 +38,21 @@ class SignIn extends Component {
         if (this.state.redirect) {
             return <Redirect to="/"/>
         } else{return (
-            <div id="signIn" className="center">
-                <form id="signIn-form" onSubmit={this.handleSubmit}>
+            <div id="signin" className="center styled">
+                <form id="signin-form" onSubmit={this.handleSubmit}>
                     <h1>Sign In</h1>
                     <br/>
                     <div className="column">
                     <label htmlFor="username">User Name:</label>
-                    <input type="text" id="username" name="username" onChange={this.handleChange} /><br/>
+                    <input type="text" className="text" id="username" name="username" onChange={this.handleChange} /><br/>
                     <label htmlFor="Password">Password:</label>
-                    <input type="password" id="password" name="password" onChange={this.handleChange} />
+                    <input type="password" className="text" id="password" name="password" onChange={this.handleChange} />
                     </div>
                     <br/>
-                    <button>Sign In</button><br/>
+                    <button className="button">Sign In</button><br/>
                 </form>
                     <Link to="/signup">
-                    <button>Sign Up</button><br/>
+                    <button className="button">Sign Up</button><br/>
                     </Link>
             </div>
         )}
