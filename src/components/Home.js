@@ -6,7 +6,7 @@ import {Redirect} from 'react-router-dom'
 let Home = () => {
     // if (localStorage.getItem('gamesio')) {
         return (
-            <div>
+        <div>
             <GameView />
             <GameList />
         </div>
@@ -16,4 +16,4 @@ let Home = () => {
     // }
 }
 
-export default Home
+export default Home;
