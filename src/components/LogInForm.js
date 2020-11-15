@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Register, SignIn } from '../actions/actions.js';
 import { $ } from 'jquery';
-const axios = require('axios');
+import axios from 'axios';
 class LogInForm extends Component {
     // constructor(props) {
     //     super(props);
@@ -71,7 +71,7 @@ class LogInForm extends Component {
                     <button id="submit">Log In</button>
                 </form>
                 <div>
-                    <p>Already have an account? <a href="http://localhost:3000/signup">Sign un</a></p>
+                    <p>Already have an account? <a href="http://localhost:3000/signup">Sign up</a></p>
                 </div>
             </div>
         )
