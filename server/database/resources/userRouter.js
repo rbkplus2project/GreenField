@@ -1,8 +1,7 @@
 const userRouter = require ('express').Router();
-const User = require('./user.js');
+
 const userCtrl = require('./userController.js');
 const bcrypt = require('bcrypt');
-const { Callbacks } = require('jquery');
 
 userRouter.route('/signup')
     .post((req, res)=>{
@@ -16,7 +15,8 @@ userRouter.route('/signup')
       // console.log(req.body);
     });
 
-userRouter.route('/login')
+userRouter.route('/signin')
+
     .post((req, res) => {
       userCtrl.find({ username: req.body.username }, (err, data) => {
         if (err) {
