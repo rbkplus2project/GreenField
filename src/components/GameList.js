@@ -1,16 +1,16 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import { Zoom } from 'react-slideshow-image';
-// import ImageFadeIn from "react-image-fade-in";
 
 class GameList extends Component {
     constructor(props) {
         super(props);
         this.state = {
         }
-    }        
+    }
+    
     render() {
         return (
-            <div className="games-container">
+            <div>
                 <Game1/>
                 <Game2/>
                 <Game3/>
@@ -130,5 +130,4 @@ const Game4 = () => {
         </div>
     )
 };
-
 export default GameList;
