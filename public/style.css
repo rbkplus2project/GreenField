@@ -85,10 +85,9 @@ a{
     background-color: transparent;
 }
 .arrow{
-    height: 58px;
-    width: 58px;
+    height: 50px;
+    width: 50px;
 }
-
 
 .tower{
     border: 5px solid red;
@@ -106,11 +105,6 @@ a{
     background-color: cyan;
 } 
 
-/* Slide Shows */
-
-  
-  
-  
   .each-slide > div {
     display: flex;
     align-items: center;
@@ -120,7 +114,6 @@ a{
   }
   
   .each-slide span {
-    padding: 20px;
     font-size: 20px;
     background: #efefef;
     text-align: center;
@@ -144,8 +137,5 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
     background: #adceed;
   }
-
- 
