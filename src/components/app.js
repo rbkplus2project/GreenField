@@ -4,6 +4,7 @@ import SignInForm from './SignInForm.js';
 import SignUpForm from './SignUpForm.js';
 import Footer from './Footer.js';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import GameView from './GameView.js';
 
 class App extends Component {
 
@@ -16,6 +17,7 @@ class App extends Component {
                     <Route path="/signin" component={SignInForm}/>
                     <Route path="/signup" component={SignUpForm}/>
                     </Switch>
+                    <GameView/>
                 <Footer />
             </div>
             </Router>

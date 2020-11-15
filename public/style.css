@@ -1,4 +1,4 @@
-/* General Styles */
+/* General Styles 
 body {
     background-image: url('media/neon.jpg');
     background-color: purple;
@@ -47,7 +47,7 @@ a{
 }
 
 /* Flex Flow Styles */
-.column{
+/* .column{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,10 +67,10 @@ a{
 }
 .hide{
     display:none;
-}
+} */
 
 /* Menu Styles */
-.menu{
+/* .menu{
     position:fixed;
     top:5px;
     left:5px;
@@ -85,10 +85,10 @@ a{
 .arrow{
     height: 58px;
     width: 58px;
-}
+} */
 
 /* Game One Styles */
-.tower{
+/* .tower{
     border: 5px solid red;
     height : 400px;
     width : 100px;
@@ -102,4 +102,48 @@ a{
 }
 .fire:hover{
     background-color: cyan;
-}
+} */
+
+/* Slide Shows */
+.slide-container {
+    width: 70%;
+    margin: auto; }
+  
+  h3 {
+    text-align: center; }
+  
+  .each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 300px;
+  }
+  
+  .each-slide span {
+    padding: 20px;
+    font-size: 20px;
+    background: #efefef;
+    text-align: center;
+  }
+  
+  .each-fade {
+    display: flex;
+  }
+  
+  .each-fade .image-container {
+    width: 75%;
+    overflow: hidden;
+  }
+  
+  .each-fade .image-container img {
+    width: 100%;
+  }
+  
+  .each-fade h2 {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background: #adceed;
