@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../index.css';
 class Footer extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +14,7 @@ class Footer extends Component {
                     <div class="row">
                         <div class="col-md-4 mx-auto">
                             <h6 class="font-weight-bold mt-3 mb-4">About</h6>
-                            <p className="text-justify">Gamesio.com is a gaming website that gives the the oppertunity to play fun games</p>
+                            <p className="text-justify">Gamesio.com is a gaming website that gives the the opportunity to play fun games</p>
                         </div>
 
                         <hr class="clearfix w-100 d-md-none" />

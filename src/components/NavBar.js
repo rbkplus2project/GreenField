@@ -85,18 +85,27 @@
 
 // import './App.css';
 import { Link, NaveLink } from 'react-router-dom';
+import React, { Component } from 'react';
+class NavBar extends Component {
+  render() {
+    return (
+      <div id="menu" style={{ display: this.props.showMenu === "show" ? "none" : "inline-block" }}>
+        <button>Menu</button>
+        <a href="http://localhost:3000/">
+          <img id="logo" src={"https://scontent.fjrs11-1.fna.fbcdn.net/v/t1.0-9/16998886_1387392167977685_2129711120513777779_n.jpg?_nc_cat=107&ccb=2&_nc_sid=09cbfe&_nc_ohc=sMOCS6rtK68AX_mXSqQ&_nc_ht=scontent.fjrs11-1.fna&oh=48088baa199e6a633ae41f3f97bd9e51&oe=5FD483D5"} alt="website-Logo" style={{ width: 50, height: 50 }}></img>
+        </a>
 
-function NavBar() {
-  return (
-    <div >
-      <Link to="/signup">
-        <button>Sign Up</button>
-      </Link>
-      <Link to="/login">
-        <button>Sign In</button>
-      </Link>
-    </div>
-  );
+        <div> 
+          <Link to="/signup">
+          <button>Sign Up</button>
+        </Link>
+          <Link to="/login">
+            <button>Sign In</button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default NavBar;

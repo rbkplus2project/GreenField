@@ -14,15 +14,17 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="main">
           <NavBar />
+
           <Switch>
             {/* <Route path="/" exact component={NavBar} /> */}
             <Route path="/signup" component={SignUpForm} />
             <Route path="/login" component={SignInForm} />
+            {/* <Route path='/' component={GameView} /> */}
+            <Route path='/' component={GameList} />
           </Switch>
-          {/* <GameView /> */}
-          <GameList />
+
           <Footer />
         </div>
       </Router>
