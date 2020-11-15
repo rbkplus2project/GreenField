@@ -21,7 +21,7 @@ class SignInForm extends Component {
 
         axios(options)
             .then((results) => {
-                sessionStorage.setItem('token', results.data);
+                localStorage.setItem('gamesio', results.data);
                 this.setState({redirect: true})
             })
 
