@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Register, SignIn } from '../actions/actions.js';
 import { $ } from 'jquery';
 import axios from 'axios';
 class LogInForm extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         username: null,
-    //         password: null
-    //     }
-    // }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -78,18 +70,4 @@ class LogInForm extends Component {
     }
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         test: state.test,
-//         register: state.register,
-//         SignIn: state.SignIn
-//     }
-// }
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         changey: (y) => { dispatch(SignIn(y)) }
-//     }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(SignInForm);
 export default LogInForm;
