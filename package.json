@@ -36,9 +36,12 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "react-slideshow-image": "^3.3.1",
 =======
 >>>>>>> 1ef4d48e961fd602bac215cd02f20178ec3d6795
+=======
+>>>>>>> parent of cb5ffde... Game View slidshow is Ready
     "redux": "^4.0.5",
     "web-vitals": "^0.2.4"
   },

@@ -1,4 +1,4 @@
-/* General Styles 
+/* General Styles */
 body {
     background-image: url('media/neon.jpg');
     background-color: purple;
@@ -47,7 +47,7 @@ a{
 }
 
 /* Flex Flow Styles */
-/* .column{
+.column{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,10 +67,10 @@ a{
 }
 .hide{
     display:none;
-} */
+}
 
 /* Menu Styles */
-/* .menu{
+.menu{
     position:fixed;
     top:5px;
     left:5px;
@@ -85,10 +85,10 @@ a{
 .arrow{
     height: 58px;
     width: 58px;
-} */
+}
 
 /* Game One Styles */
-/* .tower{
+.tower{
     border: 5px solid red;
     height : 400px;
     width : 100px;
@@ -102,7 +102,7 @@ a{
 }
 .fire:hover{
     background-color: cyan;git 
-} */
+} 
 
 /* Slide Shows */
 .slide-container {
@@ -147,4 +147,5 @@ a{
     align-items: center;
     margin: 0;
     background: #adceed;
-  }
+    background-color: cyan;
+}
