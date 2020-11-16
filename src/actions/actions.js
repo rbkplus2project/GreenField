@@ -16,3 +16,9 @@ export const showSign = (z) => {
         showSign: z
     }
 }
+export const showSettings = (z) => {
+    return {
+        type: 'SHOW_SETTINGS',
+        showSettings: z
+    }
+}

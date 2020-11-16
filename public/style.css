@@ -138,3 +138,11 @@ footer {
     right: 0;
     bottom: 0;
 }
+.settings{
+  background-color: violet;
+  border: 3px groove purple;
+  border-radius: 90px;
+  height: 50px;
+  width: 50px;
+  outline: none;
+} 
