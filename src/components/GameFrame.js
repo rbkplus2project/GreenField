@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import {connect} from 'react-redux'
-import { getGames } from '../actions/actions.js';
-
 
 class GameFrame extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+    }    
     
     render() {
-    if (localStorage.getItem('gamesio') && this.props.GameIndex !== -1) {
-        console.log(this.props.Games)
+    if (localStorage.getItem('gamesio') && this.props.gameIndex !== -1) {
         return (
             <div>
-                <iframe src={this.props.Games[this.props.GameIndex].url} width="100%" height="100%" title={this.props.Games.game}/>
+                <iframe src={this.props.Games[this.props.gameIndex].url} width="100%" height="100%" title={this.props.Games[this.props.gameIndex].name}/>
             </div>
         ) 
     } else if (localStorage.getItem('gamesio')) {
@@ -25,13 +27,8 @@ class GameFrame extends Component {
 const mapStateToProps = (state) => {
     return {
         Games: state.Games,
-        GameIndex: state.GameIndex
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getArr: (z) => { dispatch(getGames(z)) }
+        gameIndex: state.gameIndex
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GameFrame);
+export default connect(mapStateToProps)(GameFrame);
