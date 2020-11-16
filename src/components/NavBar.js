@@ -25,6 +25,7 @@ class NavBar extends Component {
   }
 
   render() {
+    console.log(localStorage)
     if (localStorage.getItem('gamesio')) {
       return (
         <div className="menu" >

@@ -7,7 +7,7 @@ const initState = {
 }
 
 const rootReducer = (state = initState, action) => {
-    console.log("action====>", action);
+    // console.log("action====>", action);
     if (action.type === "SHOW_MENU") {
         return {
             ...state,
