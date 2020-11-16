@@ -58,8 +58,8 @@ class SignUp extends Component {
                         <br />
                         <button className="button">Sign Up</button><br />
                     </form>
-                    <Link to="/signin">
-                        <button className="button">Sign In</button><br />
+                    <Link to="/signin" style={{textDecoration: "none"}}>
+                    <p>Sign In</p>
                     </Link>
                 </div>
             )

@@ -21,7 +21,6 @@ const GameView = () => {
     <Slide {...properties}>
       {slideImages.map((each, i) => (
         <div key={i} className="each-slide">
-          {/* <a href="#memory"><img src={each} className="game-img"/>  </a> */}
         <div style={{'backgroundImage': `url(${each})`}}></div>
         </div>     
       ))}

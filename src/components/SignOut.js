@@ -4,7 +4,6 @@ import { showSign } from '../actions/actions.js';
 import { connect } from 'react-redux';
 
 class SignOut extends Component {
-    // let signout = () => localStorage.removeItem('gamesio') 
     handleClick = (e) => {
         /*
         let options = {
@@ -28,6 +27,7 @@ class SignOut extends Component {
         */
 
         ////// temporary solution, should be handled upon signout response from the server
+        localStorage.removeItem('gamesio'); 
         if (this.props.showSign === "hide") {
             this.props.sign("show");
         }

@@ -4,8 +4,6 @@ import App from './components/App.js';
 import { Provider} from 'react-redux';
 import {createStore} from 'redux';
 import rootReducer from './reducers/rootReducer.js';
-import $ from 'jquery';
-import Popper from 'popper.js';
 import 'mdbreact/dist/css/mdb.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
