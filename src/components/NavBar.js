@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { showMenu } from '../actions/actions.js';
+import { showMenu,showsetting} from '../actions/actions.js';
+
 
 
 class NavBar extends Component {
+    clicked=()=>{
+        if (this.props.showsetting === "hide") {
+            this.props.setting("show");
+        }
+        else {
+            this.props.setting("hide");
+        }
+    }
     
     handleClick = () => {
         if (this.props.showMenu === "hide") {
@@ -16,35 +25,61 @@ class NavBar extends Component {
     }
 
     render() {
-        return (
-            <div className="menu" >
-                <img id="openmenu" className="arrow" alt="" src="./media/rightarrow.png" onClick={this.handleClick} style={{ display: this.props.showMenu === "show" ? "none" : "" }}></img>
-                <nav id="img-logo" className="row" style={{ display: this.props.showMenu === "show" ? "" : "none" }} >
-                    <img id="openmenu" className="arrow" alt="" src="./media/leftarrow.png" onClick={this.handleClick}></img>
-                    <input type="image" className="navitem" alt="Search" src="./media/search.png"></input>
-                    <Link to="/">
-                    <input type="image" className="navitem" alt="Home" src="./media/house.png"></input>
-                    </Link ><Link to="/signin">
-                    <input type="image" className="navitem" alt="SignIn" src="./media/signin.png"></input>
-                    </Link><Link to="/signup">
-                    <input type="image" className="navitem" alt="SignUp" src="./media/signup.png"></input>
-                    </Link><Link to="/settings">
-                    <input type="image" className="navitem" alt="Settings" src="./media/cog.png"></input>
-                    </Link>
-                </nav>
-            </div>
-        );
+        if (localStorage.getItem('gamesio')) {
+            return (
+                <div className="menu" >
+                    <img className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleClick} style={{ display: this.props.showMenu === "show" ? "none" : "" }}></img>
+                    <nav id="img-logo" className="row" style={{ display: this.props.showMenu === "show" ? "" : "none" }} >
+                        <img className="navitem" alt="" src="./media/leftarrow.png" onClick={this.handleClick}></img>
+                        <Link to="/">
+                            <input type="image" className="navitem" alt="Home" src="./media/house.png"></input>
+                        </Link ><Link to="/signout">
+                            <input type="image" className="navitem" alt="SignOut" src="./media/signout.png"></input>
+                        </Link><Link to="/settings">
+                            <input type="image" className="navitem" alt="Settings" src="./media/cog.png"></input>
+                        </Link>
+                            <input type="image" className="navitem" alt="Search" src="./media/search.png"></input>
+                    </nav>
+                </div>
+            )
+        } else {
+            return (
+                <div className="menu" >
+                    <img className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleClick} style={{ display: this.props.showMenu === "show" ? "none" : "" }}></img>
+                    <nav id="img-logo" className="row" style={{ display: this.props.showMenu === "show" ? "" : "none" }} >
+                        <img className="navitem" alt="" src="./media/leftarrow.png" onClick={this.handleClick}></img>
+                        <Link to="/">
+                            <input type="image" className="navitem" alt="Home" src="./media/house.png"></input>
+                        </Link ><Link to="/signin">
+                            <input type="image" className="navitem" alt="SignIn" src="./media/signin.png"></input>
+                        </Link><Link to="/signup">
+                            <input type="image" className="navitem" alt="SignUp" src="./media/signup.png"></input>
+                        </Link>
+                            <input type="image" className="navitem" alt="Settings" onClick={this.clicked} src="./media/cog.png"></input>
+                       
+                            <input type="image" className="navitem" alt="Search" src="./media/search.png"></input>
+                    </nav>
+                            <div className ='column' style={{ display: this.props.showsetting === "show" ? "" : "none" }}>
+                                <div className ='nav'>color</div>
+                                <div className ='nav'>language</div>
+                                </div>
+                            
+                </div>
+            );
+        }
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        showMenu: state.showMenu
+        showMenu: state.showMenu,
+        showsetting:state.showsetting
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        menu: (z) => { dispatch(showMenu(z)) }
+        menu: (z) => { dispatch(showMenu(z)) },
+        setting:(z)=>{dispatch(showsetting(z))}
     }
 }
 
