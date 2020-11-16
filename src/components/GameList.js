@@ -18,7 +18,7 @@ class GameList extends Component {
     render() {
         return (
             <div>
-            {this.props.Games.map((elem, i) => <GameItem game={elem} key={i}/>)}
+                {this.props.Games.map((elem, i) => <GameItem game={elem} key={i} newKey={i}/>)}
             </div>
         )
     }

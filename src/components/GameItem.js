@@ -7,32 +7,43 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
 class GameItem extends Component {
     handleClick = (e) => {
-        console.log(this);
-        this.props.saveIndex(e.target.getAttribute('value'))
+        console.log(this.props);
+        console.log(this.props.newKey);
+        this.props.saveIndex(this.props.newKey)
     };
     handleMouseOver = (e) => {
         console.log('Mouse Hover');
     };
     render() {
-
         return (
-            <Link to='/frame'>
-        <div className="gameitem">
-            <Fade {...FadeProperties}>
-            {this.props.game.imgs.map((img, i) => <img className="gameimg" key={i} value={i} src={img} alt="" onClick={this.handleClick} onMouseOver={this.handleMouseOver} />)}
-            </Fade>
-        </div>
-        </Link>
-                    // "http://awlibfheknmdk.herokuapp.com/public/" connect4
+                <div className="gameitem">
+                    <Flippy flipOnHover={true} flipDirection="horizontal" ref={(r) => this.flippy = r}>
+                        <FrontSide>
+                            <Fade {...properties}>
+                                {this.props.game.imgs.map((img, i) => <img className="gameimg" key={i} src={img} alt="" onMouseOver={this.handleMouseOver} />)}
+                                </Fade>
+                    </FrontSide>
+                    <Link to='/frame'>
+                       <BackSide>
+                           <pre className="gameinfo" onClick={this.handleClick}>
+                               <h1>Name</h1>
+                               <h1>Type</h1>
+                               <h1>Difficulty</h1>
+                           </pre>
+                        </BackSide>
+                    </Link>
+                   </Flippy>
+               </div>
                     // "https://idsjndkjendk.herokuapp.com/index.html" tictactoe
         )
     }
 }
-const FadeProperties = {
-    duration: 2222,
-    transitionDuration: 1111,
-    indicators: false,
-    arrows: false
+
+const properties = {
+   duration: 2222,
+   transitionDuration: 1111,
+   indicators: false,
+   arrows: false
 };
 
 const mapStateToProps = (state) => {
@@ -47,30 +58,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameItem)
-
-//<div className="gameitem">
-  //                  <Flippy flipOnHover={true} flipDirection="horizontal" ref={(r) => this.flippy = r}>
-    //                    <FrontSide>
-      //                      <Fade {...properties}>
-        //                        {Game4.photos.map((each, i) => (
-          //                          <img key={i} className="gameimg" src={each} alt="" onClick={()=>{handleClick(Game4.link)}} />
-            //                    ))}
-              //              </Fade>
-                //        </FrontSide>
-//                        <BackSide>
-  //                          <pre className="gameinfo">
-    //                            <h1>Name</h1>
-      //                          <h1>Type</h1>
-        //                        <h1>Difficulty</h1>
-          //                  </pre>
-            //            </BackSide>
-              //      </Flippy>
-      //          </div>
-        //    </div>
-        
-//const properties = {
-  //  duration: 2222,
-    //transitionDuration: 1111,
-//    indicators: false,
-  //  arrows: false
-//};
