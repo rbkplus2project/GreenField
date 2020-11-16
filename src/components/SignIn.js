@@ -47,7 +47,7 @@ class SignIn extends Component {
                         <br />
                         <div className="column">
                             <label htmlFor="username">User Name:</label>
-                            <input type="text" className="text" id="username" name="username" /><br />
+                            <input type="text" className="text" id="username" name="username" />
 
                             <label htmlFor="Password">Password:</label>
                             <input type="password" className="text" id="password" name="password" />
@@ -55,8 +55,8 @@ class SignIn extends Component {
                         <br />
                         <button className="button">Sign In</button><br />
                     </form>
-                    <Link to="/signup">
-                        <button className="button">Sign Up</button><br />
+                    <Link to="/signup" style={{textDecoration: "none"}}>
+                        <p>Sign Up</p>
                     </Link>
                 </div>
             )

@@ -13,32 +13,32 @@ class GameList extends Component {
             <div>
                 <div className="gameitem">
                 <Fade {...FadeProperties}>
-                {Game1.map((each, i) => (
-                    <img key={i} id="memory" className="gameimg" src={each} alt="" onClick={handleClick} onMouseOver={handleMouseOver} />
+                {Game1.photos.map((each, i) => (
+                    <img key={i} className="gameimg" src={each} alt="" onClick={()=>{handleClick(Game1.link)}} onMouseOver={handleMouseOver} />
                 ))}
                 </Fade>
                 </div>  
 
                 <div className="gameitem">
                 <Fade {...FadeProperties}>
-                {Game2.map((each, i) => (
-                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} onMouseOver={handleMouseOver} />
+                {Game2.photos.map((each, i) => (
+                    <img key={i} className="gameimg" src={each} alt="" onClick={()=>{handleClick(Game2.link)}} onMouseOver={handleMouseOver} />
                 ))}
                 </Fade>
                 </div>  
 
                 <div className="gameitem">
                 <Fade {...FadeProperties}>
-                {Game3.map((each, i) => (
-                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} onMouseOver={handleMouseOver} />
+                {Game3.photos.map((each, i) => (
+                    <img key={i} className="gameimg" src={each} alt="" onClick={()=>{handleClick(Game3.link)}} onMouseOver={handleMouseOver} />
                 ))}
                 </Fade>
                 </div>  
 
                 <div className="gameitem">
                 <Fade {...FadeProperties}>
-                {Game4.map((each, i) => (
-                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} onMouseOver={handleMouseOver} />
+                {Game4.photos.map((each, i) => (
+                    <img key={i} className="gameimg" src={each} alt="" onClick={()=>{handleClick(Game4.link)}} onMouseOver={handleMouseOver} />
                 ))}
                 </Fade>
                 </div> 
@@ -59,25 +59,37 @@ const FadeProperties = {
     arrows: false
 };
 
-const Game1 = [
-    "https://image.shutterstock.com/image-vector/memory-game-preschool-children-vector-260nw-1200034981.jpg",
+const Game1 = {
+    link:"http://marketxoro.herokuapp.com/public/",
+    photos:[
+    "../../public/media/one.png",
     "https://image.shutterstock.com/image-vector/memory-game-preschool-children-vector-600w-531224158.jpg",
     "https://image.shutterstock.com/image-vector/memory-game-children-cards-transport-600w-632975588.jpg"
-];
-const Game2 = [
-    "https://image.shutterstock.com/image-vector/memory-game-preschool-children-vector-260nw-1200034981.jpg",
+    ]
+};
+const Game2 = {
+    link:"http://awlibfheknmdk.herokuapp.com/public/",
+    photos:[
+    "../../public/media/two.png",
     "https://image.shutterstock.com/image-vector/memory-game-preschool-children-vector-600w-531224158.jpg",
     "https://image.shutterstock.com/image-vector/memory-game-children-cards-transport-600w-632975588.jpg"
-];
-const Game3 = [
-    "https://image.shutterstock.com/image-vector/memory-game-preschool-children-vector-260nw-1200034981.jpg",
+    ]
+};
+const Game3 = {
+    link:"https://idsjndkjendk.herokuapp.com/index.html",
+    photos:[
+    "../../public/media/three.png",
     "https://image.shutterstock.com/image-vector/memory-game-preschool-children-vector-600w-531224158.jpg",
     "https://image.shutterstock.com/image-vector/memory-game-children-cards-transport-600w-632975588.jpg"
-];
-const Game4 = [
-    "https://image.shutterstock.com/image-vector/memory-game-preschool-children-vector-260nw-1200034981.jpg",
+    ]
+};
+const Game4 = {
+    link:"https://memory-game-1.herokuapp.com/index.html",
+    photos:[
+    "../../public/media/four.png",
     "https://image.shutterstock.com/image-vector/memory-game-preschool-children-vector-600w-531224158.jpg",
     "https://image.shutterstock.com/image-vector/memory-game-children-cards-transport-600w-632975588.jpg"
-];
+    ]
+};
 
 export default GameList;

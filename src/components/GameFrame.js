@@ -5,7 +5,7 @@ let GameFrame = () => {
     if (localStorage.getItem('gamesio')) {
         return (
             <div>
-                <iframe src="https://memory-game-1.herokuapp.com/index.html" width="100%" height="100%" title="memory"/>
+                <iframe src="https://memory-game-1.herokuapp.com/index.html" width="100%" height="100%"/>
             </div>
         ) 
     } else {
