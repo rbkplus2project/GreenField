@@ -3,12 +3,12 @@ import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 const $ = require('jquery');
 class SignIn extends Component {
-     constructor(props) {
-         super(props);
-         this.state = {
-             redirect: false
-         }
-     }
+    constructor(props) {
+        super(props);
+        this.state = {
+            redirect: false
+        }
+    }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -22,7 +22,7 @@ class SignIn extends Component {
         axios(options)
             .then((results) => {
                 localStorage.setItem('gamesio', results.data);
-                this.setState({redirect: true})
+                this.setState({ redirect: true })
             })
 
             .catch((err) => {
@@ -36,26 +36,28 @@ class SignIn extends Component {
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to="/"/>
-        } else{return (
-            <div id="signin" className="center styled">
-                <form id="signin-form" onSubmit={this.handleSubmit}>
-                    <h1>Sign In</h1>
-                    <br/>
-                    <div className="column">
-                    <label htmlFor="username">User Name:</label>
-                    <input type="text" className="text" id="username" name="username" onChange={this.handleChange} /><br/>
-                    <label htmlFor="Password">Password:</label>
-                    <input type="password" className="text" id="password" name="password" onChange={this.handleChange} />
-                    </div>
-                    <br/>
-                    <button className="button">Sign In</button><br/>
-                </form>
+            return <Redirect to="/" />
+        } else {
+            return (
+                <div id="signin" className="center styled">
+                    <form id="signin-form" onSubmit={this.handleSubmit}>
+                        <h1>Sign In</h1>
+                        <br />
+                        <div className="column">
+                            <label htmlFor="username">User Name:</label>
+                            <input type="text" className="text" id="username" name="username" onChange={this.handleChange} /><br />
+                            <label htmlFor="Password">Password:</label>
+                            <input type="password" className="text" id="password" name="password" onChange={this.handleChange} />
+                        </div>
+                        <br />
+                        <button className="button">Sign In</button><br />
+                    </form>
                     <Link to="/signup">
-                    <button className="button">Sign Up</button><br/>
+                        <button className="button">Sign Up</button><br />
                     </Link>
-            </div>
-        )}
+                </div>
+            )
+        }
     }
 };
 
