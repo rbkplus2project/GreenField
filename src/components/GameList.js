@@ -8,12 +8,14 @@ import { getGames } from '../actions/actions.js';
 class GameList extends Component {
     constructor(props) {
         super(props);
-    }
+        this.state = {
+        }
+      }
+      
     componentDidMount() {
         fetch('http://localhost:3000/game')
           .then(res => res.json())
             .then(res => { this.props.getArr(res); return res})
-          .then(res => console.log(this.state))
     }
     render() {
         return (
