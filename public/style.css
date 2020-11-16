@@ -82,13 +82,19 @@ input:hover, textarea:hover, button:hover, .navitem:hover{
 }
 .gameitem{
     display: inline-block;
-    width: 44vw;
-    margin: 1vw 1vw 2vw 1vw;
+    width: 45vw;
+    height: 50vh;
+    margin: 1vw;
     padding: 10px;
+    cursor: pointer;
     border: 5px solid purple;
 }
+.gameinfo{
+  background-color:grey;
+  height: 100%;
+}
 .gameimg{
-    height: 50vh;
+    height: 45vh;
     width: 100%;
 }
 
