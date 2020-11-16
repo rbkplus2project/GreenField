@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import React, { Component } from 'react';
-import SignInForm from './SignInForm.js';
-import SignUpForm from './SignUpForm.js';
+import SignOut from './SignOut.js';
+import SignIn from './SignIn.js';
+import SignUp from './SignUp.js';
 import NavBar from './NavBar.js';
 import Footer from './Footer.js';
-import Home from './Home'
+import Home from './Home';
 
 class App extends Component {
 
@@ -15,8 +16,9 @@ class App extends Component {
                 <NavBar />
                     <Switch>
                     <Route path="/" exact component={Home}/>
-                    <Route path="/signin" component={SignInForm}/>
-                    <Route path="/signup" component={SignUpForm}/>
+                    <Route path="/signin" component={SignIn}/>
+                    <Route path="/signup" component={SignUp}/>
+                    <Route path="/signout" component={SignOut}/>
                     </Switch>
                 <Footer />
             </div>
