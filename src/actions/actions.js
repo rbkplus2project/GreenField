@@ -4,3 +4,15 @@ export const showMenu = (z) => {
         showMenu: z
     }
 }
+export const showSearch = (z) => {
+    return {
+        type: 'SHOW_SEARCH',
+        showSearch: z
+    }
+}
+export const showSign = (z) => {
+    return {
+        type: 'SHOW_SIGN',
+        showSign: z
+    }
+}

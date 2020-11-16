@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import React, { Component } from 'react';
+import GameFrame from './GameFrame.js';
 import SignOut from './SignOut.js';
 import SignIn from './SignIn.js';
 import SignUp from './SignUp.js';
@@ -13,12 +14,13 @@ class App extends Component {
             <Router>
             <div className="main">
                 <NavBar />
-                    <Switch>
+                <Switch>
                     <Route path="/" exact component={Home}/>
                     <Route path="/signin" component={SignIn}/>
                     <Route path="/signup" component={SignUp}/>
                     <Route path="/signout" component={SignOut}/>
-                    </Switch>
+                    <Route path="/frame" component={GameFrame}/>
+                </Switch>
             </div>
             </Router>
         );
