@@ -31,6 +31,6 @@ export const getGames = (z) => {
 export const gameIndex = (z) => {
     return {
         type: 'GAME_INDEX',
-        GameIndex: z
+        gameIndex: z
     }
 }

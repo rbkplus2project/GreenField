@@ -6,6 +6,12 @@ import { getGames } from '../actions/actions.js';
 
 
 class GameList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+      }
+      
     componentDidMount() {
         fetch('http://localhost:3000/game')
           .then(res => res.json())
