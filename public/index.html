@@ -1,16 +1,18 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamesio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-</head>
-<body>
-    <div id="app">Hello</div>
 
-    <!--
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gamesio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+</head>
+
+<body>
+  <div id="app">Hello</div>
+
+  <!--
     <div class="column hide" id="landing">
     <div class="row">
     <a  width="55%" href="http://awlibfheknmdk.herokuapp.com/public/"><img src="media/one.png"></a>
@@ -36,23 +38,21 @@
     <img src="media/three.png" href="">
     <img src="media/four.png" href="">
     </div>
-
     </div>
-
     <div id="game1" class="row">
         <div class='tower'>
             <div class='fire'></div>
         </div>
     </div> -->
 
-    <audio id="sound"></audio>
-    <script>
-    $("input").on("mouseenter", function(){
-        $("#sound").attr({ 
-            'src':'media/point.mp3', 
-            'autoplay':'autoplay'
-        })
+  <audio id="sound"></audio>
+  <script>
+    $("input").on("mouseenter", function () {
+      $("#sound").attr({
+        'src': 'media/point.mp3',
+        'autoplay': 'autoplay'
+      })
     })
-    </script>
+  </script>
 </body>
 </html>

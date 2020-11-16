@@ -14,7 +14,7 @@ class GameList extends Component {
                 <div className="gameitem">
                 <Fade {...FadeProperties}>
                 {Game1.map((each, i) => (
-                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} onMouseOver={handleMouseOver} />
+                    <img key={i} id="memory" className="gameimg" src={each} alt="" onClick={handleClick} onMouseOver={handleMouseOver} />
                 ))}
                 </Fade>
                 </div>  

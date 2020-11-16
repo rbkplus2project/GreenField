@@ -1,0 +1,48 @@
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+.games-container{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 50px 30px;
+  justify-content: center;
+  align-content: center;
+}
+
+.games-item{
+
+}
+
+footer {
+ margin-bottom: 0;
+ 
+
+}
+
+.main{
+  width: 100%;
+  text-align: center;
+}
+
+#signIn, #signUp {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+#menu{
+  position:fixed;
+  top: 0;
+  left: 0;
+}
