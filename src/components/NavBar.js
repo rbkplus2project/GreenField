@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { showMenu } from '../actions/actions.js';
+import { showMenu, showSearch } from '../actions/actions.js';
 
 
 class NavBar extends Component {
@@ -14,15 +14,29 @@ class NavBar extends Component {
       this.props.menu("hide");
     }
   }
+  handleSearch = () => {
+    // console.log(this.props)
+    if (this.props.showSearch === "hide") {
+      this.props.search("show");
+    }
+    else {
+      this.props.search("hide");
+    }
+  }
 
   render() {
     if (localStorage.getItem('gamesio')) {
       return (
         <div className="menu" >
           <img className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleClick} style={{ display: this.props.showMenu === "show" ? "none" : "" }}></img>
+
           <nav id="img-logo" className="row" style={{ display: this.props.showMenu === "show" ? "" : "none" }} >
+
             <img className="navitem" alt="" src="./media/leftarrow.png" onClick={this.handleClick}></img>
-            <input type="image" className="navitem" alt="Search" src="./media/search.png"></input>
+
+            <input type="image" className="navitem" alt="Search" src="./media/search.png" onClick={this.handleSearch}></input>
+            <input type="serach" className="seach-input" placeholder="Seacrh..." style={{ display: this.props.showSearch === "show" ? "" : "none" }} ></input>
+
             <Link to="/">
               <input type="image" className="navitem" alt="Home" src="./media/house.png"></input>
             </Link ><Link to="/signout">
@@ -30,6 +44,7 @@ class NavBar extends Component {
             </Link><Link to="/settings">
               <input type="image" className="navitem" alt="Settings" src="./media/cog.png"></input>
             </Link>
+
           </nav>
         </div>
       )
@@ -37,9 +52,14 @@ class NavBar extends Component {
       return (
         <div className="menu" >
           <img className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleClick} style={{ display: this.props.showMenu === "show" ? "none" : "" }}></img>
+
           <nav id="img-logo" className="row" style={{ display: this.props.showMenu === "show" ? "" : "none" }} >
+            
             <img className="navitem" alt="" src="./media/leftarrow.png" onClick={this.handleClick}></img>
-            <input type="image" className="navitem" alt="Search" src="./media/search.png"></input>
+
+            <input type="image" className="navitem" alt="Search" src="./media/search.png" onClick={this.handleSearch}></input>
+            <input type="serach" className="seach-input" placeholder="Seacrh..." style={{ display: this.props.showSearch === "show" ? "" : "none" }} ></input>
+
             <Link to="/">
               <input type="image" className="navitem" alt="Home" src="./media/house.png"></input>
             </Link ><Link to="/signin">
@@ -49,6 +69,7 @@ class NavBar extends Component {
             </Link><Link to="/settings">
               <input type="image" className="navitem" alt="Settings" src="./media/cog.png"></input>
             </Link>
+
           </nav>
         </div>
       );
@@ -58,12 +79,14 @@ class NavBar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    showMenu: state.showMenu
+    showMenu: state.showMenu,
+    showSearch: state.showSearch
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    menu: (z) => { dispatch(showMenu(z)) }
+    menu: (z) => { dispatch(showMenu(z)) },
+    search: (z) => { dispatch(showSearch(z))}
   }
 }
 
