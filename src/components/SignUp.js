@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import {$} from 'jquery';
 import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
-const axios = require('axios');
-const $ = require('jquery');
 class SignUp extends Component {
      constructor(props) {
          super(props);
