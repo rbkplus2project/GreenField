@@ -4,6 +4,7 @@ const initState = {
     ],
     showMenu: "hide",
     showSearch: "hide",
+    showSettings:"hide",
     showSign: "hide"
 }
 
@@ -24,6 +25,12 @@ const rootReducer = (state = initState, action) => {
         return {
             ...state,
             showSign: action.showSign
+        }
+    }
+    if (action.type === "SHOW_SETTINGS") {
+        return {
+            ...state,
+            showSettings: action.showSettings
         }
     }
     return state;
