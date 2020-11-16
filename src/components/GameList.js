@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Fade } from 'react-slideshow-image';
+import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
 class GameList extends Component {
     constructor(props) {
@@ -12,36 +13,77 @@ class GameList extends Component {
         return (
             <div>
                 <div className="gameitem">
-                <Fade {...FadeProperties}>
-                {Game1.map((each, i) => (
-                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} onMouseOver={handleMouseOver} />
-                ))}
-                </Fade>
-                </div>  
-
+                    <Flippy flipOnHover={true}  flipDirection="horizontal" ref={(r) => this.flippy = r}>
+                        <FrontSide>
+                            <Fade {...FadeProperties}>
+                                {Game1.map((each, i) => (
+                                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} />
+                                ))}
+                            </Fade>
+                        </FrontSide>
+                        <BackSide>
+                            <pre className="gameinfo">
+                          <h1>Name</h1> 
+                          <h1>Type</h1> 
+                          <h1>Difficulty</h1>
+                          </pre>
+                    </BackSide>
+                    </Flippy>
+                </div>
                 <div className="gameitem">
-                <Fade {...FadeProperties}>
-                {Game2.map((each, i) => (
-                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} onMouseOver={handleMouseOver} />
-                ))}
-                </Fade>
+                    <Flippy flipOnHover={true} flipDirection="horizontal" ref={(r) => this.flippy = r}>
+                        <FrontSide>
+                            <Fade {...FadeProperties}>
+                                {Game2.map((each, i) => (
+                                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} />
+                                ))}
+                            </Fade>
+                        </FrontSide>
+                        <BackSide>
+                            <pre className="gameinfo">
+                                <h1>Name</h1>
+                                <h1>Type</h1>
+                                <h1>Difficulty</h1>
+                            </pre>
+                        </BackSide>
+                    </Flippy>
                 </div>  
-
                 <div className="gameitem">
-                <Fade {...FadeProperties}>
-                {Game3.map((each, i) => (
-                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} onMouseOver={handleMouseOver} />
-                ))}
-                </Fade>
-                </div>  
-
+                    <Flippy flipOnHover={true} flipDirection="horizontal" ref={(r) => this.flippy = r}>
+                        <FrontSide>
+                            <Fade {...FadeProperties}>
+                                {Game3.map((each, i) => (
+                                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} />
+                                ))}
+                            </Fade>
+                        </FrontSide>
+                        <BackSide>
+                            <pre className="gameinfo">
+                                <h1>Name</h1>
+                                <h1>Type</h1>
+                                <h1>Difficulty</h1>
+                            </pre>
+                        </BackSide>
+                    </Flippy>
+                </div>
                 <div className="gameitem">
-                <Fade {...FadeProperties}>
-                {Game4.map((each, i) => (
-                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} onMouseOver={handleMouseOver} />
-                ))}
-                </Fade>
-                </div> 
+                    <Flippy flipOnHover={true} flipDirection="horizontal" ref={(r) => this.flippy = r}>
+                        <FrontSide>
+                            <Fade {...FadeProperties}>
+                                {Game4.map((each, i) => (
+                                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} />
+                                ))}
+                            </Fade>
+                        </FrontSide>
+                        <BackSide>
+                            <pre className="gameinfo">
+                                <h1>Name</h1>
+                                <h1>Type</h1>
+                                <h1>Difficulty</h1>
+                            </pre>
+                        </BackSide>
+                    </Flippy>
+                </div>
             </div>
         )
     }
@@ -49,9 +91,7 @@ class GameList extends Component {
 const handleClick = (e) => {
     console.log('The link was clicked.');
 };
-const handleMouseOver = (e) => {
-    console.log('Mouse Hover');
-};
+
 const FadeProperties = {
     duration: 2222,
     transitionDuration: 1111,

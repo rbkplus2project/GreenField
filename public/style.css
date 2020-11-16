@@ -80,12 +80,13 @@ input:hover, textarea:hover, button:hover, .navitem:hover{
 .gameitem{
     display: inline-block;
     width: 44vw;
-    margin: 1vw 1vw 2vw 1vw;
+    margin: 1vw ;
     padding: 10px;
     border: 5px solid purple;
+    height: 50vh;
 }
 .gameimg{
-    height: 50vh;
+    height: 45vh;
     width: 100%;
 }
 
@@ -139,3 +140,9 @@ footer {
   top: 0;
   left: 0;
 } 
+.gameinfo{
+  background-color:gray;
+  height: 100%;
+  
+  
+}
