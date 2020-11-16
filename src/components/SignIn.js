@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import { showSign } from '../actions/actions.js';
+import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 const $ = require('jquery');
 class SignIn extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            redirect: false
-        }
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         redirect: false
+    //     }
+    // }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -21,8 +23,11 @@ class SignIn extends Component {
 
         axios(options)
             .then((results) => {
-                localStorage.setItem('gamesio', results.data);
-                this.setState({ redirect: true })
+                // localStorage.setItem('gamesio', results.data);
+                // this.setState({ redirect: true })
+                if(results.status === 200){
+                    this.props.sign("show")
+                };
             })
 
             .catch((err) => {
@@ -30,12 +35,9 @@ class SignIn extends Component {
             })
     }
 
-    handleChange = (e) => {
-        this.setState({ [e.target.id]: e.target.value })
-    }
-
     render() {
-        if (this.state.redirect) {
+        console.log(this.props)
+        if (this.props.showSign === "show") {
             return <Redirect to="/" />
         } else {
             return (
@@ -45,9 +47,10 @@ class SignIn extends Component {
                         <br />
                         <div className="column">
                             <label htmlFor="username">User Name:</label>
-                            <input type="text" className="text" id="username" name="username" onChange={this.handleChange} /><br />
+                            <input type="text" className="text" id="username" name="username" /><br />
+
                             <label htmlFor="Password">Password:</label>
-                            <input type="password" className="text" id="password" name="password" onChange={this.handleChange} />
+                            <input type="password" className="text" id="password" name="password" />
                         </div>
                         <br />
                         <button className="button">Sign In</button><br />
@@ -61,4 +64,17 @@ class SignIn extends Component {
     }
 };
 
-export default SignIn;
+const mapStateToProps = (state) => {
+    return {
+        showMenu: state.showMenu,
+        showSearch: state.showSearch,
+        showSign: state.showSign
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        sign: (z) => { dispatch(showSign(z)) },
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
