@@ -1,10 +1,10 @@
 const initState = {
     test: [
-        { username: "ahamd", password: "123"}
+        { username: "ahamd", password: "123" }
     ],
     showMenu: "hide",
     showSearch: "hide",
-    showSettings:"hide",
+    showSettings: "hide",
     showSign: false,
     Games: [],
     GameIndex: -1
@@ -37,13 +37,13 @@ const rootReducer = (state = initState, action) => {
         }
     }
     if (action.type === "SHOW_GAMES") {
-        return  {
+        return {
             ...state,
             Games: action.Games
         }
     }
     if (action.type === "SAVE_GAME_INDEX") {
-        return  {
+        return {
             ...state,
             GameIndex: action.GameIndex
         }
