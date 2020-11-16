@@ -21,7 +21,7 @@ const GameView = () => {
     <Slide {...properties}>
       {slideImages.map((each, i) => (
         <div key={i} className="each-slide">
-        <div style={{'backgroundImage': `url(${each})`}}></div>      
+        <div style={{'backgroundImage': `url(${each})`}}></div>
         </div>     
       ))}
     </Slide>
