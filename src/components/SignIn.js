@@ -5,12 +5,11 @@ import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 const $ = require('jquery');
 class SignIn extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         redirect: false
-    //     }
-    // }
+     constructor(props) {
+         super(props);
+         this.state = {
+         }
+     }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -25,20 +24,16 @@ class SignIn extends Component {
             .then((results) => {
                 if(results.status === 200){
                     this.props.sign("show");
-                    this.setState({ redirect: true });
+                    this.setState({});
                     localStorage.setItem('gamesio', results.data);
                 };
             })
             .catch((err) => {
-                console.log("error here ====>", err);
+                console.error(err);
             })
     }
 
     render() {
-        console.log(this.props)
-        if (this.props.showSign === "show") {
-            return <Redirect to="/" />
-        } else {
             return (
                 <div id="signin" className="center styled">
                     <form id="signin-form" onSubmit={this.handleSubmit}>
@@ -60,7 +55,6 @@ class SignIn extends Component {
                 </div>
             )
         }
-    }
 };
 
 const mapStateToProps = (state) => {
