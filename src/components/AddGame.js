@@ -14,25 +14,26 @@ class AddGame extends Component {
         e.preventDefault();
         let input = $('#addgame-form').serializeArray();
         console.log(input)
-    //     let options = {
-    //         url: `http://localhost:3000/user/signin`,
-    //         method: 'post',
-    //         data: { username: input[0].value, password: input[1].value }
-    //     }
+        let request = {
+            url: input[1].value,
+            imgs: input.slice(4).map(elem => elem.value),
+            disc: {
+                name: input[0].value,
+                type: input[2].value,
+                dificulty: input[3].value
+            }
+        }
+        let options = {
+            url: `http://localhost:3000/game`,
+            method: 'post',
+            data: request
+        }
 
-    //     axios(options)
-    //         .then((results) => {
-    //             if(results.status === 200){
-    //                 this.props.sign(true);
-    //                 localStorage.setItem('gamesio', results.data);
-    //                 this.setState({})
-    //             };
-    //         })
-    //         .catch((err) => {
-    //             console.log("error here ====>", err);
-    //         })
+        axios(options)
+            .then(res => {if (res.status === 200) {}})
+            .catch(err => console.log("error here ====>", err))
     }
-    addImageField = (e) => {
+    addImageField = () => {
         this.setState({image: "image" + ++this.count})
         let newImageField = $(`<label htmlFor=${this.state.image}>Game ${this.state.image}:</label><input type="text" class="text" name=${this.state.image} /><br>`)
         $("#addmoreimgs").before(newImageField)
@@ -44,10 +45,10 @@ class AddGame extends Component {
                 <br/>
                 <form id="addgame-form" className="column" onSubmit={this.handleSubmit}>
                     <label htmlFor="title">Game Title:</label>
-                    <input type="text" className="text" name="title" /> {/* required */}
+                    <input type="text" className="text" name="title" required/>
                     
                     <label htmlFor="url">Game URL:</label>
-                    <input type="text" className="text" name="url" />{/* required */}
+                    <input type="url" className="text" name="url" required/>
 
                     <label htmlFor="type">Game Type:</label>
                     <input type="text" className="text" name="type" />
@@ -55,8 +56,8 @@ class AddGame extends Component {
                     <label htmlFor="difficulty">Game difficulty:</label>
                     <input type="text" className="text" name="difficulty" />
 
-                    <label htmlFor="image1">Game image1:</label>{/* required */}
-                    <input type="text" className="text" name="image1" />
+                    <label htmlFor="image1">Game image1:</label>
+                    <input type="text" className="text" name="image1" required/>
                     <br/>
                     <input type="button" className="button" style={{width:'2vw'}} name="addmoreimgs" id="addmoreimgs" value="+" onClick={this.addImageField}/>
                     <br/>
