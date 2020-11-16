@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { showMenu, showSearch, showSettings } from '../actions/actions.js';
+import { showMenu, showSearch, showSettings, showSign } from '../actions/actions.js';
 
 
 class NavBar extends Component {
-
+    componentWillMount() {
+        if (localStorage.getItem('gamesio')) {
+            this.props.sign(true);
+        }
+    }
   handleMenu = () => {
     this.props.settings("hide")
     if (this.props.showMenu === "hide") {
@@ -47,15 +51,15 @@ class NavBar extends Component {
           </Link >
 
           <Link to="/signin">
-            <input type="image" className="navitem" alt="SignIn" style={{ display: this.props.showSign === "show" ? "none" : "" }} src="./media/signin.png"></input>
+            <input type="image" className="navitem" alt="SignIn" style={{ display: this.props.showSign ? "none" : "" }} src="./media/signin.png"></input>
           </Link>
 
           <Link to="/signup">
-            <input type="image" className="navitem" alt="SignUp" style={{ display: this.props.showSign === "show" ? "none" : "" }} src="./media/signup.png"></input>
+            <input type="image" className="navitem" alt="SignUp" style={{ display: this.props.showSign ? "none" : "" }} src="./media/signup.png"></input>
           </Link>
 
           <Link to="/signout">
-            <input type="image" className="navitem" alt="SignOut" style={{ display: this.props.showSign === "show" ? "" : "none" }} src="./media/signout.png"></input>
+            <input type="image" className="navitem" alt="SignOut" style={{ display: this.props.showSign ? "" : "none" }} src="./media/signout.png"></input>
           </Link>
 
           <input type="image" className="navitem" alt="Settings" src="./media/cog.png" onClick={this.handleSettings}></input>
@@ -93,7 +97,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     menu: (z) => { dispatch(showMenu(z)) },
     search: (z) => { dispatch(showSearch(z)) },
-    settings: (z) => { dispatch(showSettings(z)) }
+    settings: (z) => { dispatch(showSettings(z)) },
+    sign: (z) => { dispatch(showSign(z)) }
   }
 }
 
