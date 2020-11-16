@@ -39,38 +39,22 @@ class Footer extends Component {
 
                 <ul className="list-unstyled list-inline text-center">
                     <li className="list-inline-item">
-<<<<<<< HEAD
                         <a href="/" className="btn-floating btn-fb mx-1">
-=======
-                        <a className="btn-floating btn-fb mx-1">
->>>>>>> 6bc2273ecba40a0710a814e875afa4f854bf405f
                             <i className="fab fa-facebook-f"> </i>
                         </a>
                     </li>
                     <li className="list-inline-item">
-<<<<<<< HEAD
                         <a href="/" className="btn-floating btn-gplus mx-1">
-=======
-                        <a className="btn-floating btn-gplus mx-1">
->>>>>>> 6bc2273ecba40a0710a814e875afa4f854bf405f
                             <i className="fab fa-google-plus-g"> </i>
                         </a>
                     </li>
                     <li className="list-inline-item">
-<<<<<<< HEAD
                         <a href="/" className="btn-floating btn-li mx-1">
-=======
-                        <a className="btn-floating btn-li mx-1">
->>>>>>> 6bc2273ecba40a0710a814e875afa4f854bf405f
                             <i className="fab fa-linkedin-in"> </i>
                         </a>
                     </li>
                     <li className="list-inline-item">
-<<<<<<< HEAD
                         <a href="/" className="btn-floating btn-dribbble mx-1">
-=======
-                        <a className="btn-floating btn-dribbble mx-1">
->>>>>>> 6bc2273ecba40a0710a814e875afa4f854bf405f
                             <i className="fab fa-dribbble"> </i>
                         </a>
                     </li>
