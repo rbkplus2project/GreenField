@@ -46,17 +46,17 @@ class SignUp extends Component {
                     <br/>
                     <div className="column">
                     <label htmlFor="newusername">User Name:</label>
-                    <input type="text" className="text" id="newusername" name="newusername" onChange={this.handleChange} /><br/>
+                    <input type="text" className="text" id="newusername" name="newusername" onChange={this.handleChange} />
                     <label htmlFor="newPassword">Password:</label>
-                    <input type="password" className="text" id="newPassword" name="newPassword" onChange={this.handleChange} /><br/>
+                    <input type="password" className="text" id="newPassword" name="newPassword" onChange={this.handleChange} />
                     <label htmlFor="confirmPassword">Confirm Password:</label>
                     <input type="password" className="text" id="confirmPassword" name="confirmPassword" onChange={this.handleChange} />
                     </div>
                     <br/>
                     <button className="button">Sign Up</button><br/>
                 </form>
-                    <Link to="/signin">
-                    <button className="button">Sign In</button><br/>
+                    <Link to="/signin" style={{textDecoration: "none"}}>
+                    <p>Sign In</p><br/>
                     </Link>
             </div>
         )

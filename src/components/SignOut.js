@@ -9,6 +9,7 @@ let SignOut = () => {
             <Link to="/">
                 <button className="button" onClick={signout}>Yes</button>
             </Link>
+            <br/>
             <Link to="/">
                 <button className="button">No</button>
             </Link>

@@ -44,15 +44,15 @@ class SignIn extends Component {
                     <br/>
                     <div className="column">
                     <label htmlFor="username">User Name:</label>
-                    <input type="text" className="text" id="username" name="username" onChange={this.handleChange} /><br/>
+                    <input type="text" className="text" id="username" name="username" onChange={this.handleChange} />
                     <label htmlFor="Password">Password:</label>
                     <input type="password" className="text" id="password" name="password" onChange={this.handleChange} />
                     </div>
                     <br/>
                     <button className="button">Sign In</button><br/>
                 </form>
-                    <Link to="/signup">
-                    <button className="button">Sign Up</button><br/>
+                    <Link to="/signup" style={{textDecoration: "none"}}>
+                    <p>Sign Up</p><br/>
                     </Link>
             </div>
         )}
