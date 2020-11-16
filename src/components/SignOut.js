@@ -28,7 +28,7 @@ class SignOut extends Component {
 
         ////// temporary solution, should be handled upon signout response from the server
         localStorage.removeItem('gamesio'); 
-        this.props.sign("hide");
+            this.props.sign(false);
     }
     render() {
         return (

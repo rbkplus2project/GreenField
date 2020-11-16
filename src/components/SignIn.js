@@ -23,9 +23,9 @@ class SignIn extends Component {
         axios(options)
             .then((results) => {
                 if(results.status === 200){
-                    this.props.sign("show");
-                    this.setState({});
+                    this.props.sign(true);
                     localStorage.setItem('gamesio', results.data);
+                    this.setState({})
                 };
             })
             .catch((err) => {
@@ -34,6 +34,9 @@ class SignIn extends Component {
     }
 
     render() {
+        if (localStorage.getItem('gamesio')) {
+            return <Redirect to="/"/>
+        } else {
             return (
                 <div id="signin" className="center styled">
                     <form id="signin-form" onSubmit={this.handleSubmit}>
@@ -54,7 +57,8 @@ class SignIn extends Component {
                     </Link>
                 </div>
             )
-        }
+        }   
+    }
 };
 
 const mapStateToProps = (state) => {

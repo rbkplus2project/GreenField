@@ -1,9 +1,16 @@
 const mongoose = require('mongoose');
 
 let gameSchema = mongoose.Schema({
-  game: String,
-  url: String
+  url: String,
+  imgs: Array,
+  disc: Object
 });
+
+// {
+//   name: 'memory',
+//   type: 'puzzle',
+//   dificulty: 'easy and hard'
+// }
 
 let Game = mongoose.model('Game', gameSchema);
 
