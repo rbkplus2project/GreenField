@@ -11,7 +11,17 @@ gameRouter.route('/')
         res.json(data);
       }
     });
-  });
+  })
+  .post((req, res) => {
+    console.log(req.body)
+    gameCtrl.create(req.body, (err, data) => {
+      if (err) {
+        res.sendStatus(400);
+      } else {
+        res.json(data);
+      }
+    })
+  })
 
 gameRouter.route('/:game')
   .get((req, res) => {
