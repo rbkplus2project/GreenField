@@ -2,17 +2,12 @@ import React, { Component } from 'react';
 import { Fade } from 'react-slideshow-image';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
-import { saveGameIndex } from '../actions/actions.js';
+import { gameIndex } from '../actions/actions.js';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
 class GameItem extends Component {
     handleClick = (e) => {
-        console.log(this.props);
-        console.log(this.props.newKey);
         this.props.saveIndex(this.props.newKey)
-    };
-    handleMouseOver = (e) => {
-        console.log('Mouse Hover');
     };
     render() {
         return (
@@ -20,7 +15,7 @@ class GameItem extends Component {
                     <Flippy flipOnHover={true} flipDirection="horizontal" ref={(r) => this.flippy = r}>
                         <FrontSide>
                             <Fade {...properties}>
-                                {this.props.game.imgs.map((img, i) => <img className="gameimg" key={i} src={img} alt="" onMouseOver={this.handleMouseOver} />)}
+                                {this.props.game.imgs.map((img, i) => <img className="gameimg" key={i} src={img} alt=""/>)}
                                 </Fade>
                     </FrontSide>
                     <Link to='/frame'>
@@ -34,7 +29,6 @@ class GameItem extends Component {
                     </Link>
                    </Flippy>
                </div>
-                    // "https://idsjndkjendk.herokuapp.com/index.html" tictactoe
         )
     }
 }
@@ -48,12 +42,12 @@ const properties = {
 
 const mapStateToProps = (state) => {
     return {
-        GameIndex: state.GameIndex
+        gameIndex: state.gameIndex
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        saveIndex: (z) => { dispatch(saveGameIndex(z)) }
+        saveIndex: (z) => { dispatch(gameIndex(z)) }
     }
 }
 
