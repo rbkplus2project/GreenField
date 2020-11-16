@@ -4,11 +4,9 @@ body {
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
-    color:red;
-    font-weight: bold;
-    text-align: center;
+    min-height: 500px;
 }
-input[type='button'], button{
+.button{
     border: 4px groove purple;
     border-radius: 12px;
     font-weight: bold;
@@ -19,7 +17,7 @@ input[type='button'], button{
     width:200px;
     outline: none;
 }
-input[type='text'], input[type='number'], input[type='password'], textarea{
+.text{
     color:red;
     font-weight: bold;
     text-align: center;
@@ -37,9 +35,7 @@ input[type='text']::placeholder,input[type='number']::placeholder, input[type='p
 input:hover, textarea:hover, button:hover, .navitem:hover{
     background-color: cyan;
 }
-a{
-    display: block;
-}
+
 .column{
     display: flex;
     justify-content: center;
@@ -50,7 +46,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-flow: row;
+    flex-flow: row wrap;
 }
 .center{
     position: fixed;
@@ -61,27 +57,36 @@ a{
 .hide{
     display:none;
 }
+.styled{
+  color:red;
+  font-weight: bold;
+  text-align: center;
+}
 .menu{
     position:fixed;
-    top:5px;
-    left:5px;
+    top:10px;
+    left:10px;
     z-index: 500;
-    background-color: violet;
-    padding: 5px;
-    border-radius: 15px;
-    border:purple groove 4px;
 }
 .navitem{
-    border: 4px groove purple;
-    border-radius: 12px;
+    background-color: violet;
+    border: 3px groove purple;
+    margin-left: 3px;
+    border-radius: 30px;
     height: 50px;
     width: 50px;
-    background-color: transparent;
+    outline: none;
 }
-.arrow{
-    padding: 5px;
-    height: 50px;
-    width: 50px;
+.gameitem{
+    display: inline-block;
+    width: 44vw;
+    margin: 1vw 1vw 2vw 1vw;
+    padding: 10px;
+    border: 5px solid purple;
+}
+.gameimg{
+    height: 50vh;
+    width: 100%;
 }
 
   .each-slide > div {
@@ -89,28 +94,19 @@ a{
     align-items: center;
     justify-content: center;
     background-size: cover;
-    height: 100vh;
+    height: 92vh;
+    width: 100vw;
   }
-  
-  .each-slide span {
-    font-size: 20px;
-    background: #efefef;
-    text-align: center;
-  }
-  
   .each-fade {
     display: flex;
   }
-  
   .each-fade .image-container {
     width: 75%;
     overflow: hidden;
   }
-  
   .each-fade .image-container img {
     width: 100%;
   }
-  
   .each-fade h2 {
     width: 25%;
     display: flex;
@@ -118,10 +114,28 @@ a{
     align-items: center;
     background: #adceed;
   }
-  .games-container{
-      /* display: flex;  */
-    justify-content: center;
-    align-items: center;
-    flex-flow: wrap-reverse;
-  }
- 
+
+.games-container{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 50px 30px;
+  justify-content: center;
+  align-content: center;
+}
+footer {
+ margin-bottom: 0;
+}
+.main{
+  width: 100%;
+  text-align: center;
+}
+#signIn, #signUp {
+  display: inline-block;
+  margin: 0 auto;
+}
+#menu{
+  position:fixed;
+  top: 0;
+  left: 0;
+} 
