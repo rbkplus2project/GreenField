@@ -1,6 +1,6 @@
-const userRouter = require ('express').Router();
-const User = require('./user.js');
+const userRouter = require('express').Router();
 const userCtrl = require('./userController.js');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const verify = require('../../middleware/cookieAuth');
 
@@ -50,5 +50,5 @@ userRouter.route('/removeuser')
       }
     });
   });
-  
+
 module.exports = userRouter;
