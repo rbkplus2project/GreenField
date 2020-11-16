@@ -5,6 +5,7 @@ import SignOut from './SignOut.js';
 import SignIn from './SignIn.js';
 import SignUp from './SignUp.js';
 import NavBar from './NavBar.js';
+import AddGame from './AddGame.js';
 import Home from './Home';
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
                     <Route path="/signup" component={SignUp}/>
                     <Route path="/signout" component={SignOut}/>
                     <Route path="/frame" component={GameFrame}/>
+                    <Route path="/addgame" component={AddGame}/>
                 </Switch>
             </div>
             </Router>
