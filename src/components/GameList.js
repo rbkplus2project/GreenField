@@ -1,17 +1,33 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import { Fade } from 'react-slideshow-image';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
+=======
+import GameItem from './GameItem'
+import {connect} from 'react-redux'
+import { getGames } from '../actions/actions.js';
+
+
+>>>>>>> 6bc2273ecba40a0710a814e875afa4f854bf405f
 
 class GameList extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            Games: [{imgs:[]}]
         }
     }
-    
+    componentDidMount() {
+        fetch('http://localhost:3000/game')
+          .then(res => res.json())
+            .then(res => { this.props.getArr(res); return res})
+          .then(res => console.log(this.state))
+    }
     render() {
+        console.log(this.props.Games)
         return (
             <div>
+<<<<<<< HEAD
                 <div className="gameitem">
                     <Flippy flipOnHover={true}  flipDirection="horizontal" ref={(r) => this.flippy = r}>
                         <FrontSide>
@@ -135,5 +151,23 @@ const Game4 = {
     "https://image.shutterstock.com/image-vector/memory-game-children-cards-transport-600w-632975588.jpg"
     ]
 };
+=======
+                {this.props.Games.map((elem, i) => <GameItem game={elem} key={i}/>)}
+            </div>
+        )
+    }
+}
 
-export default GameList;
+const mapStateToProps = (state) => {
+    return {
+        Games: state.Games
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getArr: (z) => { dispatch(getGames(z)) }
+    }
+}
+>>>>>>> 6bc2273ecba40a0710a814e875afa4f854bf405f
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameList);
