@@ -24,9 +24,9 @@ class SignIn extends Component {
         axios(options)
             .then((results) => {
                 if(results.status === 200){
-                    this.props.sign("show");
-                    this.setState({ redirect: true });
+                    this.props.sign(true);
                     localStorage.setItem('gamesio', results.data);
+                    this.setState({})
                 };
             })
             .catch((err) => {
@@ -35,9 +35,8 @@ class SignIn extends Component {
     }
 
     render() {
-        console.log(this.props)
-        if (this.props.showSign === "show") {
-            return <Redirect to="/" />
+        if (localStorage.getItem('gamesio')) {
+            return <Redirect to="/"/>
         } else {
             return (
                 <div id="signin" className="center styled">
@@ -59,7 +58,7 @@ class SignIn extends Component {
                     </Link>
                 </div>
             )
-        }
+        }   
     }
 };
 
