@@ -5,10 +5,13 @@ const initState = {
     showMenu: "hide",
     showSearch: "hide",
     showSettings:"hide",
-    showSign: "hide"
+    showSign: "hide",
+    Games: [],
+    GameIndex: -1
 }
 
 const rootReducer = (state = initState, action) => {
+    console.log(action)
     if (action.type === "SHOW_MENU") {
         return {
             ...state,
@@ -31,6 +34,18 @@ const rootReducer = (state = initState, action) => {
         return {
             ...state,
             showSettings: action.showSettings
+        }
+    }
+    if (action.type === "SHOW_GAMES") {
+        return  {
+            ...state,
+            Games: action.Games
+        }
+    }
+    if (action.type === "SAVE_GAME_INDEX") {
+        return  {
+            ...state,
+            GameIndex: action.GameIndex
         }
     }
     return state;

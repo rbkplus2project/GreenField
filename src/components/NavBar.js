@@ -6,7 +6,8 @@ import { showMenu, showSearch, showSettings } from '../actions/actions.js';
 
 class NavBar extends Component {
 
-  handleClick = () => {
+  handleMenu = () => {
+    this.props.settings("hide")
     if (this.props.showMenu === "hide") {
       this.props.menu("show");
     }
@@ -35,11 +36,11 @@ class NavBar extends Component {
   render() {
     return (
       <div className="menu" >
-        <img className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleClick} style={{ display: this.props.showMenu === "show" ? "none" : "" }}></img>
+        <input type="image" className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleMenu} style={{ display: this.props.showMenu === "show" ? "none" : "" }}></input>
 
-        <nav id="img-logo" className="row" style={{ display: this.props.showMenu === "show" ? "" : "none" }} >
+        <nav id="img-logo" className="menu" style={{ display: this.props.showMenu === "show" ? "" : "none" }} >
 
-          <img className="navitem" alt="" src="./media/leftarrow.png" onClick={this.handleClick}></img>
+          <input type="image" className="navitem" alt="" src="./media/leftarrow.png" onClick={this.handleMenu}></input>
 
           <Link to="/">
             <input type="image" className="navitem" alt="Home" src="./media/house.png"></input>
@@ -61,12 +62,19 @@ class NavBar extends Component {
 
           <input type="image" className="navitem" alt="Search" src="./media/search.png" onClick={this.handleSearch}></input>
           
-          <input type="serach" className="seach-input" placeholder="Seacrh..." style={{ display: this.props.showSearch === "show" ? "" : "none" }} ></input>
+          <input type="serach" className="settingsitem" style={{ display: this.props.showSearch === "show" ? "" : "none" }} ></input>
 
         </nav>
-          <div className ='column' style={{ display: this.props.showSettings === "show" ? "" : "none" }}>
-            <div className ='settings'>Colors</div>
-            <div className ='settings'>Language</div>
+          <div className ='settings column' style={{ display: this.props.showSettings === "show" ? "" : "none" }}>
+            
+            <Link to="/colors">
+            <button className ='settingsitem'>Colors</button>
+            </Link>
+
+            <Link to="/language">
+            <button className ='settingsitem'>Language</button>
+            </Link>
+
           </div>
       </div>
     )
