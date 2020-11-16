@@ -1,6 +1,6 @@
 const initState = {
     test: [
-        { username: "ahamd", password: "123"}
+        { username: "ahamd", password: "123" }
     ],
     showMenu: 0,
     showSign: 0,
