@@ -2,12 +2,12 @@ const initState = {
     test: [
         { username: "ahamd", password: "123"}
     ],
-    showMenu: "hide",
-    showSearch: "hide",
-    showSettings:"hide",
-    showSign: false,
-    Games: [],
-    gameIndex: -1
+    showMenu: 0,
+    showSign: 0,
+    showSearch: 0,
+    showSettings: 0,
+    gameIndex: -1,
+    Games: []
 }
 
 const rootReducer = (state = initState, action) => {

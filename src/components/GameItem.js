@@ -6,6 +6,12 @@ import { gameIndex } from '../actions/actions.js';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
 class GameItem extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+      }
+      
     handleClick = (e) => {
         this.props.saveIndex(this.props.newKey)
     };
