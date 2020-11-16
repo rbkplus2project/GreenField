@@ -20,16 +20,16 @@ class NavBar extends Component {
             return (
                 <div className="menu" >
                     <img className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleClick} style={{ display: this.props.showMenu === "show" ? "none" : "" }}></img>
-                    <nav id="img-logo" className="row" style={{ display: this.props.showMenu === "show" ? "" : "none" }} >
+                    <nav id="img-logo" className="menu" style={{ display: this.props.showMenu === "show" ? "" : "none" }} >
                         <img className="navitem" alt="" src="./media/leftarrow.png" onClick={this.handleClick}></img>
-                            <input type="image" className="navitem" alt="Search" src="./media/search.png"></input>
                         <Link to="/">
                             <input type="image" className="navitem" alt="Home" src="./media/house.png"></input>
-                        </Link ><Link to="/signout">
-                            <input type="image" className="navitem" alt="SignOut" src="./media/signout.png"></input>
                         </Link><Link to="/settings">
                             <input type="image" className="navitem" alt="Settings" src="./media/cog.png"></input>
+                        </Link ><Link to="/signout">
+                            <input type="image" className="navitem" alt="SignOut" src="./media/signout.png"></input>
                         </Link>
+                            <input type="image" className="navitem" alt="Search" src="./media/search.png"></input>
                     </nav>
                 </div>
             )
@@ -37,18 +37,18 @@ class NavBar extends Component {
             return (
                 <div className="menu" >
                     <img className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleClick} style={{ display: this.props.showMenu === "show" ? "none" : "" }}></img>
-                    <nav id="img-logo" className="row" style={{ display: this.props.showMenu === "show" ? "" : "none" }} >
+                    <nav id="img-logo" className="menu" style={{ display: this.props.showMenu === "show" ? "" : "none" }} >
                         <img className="navitem" alt="" src="./media/leftarrow.png" onClick={this.handleClick}></img>
-                            <input type="image" className="navitem" alt="Search" src="./media/search.png"></input>
                         <Link to="/">
                             <input type="image" className="navitem" alt="Home" src="./media/house.png"></input>
+                        </Link><Link to="/settings">
+                            <input type="image" className="navitem" alt="Settings" src="./media/cog.png"></input>
                         </Link ><Link to="/signin">
                             <input type="image" className="navitem" alt="SignIn" src="./media/signin.png"></input>
                         </Link><Link to="/signup">
                             <input type="image" className="navitem" alt="SignUp" src="./media/signup.png"></input>
-                        </Link><Link to="/settings">
-                            <input type="image" className="navitem" alt="Settings" src="./media/cog.png"></input>
                         </Link>
+                            <input type="image" className="navitem" alt="Search" src="./media/search.png"></input>
                     </nav>
                 </div>
             );

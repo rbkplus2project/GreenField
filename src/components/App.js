@@ -4,7 +4,6 @@ import SignOut from './SignOut.js';
 import SignIn from './SignIn.js';
 import SignUp from './SignUp.js';
 import NavBar from './NavBar.js';
-import Footer from './Footer.js';
 import Home from './Home';
 
 class App extends Component {
@@ -20,7 +19,6 @@ class App extends Component {
                     <Route path="/signup" component={SignUp}/>
                     <Route path="/signout" component={SignOut}/>
                     </Switch>
-                <Footer />
             </div>
             </Router>
         );
