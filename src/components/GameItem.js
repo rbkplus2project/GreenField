@@ -3,6 +3,7 @@ import { Fade } from 'react-slideshow-image';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 import { saveGameIndex } from '../actions/actions.js';
+import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
 class GameItem extends Component {
     handleClick = (e) => {
@@ -46,3 +47,30 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameItem)
+
+//<div className="gameitem">
+  //                  <Flippy flipOnHover={true} flipDirection="horizontal" ref={(r) => this.flippy = r}>
+    //                    <FrontSide>
+      //                      <Fade {...properties}>
+        //                        {Game4.photos.map((each, i) => (
+          //                          <img key={i} className="gameimg" src={each} alt="" onClick={()=>{handleClick(Game4.link)}} />
+            //                    ))}
+              //              </Fade>
+                //        </FrontSide>
+//                        <BackSide>
+  //                          <pre className="gameinfo">
+    //                            <h1>Name</h1>
+      //                          <h1>Type</h1>
+        //                        <h1>Difficulty</h1>
+          //                  </pre>
+            //            </BackSide>
+              //      </Flippy>
+      //          </div>
+        //    </div>
+        
+//const properties = {
+  //  duration: 2222,
+    //transitionDuration: 1111,
+//    indicators: false,
+  //  arrows: false
+//};
