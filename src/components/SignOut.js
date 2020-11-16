@@ -5,12 +5,12 @@ let SignOut = () => {
     let signout = () => localStorage.removeItem('gamesio') 
     return (
         <div>
-            <h2>are you sure about that?</h2>
+            <h2 className="styled">Sign Out?</h2>
             <Link to="/">
-                <button onClick={signout}>Yes</button>
+                <button className="button" onClick={signout}>Yes</button>
             </Link>
             <Link to="/">
-                <button>No</button>
+                <button className="button">No</button>
             </Link>
         </div>
     )
