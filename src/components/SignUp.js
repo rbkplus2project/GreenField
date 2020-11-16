@@ -3,12 +3,12 @@ import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 const $ = require('jquery');
 class SignUp extends Component {
-     constructor(props) {
-         super(props);
-         this.state = {
-             redirect: false
-         }
-     }
+    constructor(props) {
+        super(props);
+        this.state = {
+            redirect: false
+        }
+    }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -22,8 +22,9 @@ class SignUp extends Component {
 
             axios(options)
                 .then((results) => {
-                    console.log(results);
-                    this.setState({ redirect: true })
+                    if (results.status === 200) {
+                        this.setState({ redirect: true })
+                    };
                 })
 
                 .catch((err) => {
@@ -31,36 +32,38 @@ class SignUp extends Component {
                 })
         }
         else {
-            alert("Password don't match");
+            alert("Password doesn't match");
         }
     }
 
     render() {
         if (this.state.redirect) {
-            return <Redirect to="/signin"/>
+            return <Redirect to="/signin" />
         } else {
             return (
                 <div id="signup" className="center styled">
-                <form id="signup-form" onSubmit={this.handleSubmit}>
-                    <h1>Sign Up</h1>
-                    <br/>
-                    <div className="column">
-                    <label htmlFor="newusername">User Name:</label>
-                    <input type="text" className="text" id="newusername" name="newusername" onChange={this.handleChange} />
-                    <label htmlFor="newPassword">Password:</label>
-                    <input type="password" className="text" id="newPassword" name="newPassword" onChange={this.handleChange} />
-                    <label htmlFor="confirmPassword">Confirm Password:</label>
-                    <input type="password" className="text" id="confirmPassword" name="confirmPassword" onChange={this.handleChange} />
-                    </div>
-                    <br/>
-                    <button className="button">Sign Up</button><br/>
-                </form>
+                    <form id="signup-form" onSubmit={this.handleSubmit}>
+                        <h1>Sign Up</h1>
+                        <br />
+                        <div className="column">
+                            <label htmlFor="newusername">User Name:</label>
+                            <input type="text" className="text" id="newusername" name="newusername" /><br />
+
+                            <label htmlFor="newPassword">Password:</label>
+                            <input type="password" className="text" id="newPassword" name="newPassword" /><br />
+
+                            <label htmlFor="confirmPassword">Confirm Password:</label>
+                            <input type="password" className="text" id="confirmPassword" name="confirmPassword" />
+                        </div>
+                        <br />
+                        <button className="button">Sign Up</button><br />
+                    </form>
                     <Link to="/signin" style={{textDecoration: "none"}}>
-                    <p>Sign In</p><br/>
+                    <p>Sign In</p>
                     </Link>
-            </div>
-        )
-    }
+                </div>
+            )
+        }
     }
 };
 
