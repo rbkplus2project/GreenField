@@ -5,7 +5,7 @@ const initState = {
     showMenu: "hide",
     showSearch: "hide",
     showSettings:"hide",
-    showSign: "hide",
+    showSign: false,
     Games: [],
     GameIndex: -1
 }
