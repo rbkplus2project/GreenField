@@ -34,14 +34,15 @@ class AddGame extends Component {
     }
     addImageField = (e) => {
         this.setState({image: "image" + ++this.count})
-        let newImageField = $(`<label htmlFor=${this.state.image}>Game ${this.state.image}:</label><input type="text" class="text" name=${this.state.image} />`)
+        let newImageField = $(`<label htmlFor=${this.state.image}>Game ${this.state.image}:</label><input type="text" class="text" name=${this.state.image} /><br>`)
         $("#addmoreimgs").before(newImageField)
     }
     render() {
         return (
-            <div>
+            <div className="center styled">
                 <h1>Upload Your Own Game!</h1>
-                <form id="addgame-form" onSubmit={this.handleSubmit}>
+                <br/>
+                <form id="addgame-form" className="column" onSubmit={this.handleSubmit}>
                     <label htmlFor="title">Game Title:</label>
                     <input type="text" className="text" name="title" /> {/* required */}
                     
@@ -56,8 +57,10 @@ class AddGame extends Component {
 
                     <label htmlFor="image1">Game image1:</label>{/* required */}
                     <input type="text" className="text" name="image1" />
-                    <input type="button" name="addmoreimgs" id="addmoreimgs" value="+" onClick={this.addImageField}/>
-                    <button>Upload</button>
+                    <br/>
+                    <input type="button" className="button" style={{width:'2vw'}} name="addmoreimgs" id="addmoreimgs" value="+" onClick={this.addImageField}/>
+                    <br/>
+                    <button className="button">Upload</button>
                 </form>
             </div>
         )
