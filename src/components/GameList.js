@@ -8,7 +8,6 @@ class GameList extends Component {
         this.state = {
         }
     }
-    
     render() {
         return (
             <div>
@@ -17,7 +16,7 @@ class GameList extends Component {
                         <FrontSide>
                             <Fade {...FadeProperties}>
                                 {Game1.map((each, i) => (
-                                    <img key={i} className="gameimg" src={each} alt="" onClick={'https://memory-game-1.herokuapp.com/index.html'} />
+                                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} />
                                 ))}
                             </Fade>
                         </FrontSide>
