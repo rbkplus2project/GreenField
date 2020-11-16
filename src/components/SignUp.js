@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 const $ = require('jquery');
-class SignUpForm extends Component {
+class SignUp extends Component {
      constructor(props) {
          super(props);
          this.state = {
@@ -40,23 +40,23 @@ class SignUpForm extends Component {
             return <Redirect to="/signin"/>
         } else {
             return (
-                <div id="signup" className="center">
+                <div id="signup" className="center styled">
                 <form id="signup-form" onSubmit={this.handleSubmit}>
                     <h1>Sign Up</h1>
                     <br/>
                     <div className="column">
                     <label htmlFor="newusername">User Name:</label>
-                    <input type="text" id="newusername" name="newusername" onChange={this.handleChange} /><br/>
+                    <input type="text" className="text" id="newusername" name="newusername" onChange={this.handleChange} /><br/>
                     <label htmlFor="newPassword">Password:</label>
-                    <input type="password" id="newPassword" name="newPassword" onChange={this.handleChange} /><br/>
+                    <input type="password" className="text" id="newPassword" name="newPassword" onChange={this.handleChange} /><br/>
                     <label htmlFor="confirmPassword">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" onChange={this.handleChange} />
+                    <input type="password" className="text" id="confirmPassword" name="confirmPassword" onChange={this.handleChange} />
                     </div>
                     <br/>
-                    <button>Sign Up</button><br/>
+                    <button className="button">Sign Up</button><br/>
                 </form>
                     <Link to="/signin">
-                    <button>Sign In</button><br/>
+                    <button className="button">Sign In</button><br/>
                     </Link>
             </div>
         )
@@ -64,4 +64,4 @@ class SignUpForm extends Component {
     }
 };
 
-export default SignUpForm;
+export default SignUp;
