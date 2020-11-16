@@ -10,3 +10,9 @@ export const showSearch = (z) => {
         showSearch: z
     }
 }
+export const showSign = (z) => {
+    return {
+        type: 'SHOW_SIGN',
+        showSign: z
+    }
+}
