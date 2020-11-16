@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './NavBar'
 
 let SignOut = () => {
-    let signout = () => localStorage.removeItem('gamesio') 
+    let signout = () => { Navbar.setState({}); localStorage.removeItem('gamesio')} 
     return (
         <div>
             <h2 className="styled">Sign Out?</h2>
