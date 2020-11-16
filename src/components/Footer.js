@@ -10,7 +10,7 @@ class Footer extends Component {
                             <p className="text-justify">Gamesio.com is a gaming website that gives the the opportunity to play fun games</p>
                         </div>
 
-                        <hr class="clearfix w-100 d-md-none" />
+                        <hr className="clearfix w-100 d-md-none" />
 
                         <div className="col-md-2 mx-auto">
                             <h6 className="font-weight-bold text-uppercase mt-3 mb-4">Categories</h6>
@@ -21,7 +21,7 @@ class Footer extends Component {
                             </ul>
                         </div>
 
-                        <hr class="clearfix w-100 d-md-none"></hr>
+                        <hr className="clearfix w-100 d-md-none"></hr>
 
                         <div className="col-md-2 mx-auto">
                             <h6 className="font-weight-bold text-uppercase mt-3 mb-4">Quick Links</h6>
