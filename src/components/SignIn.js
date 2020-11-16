@@ -23,13 +23,12 @@ class SignIn extends Component {
 
         axios(options)
             .then((results) => {
-                // localStorage.setItem('gamesio', results.data);
-                // this.setState({ redirect: true })
                 if(results.status === 200){
-                    this.props.sign("show")
+                    this.props.sign("show");
+                    this.setState({ redirect: true });
+                    localStorage.setItem('gamesio', results.data);
                 };
             })
-
             .catch((err) => {
                 console.log("error here ====>", err);
             })

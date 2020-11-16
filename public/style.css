@@ -11,8 +11,8 @@ body {
     border-radius: 12px;
     font-weight: bold;
     text-align: center;
-    padding: 0 0 5px;
     color:red;
+    padding: 0 0 5px;
     background-color: transparent;
     height:30px;
     width:200px;
@@ -33,7 +33,7 @@ input[type='text']::placeholder,input[type='number']::placeholder, input[type='p
     font-weight: bold;
     text-align: center;
 }
-input:hover, textarea:hover, button:hover, .navitem:hover{
+input:hover, textarea:hover, button:hover{
     transition: 1s;
     background-color: cyan;
 }
@@ -71,15 +71,33 @@ input:hover, textarea:hover, button:hover, .navitem:hover{
     display: flex;
     flex-flow: row wrap;
 }
+.settings{
+  position:fixed;
+  top:66px;
+  left:150px;
+  z-index: 500;
+}
 .navitem{
     background-color: violet;
     border: 3px groove purple;
-    margin-left: 3px;
+    margin-right: 3px;
     border-radius: 30px;
     height: 50px;
     width: 50px;
     outline: none;
 }
+.settingsitem{
+  background-color: violet;
+  border: 3px groove purple;
+  font-weight: bold;
+  text-align: center;
+  color:purple;
+  margin-top: 10px;
+  border-radius: 12px;
+  height: 30px;
+  width: 200px;
+  outline: none;
+} 
 .gameitem{
     display: inline-block;
     width: 45vw;
@@ -138,11 +156,3 @@ footer {
     right: 0;
     bottom: 0;
 }
-.settings{
-  background-color: violet;
-  border: 3px groove purple;
-  border-radius: 90px;
-  height: 50px;
-  width: 50px;
-  outline: none;
-} 

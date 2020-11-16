@@ -16,8 +16,8 @@ class GameList extends Component {
                     <Flippy flipOnHover={true}  flipDirection="horizontal" ref={(r) => this.flippy = r}>
                         <FrontSide>
                             <Fade {...properties}>
-                                {Game1.map((each, i) => (
-                                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} />
+                                {Game1.photos.map((each, i) => (
+                                    <img key={i} className="gameimg" src={each} alt="" onClick={()=>{handleClick(Game1.link)}} />
                                 ))}
                             </Fade>
                         </FrontSide>
@@ -35,8 +35,8 @@ class GameList extends Component {
                     <Flippy flipOnHover={true} flipDirection="horizontal" ref={(r) => this.flippy = r}>
                         <FrontSide>
                             <Fade {...properties}>
-                                {Game2.map((each, i) => (
-                                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} />
+                                {Game2.photos.map((each, i) => (
+                                    <img key={i} className="gameimg" src={each} alt="" onClick={()=>{handleClick(Game2.link)}} />
                                 ))}
                             </Fade>
                         </FrontSide>
@@ -54,8 +54,8 @@ class GameList extends Component {
                     <Flippy flipOnHover={true} flipDirection="horizontal" ref={(r) => this.flippy = r}>
                         <FrontSide>
                             <Fade {...properties}>
-                                {Game3.map((each, i) => (
-                                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} />
+                                {Game3.photos.map((each, i) => (
+                                    <img key={i} className="gameimg" src={each} alt="" onClick={()=>{handleClick(Game3.link)}} />
                                 ))}
                             </Fade>
                         </FrontSide>
@@ -73,8 +73,8 @@ class GameList extends Component {
                     <Flippy flipOnHover={true} flipDirection="horizontal" ref={(r) => this.flippy = r}>
                         <FrontSide>
                             <Fade {...properties}>
-                                {Game4.map((each, i) => (
-                                    <img key={i} className="gameimg" src={each} alt="" onClick={handleClick} />
+                                {Game4.photos.map((each, i) => (
+                                    <img key={i} className="gameimg" src={each} alt="" onClick={()=>{handleClick(Game4.link)}} />
                                 ))}
                             </Fade>
                         </FrontSide>
