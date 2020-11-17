@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt');
 
 userRouter.route('/:username')
   .put((req, res) => {
-    console.log(req.params, req.body)
     userCtrl.update(req.params, req.body, (err, data) => {
       if (data.ok === 0) {
         res.sendStatus(400)

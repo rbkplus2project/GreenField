@@ -21,10 +21,8 @@ class Profile extends Component {
                 }
                 fetch('http://localhost:3000/user/' + name, options)
                 .then(res => {
-                    console.log(res)
                     if (res.status === 200) {
                         newUser.profile = e.target.result
-                        console.log(newUser)
                         this.props.setUser(newUser)
                         localStorage.setItem('gamesio', JSON.stringify(newUser))
                         this.setState({})
@@ -40,7 +38,6 @@ class Profile extends Component {
     updateName = () => {
         let newName = $('#change-name').val()
         let oldName = this.props.user.username
-        console.log(oldName, newName)
         let options = {
             method: 'put',
             headers: {"Content-Type": "application/json"},
@@ -48,7 +45,6 @@ class Profile extends Component {
         }
         fetch('http://localhost:3000/user/' + oldName, options)
         .then(res => {
-            console.log(res)
             if (res.status === 200) {
                 let newUser = this.props.user
                 newUser.username = newName
@@ -65,7 +61,6 @@ class Profile extends Component {
 
     }
     render() {
-        console.log(this.props)
         return (
             <div className="center styled profileBG">
                 <img className="profile-settings" alt="profile-pic" src={this.props.user.profile ? this.props.user.profile : "https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png"} />
