@@ -8,7 +8,8 @@ class Towers extends Component{
             'src':'media/light.mp3', 
             'autoplay':'autoplay'
         })
-    })
+      })
+      document.body.style.backgroundImage="url('media/grass.jpg')"
       let x=document.getElementsByClassName("lastfire")[0]
       let y=document.getElementsByClassName("fire")
       setInterval(()=>{for (var i = 0; i < y.length; i++) {
