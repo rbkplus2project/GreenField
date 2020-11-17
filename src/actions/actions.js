@@ -16,3 +16,21 @@ export const showSign = (z) => {
         showSign: z
     }
 }
+export const showSettings = (z) => {
+    return {
+        type: 'SHOW_SETTINGS',
+        showSettings: z
+    }
+}
+export const getGames = (z) => {
+    return {
+        type: 'GET_GAMES',
+        Games: z
+    }
+}
+export const gameIndex = (z) => {
+    return {
+        type: 'GAME_INDEX',
+        gameIndex: z
+    }
+}

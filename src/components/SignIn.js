@@ -5,12 +5,11 @@ import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 const $ = require('jquery');
 class SignIn extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         redirect: false
-    //     }
-    // }
+     constructor(props) {
+         super(props);
+         this.state = {
+         }
+     }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -23,22 +22,20 @@ class SignIn extends Component {
 
         axios(options)
             .then((results) => {
-                // localStorage.setItem('gamesio', results.data);
-                // this.setState({ redirect: true })
                 if(results.status === 200){
-                    this.props.sign("show")
+                    this.props.sign(1);
+                    localStorage.setItem('gamesio', results.data);
+                    this.setState({})
                 };
             })
-
             .catch((err) => {
-                console.log("error here ====>", err);
+                console.error(err);
             })
     }
 
     render() {
-        console.log(this.props)
-        if (this.props.showSign === "show") {
-            return <Redirect to="/" />
+        if (localStorage.getItem('gamesio')) {
+            return <Redirect to="/"/>
         } else {
             return (
                 <div id="signin" className="center styled">
@@ -47,7 +44,7 @@ class SignIn extends Component {
                         <br />
                         <div className="column">
                             <label htmlFor="username">User Name:</label>
-                            <input type="text" className="text" id="username" name="username" /><br />
+                            <input type="text" className="text" id="username" name="username" />
 
                             <label htmlFor="Password">Password:</label>
                             <input type="password" className="text" id="password" name="password" />
@@ -55,12 +52,12 @@ class SignIn extends Component {
                         <br />
                         <button className="button">Sign In</button><br />
                     </form>
-                    <Link to="/signup">
-                        <button className="button">Sign Up</button><br />
+                    <Link to="/signup" style={{textDecoration: "none"}}>
+                        <p>Sign Up</p>
                     </Link>
                 </div>
             )
-        }
+        }   
     }
 };
 
