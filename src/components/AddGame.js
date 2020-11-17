@@ -33,7 +33,6 @@ class AddGame extends Component {
         axios(options)
             .then(res => {
                 if (res.status === 200) {
-                    let func = this.addImageField
                     $('#addgame-form').html(`
                         <label htmlFor="title">Game Title:</label>
                         <input type="text" class="text" name="title" required/>
@@ -50,7 +49,7 @@ class AddGame extends Component {
                         <label htmlFor="image1">Game image1:</label>
                         <input type="url" class="text" name="image1" required/>
                         <br>
-                        <input type="button" style="width:2vw" class="button" name="addmoreimgs" id="addmoreimgs" value="+" onclick=${func}() />
+                        <input type="button" style="width:2vw" class="button" name="addmoreimgs" id="addmoreimgs" value="+" onclick="${this.addImageField}()"/>
                         <br>
                         <button class="button">Upload</button>`)
                     this.count = 2
