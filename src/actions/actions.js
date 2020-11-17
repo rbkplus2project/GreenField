@@ -34,3 +34,9 @@ export const gameIndex = (z) => {
         gameIndex: z
     }
 }
+export const setUser = (z) => {
+    return {
+        type: 'USER_INFO',
+        user: z
+    }
+}

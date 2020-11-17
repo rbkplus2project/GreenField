@@ -198,6 +198,7 @@ footer {
 }
 .edit{
   margin: 10px;
+  width: 200px;
   outline: none;
   padding: 4px 30px;
   border-radius: 50px;

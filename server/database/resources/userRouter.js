@@ -28,7 +28,8 @@ userRouter.route('/signin')
           if (valid) {
             const token = jwt.sign({ _id: data[0]._doc._id }, 'duwjieurbyve');
             console.log(token);
-            res.header('auth-token', token).send(token);
+            let {username, games, _id} = data[0]._doc
+            res.header('auth-token', token).json({data: {username: username, games: games, _id: _id}, token: token});
           } else {
             res.status(400).send('password incorrect');
           }
