@@ -13,7 +13,7 @@ class GameFrame extends Component {
     if (localStorage.getItem('gamesio') && this.props.gameIndex !== -1) {
         return (
             <div>
-                <iframe src={this.props.Games[this.props.gameIndex].url} width="100%" height="100%" title={this.props.Games[this.props.gameIndex].name}/>
+                <iframe src={this.props.Games[this.props.gameIndex].url} width="100%" height="100%" title={this.props.Games[this.props.gameIndex].disc.name}/>
             </div>
         ) 
     } else if (localStorage.getItem('gamesio')) {
