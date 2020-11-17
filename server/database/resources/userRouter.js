@@ -3,6 +3,18 @@ const userCtrl = require('./userController.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
+userRouter.route('/:username')
+  .put((req, res) => {
+    userCtrl.update(req.params, req.body, (err, data) => {
+      if (err) {
+        res.sendStatus(400)
+      }
+      else {
+        res.json(data)
+      }
+    })
+  })
+
 userRouter.route('/signup')
   .post((req, res) => {
     userCtrl.create(req.body, (err, data) => {
