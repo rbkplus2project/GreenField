@@ -11,10 +11,8 @@ class AddGame extends Component {
         }
     }
     handleSubmit = (e) => {
-        console.log($('#addgame-form').val())
         e.preventDefault();
         let input = $('#addgame-form').serializeArray();
-        console.log(input)
         let request = {
             url: input[1].value,
             imgs: input.slice(4).map(elem => elem.value),
