@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GameItem from './GameItem'
 import {connect} from 'react-redux'
-import { getGames } from '../actions/actions.js';
+import { getGames, setUser } from '../actions/actions.js';
 
 
 
@@ -15,7 +15,15 @@ class GameList extends Component {
     componentDidMount() {
         fetch('http://localhost:3000/game')
           .then(res => res.json())
-            .then(res => { this.props.getArr(res); return res})
+            .then(res => {
+                this.props.getGames(res);
+                if (localStorage.getItem('gamesio')) {
+                    let newUser = this.props.user;
+                    newUser.games = res.filter(elem => elem.postedBy === this.props.user._id);
+                    this.props.setUser(newUser);
+                    localStorage.setItem('gamesio', JSON.stringify(newUser));
+                }
+            })
     }
     render() {
         return (
@@ -28,12 +36,14 @@ class GameList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        Games: state.Games
+        Games: state.Games,
+        user: state.user
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        getArr: (z) => { dispatch(getGames(z)) }
+        getGames: (z) => { dispatch(getGames(z)) },
+        setUser: (z) => { dispatch(setUser(z)) }
     }
 }
 

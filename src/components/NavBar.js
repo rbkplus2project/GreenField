@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { showMenu, showSearch, showSettings, showSign } from '../actions/actions.js';
+import { showMenu, showSearch, showSettings, showSign, setUser } from '../actions/actions.js';
 
 
 class NavBar extends Component {
@@ -11,9 +11,10 @@ class NavBar extends Component {
     }
   }
 
-    componentDidMount() {
+    UNSAFE_componentWillMount() {
         if (localStorage.getItem('gamesio')) {
             this.props.sign(1);
+            this.props.setUser(JSON.parse(localStorage.getItem('gamesio')))
         }
     }
   handleMenu = () => {
@@ -70,7 +71,7 @@ class NavBar extends Component {
           </Link>
 
           <Link to="/profile">
-            <input type="image" className="navitem" alt="Profile" style={{ display: this.props.showSign ? "" : "none" }} src={localStorage.getItem('profile') ? localStorage.getItem('profile') : "./media/signin.png"}></input>
+            <input type="image" className="navitem" alt="Profile" style={{ display: this.props.showSign ? "" : "none" }} src={this.props.user.profile ? this.props.user.profile : "./media/signin.png"}></input>
           </Link>
           
           <Link to="/addgame">
@@ -117,7 +118,8 @@ const mapStateToProps = (state) => {
     showMenu: state.showMenu,
     showSearch: state.showSearch,
     showSign: state.showSign,
-    showSettings:state.showSettings
+    showSettings: state.showSettings,
+    user: state.user
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -125,7 +127,8 @@ const mapDispatchToProps = (dispatch) => {
     menu: (z) => { dispatch(showMenu(z)) },
     search: (z) => { dispatch(showSearch(z)) },
     settings: (z) => { dispatch(showSettings(z)) },
-    sign: (z) => { dispatch(showSign(z)) }
+    sign: (z) => { dispatch(showSign(z)) },
+    setUser: (z) => { dispatch(setUser(z)) }
   }
 }
 
