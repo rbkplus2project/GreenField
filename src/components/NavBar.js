@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { showMenu, showSearch, showSettings, showSign } from '../actions/actions.js';
+import { showMenu, showSearch, showSettings, showSign, setUser } from '../actions/actions.js';
 
 
 class NavBar extends Component {
@@ -14,6 +14,7 @@ class NavBar extends Component {
     componentDidMount() {
         if (localStorage.getItem('gamesio')) {
             this.props.sign(1);
+            this.props.setUser(JSON.parse(localStorage.getItem('gamesio')).data)
         }
     }
   handleMenu = () => {
@@ -84,7 +85,7 @@ class NavBar extends Component {
             
             <Link to="/profile" style={{textDecoration: "none"}}>
               <div className="profileitem">
-                <img src="https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png" className=" profile" />
+                <img src={localStorage.getItem(this.props.user.username) ? localStorage.getItem(this.props.user.username) : "https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png"} className=" profile" />
                 <br/>
                 <span>Edit profile</span>
               </div>
@@ -110,7 +111,8 @@ const mapStateToProps = (state) => {
     showMenu: state.showMenu,
     showSearch: state.showSearch,
     showSign: state.showSign,
-    showSettings:state.showSettings
+    showSettings: state.showSettings,
+    user: state.user
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -118,7 +120,8 @@ const mapDispatchToProps = (dispatch) => {
     menu: (z) => { dispatch(showMenu(z)) },
     search: (z) => { dispatch(showSearch(z)) },
     settings: (z) => { dispatch(showSettings(z)) },
-    sign: (z) => { dispatch(showSign(z)) }
+    sign: (z) => { dispatch(showSign(z)) },
+    setUser: (z) => { dispatch(setUser(z)) }
   }
 }
 
