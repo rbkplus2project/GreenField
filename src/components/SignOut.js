@@ -4,7 +4,12 @@ import { showSign } from '../actions/actions.js';
 import { connect } from 'react-redux';
 
 class SignOut extends Component {
-    // let signout = () => localStorage.removeItem('gamesio') 
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+      }
+      
     handleClick = (e) => {
         /*
         let options = {
@@ -28,20 +33,18 @@ class SignOut extends Component {
         */
 
         ////// temporary solution, should be handled upon signout response from the server
-        if (this.props.showSign === "hide") {
-            this.props.sign("show");
-        }
-        else {
-            this.props.sign("hide");
-        }
+        localStorage.removeItem('gamesio'); 
+        this.props.sign(0);
     }
     render() {
         return (
-            <div>
-                <h2 className="styled">Sign Out?</h2>
+            <div className=" center column styled">
+                <h1>Sign Out?</h1>
+                <br></br>
                 <Link to="/">
                     <button className="button" onClick={this.handleClick}>Yes</button>
                 </Link>
+                <br></br>
                 <Link to="/">
                     <button className="button">No</button>
                 </Link>
