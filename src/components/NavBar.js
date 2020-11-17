@@ -65,18 +65,22 @@ class NavBar extends Component {
             <input type="image" className="navitem" alt="SignUp" style={{ display: this.props.showSign ? "none" : "" }} src="./media/signup.png"></input>
           </Link>
 
+          <Link to="/profile">
+            <input type="image" className="navitem" alt="Profile" style={{ display: this.props.showSign ? "" : "none" }} src={localStorage.getItem('profile') ? localStorage.getItem('profile') : "./media/signin.png"}></input>
+          </Link>
+          
           <Link to="/addgame">
             <input type="image" className="navitem" alt="Add" style={{ display: this.props.showSign ? "" : "none" }} src="./media/addgame.png"></input>
           </Link>
 
-          <Link to="/signout">
-            <input type="image" className="navitem" alt="SignOut" style={{ display: this.props.showSign ? "" : "none" }} src="./media/signout.png"></input>
+          <input type="image" className="navitem" alt="Settings" src="./media/cog.png" onClick={this.handleSettings}></input>
+         
+          <Link to="/test">
+          <input type="image" className="navitem" alt="Test" src="./media/star.png"></input>
           </Link>
 
-          <input type="image" className="navitem" alt="Settings" src="./media/cog.png" onClick={this.handleSettings}></input>
-          
-          <Link to="/towers">
-          <input type="image" className="navitem" alt="Towers" src="./media/towers.png"></input>
+          <Link to="/signout">
+            <input type="image" className="navitem" alt="SignOut" style={{ display: this.props.showSign ? "" : "none" }} src="./media/signout.png"></input>
           </Link>
 
           <input type="image" className="navitem" alt="Search" src="./media/search.png" onClick={this.handleSearch}></input>
