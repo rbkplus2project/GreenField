@@ -11,10 +11,8 @@ class AddGame extends Component {
         }
     }
     handleSubmit = (e) => {
-        console.log($('#addgame-form').val())
         e.preventDefault();
         let input = $('#addgame-form').serializeArray();
-        console.log(input)
         let request = {
             url: input[1].value,
             imgs: input.slice(4).map(elem => elem.value),
@@ -22,7 +20,8 @@ class AddGame extends Component {
                 name: input[0].value,
                 type: input[2].value,
                 dificulty: input[3].value
-            }
+            },
+            postedBy: JSON.parse(localStorage.getItem('gamesio'))._id
         }
         let options = {
             url: `http://localhost:3000/game`,
@@ -45,7 +44,7 @@ class AddGame extends Component {
                         <label htmlFor="image1">Game image1:</label>
                         <input type="url" class="text" name="image1" required/>
                         <br><button class="button">Upload</button>`)
-                    this.count = 2
+                    this.count = 2;
                 }
             })
             .catch(err => console.log("error here ====>", err))

@@ -9,6 +9,10 @@ exports.find = function (req, res) {
   User.find(req, res);
 };
 
+exports.update = function(find, change, res) {
+  User.update(find, change, res);
+};
+
 exports.delete = function(req, res) {
   User.remove(req, res);
 };

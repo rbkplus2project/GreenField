@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 let gameSchema = mongoose.Schema({
   url: String,
   imgs: Array,
-  disc: Object
+  disc: Object,
+  postedBy: String
 });
 
 // {
