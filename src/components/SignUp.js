@@ -49,6 +49,9 @@ class SignUp extends Component {
                             <label htmlFor="newusername">User Name:</label>
                             <input type="text" className="text" id="newusername" name="newusername" />
 
+                            <label htmlFor="email">Email:</label>
+                            <input type="email" className="text" id="email" name="email" />
+
                             <label htmlFor="newPassword">Password:</label>
                             <input type="password" className="text" id="newPassword" name="newPassword" />
 
