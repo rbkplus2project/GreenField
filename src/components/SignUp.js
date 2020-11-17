@@ -14,22 +14,27 @@ class SignUp extends Component {
         e.preventDefault();
         let input = $('#signup-form').serializeArray();
         if (input[1].value === input[2].value) {
-            let options = {
-                url: `http://localhost:3000/user/signup`,
+            if (input[1].value.length >= 6) {
+
+                let options = {
+                    url: `http://localhost:3000/user/signup`,
                 method: 'post',
                 data: { username: input[0].value, password: input[1].value }
             }
-
+            
             axios(options)
-                .then((results) => {
+            .then((results) => {
                     if (results.status === 200) {
                         this.setState({ redirect: true })
-                    };
+                    }
                 })
-
                 .catch((err) => {
                     console.log("error here ====>", err);
+                    alert('username taken')
                 })
+            } else {
+                alert("Password must be 6 characters long")
+            }
         }
         else {
             alert("Password doesn't match");

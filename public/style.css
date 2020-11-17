@@ -36,7 +36,7 @@ input[type='text']::placeholder,input[type='number']::placeholder, input[type='p
     font-weight: bold;
     text-align: center;
 }
-input:hover, textarea:hover, button:hover{
+input:hover, textarea:hover, button:hover, .profileitem:hover{
     transition: 1s;
     background-color: cyan;
 }
@@ -44,7 +44,8 @@ input:hover, textarea:hover, button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
+    overflow: auto;
 }
 .row{
     display: flex;
@@ -191,4 +192,64 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
+}
+.profileitem{
+  background-color: violet;
+  border: 3px groove purple;
+  font-weight: bold;
+  text-align: center;
+  color:purple;
+  margin-top: 10px;
+  border-radius: 12px;
+  height: 70px;
+  width: 200px;
+  outline: none;
+}
+.profile{
+  width: 50px;
+  height: 50px;
+  display: inline;
+  float: left;
+  margin: 7px;
+  border: 3px solid grey;
+  border-radius: 50px;
+  background-color: mistyrose;
+}
+.profile-settings{
+  width: 100px;
+  height: 100px;
+  display: inline;
+  float: left;
+  margin: 7px;
+  border: 3px solid grey;
+  border-radius: 50px;
+  background-color: mistyrose;
+}
+.edit-photo{
+  margin: 40px;
+  outline: none;
+  padding: 4px 30px;
+  border-radius: 50px;
+  background-color: violet;
+  border: 3px groove purple;
+}
+.edit{
+  margin: 10px;
+  width: 200px;
+  outline: none;
+  padding: 4px 30px;
+  border-radius: 50px;
+  background-color: violet;
+  border: 3px groove purple;
+}
+.profileBG{
+  background-color: rgb(229, 153, 229);
+  padding: 20px;
+  border: 7px solid rgb(12, 0, 78);
+  border-radius: 10px;
+  height: 95%;
+  overflow: auto;
+}
+.display-game{
+  
 }
