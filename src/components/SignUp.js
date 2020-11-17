@@ -17,7 +17,7 @@ class SignUp extends Component {
             let options = {
                 url: `http://localhost:3000/user/signup`,
                 method: 'post',
-                data: { username: input[0].value, password: input[1].value }
+                data: { username: input[0].value, email: input[1].value, password: input[2].value }
             }
 
             axios(options)
@@ -47,10 +47,13 @@ class SignUp extends Component {
                         <br />
                         <div className="column">
                             <label htmlFor="newusername">User Name:</label>
-                            <input type="text" className="text" id="newusername" name="newusername" /><br />
+                            <input type="text" className="text" id="newusername" name="newusername" />
+
+                            <label htmlFor="email">Email:</label>
+                            <input type="email" className="text" id="email" name="email" />
 
                             <label htmlFor="newPassword">Password:</label>
-                            <input type="password" className="text" id="newPassword" name="newPassword" /><br />
+                            <input type="password" className="text" id="newPassword" name="newPassword" />
 
                             <label htmlFor="confirmPassword">Confirm Password:</label>
                             <input type="password" className="text" id="confirmPassword" name="confirmPassword" />
@@ -58,8 +61,9 @@ class SignUp extends Component {
                         <br />
                         <button className="button">Sign Up</button><br />
                     </form>
-                    <Link to="/signin">
-                        <button className="button">Sign In</button><br />
+
+                    <Link to="/signin" style={{textDecoration: "none"}}>
+                        <p>Already have an account? <a href="http://localhost:3000/signin">Sign In</a></p>
                     </Link>
                 </div>
             )

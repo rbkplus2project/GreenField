@@ -4,25 +4,25 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 const $ = require('jquery');
-class SignIn extends Component {
-     constructor(props) {
-         super(props);
-         this.state = {
-         }
-     }
+class ResetPassword extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+    }
 
     handleSubmit = (e) => {
         e.preventDefault();
         let input = $('#signin-form').serializeArray();
         let options = {
-            url: `http://localhost:3000/user/signin`,
+            url: `http://localhost:3000/user/reset`,
             method: 'post',
-            data: { username: input[0].value, password: input[1].value }
+            data: { email: input[0].value }
         }
 
         axios(options)
             .then((results) => {
-                if(results.status === 200){
+                if (results.status === 200) {
                     this.props.sign(1);
                     localStorage.setItem('gamesio', results.data);
                     this.setState({})
@@ -35,29 +35,23 @@ class SignIn extends Component {
 
     render() {
         if (localStorage.getItem('gamesio')) {
-            return <Redirect to="/"/>
+            return <Redirect to="/" />
         } else {
             return (
                 <div id="signin" className="center styled">
                     <form id="signin-form" onSubmit={this.handleSubmit}>
-                        <h1>Sign In</h1>
+                        <h1>Forgot Password</h1>
                         <br />
                         <div className="column">
-                            <label htmlFor="username">User Name:</label>
-                            <input type="text" className="text" id="username" name="username" />
-
-                            <label htmlFor="Password">Password:</label>
-                            <input type="password" className="text" id="password" name="password" />
+                            <label htmlFor="email">Email:</label>
+                            <input type="email" className="text" id="email" name="email" />
                         </div>
                         <br />
-                        <button className="button">Sign In</button><br />
+                        <button className="button">Reset Password</button><br />
                     </form>
-                    <Link to="/reset" style={{textDecoration: "none"}}>
-                        <a href="http://localhost:3000/reset"><p>Forgot password?</p></a>
-                    </Link>
                 </div>
             )
-        }   
+        }
     }
 };
 
@@ -74,4 +68,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(ResetPassword);
