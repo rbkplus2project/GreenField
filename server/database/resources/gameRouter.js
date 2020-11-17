@@ -16,7 +16,7 @@ gameRouter.route('/')
     console.log(req.body)
     gameCtrl.create(req.body, (err, data) => {
       if (err) {
-        res.sendStatus(400);
+        res.status(400).send(err);
       } else {
         res.json(data);
       }
