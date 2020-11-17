@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { showMenu, showSearch, showSettings, showSign } from '../actions/actions.js';
+import { showMenu, showSearch, showSettings, showSign, setUser } from '../actions/actions.js';
 
 
 class NavBar extends Component {
@@ -11,9 +11,10 @@ class NavBar extends Component {
     }
   }
 
-    componentDidMount() {
+    UNSAFE_componentWillMount() {
         if (localStorage.getItem('gamesio')) {
             this.props.sign(1);
+            this.props.setUser(JSON.parse(localStorage.getItem('gamesio')))
         }
     }
   handleMenu = () => {
@@ -44,6 +45,7 @@ class NavBar extends Component {
   }
 
   render() {
+    console.log(this.props.user)
     return (
       <div className="menu" >
 
@@ -87,6 +89,15 @@ class NavBar extends Component {
 
         <div className ='settings column' style={{ display: this.props.showSettings ? "" : "none" }}>
             
+            <Link to="/profile" style={{textDecoration: "none"}}>
+              <div className="profileitem" style={{ display: this.props.showSign ? "" : "none" }} >
+                <img src={this.props.user.profile ? this.props.user.profile : "https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png"} className="profile" alt="plop" />
+                <br/>
+                <span>Edit profile</span>
+              </div>
+            
+            </Link>
+
             <Link to="/colors">
             <button className ='settingsitem'>Colors</button>
             </Link>
@@ -107,7 +118,8 @@ const mapStateToProps = (state) => {
     showMenu: state.showMenu,
     showSearch: state.showSearch,
     showSign: state.showSign,
-    showSettings:state.showSettings
+    showSettings: state.showSettings,
+    user: state.user
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -115,7 +127,8 @@ const mapDispatchToProps = (dispatch) => {
     menu: (z) => { dispatch(showMenu(z)) },
     search: (z) => { dispatch(showSearch(z)) },
     settings: (z) => { dispatch(showSettings(z)) },
-    sign: (z) => { dispatch(showSign(z)) }
+    sign: (z) => { dispatch(showSign(z)) },
+    setUser: (z) => { dispatch(setUser(z)) }
   }
 }
 

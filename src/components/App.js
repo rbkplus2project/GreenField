@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import React, { Component } from 'react';
 import GameFrame from './GameFrame.js';
+import AddGame from './AddGame.js';
+import Profile from './Profile.js';
 import SignOut from './SignOut.js';
 import AddGame from './AddGame.js';
 import Towers from './Towers.js';
@@ -32,7 +34,7 @@ class App extends Component {
                     <Route path="/signout" component={SignOut}/>
                     <Route path="/frame" component={GameFrame}/>
                     <Route path="/addgame" component={AddGame}/>
-                    <Route path="/towers" component={Towers}/>
+                    <Route path="/profile" component={Profile}/>
                 </Switch>
             </div>
             </Router>
