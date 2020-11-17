@@ -1,6 +1,7 @@
 // import schemas
 const User = require('./user.js');
 
+
 exports.create = function(req, res) {
   User.create(req, res);
 };

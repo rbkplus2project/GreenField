@@ -2,9 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const mongo = require('./database');
 
+
+
 let app = express();
 
 mongo();
+// app.use(session({ secret: 'session secret key' }));
 
 app.use(cors());
 app.use(express.static(__dirname + '/../public'));
@@ -17,11 +20,11 @@ app.use('/game', require('./database/resources/gameRouter'));
 app.use('/test', require('./database/resources/testpath'));
 
 
+
 let port = 3000;
 
 app.listen(port, () => {
   console.log('Listening on port: ' + port);
 });
-
 
 module.exports = app;
