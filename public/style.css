@@ -1,10 +1,13 @@
-body {
+html{
+  min-height: 600px;
+}
+body{
     background-image: url('media/neon.jpg');
     background-color: purple;
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
-    min-height: 100%;
+    min-height: 600px;
 }
 .button{
     border: 4px groove purple;
@@ -101,20 +104,53 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
 } 
 .gameitem{
     display: inline-block;
-    width: 45vw;
+    width: 49.36vw;
     height: 50vh;
-    margin: 1vw;
-    padding: 10px;
     cursor: pointer;
-    border: 5px solid purple;
+    background-color: rgb(77, 77, 88);
 }
 .gameinfo{
-  background-color:grey;
+  background-color: rgb(33, 33, 33);
   height: 100%;
+  text-align: center;
+  color: grey;
+  border-radius: 12px;
 }
 .gameimg{
-    height: 45vh;
+    height: 46vh;
     width: 100%;
+    border-radius: 12px;
+}
+.disc{
+  margin-top: 3vw;
+}
+.tower{
+  width:24vw;
+  height: 80vh;
+  margin-top: 10vh;
+}
+.fire{
+  width: 5vw;
+  height: 1vh;
+  margin-right: 19vw;
+  border-radius: 15px;
+  background-color: red;
+}
+.lastfire{
+  width: 5vw;
+  height: 1vh;
+  border-radius: 15px;
+  background-color: red;
+}
+.fires{
+  position: fixed;
+  z-index: 10;
+  top: 25vh;
+  left: 11vw;
+  height: 55vh;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
 }
 
   .each-slide > div {
