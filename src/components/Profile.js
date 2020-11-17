@@ -80,8 +80,8 @@ class Profile extends Component {
     render() {
         console.log(this.props.user)
         return (
-            <div className="center styled profileBG">
-                <img className="profile-settings" alt="profile-pic" src={this.props.user.profile ? this.props.user.profile : "./media/signin.png"} />
+            <div className="center styled profile">
+                <img className="profilesettings" alt="Profile" src={this.props.user.profile ? this.props.user.profile : "./media/signin.png"} />
                 <input type="file" id="newImg" className="edit-photo" onChange={()=>{this.updateImage(this)}}/>
                 <br />
                 <span>Username</span>  <input type="text" className="text" id="change-name" name="change-name" />  <button className="edit" onClick={this.updateName}>Change Name</button>
