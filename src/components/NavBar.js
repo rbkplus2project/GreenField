@@ -14,7 +14,7 @@ class NavBar extends Component {
     componentDidMount() {
         if (localStorage.getItem('gamesio')) {
             this.props.sign(1);
-            this.props.setUser(JSON.parse(localStorage.getItem('gamesio')).data)
+            this.props.setUser(JSON.parse(localStorage.getItem('gamesio')))
         }
     }
   handleMenu = () => {
@@ -45,6 +45,7 @@ class NavBar extends Component {
   }
 
   render() {
+    console.log(this.props.user)
     return (
       <div className="menu" >
         <input type="image" className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleMenu} style={{ display: this.props.showMenu ? "none" : "" }}></input>
