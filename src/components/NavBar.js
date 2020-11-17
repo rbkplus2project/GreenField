@@ -82,6 +82,15 @@ class NavBar extends Component {
         </nav>
           <div className ='settings column' style={{ display: this.props.showSettings ? "" : "none" }}>
             
+            <Link to="/profile" style={{textDecoration: "none"}}>
+              <div className="profileitem">
+                <img src="https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png" className=" profile" />
+                <br/>
+                <span>Edit profile</span>
+              </div>
+            
+            </Link>
+
             <Link to="/colors">
             <button className ='settingsitem'>Colors</button>
             </Link>

@@ -27,9 +27,9 @@ class GameItem extends Component {
                     <Link to='/frame'>
                        <BackSide>
                            <pre className="gameinfo" onClick={this.handleClick}>
-                               <h1>Name</h1>
-                               <h1>Type</h1>
-                               <h1>Difficulty</h1>
+                               <h1>{this.props.game.disc.name}</h1>
+                               <h1>{this.props.game.disc.type}</h1>
+                               <h1>{this.props.game.disc.dificulty}</h1>
                            </pre>
                         </BackSide>
                     </Link>
