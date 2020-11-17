@@ -11,6 +11,7 @@ class AddGame extends Component {
         }
     }
     handleSubmit = (e) => {
+        console.log($('#addgame-form').val())
         e.preventDefault();
         let input = $('#addgame-form').serializeArray();
         console.log(input)
@@ -30,7 +31,31 @@ class AddGame extends Component {
         }
 
         axios(options)
-            .then(res => {if (res.status === 200) {}})
+            .then(res => {
+                if (res.status === 200) {
+                    let func = this.addImageField
+                    $('#addgame-form').html(`
+                        <label htmlFor="title">Game Title:</label>
+                        <input type="text" class="text" name="title" required/>
+                        
+                        <label htmlFor="url">Game URL:</label>
+                        <input type="url" class="text" name="url" required/>
+
+                        <label htmlFor="type">Game Type:</label>
+                        <input type="text" class="text" name="type" />
+
+                        <label htmlFor="difficulty">Game difficulty:</label>
+                        <input type="text" class="text" name="difficulty" />
+
+                        <label htmlFor="image1">Game image1:</label>
+                        <input type="url" class="text" name="image1" required/>
+                        <br>
+                        <input type="button" style="width:2vw" class="button" name="addmoreimgs" id="addmoreimgs" value="+" onclick=${func}() />
+                        <br>
+                        <button class="button">Upload</button>`)
+                    this.count = 2
+                }
+            })
             .catch(err => console.log("error here ====>", err))
     }
     addImageField = () => {
