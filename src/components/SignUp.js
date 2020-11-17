@@ -17,7 +17,7 @@ class SignUp extends Component {
             let options = {
                 url: `http://localhost:3000/user/signup`,
                 method: 'post',
-                data: { username: input[0].value, password: input[1].value }
+                data: { username: input[0].value, email: input[1].value, password: input[2].value }
             }
 
             axios(options)
@@ -61,8 +61,9 @@ class SignUp extends Component {
                         <br />
                         <button className="button">Sign Up</button><br />
                     </form>
+
                     <Link to="/signin" style={{textDecoration: "none"}}>
-                    <p>Sign In</p>
+                        <p>Already have an account? <a href="http://localhost:3000/signin">Sign In</a></p>
                     </Link>
                 </div>
             )
