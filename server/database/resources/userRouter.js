@@ -2,18 +2,7 @@ const userRouter = require('express').Router();
 const userCtrl = require('./userController.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-
-userRouter.route('/:username')
-  .put((req, res) => {
-    userCtrl.update(req.params, req.body, (err, data) => {
-      if (data.ok === 0) {
-        res.sendStatus(400)
-      }
-      else {
-        res.json(data)
-      }
-    })
-  })
+const hash = require('../../middleware/hash')
 
 userRouter.route('/signup')
   .post((req, res) => {
@@ -62,5 +51,27 @@ userRouter.route('/removeuser')
       }
     });
   });
+  
+  userRouter.route('/:username')
+  .put((req, res) => {
+    userCtrl.update(req.params, req.body, (err, data) => {
+      if (data.ok === 0) {
+        res.sendStatus(400)
+      }
+      else {
+        res.json(data)
+      }
+    })
+  })
+  .post(hash, (req, res) => {
+    userCtrl.update(req.params, req.body, (err, data) => {
+      if (data.ok === 0) {
+        res.sendStatus(400) 
+      } else {
+        res.sendStatus(200)
+      }
+    })
+  })
+
 
 module.exports = userRouter;

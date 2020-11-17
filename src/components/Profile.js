@@ -58,7 +58,23 @@ class Profile extends Component {
         .catch(res => alert('username already taken'))
     }
     updatePass = () => {
-
+        let newPass = $('#change-pass').val()
+        let name = this.props.user.username
+        let options = {
+            method: 'post',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({password: newPass, username: name})
+        }
+        fetch('http://localhost:3000/user/' + name, options)
+            .then(res => {
+            console.log(res)
+            if (res.status === 200) {
+                alert('Password changed successfully')
+            } else {
+                throw new Error('plop')
+            }
+        })
+        .catch(res => alert('Password must be longer than 6 characters'))
     }
     render() {
         return (
@@ -68,7 +84,7 @@ class Profile extends Component {
                 <br />
                 <span>Username</span>  <input type="text" className="text" id="change-name" name="change-name" />  <button className="edit" onClick={this.updateName}>Change Name</button>
                 <br/>
-                <span>Password</span>  <input type="text" className="text" id="change-pass" name="change-pass" />  <button className="edit" onClick={this.updatePass}>Change Password</button>
+                <span>Password</span>  <input type="password" className="text" id="change-pass" name="change-pass" />  <button className="edit" onClick={this.updatePass}>Change Password</button>
                 <div>
                     <p>My Games:</p>
                     
