@@ -44,8 +44,11 @@ class NavBar extends Component {
     }
   }
 
+  search=()=>{
+
+  }
+
   render() {
-    console.log(this.props.user)
     return (
       <div className="menu" >
 
@@ -67,37 +70,34 @@ class NavBar extends Component {
             <input type="image" className="navitem" alt="SignUp" style={{ display: this.props.showSign ? "none" : "" }} src="./media/signup.png"></input>
           </Link>
 
+          <Link to="/profile">
+            <input type="image" className="navitem" alt="Profile" style={{ display: this.props.showSign ? "" : "none" }} src={this.props.user.profile ? this.props.user.profile : "./media/signin.png"}></input>
+          </Link>
+          
           <Link to="/addgame">
             <input type="image" className="navitem" alt="Add" style={{ display: this.props.showSign ? "" : "none" }} src="./media/addgame.png"></input>
+          </Link>
+
+          <input type="image" className="navitem" alt="Settings" src="./media/cog.png" onClick={this.handleSettings}></input>
+         
+          <Link to="/test">
+          <input type="image" className="navitem" alt="Test" src="./media/star.png"></input>
           </Link>
 
           <Link to="/signout">
             <input type="image" className="navitem" alt="SignOut" style={{ display: this.props.showSign ? "" : "none" }} src="./media/signout.png"></input>
           </Link>
 
-          <input type="image" className="navitem" alt="Settings" src="./media/cog.png" onClick={this.handleSettings}></input>
-          
-          <Link to="/towers">
-          <input type="image" className="navitem" alt="Towers" src="./media/towers.png"></input>
-          </Link>
-
           <input type="image" className="navitem" alt="Search" src="./media/search.png" onClick={this.handleSearch}></input>
           
-          <input type="serach" className="settingsitem" style={{ display: this.props.showSearch ? "" : "none" }} ></input>
+          <input type="serach" className="search" style={{ display: this.props.showSearch ? "" : "none" }} ></input>
+
+          <input type="image" className="navitem" alt="Find" style={{ display: this.props.showSearch ? "" : "none" }} src="./media/rightarrow.png" onClick={this.search}></input>
 
         </nav>
 
         <div className ='settings column' style={{ display: this.props.showSettings ? "" : "none" }}>
             
-            <Link to="/profile" style={{textDecoration: "none"}}>
-              <div className="profileitem" style={{ display: this.props.showSign ? "" : "none" }} >
-                <img src={this.props.user.profile ? this.props.user.profile : "https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png"} className="profile" alt="plop" />
-                <br/>
-                <span>Edit profile</span>
-              </div>
-            
-            </Link>
-
             <Link to="/colors">
             <button className ='settingsitem'>Colors</button>
             </Link>

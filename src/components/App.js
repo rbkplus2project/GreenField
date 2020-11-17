@@ -4,11 +4,10 @@ import GameFrame from './GameFrame.js';
 import AddGame from './AddGame.js';
 import Profile from './Profile.js';
 import SignOut from './SignOut.js';
-import AddGame from './AddGame.js';
-import Towers from './Towers.js';
 import SignIn from './SignIn.js';
 import SignUp from './SignUp.js';
 import NavBar from './NavBar.js';
+import Test from './Test.js';
 import Home from './Home';
 import $ from 'jquery';
 
@@ -35,6 +34,7 @@ class App extends Component {
                     <Route path="/frame" component={GameFrame}/>
                     <Route path="/addgame" component={AddGame}/>
                     <Route path="/profile" component={Profile}/>
+                    <Route path="/test" component={Test}/>
                 </Switch>
             </div>
             </Router>

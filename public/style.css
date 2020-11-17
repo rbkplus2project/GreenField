@@ -1,5 +1,5 @@
 html{
-  min-height: 600px;
+  min-height: 90vh;
 }
 body{
     background-image: url('media/neon.jpg');
@@ -7,7 +7,7 @@ body{
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
-    min-height: 600px;
+    min-height: 90vh;
 }
 .button{
     border: 4px groove purple;
@@ -102,12 +102,23 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
   width: 200px;
   outline: none;
 } 
+.search{
+  background-color: violet;
+  border: 3px groove purple;
+  font-weight: bold;
+  text-align: center;
+  color:purple;
+  border-radius: 25px;
+  height: 50px;
+  width: 33vw;
+  outline: none;
+}
 .gameitem{
     display: inline-block;
     width: 49.36vw;
     height: 50vh;
     cursor: pointer;
-    background-color: rgb(77, 77, 88);
+    background-color: rgb(77, 77, 88);   
 }
 .gameinfo{
   background-color: rgb(33, 33, 33);
@@ -119,7 +130,8 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
 .gameimg{
     height: 46vh;
     width: 100%;
-    border-radius: 12px;
+    border: 50px solid ;
+    border-image: url("media/border.png") 150 ;
 }
 .disc{
   margin-top: 3vw;
@@ -130,23 +142,19 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
   margin-top: 10vh;
 }
 .fire{
-  width: 5vw;
+  width: 12vw;
   height: 1vh;
-  margin-right: 19vw;
-  border-radius: 15px;
-  background-color: red;
+  margin-right: 12vw;
 }
 .lastfire{
-  width: 5vw;
+  width: 12vw;
   height: 1vh;
-  border-radius: 15px;
-  background-color: red;
 }
 .fires{
   position: fixed;
   z-index: 10;
   top: 25vh;
-  left: 11vw;
+  left: 7.5vw;
   height: 55vh;
   display: flex;
   flex-flow: row wrap;
@@ -249,7 +257,4 @@ footer {
   border-radius: 10px;
   height: 95%;
   overflow: auto;
-}
-.display-game{
-  
 }
