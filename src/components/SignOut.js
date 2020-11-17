@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { showSign } from '../actions/actions.js';
+import { showSign, setUser } from '../actions/actions.js';
 import { connect } from 'react-redux';
 
 class SignOut extends Component {
@@ -34,6 +34,7 @@ class SignOut extends Component {
 
         ////// temporary solution, should be handled upon signout response from the server
         localStorage.removeItem('gamesio'); 
+        this.props.setUser({});
         this.props.sign(0);
     }
     render() {
@@ -63,6 +64,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         sign: (z) => { dispatch(showSign(z)) },
+        setUser: (z) => { dispatch(setUser(z)) },
     }
 }
 

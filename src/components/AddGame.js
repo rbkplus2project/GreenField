@@ -32,16 +32,22 @@ class AddGame extends Component {
         axios(options)
             .then(res => {
                 if (res.status === 200) {
-                    console.log(res.data)
+                    $('#addgame-form').html(`
+                        <label htmlFor="title">Game Title:</label>
+                        <input type="text" class="text" name="title" required/>
+                        <label htmlFor="url">Game URL:</label>
+                        <input type="url" class="text" name="url" required/>
+                        <label htmlFor="type">Game Type:</label>
+                        <input type="text" class="text" name="type" />
+                        <label htmlFor="difficulty">Game difficulty:</label>
+                        <input type="text" class="text" name="difficulty" />
+                        <label htmlFor="image1">Game image1:</label>
+                        <input type="url" class="text" name="image1" required/>
+                        <br><button class="button">Upload</button>`)
                     this.count = 2;
                 }
             })
             .catch(err => console.log("error here ====>", err))
-    }
-    addImageField = () => {
-        this.setState({image: "image" + ++this.count})
-        let newImageField = $(`<label htmlFor=${this.state.image}>Game ${this.state.image}:</label><input type="text" class="text" name=${this.state.image} /><br>`)
-        $("#addmoreimgs").before(newImageField)
     }
     render() {
         return (
@@ -56,15 +62,22 @@ class AddGame extends Component {
                     <input type="url" className="text" name="url" required/>
 
                     <label htmlFor="type">Game Type:</label>
-                    <input type="text" className="text" name="type" />
+                    <input type="text" className="text" name="type" required/>
 
                     <label htmlFor="difficulty">Game difficulty:</label>
-                    <input type="text" className="text" name="difficulty" />
+                    <input type="text" className="text" name="difficulty" required/>
 
                     <label htmlFor="image1">Game image1:</label>
                     <input type="text" className="text" name="image1" required/>
-                    <br/>
-                    <input type="button" className="button" style={{width:'2vw'}} name="addmoreimgs" id="addmoreimgs" value="+" onClick={this.addImageField}/>
+
+                    <label htmlFor="image2">Game image2:</label>
+                    <input type="text" className="text" name="image2"/>
+
+                    <label htmlFor="image3">Game image3:</label>
+                    <input type="text" className="text" name="image3"/>
+
+                    <label htmlFor="image4">Game image4:</label>
+                    <input type="text" className="text" name="image4"/>
                     <br/>
                     <button className="button">Upload</button>
                 </form>
