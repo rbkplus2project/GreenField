@@ -8,7 +8,8 @@ class Towers extends Component{
             'src':'media/light.mp3', 
             'autoplay':'autoplay'
         })
-    })
+      })
+      document.body.style.backgroundImage="url('media/grass.jpg')"
       let x=document.getElementsByClassName("lastfire")[0]
       let y=document.getElementsByClassName("fire")
       setInterval(()=>{for (var i = 0; i < y.length; i++) {
@@ -32,10 +33,10 @@ class Towers extends Component{
           <img className="tower" src="./media/tower.png" alt=""></img> 
         </div>
         <div className="fires">
-          <div className="fire" onClick={this.reset}></div>
-          <div className="fire" onClick={this.reset}></div>
-          <div className="fire" onClick={this.reset}></div>
-          <div className="lastfire" onClick={this.reset}></div>
+          <img className="fire" src="./media/fire.png" onClick={this.reset} alt=""></img> 
+          <img className="fire" src="./media/fire.png" onClick={this.reset} alt=""></img> 
+          <img className="fire" src="./media/fire.png" onClick={this.reset} alt=""></img> 
+          <img className="lastfire" src="./media/fire.png" onClick={this.reset} alt=""></img> 
         </div>
       </div>
       )
