@@ -223,7 +223,15 @@ footer {
   border-radius: 50px;
   background-color: mistyrose;
 }
-.profile-settings{
+.profilecard{
+  background-color: rgb(229, 153, 229);
+  padding: 20px;
+  border: 7px solid rgb(12, 0, 78);
+  border-radius: 10px;
+  height: 95%;
+  overflow: auto;
+}
+.profilesettings{
   width: 100px;
   height: 100px;
   display: inline;
@@ -249,12 +257,4 @@ footer {
   border-radius: 50px;
   background-color: violet;
   border: 3px groove purple;
-}
-.profileBG{
-  background-color: rgb(229, 153, 229);
-  padding: 20px;
-  border: 7px solid rgb(12, 0, 78);
-  border-radius: 10px;
-  height: 95%;
-  overflow: auto;
 }

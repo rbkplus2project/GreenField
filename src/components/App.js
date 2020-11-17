@@ -11,6 +11,9 @@ import Test from './Test.js';
 import Home from './Home';
 import $ from 'jquery';
 
+import Thing from './Thing.js';
+
+
 class App extends Component {
 
     componentDidMount(){
