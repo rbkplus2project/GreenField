@@ -13,6 +13,6 @@ let gameSchema = mongoose.Schema({
 //   dificulty: 'easy and hard'
 // }
 
-let Game1 = mongoose.model('Game1', gameSchema);
+let Game = mongoose.model('Game', gameSchema);
 
-module.exports = Game1;
+module.exports = Game;

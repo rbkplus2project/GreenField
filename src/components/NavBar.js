@@ -11,7 +11,7 @@ class NavBar extends Component {
     }
   }
 
-    componentDidMount() {
+    UNSAFE_componentWillMount() {
         if (localStorage.getItem('gamesio')) {
             this.props.sign(1);
             this.props.setUser(JSON.parse(localStorage.getItem('gamesio')))
@@ -45,7 +45,7 @@ class NavBar extends Component {
   }
 
   render() {
-    // console.log(this.props)
+    console.log(this.props.user)
     return (
       <div className="menu" >
         <input type="image" className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleMenu} style={{ display: this.props.showMenu ? "none" : "" }}></input>
@@ -86,7 +86,7 @@ class NavBar extends Component {
             
             <Link to="/profile" style={{textDecoration: "none"}}>
               <div className="profileitem" style={{ display: this.props.showSign ? "" : "none" }} >
-                <img src={this.props.user.profile ? this.props.user.profile : "https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png"} className=" profile" />
+                <img src={this.props.user.profile ? this.props.user.profile : "https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png"} className="profile" alt="plop" />
                 <br/>
                 <span>Edit profile</span>
               </div>
