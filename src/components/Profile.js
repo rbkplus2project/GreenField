@@ -77,6 +77,7 @@ class Profile extends Component {
         .catch(res => alert('Password must be longer than 6 characters'))
     }
     render() {
+        console.log(this.props.user)
         return (
             <div className="center styled profileBG">
                 <img className="profile-settings" alt="profile-pic" src={this.props.user.profile ? this.props.user.profile : "https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png"} />
