@@ -43,6 +43,10 @@ class NavBar extends Component {
     }
   }
 
+  search=()=>{
+
+  }
+
   render() {
     return (
       <div className="menu" >
@@ -85,7 +89,9 @@ class NavBar extends Component {
 
           <input type="image" className="navitem" alt="Search" src="./media/search.png" onClick={this.handleSearch}></input>
           
-          <input type="serach" className="settingsitem" style={{ display: this.props.showSearch ? "" : "none" }} ></input>
+          <input type="serach" className="search" style={{ display: this.props.showSearch ? "" : "none" }} ></input>
+
+          <input type="image" className="navitem" alt="Find" style={{ display: this.props.showSearch ? "" : "none" }} src="./media/rightarrow.png" onClick={this.search}></input>
 
         </nav>
 
