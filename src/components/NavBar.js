@@ -85,7 +85,7 @@ class NavBar extends Component {
             
             <Link to="/profile" style={{textDecoration: "none"}}>
               <div className="profileitem">
-                <img src={localStorage.getItem(this.props.user.username) ? localStorage.getItem(this.props.user.username) : "https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png"} className=" profile" />
+                <img src={this.props.user.profile ? this.props.user.profile : "https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png"} className=" profile" />
                 <br/>
                 <span>Edit profile</span>
               </div>

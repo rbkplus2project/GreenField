@@ -5,8 +5,9 @@ const bcrypt = require('bcrypt');
 
 userRouter.route('/:username')
   .put((req, res) => {
+    console.log(req.params, req.body)
     userCtrl.update(req.params, req.body, (err, data) => {
-      if (err) {
+      if (data.ok === 0) {
         res.sendStatus(400)
       }
       else {
@@ -19,7 +20,7 @@ userRouter.route('/signup')
   .post((req, res) => {
     userCtrl.create(req.body, (err, data) => {
       if (err) {
-        res.sendStatus(400);
+        res.status(400).send(err);
       } else {
         res.sendStatus(200);
       }
@@ -40,8 +41,8 @@ userRouter.route('/signin')
           if (valid) {
             const token = jwt.sign({ _id: data[0]._doc._id }, 'duwjieurbyve');
             console.log(token);
-            let {username, games, _id} = data[0]._doc
-            res.header('auth-token', token).json({data: {username: username, games: games, _id: _id}, token: token});
+            let {username, games, _id, profile} = data[0]._doc
+            res.header('auth-token', token).json({username: username, games: games, _id: _id, profile: profile});
           } else {
             res.status(400).send('password incorrect');
           }
