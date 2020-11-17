@@ -32,10 +32,10 @@ class Towers extends Component{
           <img className="tower" src="./media/tower.png" alt=""></img> 
         </div>
         <div className="fires">
-          <div className="fire" onClick={this.reset}></div>
-          <div className="fire" onClick={this.reset}></div>
-          <div className="fire" onClick={this.reset}></div>
-          <div className="lastfire" onClick={this.reset}></div>
+          <img className="fire" src="./media/fire.png" onClick={this.reset} alt=""></img> 
+          <img className="fire" src="./media/fire.png" onClick={this.reset} alt=""></img> 
+          <img className="fire" src="./media/fire.png" onClick={this.reset} alt=""></img> 
+          <img className="lastfire" src="./media/fire.png" onClick={this.reset} alt=""></img> 
         </div>
       </div>
       )
