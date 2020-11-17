@@ -22,7 +22,8 @@ class SignIn extends Component {
 
         axios(options)
             .then((results) => {
-                if(results.status === 200){
+                if (results.status === 200) {
+                    console.log(results.data)
                     this.props.sign(1);
                     this.props.setUser(results.data)
                     localStorage.setItem('gamesio', JSON.stringify(results.data));

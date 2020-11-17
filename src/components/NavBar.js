@@ -45,6 +45,7 @@ class NavBar extends Component {
   }
 
   render() {
+    // console.log(this.props)
     return (
       <div className="menu" >
         <input type="image" className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleMenu} style={{ display: this.props.showMenu ? "none" : "" }}></input>
@@ -84,7 +85,7 @@ class NavBar extends Component {
           <div className ='settings column' style={{ display: this.props.showSettings ? "" : "none" }}>
             
             <Link to="/profile" style={{textDecoration: "none"}}>
-              <div className="profileitem">
+              <div className="profileitem" style={{ display: this.props.showSign ? "" : "none" }} >
                 <img src={this.props.user.profile ? this.props.user.profile : "https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png"} className=" profile" />
                 <br/>
                 <span>Edit profile</span>
