@@ -17,9 +17,12 @@ class GameList extends Component {
           .then(res => res.json())
             .then(res => {
                 this.props.getGames(res);
-                let newUser = this.props.user;
-                newUser.games = res.filter(elem => elem.postedBy === this.props.user._id);
-                this.props.setUser(newUser)
+                if (localStorage.getItem('gamesio')) {
+                    let newUser = this.props.user;
+                    newUser.games = res.filter(elem => elem.postedBy === this.props.user._id);
+                    this.props.setUser(newUser);
+                    localStorage.setItem('gamesio', JSON.stringify(newUser));
+                }
             })
     }
     render() {

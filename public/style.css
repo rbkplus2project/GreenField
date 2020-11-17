@@ -41,7 +41,8 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
+    overflow: auto;
 }
 .row{
     display: flex;
@@ -211,4 +212,8 @@ footer {
   border: 7px solid rgb(12, 0, 78);
   border-radius: 10px;
   height: 95%;
+  overflow: auto;
+}
+.display-game{
+  
 }

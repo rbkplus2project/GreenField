@@ -1,6 +1,7 @@
+import { setUser } from '../actions/actions.js';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setUser } from '../actions/actions.js';
+import DisplayGame from './DisplayGame'
 const $ = require('jquery')
 
 class Profile extends Component {
@@ -88,7 +89,9 @@ class Profile extends Component {
                 <span>Password</span>  <input type="password" className="text" id="change-pass" name="change-pass" />  <button className="edit" onClick={this.updatePass}>Change Password</button>
                 <div>
                     <p>My Games:</p>
-                    
+                    <div className="column">
+                        {this.props.user.games.map((elem, i) => <DisplayGame game={elem} key={i} />)}
+                    </div>
                 </div>
             </div>
         )
