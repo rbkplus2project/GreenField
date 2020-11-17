@@ -11,8 +11,6 @@ const slideImages   = [
 const properties = {
     duration: 4444,
     transitionDuration: 1111,
-    infinite: true,
-    indicators: true,
     arrows: true
 };
 
