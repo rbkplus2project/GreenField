@@ -46,6 +46,7 @@ class NavBar extends Component {
   render() {
     return (
       <div className="menu" >
+
         <input type="image" className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleMenu} style={{ display: this.props.showMenu ? "none" : "" }}></input>
 
         <nav id="img-logo" className="menu" style={{ display: this.props.showMenu ? "" : "none" }} >
@@ -73,14 +74,18 @@ class NavBar extends Component {
           </Link>
 
           <input type="image" className="navitem" alt="Settings" src="./media/cog.png" onClick={this.handleSettings}></input>
-
+          
+          <Link to="/towers">
+          <input type="image" className="navitem" alt="Towers" src="./media/towers.png"></input>
+          </Link>
 
           <input type="image" className="navitem" alt="Search" src="./media/search.png" onClick={this.handleSearch}></input>
           
           <input type="serach" className="settingsitem" style={{ display: this.props.showSearch ? "" : "none" }} ></input>
 
         </nav>
-          <div className ='settings column' style={{ display: this.props.showSettings ? "" : "none" }}>
+
+        <div className ='settings column' style={{ display: this.props.showSettings ? "" : "none" }}>
             
             <Link to="/colors">
             <button className ='settingsitem'>Colors</button>
@@ -90,7 +95,8 @@ class NavBar extends Component {
             <button className ='settingsitem'>Language</button>
             </Link>
 
-          </div>
+        </div>
+
       </div>
     )
   }
