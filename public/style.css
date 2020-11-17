@@ -4,7 +4,7 @@ body {
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
-    min-height: 500px;
+    min-height: 100%;
 }
 .button{
     border: 4px groove purple;
@@ -12,6 +12,7 @@ body {
     font-weight: bold;
     text-align: center;
     color:red;
+    padding: 0 0 5px;
     background-color: transparent;
     height:30px;
     width:200px;
@@ -32,15 +33,15 @@ input[type='text']::placeholder,input[type='number']::placeholder, input[type='p
     font-weight: bold;
     text-align: center;
 }
-input:hover, textarea:hover, button:hover, .navitem:hover{
+input:hover, textarea:hover, button:hover{
+    transition: 1s;
     background-color: cyan;
 }
-
 .column{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-flow: column;
+    flex-flow: column wrap;
 }
 .row{
     display: flex;
@@ -67,25 +68,51 @@ input:hover, textarea:hover, button:hover, .navitem:hover{
     top:10px;
     left:10px;
     z-index: 500;
+    display: flex;
+    flex-flow: row wrap;
+}
+.settings{
+  position:fixed;
+  top:66px;
+  left:150px;
+  z-index: 500;
 }
 .navitem{
     background-color: violet;
     border: 3px groove purple;
-    margin-left: 3px;
+    margin-right: 3px;
     border-radius: 30px;
     height: 50px;
     width: 50px;
     outline: none;
 }
+.settingsitem{
+  background-color: violet;
+  border: 3px groove purple;
+  font-weight: bold;
+  text-align: center;
+  color:purple;
+  margin-top: 10px;
+  border-radius: 12px;
+  height: 30px;
+  width: 200px;
+  outline: none;
+} 
 .gameitem{
     display: inline-block;
-    width: 44vw;
-    margin: 1vw 1vw 2vw 1vw;
+    width: 45vw;
+    height: 50vh;
+    margin: 1vw;
     padding: 10px;
+    cursor: pointer;
     border: 5px solid purple;
 }
+.gameinfo{
+  background-color:grey;
+  height: 100%;
+}
 .gameimg{
-    height: 50vh;
+    height: 45vh;
     width: 100%;
 }
 
@@ -94,7 +121,7 @@ input:hover, textarea:hover, button:hover, .navitem:hover{
     align-items: center;
     justify-content: center;
     background-size: cover;
-    height: 92vh;
+    height: 95vh;
     width: 100vw;
   }
   .each-fade {
@@ -124,22 +151,8 @@ input:hover, textarea:hover, button:hover, .navitem:hover{
   align-content: center;
 }
 footer {
- margin-bottom: 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
-.main{
-  width: 100%;
-  text-align: center;
-}
-#signIn, #signUp {
-  display: inline-block;
-  margin: 0 auto;
-}
-#menu{
-  position:fixed;
-  top: 0;
-  left: 0;
-} 
-/* 
-.game-img{
-  object-fit: cover;
-} */

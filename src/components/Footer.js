@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 class Footer extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <footer className="page-footer font-small stylish-color-dark pt-4">
@@ -13,7 +10,7 @@ class Footer extends Component {
                             <p className="text-justify">Gamesio.com is a gaming website that gives the the opportunity to play fun games</p>
                         </div>
 
-                        <hr class="clearfix w-100 d-md-none" />
+                        <hr className="clearfix w-100 d-md-none" />
 
                         <div className="col-md-2 mx-auto">
                             <h6 className="font-weight-bold text-uppercase mt-3 mb-4">Categories</h6>
@@ -24,7 +21,7 @@ class Footer extends Component {
                             </ul>
                         </div>
 
-                        <hr class="clearfix w-100 d-md-none"></hr>
+                        <hr className="clearfix w-100 d-md-none"></hr>
 
                         <div className="col-md-2 mx-auto">
                             <h6 className="font-weight-bold text-uppercase mt-3 mb-4">Quick Links</h6>
@@ -42,22 +39,22 @@ class Footer extends Component {
 
                 <ul className="list-unstyled list-inline text-center">
                     <li className="list-inline-item">
-                        <a className="btn-floating btn-fb mx-1">
+                        <a href="/" className="btn-floating btn-fb mx-1">
                             <i className="fab fa-facebook-f"> </i>
                         </a>
                     </li>
                     <li className="list-inline-item">
-                        <a className="btn-floating btn-gplus mx-1">
+                        <a href="/" className="btn-floating btn-gplus mx-1">
                             <i className="fab fa-google-plus-g"> </i>
                         </a>
                     </li>
                     <li className="list-inline-item">
-                        <a className="btn-floating btn-li mx-1">
+                        <a href="/" className="btn-floating btn-li mx-1">
                             <i className="fab fa-linkedin-in"> </i>
                         </a>
                     </li>
                     <li className="list-inline-item">
-                        <a className="btn-floating btn-dribbble mx-1">
+                        <a href="/" className="btn-floating btn-dribbble mx-1">
                             <i className="fab fa-dribbble"> </i>
                         </a>
                     </li>
@@ -66,7 +63,7 @@ class Footer extends Component {
 
                 <div className="footer-copyright text-center py-3">
                     <p>Copyright &copy; 2020 All Rights Reserved by
-                        <a href="#"> Gamesio Inc.</a>.
+                        <a href="/"> Gamesio Inc.</a>.
                     </p>
                 </div>
             </footer>

@@ -2,7 +2,6 @@ const userRouter = require('express').Router();
 const userCtrl = require('./userController.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const verify = require('../../middleware/cookieAuth');
 
 userRouter.route('/signup')
   .post((req, res) => {
