@@ -24,13 +24,14 @@ class SignIn extends Component {
             .then((results) => {
                 if(results.status === 200){
                     this.props.sign(1);
-                    this.props.setUser(results.data.data)
+                    this.props.setUser(results.data)
                     localStorage.setItem('gamesio', JSON.stringify(results.data));
                     this.setState({})
                 };
             })
             .catch((err) => {
                 console.error(err);
+                alert('incorrect username or password')
             })
     }
 
