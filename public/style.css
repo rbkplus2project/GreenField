@@ -1,13 +1,13 @@
 html{
-  min-height: 600px;
+  min-height: 90vh;
 }
 body{
-    background-image: url('media/grass.jpg');
+    background-image: url('media/neon.jpg');
     background-color: purple;
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
-    min-height: 600px;
+    min-height: 90vh;
 }
 .button{
     border: 4px groove purple;
