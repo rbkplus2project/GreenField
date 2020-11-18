@@ -14,7 +14,7 @@ body{
   border-radius: 12px;
   font-weight: bold;
   text-align: center;
-  color:red;
+  color:white;
   padding: 0 0 5px;
   background-color: transparent;
   height:30px;
@@ -22,7 +22,7 @@ body{
   outline: none;
 }
 .text{
-  color:red;
+  color:white;
   font-weight: bold;
   text-align: center;
   background-color: transparent;
@@ -54,6 +54,7 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
 }
 .center{
     position: fixed;
+    z-index: 5;
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
@@ -62,7 +63,7 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
     display:none;
 }
 .styled{
-  color:red;
+  color:white;
   font-weight: bold;
   text-align: center;
 }
@@ -121,19 +122,20 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
 }
 .gameinfo{
   background-color: rgb(33, 33, 33);
-  height: 100%;
+  height: 46vh;
   text-align: center;
   color: grey;
   border-radius: 12px;
+  border: 50px solid ;
+  border-image: url("media/border.png") 150 ;
 }
 .gameimg{
     height: 46vh;
     width: 100%;
-    border: 50px solid ;
-    border-image: url("media/border.png") 150 ;
+    border-radius: 12px;
 }
 .disc{
-  margin-top: 3vw;
+  margin-top: 2vw;
 }
   .each-slide > div {
     display: flex;
@@ -212,7 +214,7 @@ input[type='file']{
   border: 3px groove rgb(0, 0, 88);
   font-weight: bold;
   text-align: center;
-  color:red;
+  color:white;
 }
 #i{
   position: relative;

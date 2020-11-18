@@ -15,7 +15,7 @@ class SignIn extends Component {
         e.preventDefault();
         let input = $('#signin-form').serializeArray();
         let options = {
-            url: `https://gamezio.web.app/user/signin`,
+            url: `http://localhost:3000/user/signin`,
             method: 'post',
             data: { username: input[0].value, password: input[1].value }
         }
