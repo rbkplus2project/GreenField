@@ -52,3 +52,9 @@ export const setUser = (z) => {
         user: z
     }
 }
+export const gameurl = (z) => {
+    return {
+        type: 'GET_URL',
+        gameUrl: z
+    }
+}

@@ -50,6 +50,7 @@ class AddGame extends Component {
         $("#addmoreimgs").before(newImageField)
     }
     render() {
+        console.log("Hiii",this.props)
         return (
             <div className="styled scroll">
                 <h1>Upload Your Own Game!</h1>
@@ -80,4 +81,4 @@ class AddGame extends Component {
     }
 }
 
-export default AddGame
+export default AddGame;
