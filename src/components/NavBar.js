@@ -81,7 +81,7 @@ class NavBar extends Component {
           <input type="image" className="navitem" alt="Settings" src="./media/cog.png" onClick={this.handleSettings}></input>
          
           <Link to="/test">
-          <input type="image" className="navitem" alt="Test" src="./media/star.png"></input>
+            <input type="image" className="navitem" alt="Test" src="./media/star.png"></input>
           </Link>
 
           <Link to="/signout">
@@ -99,11 +99,11 @@ class NavBar extends Component {
         <div className ='settings column' style={{ display: this.props.showSettings ? "" : "none" }}>
             
             <Link to="/colors">
-            <button className ='settingsitem'>Colors</button>
+              <input type="button" className ='settingsitem' value="Colors"></input>
             </Link>
 
             <Link to="/language">
-            <button className ='settingsitem'>Language</button>
+              <input type="button" className ='settingsitem' value="Language"></input>
             </Link>
 
         </div>
