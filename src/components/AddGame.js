@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import { gameurl } from '../actions/actions.js';
 const axios = require('axios');
 const $ = require('jquery');
 
@@ -25,8 +23,6 @@ class AddGame extends Component {
             },
             postedBy: JSON.parse(localStorage.getItem('gamesio'))._id
         }
-        // this.props.saveUrl({name:request.disc.name,url:request.url})
-        // this.props.saveUrl(request.url)
         let options = {
             url: `http://localhost:3000/game`,
             method: 'post',
@@ -90,16 +86,5 @@ class AddGame extends Component {
         )
     }
 }
-const mapStateToProps = (state) => {
-    return {
-        gameIndex: state.gameIndex,
-        gameUrl: state.gameUrl
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        saveUrl: (z) => { dispatch(gameurl(z)) }
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddGame);
+export default AddGame;
