@@ -80,4 +80,4 @@ class AddGame extends Component {
     }
 }
 
-export default AddGame
+export default AddGame;
