@@ -15,7 +15,7 @@ class AddGame extends Component {
         let input = $('#addgame-form').serializeArray();
         let request = {
             url: input[1].value,
-            imgs: input.slice(4).map(elem => elem.value),
+            imgs: input.slice(4).filter(elem => elem.value !== '').map(elem => elem.value),
             disc: {
                 name: input[0].value,
                 type: input[2].value,
@@ -32,53 +32,47 @@ class AddGame extends Component {
         axios(options)
             .then(res => {
                 if (res.status === 200) {
-                    $('#addgame-form').html(`
-                        <label htmlFor="title">Game Title:</label>
-                        <input type="text" class="text" name="title" required/>
-                        <label htmlFor="url">Game URL:</label>
-                        <input type="url" class="text" name="url" required/>
-                        <label htmlFor="type">Game Type:</label>
-                        <input type="text" class="text" name="type" />
-                        <label htmlFor="difficulty">Game difficulty:</label>
-                        <input type="text" class="text" name="difficulty" />
-                        <label htmlFor="image1">Game image1:</label>
-                        <input type="url" class="text" name="image1" required/>
-                        <br><button class="button">Upload</button>`)
+                    $('form').children().remove('.delete')
+                    $('form').children().val('')
+                    $('form').children()[11].value = '+'
                     this.count = 2;
+                    this.setState({image: "image" + this.count})
                 }
             })
-            .catch(err => console.log("error here ====>", err))
+            .catch(err => {
+                alert('unknown error')
+                console.log("error here ====>", err)
+            })
+    }
+    addImageField = () => {
+        this.setState({image: "image" + ++this.count})
+        let newImageField = $(`<label class="delete" htmlFor=${this.state.image}>Game ${this.state.image}:</label><input type="text" class="text delete" name=${this.state.image} id=${this.state.image} /><br class="delete">`)
+        $("#addmoreimgs").before(newImageField)
     }
     render() {
         console.log("Hiii",this.props)
         return (
-            <div className="center styled">
+            <div className="styled scroll">
                 <h1>Upload Your Own Game!</h1>
                 <br/>
                 <form id="addgame-form" className="column" onSubmit={this.handleSubmit}>
                     <label htmlFor="title">Game Title:</label>
-                    <input type="text" className="text" name="title" required/>
+                    <input type="text" className="text" name="title" id="title" required/>
                     
                     <label htmlFor="url">Game URL:</label>
-                    <input type="url" className="text" name="url" required/>
+                    <input type="url" className="text" name="url" id="url" required/>
 
                     <label htmlFor="type">Game Type:</label>
-                    <input type="text" className="text" name="type" required/>
+                    <input type="text" className="text" name="type" id="type" required/>
 
                     <label htmlFor="difficulty">Game difficulty:</label>
-                    <input type="text" className="text" name="difficulty" required/>
+                    <input type="text" className="text" name="difficulty" id="difficulty" required/>
 
                     <label htmlFor="image1">Game image1:</label>
-                    <input type="text" className="text" name="image1" required/>
+                    <input type="text" className="text" name="image1" id="image1" required/>
 
-                    <label htmlFor="image2">Game image2:</label>
-                    <input type="text" className="text" name="image2"/>
-
-                    <label htmlFor="image3">Game image3:</label>
-                    <input type="text" className="text" name="image3"/>
-
-                    <label htmlFor="image4">Game image4:</label>
-                    <input type="text" className="text" name="image4"/>
+                    <br/>
+                    <input type="button" alt="plop" className="button plus" value="+" style={{width:'2vw'}} name="addmoreimgs" id="addmoreimgs" onClick={this.addImageField} />
                     <br/>
                     <button className="button">Upload</button>
                 </form>
