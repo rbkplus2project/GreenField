@@ -97,7 +97,7 @@ class SignOut extends Component {
                 <h1>Sign Out?</h1>
                 <br></br>
                 <Link to="/">
-                    <button className="button" onClick={this.handleClick}>Yes</button>
+                    <button id="i" className="button" onClick={this.handleClick}>Yes</button>
                 </Link>
                 <br></br>
                 <Link to="/">
