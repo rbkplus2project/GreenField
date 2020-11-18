@@ -78,9 +78,8 @@ class Profile extends Component {
         .catch(res => alert('Password must be longer than 6 characters'))
     }
     render() {
-        console.log(this.props.user)
         return (
-            <div className="center styled profile">
+            <div className="center styled profilecard">
                 <img className="profilesettings" alt="Profile" src={this.props.user.profile ? this.props.user.profile : "./media/signin.png"} />
                 <input type="file" id="newImg" className="edit-photo" onChange={()=>{this.updateImage(this)}}/>
                 <br />
