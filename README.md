@@ -1,5 +1,5 @@
 # Project Name #
-  > [gamesio](https://gamesio.web.app/)
+  > [gamezio](https://gamezio.web.app/)
 
 ## Heading ##
   > Games Website
