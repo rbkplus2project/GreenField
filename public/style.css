@@ -1,10 +1,13 @@
-body {
+html{
+  min-height: 90vh;
+}
+body{
     background-image: url('media/neon.jpg');
     background-color: purple;
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
-    min-height: 100%;
+    min-height: 90vh;
 }
 .button{
     border: 4px groove purple;
@@ -33,7 +36,7 @@ input[type='text']::placeholder,input[type='number']::placeholder, input[type='p
     font-weight: bold;
     text-align: center;
 }
-input:hover, textarea:hover, button:hover{
+input:hover, textarea:hover, button:hover, .profileitem:hover{
     transition: 1s;
     background-color: cyan;
 }
@@ -41,7 +44,8 @@ input:hover, textarea:hover, button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
+    overflow: auto;
 }
 .row{
     display: flex;
@@ -98,24 +102,63 @@ input:hover, textarea:hover, button:hover{
   width: 200px;
   outline: none;
 } 
+.search{
+  background-color: violet;
+  border: 3px groove purple;
+  font-weight: bold;
+  text-align: center;
+  color:purple;
+  border-radius: 25px;
+  height: 50px;
+  width: 33vw;
+  outline: none;
+}
 .gameitem{
     display: inline-block;
-    width: 45vw;
-    height: 50vh;
-    margin: 1vw;
-    padding: 10px;
-    cursor: pointer;
-    border: 5px solid purple;
+    width: 49.36vw;
     height: 50vh;
     cursor: pointer;
+    background-color: rgb(77, 77, 88);   
 }
 .gameinfo{
-  background-color:grey;
+  background-color: rgb(33, 33, 33);
   height: 100%;
+  text-align: center;
+  color: grey;
+  border-radius: 12px;
 }
 .gameimg{
-    height: 45vh;
+    height: 46vh;
     width: 100%;
+    border: 50px solid ;
+    border-image: url("media/border.png") 150 ;
+}
+.disc{
+  margin-top: 3vw;
+}
+.tower{
+  width:24vw;
+  height: 80vh;
+  margin-top: 10vh;
+}
+.fire{
+  width: 12vw;
+  height: 1vh;
+  margin-right: 12vw;
+}
+.lastfire{
+  width: 12vw;
+  height: 1vh;
+}
+.fires{
+  position: fixed;
+  z-index: 10;
+  top: 25vh;
+  left: 7.5vw;
+  height: 55vh;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
 }
 
   .each-slide > div {
@@ -157,4 +200,65 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
+}
+.profileitem{
+  background-color: violet;
+  border: 3px groove purple;
+  font-weight: bold;
+  text-align: center;
+  color:purple;
+  margin-top: 10px;
+  border-radius: 12px;
+  height: 70px;
+  width: 200px;
+  outline: none;
+}
+.profile{
+  width: 50px;
+  height: 50px;
+  display: inline;
+  float: left;
+  margin: 7px;
+  border: 3px solid grey;
+  border-radius: 50px;
+  background-color: mistyrose;
+}
+.profilecard{
+  background-color: rgb(229, 153, 229);
+  padding: 20px;
+  border: 7px solid rgb(12, 0, 78);
+  border-radius: 10px;
+  height: 95%;
+  overflow: auto;
+}
+.profilesettings{
+  width: 100px;
+  height: 100px;
+  display: inline;
+  float: left;
+  margin: 7px;
+  border: 3px solid grey;
+  border-radius: 50px;
+  background-color: mistyrose;
+}
+.edit-photo{
+  margin: 40px;
+  outline: none;
+  padding: 4px 30px;
+  border-radius: 50px;
+  background-color: violet;
+  border: 3px groove purple;
+}
+.edit{
+  margin: 10px;
+  width: 200px;
+  outline: none;
+  padding: 4px 30px;
+  border-radius: 50px;
+  background-color: violet;
+  border: 3px groove purple;
+}
+#i{
+  position: relative;
+  transition: 1s;
 }

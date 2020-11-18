@@ -9,14 +9,14 @@ const slideImages   = [
   "https://i.postimg.cc/0QYz8fQ1/4-3.png",
   "https://i.postimg.cc/tRcKqHKy/6-6.png",
   "https://i.postimg.cc/bwp38Cwp/3-1.png",
-  "https://i.postimg.cc/wj8nNQxG/6-7.png"
+  "https://i.postimg.cc/wj8nNQxG/6-7.png",
+  "https://i.postimg.cc/2SRgHTCn/7-1.png",
+  "https://i.postimg.cc/6qDSQsWH/8-3.png"
 ];
 
 const properties = {
     duration: 4444,
     transitionDuration: 1111,
-    infinite: true,
-    indicators: true,
     arrows: true
 };
 

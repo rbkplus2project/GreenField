@@ -34,3 +34,15 @@ export const gameIndex = (z) => {
         gameIndex: z
     }
 }
+export const setUser = (z) => {
+    return {
+        type: 'USER_INFO',
+        user: z
+    }
+}
+export const gameurl = (z) => {
+    return {
+        type: 'GET_URL',
+        gameUrl: z
+    }
+}
