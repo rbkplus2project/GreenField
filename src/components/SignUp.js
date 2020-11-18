@@ -17,13 +17,13 @@ class SignUp extends Component {
             if (input[1].value.length >= 6) {
 
                 let options = {
-                    url: `http://localhost:3000/user/signup`,
+                url: `http://localhost:3000/user/signup`,
                 method: 'post',
                 data: { username: input[0].value, password: input[1].value }
-            }
+                }
             
             axios(options)
-            .then((results) => {
+                .then((results) => {
                     if (results.status === 200) {
                         this.setState({ redirect: true })
                     }
