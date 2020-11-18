@@ -8,12 +8,14 @@ class SignIn extends Component {
      constructor(props) {
          super(props);
          this.state = {
+             redirect: false
          }
      }
 
     handleSubmit = (e) => {
         e.preventDefault();
         let input = $('#signin-form').serializeArray();
+        console.log(input)
         let options = {
             url: `http://localhost:3000/user/signin`,
             method: 'post',
@@ -24,17 +26,20 @@ class SignIn extends Component {
             .then((results) => {
                 if(results.status === 200){
                     this.props.sign(1);
-                    localStorage.setItem('gamesio', results.data);
-                    this.setState({})
+                    // localStorage.setItem('gamesio', results.data);
+                    // this.setState({})
+                    this.setState({ redirect: true })
                 };
             })
             .catch((err) => {
                 console.error(err);
+                alert('incorrect username or password')
             })
     }
 
     render() {
-        if (localStorage.getItem('gamesio')) {
+        // if (localStorage.getItem('gamesio')) {
+        if (this.state.redirect) {
             return <Redirect to="/"/>
         } else {
             return (
