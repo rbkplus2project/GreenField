@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GameItem from './GameItem'
 import {connect} from 'react-redux'
-import { getGames, setUser } from '../actions/actions.js';
+import { getGames, setUser, searchGames } from '../actions/actions.js';
 
 
 
@@ -17,6 +17,7 @@ class GameList extends Component {
           .then(res => res.json())
             .then(res => {
                 this.props.getGames(res);
+                this.props.searchGames(res);
                 if (localStorage.getItem('gamesio')) {
                     let newUser = this.props.user;
                     newUser.games = res.filter(elem => elem.postedBy === this.props.user._id);
@@ -28,7 +29,7 @@ class GameList extends Component {
     render() {
         return (
             <div>
-                {this.props.Games.map((elem, i) => <GameItem game={elem} key={i} newKey={i}/>)}
+                {this.props.GamesSearch.map((elem, i) => <GameItem game={elem} key={i} newKey={i}/>)}
             </div>
         )
     }
@@ -37,12 +38,14 @@ class GameList extends Component {
 const mapStateToProps = (state) => {
     return {
         Games: state.Games,
+        GamesSearch: state.GamesSearch,
         user: state.user
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
         getGames: (z) => { dispatch(getGames(z)) },
+        searchGames: (z) => { dispatch(searchGames(z)) },
         setUser: (z) => { dispatch(setUser(z)) }
     }
 }
