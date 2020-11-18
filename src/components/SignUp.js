@@ -9,11 +9,11 @@ class SignUp extends Component {
             redirect: false
         }
     }
-
+    // this.handleSubmit = this.handleSubmit.bind(this);
     handleSubmit = (e) => {
         e.preventDefault();
         let input = $('#signup-form').serializeArray();
-        if (input[1].value === input[2].value) {
+        if (input[2].value === input[3].value) {
             let options = {
                 url: `http://localhost:3000/user/signup`,
                 method: 'post',
@@ -22,9 +22,19 @@ class SignUp extends Component {
 
             axios(options)
                 .then((results) => {
-                    if (results.status === 200) {
+                    console.log("results", results)
+                    if (results.status === 201) {
                         this.setState({ redirect: true })
                     };
+                    // const data = await res.json();
+                    // console.log(data);
+                    // if (data.errors) {
+                    //     emailError.textContent = data.errors.email;
+                    //     passwordError.textContent = data.errors.password;
+                    // }
+                    // if (data.user) {
+                    //     location.assign('/');
+                    // }
                 })
 
                 .catch((err) => {
@@ -48,21 +58,24 @@ class SignUp extends Component {
                         <div className="column">
                             <label htmlFor="newusername">User Name:</label>
                             <input type="text" className="text" id="newusername" name="newusername" />
+                            <div class="user error"></div>
 
                             <label htmlFor="email">Email:</label>
                             <input type="email" className="text" id="email" name="email" />
+                            <div class="email error"></div>
 
                             <label htmlFor="newPassword">Password:</label>
                             <input type="password" className="text" id="newPassword" name="newPassword" />
 
                             <label htmlFor="confirmPassword">Confirm Password:</label>
                             <input type="password" className="text" id="confirmPassword" name="confirmPassword" />
+                            <div class="password error"></div>
                         </div>
                         <br />
                         <button className="button">Sign Up</button><br />
                     </form>
 
-                    <Link to="/signin" style={{textDecoration: "none"}}>
+                    <Link to="/signin" style={{ textDecoration: "none" }}>
                         <p>Already have an account? <a href="http://localhost:3000/signin">Sign In</a></p>
                     </Link>
                 </div>

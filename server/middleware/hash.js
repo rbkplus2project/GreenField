@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 var ash = (req, res, next) => {
 //   req.body.password;
+  // var salt = bcrypt.genSalt(10)
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(req.body.password, salt);
   req.body.password = hash;
