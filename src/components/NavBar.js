@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { showMenu, showSearch, showSettings, showSign, setUser } from '../actions/actions.js';
+import { showMenu, showSearch, showSettings, showSign, setUser, searchGames } from '../actions/actions.js';
 
 
 class NavBar extends Component {
@@ -44,11 +44,26 @@ class NavBar extends Component {
     }
   }
 
-  search=()=>{
-
+  search=(e)=>{
+    let word = e.target.value.toLowerCase();
+    let all = this.props.Games;
+    if (word === '') {
+      this.props.searchGames(all);
+    } else {
+      let newList = all.filter(elem => {
+        let name = elem.disc.name.toLowerCase().toString()
+        let type = elem.disc.type.toLowerCase().toString()
+        let dificulty = elem.disc.dificulty.toLowerCase().toString()
+        if (name.includes(word) || type.includes(word) || dificulty.includes(word)) {
+          return true
+        }
+        return false
+      })
+      this.props.searchGames(newList)
+    }
   }
-
   render() {
+    // console.log(this.props.Games)
     return (
       <div className="menu" >
 
@@ -90,7 +105,7 @@ class NavBar extends Component {
 
           <input type="image" className="navitem" alt="Search" src="./media/search.png" onClick={this.handleSearch}></input>
           
-          <input type="serach" className="search" style={{ display: this.props.showSearch ? "" : "none" }} ></input>
+          <input type="serach" className="search" style={{ display: this.props.showSearch ? "" : "none" }} onChange={this.search} ></input>
 
           <input type="image" className="navitem" alt="Find" style={{ display: this.props.showSearch ? "" : "none" }} src="./media/rightarrow.png" onClick={this.search}></input>
 
@@ -119,16 +134,20 @@ const mapStateToProps = (state) => {
     showSearch: state.showSearch,
     showSign: state.showSign,
     showSettings: state.showSettings,
+    Games: state.Games,
+    GamesSearch: state.GamesSearch,
+    GamesRefresh: state.GamesRefresh,
     user: state.user
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
+    sign: (z) => { dispatch(showSign(z)) },
     menu: (z) => { dispatch(showMenu(z)) },
+    setUser: (z) => { dispatch(setUser(z)) },
     search: (z) => { dispatch(showSearch(z)) },
     settings: (z) => { dispatch(showSettings(z)) },
-    sign: (z) => { dispatch(showSign(z)) },
-    setUser: (z) => { dispatch(setUser(z)) }
+    searchGames: (z) => { dispatch(searchGames(z)) }
   }
 }
 
