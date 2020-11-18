@@ -9,7 +9,6 @@ const initState = {
     gameIndex: -1,
     Games: [],
     user: {},
-    gameUrl:
 }
 
 const rootReducer = (state = initState, action) => {
