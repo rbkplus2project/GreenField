@@ -28,6 +28,18 @@ export const getGames = (z) => {
         Games: z
     }
 }
+export const searchGames = (z) => {
+    return {
+        type: 'SEARCH_GAMES',
+        GamesSearch: z
+    }
+}
+export const refreshGames = (z) => {
+    return {
+        type: 'REFRESH_GAMES',
+        GamesSearch: z
+    }
+}
 export const gameIndex = (z) => {
     return {
         type: 'GAME_INDEX',
