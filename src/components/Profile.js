@@ -8,6 +8,19 @@ class Profile extends Component {
     // constructor(props) {
     //     super(props)
     // }
+    componentDidMount() {
+        fetch('http://localhost:3000/game')
+          .then(res => res.json())
+            .then(res => {
+                if (localStorage.getItem('gamesio')) {
+                    let newUser = this.props.user;
+                    newUser.games = res.filter(elem => elem.postedBy === this.props.user._id);
+                    this.props.setUser(newUser);
+                    localStorage.setItem('gamesio', JSON.stringify(newUser));
+                    this.setState({})
+                }
+            })
+    }
     updateImage = () => {
         let newImg = document.getElementById('newImg');
         let name = this.props.user.username
@@ -90,7 +103,7 @@ class Profile extends Component {
                 <div>
                     <p>My Games</p>
                     <div className="column">
-                        {this.props.user.games.map((elem, i) => <DisplayGame game={elem} key={i} />)}
+                        {this.props.user.games.map((elem, i) => <DisplayGame game={elem} key={i} item={i} rerender={() => this.setState({})} />)}
                     </div>
                 </div>
             </div>
