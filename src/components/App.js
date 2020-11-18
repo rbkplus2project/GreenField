@@ -20,6 +20,7 @@ class App extends Component {
                 'autoplay':'autoplay'
             })
         })
+        $("#i").on("mouseover",function(){$("#i").css({"left":"+=20"})})
     }
     render() {
         return (
@@ -36,6 +37,7 @@ class App extends Component {
                     <Route path="/profile" component={Profile}/>
                     <Route path="/test" component={Test}/>
                 </Switch>
+                <input  id="i" className="hide" type="text"></input>
             </div>
             </Router>
         );
