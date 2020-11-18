@@ -24,7 +24,7 @@ class AddGame extends Component {
             postedBy: JSON.parse(localStorage.getItem('gamesio'))._id
         }
         let options = {
-            url: `https://gamezio.web.app/game`,
+            url: `http://localhost:3000/game`,
             method: 'post',
             data: request
         }
@@ -51,7 +51,7 @@ class AddGame extends Component {
     }
     render() {
         return (
-            <div className="styled scroll">
+            <div className="center styled scroll">
                 <h1>Upload Your Own Game!</h1>
                 <br/>
                 <form id="addgame-form" className="column" onSubmit={this.handleSubmit}>

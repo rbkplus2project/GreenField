@@ -1,9 +1,17 @@
-import React from 'react'
-import GameView from './GameView'
-import GameList from './GameList'
+import React, { Component } from 'react';
+import GameList from './GameList';
+import GameView from './GameView';
 import Footer from './Footer.js';
+import $ from 'jquery';
 
-let Home = () => {
+class Home extends Component {
+    componentDidMount(){
+        $("#particles")[0].className="hide"
+    }
+    componentWillUnmount(){
+        $("#particles")[0].className="Show"
+    }
+    render(){
         return (
         <div>
             <GameView />
@@ -11,6 +19,7 @@ let Home = () => {
             <Footer />
         </div>
         )
+    }
 }
 
 export default Home;

@@ -17,7 +17,7 @@ class SignUp extends Component {
             if (input[1].value.length >= 6) {
 
                 let options = {
-                url: `https://gamezio.web.app/user/signup`,
+                url: `http://localhost:3000/user/signup`,
                 method: 'post',
                 data: { username: input[0].value, password: input[1].value }
                 }
