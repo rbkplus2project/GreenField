@@ -4,7 +4,6 @@ import { setUser } from '../actions/actions.js';
 
 
 class DisplayGame extends Component {
-
     removeGame = () => {
         let _id = this.props.game._id
         let newUser = this.props.user
@@ -23,10 +22,9 @@ class DisplayGame extends Component {
             .catch(err => console.log(err))
     }
     render() {
-        console.log(this.props)
         return (
             <div className="display-game row">
-                <img src={this.props.game.imgs[0]} alt="game-img-1" className="profile" />
+                <img src={this.props.game.imgs[0]} alt="Game" className="profileimg" />
                 <span>{this.props.game.disc.name}</span>
                 <button className="edit" onClick={this.removeGame}>remove</button>
             </div>
