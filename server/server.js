@@ -7,7 +7,7 @@ let app = express();
 mongo();
 
 app.use(cors());
-app.use(express.static(__dirname + '/../public'));
+app.use(express.static(__dirname + '/../build'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -15,12 +15,10 @@ app.use('/user/signup', require('./middleware/hash.js'));
 app.use('/user', require('./database/resources/userRouter'));
 app.use('/game', require('./database/resources/gameRouter'));
 
-
 let port = 3000;
 
 app.listen(port, () => {
   console.log('Listening on port: ' + port);
 });
-
 
 module.exports = app;
