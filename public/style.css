@@ -10,26 +10,26 @@ body{
     min-height: 90vh;
 }
 .button{
-    border: 4px groove purple;
-    border-radius: 12px;
-    font-weight: bold;
-    text-align: center;
-    color:red;
-    padding: 0 0 5px;
-    background-color: transparent;
-    height:30px;
-    width:200px;
-    outline: none;
+  border: 4px groove purple;
+  border-radius: 12px;
+  font-weight: bold;
+  text-align: center;
+  color:red;
+  padding: 0 0 5px;
+  background-color: transparent;
+  height:30px;
+  width:200px;
+  outline: none;
 }
 .text{
-    color:red;
-    font-weight: bold;
-    text-align: center;
-    background-color: transparent;
-    border-radius: 12px;
-    height:30px;
-    width:200px;
-    outline: none;
+  color:red;
+  font-weight: bold;
+  text-align: center;
+  background-color: transparent;
+  border-radius: 12px;
+  height:30px;
+  width:200px;
+  outline: none;
 }
 input[type='text']::placeholder,input[type='number']::placeholder, input[type='password']::placeholder, textarea::placeholder{
     color:gray;
@@ -45,7 +45,6 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
     justify-content: center;
     align-items: center;
     flex-flow: column nowrap;
-    overflow: auto;
 }
 .row{
     display: flex;
@@ -136,37 +135,12 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
 .disc{
   margin-top: 3vw;
 }
-.tower{
-  width:24vw;
-  height: 80vh;
-  margin-top: 10vh;
-}
-.fire{
-  width: 12vw;
-  height: 1vh;
-  margin-right: 12vw;
-}
-.lastfire{
-  width: 12vw;
-  height: 1vh;
-}
-.fires{
-  position: fixed;
-  z-index: 10;
-  top: 25vh;
-  left: 7.5vw;
-  height: 55vh;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: flex-end;
-}
-
   .each-slide > div {
     display: flex;
     align-items: center;
     justify-content: center;
     background-size: cover;
-    height: 95vh;
+    height: 100vh;
     width: 100vw;
   }
   .each-fade {
@@ -201,45 +175,32 @@ footer {
     right: 0;
     bottom: 0;
 }
-.profileitem{
-  background-color: violet;
-  border: 3px groove purple;
-  font-weight: bold;
-  text-align: center;
-  color:purple;
-  margin-top: 10px;
-  border-radius: 12px;
-  height: 70px;
-  width: 200px;
-  outline: none;
-}
 .profile{
-  width: 50px;
-  height: 50px;
-  display: inline;
-  float: left;
-  margin: 7px;
-  border: 3px solid grey;
-  border-radius: 50px;
-  background-color: mistyrose;
+  background-color: violet;
+  padding: 2vw;
+  border: 5px solid rgb(0, 0, 88);
+  border-radius: 12px;
+  height: 95%;
+  overflow: auto;
 }
-.profile-settings{
+.profileimg{
   width: 100px;
   height: 100px;
-  display: inline;
-  float: left;
-  margin: 7px;
-  border: 3px solid grey;
+  margin-left: 1%;
+  border: 3px solid  rgb(0, 0, 88);
   border-radius: 50px;
-  background-color: mistyrose;
+  background-color: transparent;
 }
-.edit-photo{
-  margin: 40px;
-  outline: none;
-  padding: 4px 30px;
+input[type='file']{
+  opacity: 0;
+  position: absolute;
+  left:25%;
+}
+.up{
+  width: 300px;
+  border: 3px groove rgb(0, 0, 88);
   border-radius: 50px;
-  background-color: violet;
-  border: 3px groove purple;
+  margin-left:20%;
 }
 .edit{
   margin: 10px;
@@ -248,13 +209,11 @@ footer {
   padding: 4px 30px;
   border-radius: 50px;
   background-color: violet;
-  border: 3px groove purple;
+  border: 3px groove rgb(0, 0, 88);
+  font-weight: bold;
+  text-align: center;
+  color:red;
 }
-.profileBG{
-  background-color: rgb(229, 153, 229);
-  padding: 20px;
-  border: 7px solid rgb(12, 0, 78);
-  border-radius: 10px;
-  height: 95%;
-  overflow: auto;
+#i{
+  position: relative;
 }

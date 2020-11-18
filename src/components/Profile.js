@@ -91,17 +91,17 @@ class Profile extends Component {
         .catch(res => alert('Password must be longer than 6 characters'))
     }
     render() {
-        console.log(this.props.user)
         return (
-            <div className="center styled profileBG">
-                <img className="profile-settings" alt="profile-pic" src={this.props.user.profile ? this.props.user.profile : "./media/signin.png"} />
-                <input type="file" id="newImg" className="edit-photo" onChange={()=>{this.updateImage(this)}}/>
+            <div className="center styled profile">
+                <img className="profileimg" alt="Profile" src={this.props.user.profile ? this.props.user.profile : "./media/signin.png"} />
                 <br />
+                <br />
+                <input type="file" id="newImg" onChange={()=>{this.updateImage(this)}}/><p className="up">Change Picture</p> 
                 <span>Username</span>  <input type="text" className="text" id="change-name" name="change-name" />  <button className="edit" onClick={this.updateName}>Change Name</button>
                 <br/>
                 <span>Password</span>  <input type="password" className="text" id="change-pass" name="change-pass" />  <button className="edit" onClick={this.updatePass}>Change Password</button>
                 <div>
-                    <p>My Games:</p>
+                    <p>My Games</p>
                     <div className="column">
                         {this.props.user.games.map((elem, i) => <DisplayGame game={elem} key={i} item={i} rerender={() => this.setState({})} />)}
                     </div>

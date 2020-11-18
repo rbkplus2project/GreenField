@@ -1,5 +1,5 @@
 # Project Name #
-  > gamesio
+  > [gamesio](https://gamesio.web.app/)
 
 ## Heading ##
   > Games Website
@@ -27,5 +27,14 @@
 ## Solution ##
   > New games every month That you may try to releif some stress ^-^ Have fun ^-^ Relax ^-^
 
-## Quote from You ##
+## Quote from us ##
   > "A day spent without a smile is a day wasted" ;) :) :D
+
+## Random Javascript Flex ##
+  > These 2 lines under are equal but written using es5 & es6
+
+```javascript
+var function = function(parameter){return parameter}
+
+let function = (parameter) => parameter
+```
