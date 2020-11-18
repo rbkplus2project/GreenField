@@ -6,7 +6,7 @@
   "author": "titans",
   "private": false,
   "license": "none",
-  "homepage": "https://gamesio.web.app/",
+  "homepage": "https://gamezio.web.app/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.1.2",
