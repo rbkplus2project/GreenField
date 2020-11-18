@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import { gameurl } from '../actions/actions.js';
 const axios = require('axios');
 const $ = require('jquery');
 
@@ -11,10 +13,8 @@ class AddGame extends Component {
         }
     }
     handleSubmit = (e) => {
-        console.log($('#addgame-form').val())
         e.preventDefault();
         let input = $('#addgame-form').serializeArray();
-        console.log(input)
         let request = {
             url: input[1].value,
             imgs: input.slice(4).map(elem => elem.value),
@@ -22,8 +22,11 @@ class AddGame extends Component {
                 name: input[0].value,
                 type: input[2].value,
                 dificulty: input[3].value
-            }
+            },
+            postedBy: JSON.parse(localStorage.getItem('gamesio'))._id
         }
+        // this.props.saveUrl({name:request.disc.name,url:request.url})
+        // this.props.saveUrl(request.url)
         let options = {
             url: `http://localhost:3000/game`,
             method: 'post',
@@ -33,37 +36,25 @@ class AddGame extends Component {
         axios(options)
             .then(res => {
                 if (res.status === 200) {
-                    let func = this.addImageField
                     $('#addgame-form').html(`
                         <label htmlFor="title">Game Title:</label>
                         <input type="text" class="text" name="title" required/>
-                        
                         <label htmlFor="url">Game URL:</label>
                         <input type="url" class="text" name="url" required/>
-
                         <label htmlFor="type">Game Type:</label>
                         <input type="text" class="text" name="type" />
-
                         <label htmlFor="difficulty">Game difficulty:</label>
                         <input type="text" class="text" name="difficulty" />
-
                         <label htmlFor="image1">Game image1:</label>
                         <input type="url" class="text" name="image1" required/>
-                        <br>
-                        <input type="button" style="width:2vw" class="button" name="addmoreimgs" id="addmoreimgs" value="+" onclick=${func}() />
-                        <br>
-                        <button class="button">Upload</button>`)
-                    this.count = 2
+                        <br><button class="button">Upload</button>`)
+                    this.count = 2;
                 }
             })
             .catch(err => console.log("error here ====>", err))
     }
-    addImageField = () => {
-        this.setState({image: "image" + ++this.count})
-        let newImageField = $(`<label htmlFor=${this.state.image}>Game ${this.state.image}:</label><input type="text" class="text" name=${this.state.image} /><br>`)
-        $("#addmoreimgs").before(newImageField)
-    }
     render() {
+        console.log("Hiii",this.props)
         return (
             <div className="center styled">
                 <h1>Upload Your Own Game!</h1>
@@ -76,15 +67,22 @@ class AddGame extends Component {
                     <input type="url" className="text" name="url" required/>
 
                     <label htmlFor="type">Game Type:</label>
-                    <input type="text" className="text" name="type" />
+                    <input type="text" className="text" name="type" required/>
 
                     <label htmlFor="difficulty">Game difficulty:</label>
-                    <input type="text" className="text" name="difficulty" />
+                    <input type="text" className="text" name="difficulty" required/>
 
                     <label htmlFor="image1">Game image1:</label>
                     <input type="text" className="text" name="image1" required/>
-                    <br/>
-                    <input type="button" className="button" style={{width:'2vw'}} name="addmoreimgs" id="addmoreimgs" value="+" onClick={this.addImageField}/>
+
+                    <label htmlFor="image2">Game image2:</label>
+                    <input type="text" className="text" name="image2"/>
+
+                    <label htmlFor="image3">Game image3:</label>
+                    <input type="text" className="text" name="image3"/>
+
+                    <label htmlFor="image4">Game image4:</label>
+                    <input type="text" className="text" name="image4"/>
                     <br/>
                     <button className="button">Upload</button>
                 </form>
@@ -92,5 +90,16 @@ class AddGame extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        gameIndex: state.gameIndex,
+        gameUrl: state.gameUrl
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        saveUrl: (z) => { dispatch(gameurl(z)) }
+    }
+}
 
-export default AddGame
+export default connect(mapStateToProps, mapDispatchToProps)(AddGame);

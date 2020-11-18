@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { showMenu, showSearch, showSettings, showSign } from '../actions/actions.js';
+import { showMenu, showSearch, showSettings, showSign, setUser } from '../actions/actions.js';
 
 
 class NavBar extends Component {
@@ -11,9 +11,10 @@ class NavBar extends Component {
     }
   }
 
-    componentDidMount() {
+    UNSAFE_componentWillMount() {
         if (localStorage.getItem('gamesio')) {
             this.props.sign(1);
+            this.props.setUser(JSON.parse(localStorage.getItem('gamesio')))
         }
     }
   handleMenu = () => {
@@ -43,9 +44,14 @@ class NavBar extends Component {
     }
   }
 
+  search=()=>{
+
+  }
+
   render() {
     return (
       <div className="menu" >
+
         <input type="image" className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleMenu} style={{ display: this.props.showMenu ? "none" : "" }}></input>
 
         <nav id="img-logo" className="menu" style={{ display: this.props.showMenu ? "" : "none" }} >
@@ -64,33 +70,44 @@ class NavBar extends Component {
             <input type="image" className="navitem" alt="SignUp" style={{ display: this.props.showSign ? "none" : "" }} src="./media/signup.png"></input>
           </Link>
 
+          <Link to="/profile">
+            <input type="image" className="navitem" alt="Profile" style={{ display: this.props.showSign ? "" : "none" }} src={this.props.user.profile ? this.props.user.profile : "./media/signin.png"}></input>
+          </Link>
+          
           <Link to="/addgame">
             <input type="image" className="navitem" alt="Add" style={{ display: this.props.showSign ? "" : "none" }} src="./media/addgame.png"></input>
+          </Link>
+
+          <input type="image" className="navitem" alt="Settings" src="./media/cog.png" onClick={this.handleSettings}></input>
+         
+          <Link to="/test">
+            <input type="image" className="navitem" alt="Test" src="./media/star.png"></input>
           </Link>
 
           <Link to="/signout">
             <input type="image" className="navitem" alt="SignOut" style={{ display: this.props.showSign ? "" : "none" }} src="./media/signout.png"></input>
           </Link>
 
-          <input type="image" className="navitem" alt="Settings" src="./media/cog.png" onClick={this.handleSettings}></input>
-
-
           <input type="image" className="navitem" alt="Search" src="./media/search.png" onClick={this.handleSearch}></input>
           
-          <input type="serach" className="settingsitem" style={{ display: this.props.showSearch ? "" : "none" }} ></input>
+          <input type="serach" className="search" style={{ display: this.props.showSearch ? "" : "none" }} ></input>
+
+          <input type="image" className="navitem" alt="Find" style={{ display: this.props.showSearch ? "" : "none" }} src="./media/rightarrow.png" onClick={this.search}></input>
 
         </nav>
-          <div className ='settings column' style={{ display: this.props.showSettings ? "" : "none" }}>
+
+        <div className ='settings column' style={{ display: this.props.showSettings ? "" : "none" }}>
             
             <Link to="/colors">
-            <button className ='settingsitem'>Colors</button>
+              <input type="button" className ='settingsitem' value="Colors"></input>
             </Link>
 
             <Link to="/language">
-            <button className ='settingsitem'>Language</button>
+              <input type="button" className ='settingsitem' value="Language"></input>
             </Link>
 
-          </div>
+        </div>
+
       </div>
     )
   }
@@ -101,7 +118,8 @@ const mapStateToProps = (state) => {
     showMenu: state.showMenu,
     showSearch: state.showSearch,
     showSign: state.showSign,
-    showSettings:state.showSettings
+    showSettings: state.showSettings,
+    user: state.user
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -109,7 +127,8 @@ const mapDispatchToProps = (dispatch) => {
     menu: (z) => { dispatch(showMenu(z)) },
     search: (z) => { dispatch(showSearch(z)) },
     settings: (z) => { dispatch(showSettings(z)) },
-    sign: (z) => { dispatch(showSign(z)) }
+    sign: (z) => { dispatch(showSign(z)) },
+    setUser: (z) => { dispatch(setUser(z)) }
   }
 }
 

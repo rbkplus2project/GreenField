@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { showSign } from '../actions/actions.js';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import Particles from 'react-particles-js';
+import { showSign, setUser } from '../actions/actions.js';
+
 
 class SignOut extends Component {
     constructor(props) {
@@ -34,10 +36,63 @@ class SignOut extends Component {
 
         ////// temporary solution, should be handled upon signout response from the server
         localStorage.removeItem('gamesio'); 
+        this.props.setUser({});
         this.props.sign(0);
     }
     render() {
+            this.r=Math.floor(Math.random()*16777215).toString(16);
         return (
+            <div>
+            <Particles
+              params={{
+                background: {
+                  color: {
+                    value: "#000000",
+                  },
+                },
+                interactivity: {
+                  events: {
+                    onClick: {
+                      enable: true,
+                      mode: "push",
+                    },
+                    onHover: {
+                      enable: true,
+                      mode: "repulse"
+                    }
+                  },
+                  modes: {
+                    push: {
+                      quantity: 2,
+                    },
+                    repulse: {
+                      distance: 222,
+                      duration: 2,
+                    },
+                  },
+                },
+                particles: {
+                  color: {
+                    value: "#"+this.r,
+                  },
+                  links: {
+                    color: "#"+this.r,
+                    distance: 222,
+                    width: 2,
+                    opacity: 0.7
+                  },
+                  move: {
+                    speed: 7,
+                  },
+                  number: {
+                    value: 77,
+                  },
+                  size: {
+                    value: 7,
+                  },
+                },
+              }}
+            />
             <div className=" center column styled">
                 <h1>Sign Out?</h1>
                 <br></br>
@@ -48,6 +103,7 @@ class SignOut extends Component {
                 <Link to="/">
                     <button className="button">No</button>
                 </Link>
+            </div>
             </div>
         )
     }
@@ -63,6 +119,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         sign: (z) => { dispatch(showSign(z)) },
+        setUser: (z) => { dispatch(setUser(z)) },
     }
 }
 

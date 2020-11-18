@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 class Footer extends Component {
+    getgame = () => {
+        let options = {
+            url: `http://localhost:3000/gitgame`,
+            method: 'get',
+            // data: { username: input[0].value, password: input[1].value }
+        }
+        axios(options)
+            .then((results) => {
+                if (results.status === 200) {
+                    // localStorage.setItem('gamesio', results.data);
+                };
+            })
+            .catch((err) => {
+                console.error(err);
+            })
+   }
     render() {
+        console.log(this.props.game)
         return (
             <footer className="page-footer font-small stylish-color-dark pt-4">
                 <div className="container text-center text-md-left">
@@ -13,11 +32,12 @@ class Footer extends Component {
                         <hr className="clearfix w-100 d-md-none" />
 
                         <div className="col-md-2 mx-auto">
-                            <h6 className="font-weight-bold text-uppercase mt-3 mb-4">Categories</h6>
+                            <h6 className="font-weight-bold text-uppercase mt-3 mb-4">Available Games</h6>
                             <ul className="list-unstyled">
-                                <li><a href="http://gamesio.com/category/c-language/">CAT 1</a></li>
-                                <li><a href="http://gamesio.com/category/front-end-development/">CAT 2</a></li>
-                                <li><a href="http://gamesio.com/category/back-end-development/">CAT 3</a></li>
+
+                                <li><a href={this.results.url}>{this.results.name}</a></li>
+                                {/* <li><a href="http://gamesio.com/category/front-end-development/"></a></li>
+                                <li><a href="http://gamesio.com/category/back-end-development/"></a></li> */}
                             </ul>
                         </div>
 
@@ -28,9 +48,9 @@ class Footer extends Component {
                             <ul className="list-unstyled">
                                 <li><a href="http://gamesio.com/about/">About Us</a></li>
                                 <li><a href="http://gamesio.com/contact/">Contact Us</a></li>
-                                <li><a href="http://gamesio.com/contribute-at-gamesio/">Contribute</a></li>
+                                {/* <li><a href="http://gamesio.com/contribute-at-gamesio/">Contribute</a></li>
                                 <li><a href="http://gamesio.com/privacy-policy/">Privacy Policy</a></li>
-                                <li><a href="http://gamesio.com/sitemap/">Sitemap</a></li>
+                                <li><a href="http://gamesio.com/sitemap/">Sitemap</a></li> */}
                             </ul>
                         </div>
                     </div>
@@ -70,5 +90,16 @@ class Footer extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        Games: state.Games,
+        gameIndex: state.gameIndex
+    }
+}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         saveIndex: (z) => { dispatch(gameIndex(z)) }
+//     }
+// }
 
-export default Footer;
+export default connect(mapStateToProps)(Footer);
