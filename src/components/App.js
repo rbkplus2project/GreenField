@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import React, { Component } from 'react';
 import GameFrame from './GameFrame.js';
+import Particle from './Particles.js';
 import AddGame from './AddGame.js';
 import Profile from './Profile.js';
 import SignOut from './SignOut.js';
@@ -25,8 +26,7 @@ class App extends Component {
     render() {
         return (
             <Router>
-            <div className="main">
-                <NavBar />
+                <NavBar/>
                 <Switch>
                     <Route path="/" exact component={Home}/>
                     <Route path="/signin" component={SignIn}/>
@@ -37,7 +37,7 @@ class App extends Component {
                     <Route path="/profile" component={Profile}/>
                     <Route path="/test" component={Test}/>
                 </Switch>
-            </div>
+                <Particle/>
             </Router>
         );
     }
