@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const handleErrors = require('./authController.js').handleErrors;
-// const hashed = require('../../middleware/hash.js').ash;
 require('dotenv').config()
 const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
@@ -18,9 +17,9 @@ const createToken = (id) => {
 };
 
 exports.create = async function (req, res, next) {
-  const { username, email, password } = req.body
   try {
-    const user = await User.create({ username, email, password });
+    console.log(req.body)
+    const user = await User.create(req.body);
     const token = createToken(user._id);
     // console.log("+++++++>gh", token)
     res.cookie('jwt', token, { httpOnly: false, maxAge: maxAge * 1000 });
@@ -28,16 +27,20 @@ exports.create = async function (req, res, next) {
     // res.status(201);
     // res.send(user._id);
     // res.json({ user: user._id })
-    next();
+    // next();
   }
   catch (err) {
     const errors = handleErrors(err);
     console.log({errors})
     // res.status(400).json({ errors });
-    res.send({errors});
+    res.status(400).send({errors});
     // next();
   }
 }
+
+exports.find = function (req, res) {
+  User.find(req, res);
+};
 
 exports.login = async function (req, res, next) {
   const { username, email, password } = req.body
@@ -51,7 +54,8 @@ exports.login = async function (req, res, next) {
       if (auth) {
         const token = createToken(user._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-        res.status(200).send({ user: user._id });
+        let {username, games, _id, profile} = user
+        res.header('auth-token', token).send({username, games, _id, profile});
         // next();
         return user;
 
@@ -61,7 +65,6 @@ exports.login = async function (req, res, next) {
     throw Error('incorrect email');
 
   }
-
   catch (err) {
     const errors = handleErrors(err);
     // res.status(400).json({});
@@ -69,7 +72,6 @@ exports.login = async function (req, res, next) {
   }
 
 };
-
 exports.reset = async function (req, res, next) {
 
   const { username, email, password } = req.body
@@ -96,15 +98,14 @@ exports.reset = async function (req, res, next) {
       'http://' + "localhost:3001" + '/reset/' + token + '\n\n' +
       'If you did not request this, please ignore this email and your password will remain unchanged.\n'
   }
-
   sgMail
-    .send(msg)
-    .then(() => {
-      console.log('Email sent')
-    })
-    .catch((error) => {
-      console.error(error)
-    })
+      .send(msg)
+      .then(() => {
+        console.log('Email sent')
+      })
+      .catch((error) => {
+        console.error(error)
+      })
 
 };
 
@@ -114,7 +115,7 @@ exports.newPassword = async function (req, res, next) {
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(password, salt);
 
-  const user = await User.findOne({ expiration: { $gt: Date.now() }, used: { $lt: 1 }})
+  const user = await User.findOne({ expiration: { $gt: Date.now() }, used: { $lt: 1 } })
   // console.log(typeof hash)
   if (!user) {
     // return res.json({ status: 'ok' })
@@ -122,37 +123,12 @@ exports.newPassword = async function (req, res, next) {
   }
 
   await User.findOneAndUpdate({ token: req.body.token }, { password: hash, used: 1 });
+}
 
-  /*
-    const msg = {
-      to: process.env.SENDGRID_TO, // Change to your recipient  //req.headers.host
-      from: process.env.SENDGRID_FROM, // Change to your verified sender
-      subject: 'From gamsio.com',
-      text: 'Weclome to our host Gaming website, Hope you Enjoy your experience You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
-        'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-        'http://' + 3001 + '/reset/' + token + '\n\n' +
-        'If you did not request this, please ignore this email and your password will remain unchanged.\n'
-    }
-    
-    sgMail
-      .send(msg)
-      .then(() => {
-        console.log('Email sent')
-      })
-      .catch((error) => {
-        console.error(error)
-      })
-      */
+exports.update = function(find, change, res) {
+  User.update(find, change, res);
 };
 
-
-exports.delete = function (req, res, next) {
-  User.findOneAndDelete({ username: req.body.username })
-    .then(result => {
-      console.log(result);
-      next();
-    })
-    .catch(err => {
-      console.log(err);
-    });
+exports.delete = function(req, res) {
+  User.remove(req, res);
 };
