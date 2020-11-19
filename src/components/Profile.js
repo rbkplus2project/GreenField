@@ -91,6 +91,7 @@ class Profile extends Component {
         .catch(res => alert('Password must be longer than 6 characters'))
     }
     render() {
+        console.log(this.props)
         return (
             <div className="center styled profile">
                 <img className="profileimg" alt="Profile" src={this.props.user.profile ? this.props.user.profile : "./media/signin.png"} />
