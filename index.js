@@ -20,7 +20,7 @@ app.get('/*', (req, res) => {
   res.sendFile(path.resolve(__dirname, "./build", "index.html"))
 })
 
-let port = 3000;
+// let port = 3000;
 
 app.listen(process.env.PORT, () => {
   console.log('Listening on port: ' + process.env.PORT);
