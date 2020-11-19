@@ -10,22 +10,22 @@ body{
     min-height: 90vh;
 }
 .button{
-  border: 4px groove purple;
+  border: 4px solid purple;
   border-radius: 12px;
   font-weight: bold;
   text-align: center;
-  color:white;
+  color:royalblue;
   padding: 0 0 5px;
-  background-color: transparent;
+  background-color: violet;
   height:30px;
   width:200px;
   outline: none;
 }
 .text{
-  color:white;
+  color:royalblue;
   font-weight: bold;
   text-align: center;
-  background-color: transparent;
+  background-color: violet;
   border-radius: 12px;
   height:30px;
   width:200px;
@@ -63,7 +63,7 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
     display:none;
 }
 .styled{
-  color:white;
+  color:royalblue;
   font-weight: bold;
   text-align: center;
 }
@@ -83,7 +83,7 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
 }
 .navitem{
     background-color: violet;
-    border: 3px groove purple;
+    border: 3px solid purple;
     margin-right: 3px;
     border-radius: 30px;
     height: 50px;
@@ -92,7 +92,7 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
 }
 .settingsitem{
   background-color: violet;
-  border: 3px groove purple;
+  border: 3px solid purple;
   font-weight: bold;
   text-align: center;
   color:purple;
@@ -104,7 +104,7 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
 } 
 .search{
   background-color: violet;
-  border: 3px groove purple;
+  border: 3px solid purple;
   font-weight: bold;
   text-align: center;
   color:purple;
@@ -180,7 +180,7 @@ footer {
 .profile{
   background-color: violet;
   padding: 2vw;
-  border: 5px solid rgb(0, 0, 88);
+  border: 5px solid purple;
   border-radius: 12px;
   height: 95%;
   overflow: auto;
@@ -189,9 +189,9 @@ footer {
   width: 100px;
   height: 100px;
   margin-left: 1%;
-  border: 3px solid  rgb(0, 0, 88);
+  border: 3px solid  purple;
   border-radius: 50px;
-  background-color: transparent;
+  background-color: violet;
 }
 input[type='file']{
   opacity: 0;
@@ -200,7 +200,7 @@ input[type='file']{
 }
 .up{
   width: 300px;
-  border: 3px groove rgb(0, 0, 88);
+  border: 3px solid purple;
   border-radius: 50px;
   margin-left:20%;
 }
@@ -211,12 +211,30 @@ input[type='file']{
   padding: 4px 30px;
   border-radius: 50px;
   background-color: violet;
-  border: 3px groove rgb(0, 0, 88);
+  border: 3px solid purple;
   font-weight: bold;
   text-align: center;
-  color:white;
+  color:royalblue;
 }
-#i{
+.uploaded{
+  width: 120px;
+  height: 120px;
+  border: 3px solid  purple;
+  border-radius: 30px;
+  background-color: violet;
+}
+.remove{
+  border: 4px solid purple;
+  border-radius: 66px;
+  font-weight: bold;
+  color:red;
+  background-color: violet;
+  height:6vw;
+  width:6vw;
+  font-size:50px;
+  outline: none;
+}
+.i{
   position: relative;
 }
 #footer {

@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
@@ -10,6 +11,15 @@ class SignOut extends Component {
         this.state = {
         }
       }
+    componentDidMount(){
+      $("#particles")[0].className="hide"
+      $(".i").on('mouseenter',function(e){
+        $(this).css({top:$(window).height()*0.5*Math.random()-($(this).height()*10*Math.random()), left:$(window).width()*0.5*Math.random()-($(this).height()*20*Math.random())})
+      })
+    }
+    componentWillUnmount(){
+        $("#particles")[0].className="Show"
+    }
       
     handleClick = (e) => {
         /*
@@ -41,14 +51,24 @@ class SignOut extends Component {
     render() {
         return (
             <div className=" center column styled">
-                <h1>Sign Out?</h1>
+                <div className="row">
+                <h1 className="i">S</h1>
+                <h1 className="i">i</h1>
+                <h1 className="i">g</h1>
+                <h1 className="i">n</h1>
+                <h1 className="i"> </h1>
+                <h1 className="i">O</h1>
+                <h1 className="i">u</h1>
+                <h1 className="i">t</h1>
+                <h1 className="i">?</h1>
+                </div>
                 <br></br>
                 <Link to="/">
-                    <button id="i" className="button" onClick={this.handleClick}>Yes</button>
+                    <button className="button i" onClick={this.handleClick}>Yes</button>
                 </Link>
                 <br></br>
                 <Link to="/">
-                    <button className="button">No</button>
+                    <button className="button i">No</button>
                 </Link>
             </div>
         )

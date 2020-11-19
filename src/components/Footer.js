@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 class Footer extends Component {
     render() {
-        console.log(this.props.Games)
         return (
             <footer className="page-footer font-small stylish-color-dark pt-4" >
                 <div className="container text-center text-md-left" id="footer">
@@ -34,11 +33,11 @@ class Footer extends Component {
                             <h4 className="font-weight-bold text-uppercase mt-3 mb-4">CONTACT US</h4>
                             <ul className="list-unstyled">
                                 <div>
-                                    <i class="glyphicon glyphicon-envelope "></i>
+                                    <i className="glyphicon glyphicon-envelope "></i>
                                     <span id='email'>gamesio@gmail.com</span>
                                 </div>
                                 <div>
-                                    <i class='fas fa-phone-alt '></i>
+                                    <i className='fas fa-phone-alt '></i>
                                     <span id='phone'>+ 1235 2355 98</span>
                                 </div>
 
