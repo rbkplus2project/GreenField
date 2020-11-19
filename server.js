@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const mongo = require('./database');
+const mongo = require('./server/database');
 
 let app = express();
 
@@ -11,9 +11,9 @@ app.use(express.static(__dirname + '/../build'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/user/signup', require('./middleware/hash.js'));
-app.use('/user', require('./database/resources/userRouter'));
-app.use('/game', require('./database/resources/gameRouter'));
+app.use('/user/signup', require('./server/middleware/hash.js'));
+app.use('/user', require('./server/database/resources/userRouter'));
+app.use('/game', require('./server/database/resources/gameRouter'));
 
 let port = 3000;
 

@@ -2,7 +2,7 @@
   "name": "green-field",
   "version": "1.0.0",
   "description": "games website",
-  "main": "server/server.js",
+  "main": "server.js",
   "author": "titans",
   "private": false,
   "license": "none",
