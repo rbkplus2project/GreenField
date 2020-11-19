@@ -1,7 +1,7 @@
 const userRouter = require('express').Router();
 const userCtrl = require('./userController.js');
 const jwt = require('jsonwebtoken');
-const path = require('path');
+const hash = require('../../middleware/hash')
 
 userRouter.route('/signup')
   .post((req, res, next) => {
@@ -10,8 +10,8 @@ userRouter.route('/signup')
   })
 
 userRouter.route('/signin')
-  .post((req, res, next) => {
-    userCtrl.login(req, res, next);
+  .post((req, res) => {
+    userCtrl.login(req, res);
     // userCtrl.find({ username: req.body.username }, async (err, data) => {
     //   if (err) {
     //     res.sendStatus(500);
@@ -23,7 +23,8 @@ userRouter.route('/signin')
     //       if (valid) {
     //         const token = jwt.sign({ _id: data[0]._doc._id }, 'duwjieurbyve');
     //         console.log(token);
-    //         res.header('auth-token', token).send(token);
+    //         let {username, games, _id, profile} = data[0]._doc
+    //         res.header('auth-token', token).json({username: username, games: games, _id: _id, profile: profile});
     //       } else {
     //         res.status(400).send('password incorrect');
     //       }
@@ -34,23 +35,13 @@ userRouter.route('/signin')
     //   }
     // });
   });
-
-userRouter.route('/reset')
+  userRouter.route('/reset')
   .post((req, res, next) => {
     userCtrl.reset(req, res, next)
 
   });
 
-userRouter.route(`/reset/:token`)
-  .get((req, res, next) => {
-    
-    console.log("88888888",req.body)
-    // path.join(__dirname + './src/components/NewPassword.js')
-    // console.log(res)
-    // res.sendFile('./src/components/NewPassword.js', { root: __dirname });
-    next();
-  })
-
+  userRouter.route(`/reset/:token`)
   .post((req, res, next) => {
     // console.log("=========",req)
     userCtrl.newPassword(req, res, next)
@@ -58,39 +49,37 @@ userRouter.route(`/reset/:token`)
 
   })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // .get((req, res, next) => {
+  //   console.log("88888888",req.body)
+  //   // path.join(__dirname + './src/components/NewPassword.js')
+  //   // console.log(res)
+  //   // res.sendFile('./src/components/NewPassword.js', { root: __dirname });
+  //   next();
+  // })
 
 userRouter.route('/removeuser')
   .delete((req, res) => {
     userCtrl.delete();
   });
-  //   userCtrl.delete(req.body, (err, data) => {
-  //     if (err) {
-  //       res.sendStatus(500);
-  //     } else {
-  //       res.json(data);
-  //     }
-  //   });
-  // });
-
-
-
+  
+  userRouter.route('/:username')
+  .put((req, res) => {
+    userCtrl.update(req.params, req.body, (err, data) => {
+      if (data.ok === 0) {
+        res.sendStatus(400)
+      }
+      else {
+        res.json(data)
+      }
+    })
+  })
+  .post(hash, (req, res) => {
+    userCtrl.update(req.params, req.body, (err, data) => {
+      if (data.ok === 0) {
+        res.sendStatus(400) 
+      } else {
+        res.sendStatus(200)
+      }
+    })
+  })
 module.exports = userRouter;

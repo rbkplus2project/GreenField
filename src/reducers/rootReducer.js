@@ -7,7 +7,9 @@ const initState = {
     showSearch: 0,
     showSettings: 0,
     gameIndex: -1,
-    Games: []
+    Games: [],
+    GamesSearch: [],
+    user: {}
 }
 
 const rootReducer = (state = initState, action) => {
@@ -41,10 +43,22 @@ const rootReducer = (state = initState, action) => {
             Games: action.Games
         }
     }
+    if (action.type === "SEARCH_GAMES") {
+        return  {
+            ...state,
+            GamesSearch: action.GamesSearch
+        }
+    }
     if (action.type === "GAME_INDEX") {
         return  {
             ...state,
             gameIndex: action.gameIndex
+        }
+    }
+    if (action.type === "USER_INFO") {
+        return  {
+            ...state,
+            user: action.user
         }
     }
     return state;
