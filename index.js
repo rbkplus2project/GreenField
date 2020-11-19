@@ -22,8 +22,8 @@ app.get('/*', (req, res) => {
 
 let port = 3000;
 
-app.listen(port, () => {
-  console.log('Listening on port: ' + port);
+app.listen(process.env.PORT, () => {
+  console.log('Listening on port: ' + process.env.PORT);
 });
 
 module.exports = app;
