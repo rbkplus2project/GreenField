@@ -1,18 +1,25 @@
-import React, { Component } from 'react';
 import { showSign, setUser } from '../actions/actions.js';
-import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 const axios = require('axios');
 const $ = require('jquery');
+
 class SignIn extends Component {
      constructor(props) {
          super(props);
          this.state = {
+            redirect: false
          }
      }
 
     handleSubmit = (e) => {
         e.preventDefault();
+        const usernameError = document.querySelector('.username.error');
+        const passwordError = document.querySelector('.password.error');
+        usernameError.textContent = '';
+        passwordError.textContent = '';
+
         let input = $('#signin-form').serializeArray();
         let options = {
             url: `http://localhost:3000/user/signin`,
@@ -22,13 +29,17 @@ class SignIn extends Component {
 
         axios(options)
             .then((results) => {
-                if (results.status === 200) {
+                if (results.status === 200 && results.data.errors === undefined) {
                     console.log(results.data)
                     this.props.sign(1);
                     this.props.setUser(results.data)
                     localStorage.setItem('gamesio', JSON.stringify(results.data));
-                    this.setState({})
+                    this.setState({ redirect: true })
                 };
+                if (results.data.errors) {
+                    usernameError.textContent = results.data.errors.username;
+                    passwordError.textContent = results.data.errors.password;
+                }
             })
             .catch((err) => {
                 console.error(err);
@@ -48,15 +59,21 @@ class SignIn extends Component {
                         <div className="column">
                             <label htmlFor="username">User Name:</label>
                             <input type="text" className="text" id="username" name="username" />
-
+                            <div class="username error"></div>
+                            
                             <label htmlFor="Password">Password:</label>
                             <input type="password" className="text" id="password" name="password" />
+                            <div class="password error"></div>
+
                         </div>
                         <br />
                         <button className="button">Sign In</button><br />
                     </form>
                     <Link to="/signup" style={{textDecoration: "none"}}>
                         <p>Sign Up</p>
+                    </Link>
+                    <Link to="/reset" style={{ textDecoration: "none" }}>
+                        <p>Forgot password?</p>
                     </Link>
                 </div>
             )
