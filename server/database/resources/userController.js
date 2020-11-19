@@ -38,12 +38,6 @@ exports.create = async function (req, res, next) {
 }
 
 exports.login = async function (req, res, next) {
-  // try {
-  //   const user = await User.login(username, password);
-  //   res.status(200).json({ user: user._id });
-  // } catch (err) {
-  //   res.status(400).json({});
-  // }
   const { username, email, password } = req.body
 
   try {
@@ -120,7 +114,7 @@ exports.newPassword = async function (req, res, next) {
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(password, salt);
 
-  const user = await User.findOne({ expiration: { $gt: Date.now() } })
+  const user = await User.findOne({ expiration: { $gt: Date.now() }, used: { $lt: 1 }})
   // console.log(typeof hash)
   if (!user) {
     // return res.json({ status: 'ok' })
@@ -131,7 +125,7 @@ exports.newPassword = async function (req, res, next) {
   // var hash = bcrypt.hash(password, salt);
   // console.log(hash)
 
-  await User.findOneAndUpdate({ token: req.body.token }, { password: hash });
+  await User.findOneAndUpdate({ token: req.body.token }, { password: hash, used: 1 });
 
   /*
     const msg = {
