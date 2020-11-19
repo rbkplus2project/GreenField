@@ -25,7 +25,7 @@ class SignUp extends Component {
         if (input[2].value === input[3].value) {
             if (input[1].value.length >= 6) {
                 let options = {
-                url: 'http://localhost:3000/user/signup',
+                url: '/user/signup',
                 method: 'post',
                 data: { username: input[0].value, email: input[1].value, password: input[2].value }
                 }

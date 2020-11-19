@@ -14,7 +14,7 @@ class SignOut extends Component {
     handleClick = (e) => {
         /*
         let options = {
-            url: `http://localhost:3000/user/signout`,
+            url: `/user/signout`,
             method: 'post',
             data: { "signout": "true" }
         }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { showSign } from '../actions/actions.js';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 const axios = require('axios');
 const $ = require('jquery');
 class ResetPassword extends Component {
@@ -17,7 +17,7 @@ class ResetPassword extends Component {
         let input = $('#signin-form').serializeArray();
         console.log(input)
         let options = {
-            url: `http://localhost:3000/user/reset`,
+            url: `/user/reset`,
             method: 'post',
             data: { email: input[0].value }
         }
