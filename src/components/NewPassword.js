@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { showSign } from '../actions/actions.js';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 const $ = require('jquery');
 class NewPassword extends Component {
@@ -20,7 +19,7 @@ class NewPassword extends Component {
 
         if (input[0].value === input[1].value) {
         let options = {
-            url: `http://localhost:3000/user/reset/:token`,
+            url: `/user/reset/:token`,
             method: 'post',
             data: { password: input[0].value, token: token }
         }

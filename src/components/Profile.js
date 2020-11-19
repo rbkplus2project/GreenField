@@ -9,7 +9,7 @@ class Profile extends Component {
     //     super(props)
     // }
     componentDidMount() {
-        fetch('http://localhost:3000/game')
+        fetch('/game')
           .then(res => res.json())
             .then(res => {
                 if (localStorage.getItem('gamesio')) {
@@ -33,7 +33,7 @@ class Profile extends Component {
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify({"profile": e.target.result})
                 }
-                fetch('http://localhost:3000/user/' + name, options)
+                fetch('/user/' + name, options)
                 .then(res => {
                     if (res.status === 200) {
                         newUser.profile = e.target.result
@@ -57,7 +57,7 @@ class Profile extends Component {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({"username": newName})
         }
-        fetch('http://localhost:3000/user/' + oldName, options)
+        fetch('/user/' + oldName, options)
         .then(res => {
             if (res.status === 200) {
                 let newUser = this.props.user
@@ -79,7 +79,7 @@ class Profile extends Component {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({password: newPass, username: name})
         }
-        fetch('http://localhost:3000/user/' + name, options)
+        fetch('/user/' + name, options)
             .then(res => {
             console.log(res)
             if (res.status === 200) {
