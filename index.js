@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const mongo = require('./server/database');
 
@@ -14,6 +15,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/user/signup', require('./server/middleware/hash.js'));
 app.use('/user', require('./server/database/resources/userRouter'));
 app.use('/game', require('./server/database/resources/gameRouter'));
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./build", "index.html"))
+})
 
 let port = 3000;
 
