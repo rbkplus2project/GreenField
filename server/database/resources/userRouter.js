@@ -1,10 +1,10 @@
 const userRouter = require('express').Router();
 const userCtrl = require('./userController.js');
 const jwt = require('jsonwebtoken');
+const path = require('path');
 
 userRouter.route('/signup')
   .post((req, res, next) => {
-    // console.log("signup",req.body)
     userCtrl.create(req, res, next);
 
   })
@@ -46,6 +46,51 @@ userRouter.route('/signin')
     //   }
     // });
   });
+
+
+userRouter.route('/reset')
+  .post((req, res, next) => {
+    userCtrl.reset(req, res, next)
+
+  });
+
+userRouter.route(`/reset/:token`)
+  .get((req, res, next) => {
+    
+    console.log("88888888",req.body)
+    // path.join(__dirname + './src/components/NewPassword.js')
+    // console.log(res)
+    // res.sendFile('./src/components/NewPassword.js', { root: __dirname });
+    next();
+  })
+
+  .post((req, res, next) => {
+    // console.log("=========",req)
+    userCtrl.newPassword(req, res, next)
+    // res.redirect('/signin');
+
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 userRouter.route('/removeuser')
   .delete((req, res) => {
     userCtrl.delete();
@@ -58,5 +103,7 @@ userRouter.route('/removeuser')
   //     }
   //   });
   // });
+
+
 
 module.exports = userRouter;
