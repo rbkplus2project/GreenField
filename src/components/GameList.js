@@ -4,14 +4,13 @@ import {connect} from 'react-redux'
 import { getGames, setUser, searchGames } from '../actions/actions.js';
 
 
-
 class GameList extends Component {
+    
     constructor(props) {
         super(props);
         this.state = {
         }
       }
-      
     componentDidMount() {
         fetch('/game')
           .then(res => res.json())
