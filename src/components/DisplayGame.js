@@ -8,7 +8,7 @@ class DisplayGame extends Component {
         let _id = this.props.game._id
         let newUser = this.props.user
         let index = this.props.item
-        fetch('/game/' + _id, { method: 'delete' })
+        fetch('http://localhost:3000/game/' + _id, { method: 'delete' })
             .then(res => {
                 if (res.status === 200) {
                 newUser.games.splice(index, 1)
