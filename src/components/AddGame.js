@@ -11,21 +11,20 @@ class AddGame extends Component {
         }
     }
     handleSubmit = (e) => {
-        console.log($('#addgame-form').val())
         e.preventDefault();
         let input = $('#addgame-form').serializeArray();
-        console.log(input)
         let request = {
             url: input[1].value,
-            imgs: input.slice(4).map(elem => elem.value),
+            imgs: input.slice(4).filter(elem => elem.value !== '').map(elem => elem.value),
             disc: {
                 name: input[0].value,
                 type: input[2].value,
                 dificulty: input[3].value
-            }
+            },
+            postedBy: JSON.parse(localStorage.getItem('gamesio'))._id
         }
         let options = {
-            url: `http://localhost:3000/game`,
+            url: 'http://localhost:3000/game',
             method: 'post',
             data: request
         }
@@ -33,58 +32,46 @@ class AddGame extends Component {
         axios(options)
             .then(res => {
                 if (res.status === 200) {
-                    let func = this.addImageField
-                    $('#addgame-form').html(`
-                        <label htmlFor="title">Game Title:</label>
-                        <input type="text" class="text" name="title" required/>
-                        
-                        <label htmlFor="url">Game URL:</label>
-                        <input type="url" class="text" name="url" required/>
-
-                        <label htmlFor="type">Game Type:</label>
-                        <input type="text" class="text" name="type" />
-
-                        <label htmlFor="difficulty">Game difficulty:</label>
-                        <input type="text" class="text" name="difficulty" />
-
-                        <label htmlFor="image1">Game image1:</label>
-                        <input type="url" class="text" name="image1" required/>
-                        <br>
-                        <input type="button" style="width:2vw" class="button" name="addmoreimgs" id="addmoreimgs" value="+" onclick=${func}() />
-                        <br>
-                        <button class="button">Upload</button>`)
-                    this.count = 2
+                    $('form').children().remove('.delete')
+                    $('form').children().val('')
+                    $('form').children()[11].value = '+'
+                    this.count = 2;
+                    this.setState({image: "image" + this.count})
                 }
             })
-            .catch(err => console.log("error here ====>", err))
+            .catch(err => {
+                alert('unknown error')
+                console.log("error here ====>", err)
+            })
     }
     addImageField = () => {
         this.setState({image: "image" + ++this.count})
-        let newImageField = $(`<label htmlFor=${this.state.image}>Game ${this.state.image}:</label><input type="text" class="text" name=${this.state.image} /><br>`)
+        let newImageField = $(`<label class="delete" htmlFor=${this.state.image}>Game ${this.state.image}:</label><input type="text" class="text delete" name=${this.state.image} id=${this.state.image} /><br class="delete">`)
         $("#addmoreimgs").before(newImageField)
     }
     render() {
         return (
-            <div className="center styled">
+            <div className="center styled scroll">
                 <h1>Upload Your Own Game!</h1>
                 <br/>
                 <form id="addgame-form" className="column" onSubmit={this.handleSubmit}>
                     <label htmlFor="title">Game Title:</label>
-                    <input type="text" className="text" name="title" required/>
+                    <input type="text" className="text" name="title" id="title" required/>
                     
                     <label htmlFor="url">Game URL:</label>
-                    <input type="url" className="text" name="url" required/>
+                    <input type="url" className="text" name="url" id="url" required/>
 
                     <label htmlFor="type">Game Type:</label>
-                    <input type="text" className="text" name="type" />
+                    <input type="text" className="text" name="type" id="type" required/>
 
                     <label htmlFor="difficulty">Game difficulty:</label>
-                    <input type="text" className="text" name="difficulty" />
+                    <input type="text" className="text" name="difficulty" id="difficulty" required/>
 
                     <label htmlFor="image1">Game image1:</label>
-                    <input type="text" className="text" name="image1" required/>
+                    <input type="text" className="text" name="image1" id="image1" required/>
+
                     <br/>
-                    <input type="button" className="button" style={{width:'2vw'}} name="addmoreimgs" id="addmoreimgs" value="+" onClick={this.addImageField}/>
+                    <input type="button" alt="plop" className="button plus" value="+" style={{width:'2vw'}} name="addmoreimgs" id="addmoreimgs" onClick={this.addImageField} />
                     <br/>
                     <button className="button">Upload</button>
                 </form>
@@ -93,4 +80,4 @@ class AddGame extends Component {
     }
 }
 
-export default AddGame
+export default AddGame;

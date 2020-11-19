@@ -21,31 +21,31 @@ class SignUp extends Component {
         passwordError.textContent = '';
 
         let input = $('#signup-form').serializeArray();
+        console.log(input)
 
         if (input[2].value === input[3].value) {
-            let options = {
-                url: `http://localhost:3000/user/signup`,
+            if (input[1].value.length >= 6) {
+                let options = {
+                url: 'http://localhost:3000/user/signup',
                 method: 'post',
                 data: { username: input[0].value, email: input[1].value, password: input[2].value }
-            }
-
-            await axios(options)
-                .then((results) => {
-                    // console.log("results", results.data.errors)
-                
+                }
+            
+                 axios(options)
+                    .then((results) => {
                     if (results.status === 201) {
                         this.setState({ redirect: true })
-                    };
+                    }
                     if (results.data.errors) {
                         usernameError.textContent = results.data.errors.username;
                         emailError.textContent = results.data.errors.email;
                         passwordError.textContent = results.data.errors.password;
                     }
                 })
-
                 .catch((err) => {
                     console.log("error here ====>", err);
                 })
+            } 
         }
         else {
             alert("Password doesn't match");
@@ -65,14 +65,14 @@ class SignUp extends Component {
                             <label htmlFor="newusername">User Name:</label>
                             <input type="text" className="text" id="newusername" name="newusername" />
                             <div class="username error"></div>
-
+                            
                             <label htmlFor="email">Email:</label>
                             <input type="email" className="text" id="email" name="email" />
                             <div class="email error"></div>
 
                             <label htmlFor="newPassword">Password:</label>
                             <input type="password" className="text" id="newPassword" name="newPassword" />
-
+                            
                             <label htmlFor="confirmPassword">Confirm Password:</label>
                             <input type="password" className="text" id="confirmPassword" name="confirmPassword" />
                             <div class="password error"></div>
@@ -80,10 +80,7 @@ class SignUp extends Component {
                         <br />
                         <button className="button">Sign Up</button><br />
                     </form>
-
-                    <Link to="/signin" style={{ textDecoration: "none" }}>
-                        <p>Already have an account? <a href="http://localhost:3000/signin">Sign In</a></p>
-                    </Link>
+                    <p>Already have an account? <Link to="/signin" style={{ textDecoration: "none" }}>Sign In</Link></p>
                 </div>
             )
         }

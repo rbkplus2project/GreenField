@@ -1,5 +1,14 @@
-const bcrypt = require('bcrypt');
-var ash = (req, res, next) => {
+  const bcrypt = require('bcrypt');
+const Joi = require('joi');
+
+// var schema = Joi.object({
+//   username: Joi.string().min(4).required(),
+//   password: Joi.string().min(6).required()
+// });
+
+var ash = async (req, res, next) => {
+  // var valid = await schema.validate(req.body);
+  // if (valid.error) { return res.status(400).send(valid.error.details[0].message); } 
 //   req.body.password;
   // var salt = bcrypt.genSalt(10)
   var salt = bcrypt.genSaltSync(10);
