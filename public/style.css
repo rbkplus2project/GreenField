@@ -1,0 +1,231 @@
+html{
+  min-height: 90vh;
+}
+body{
+    background-image: url('media/neon.jpg');
+    background-color: purple;
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    min-height: 90vh;
+}
+.button{
+  border: 4px groove purple;
+  border-radius: 12px;
+  font-weight: bold;
+  text-align: center;
+  color:white;
+  padding: 0 0 5px;
+  background-color: transparent;
+  height:30px;
+  width:200px;
+  outline: none;
+}
+.text{
+  color:white;
+  font-weight: bold;
+  text-align: center;
+  background-color: transparent;
+  border-radius: 12px;
+  height:30px;
+  width:200px;
+  outline: none;
+}
+input[type='text']::placeholder,input[type='number']::placeholder, input[type='password']::placeholder, textarea::placeholder{
+    color:gray;
+    font-weight: bold;
+    text-align: center;
+}
+input:hover, textarea:hover, button:hover, .profileitem:hover{
+    transition: 1s;
+    background-color: cyan;
+}
+.column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+}
+.center{
+    position: fixed;
+    z-index: 5;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+.hide{
+    display:none;
+}
+.styled{
+  color:white;
+  font-weight: bold;
+  text-align: center;
+}
+.menu{
+    position:fixed;
+    top:10px;
+    left:10px;
+    z-index: 500;
+    display: flex;
+    flex-flow: row wrap;
+}
+.settings{
+  position:fixed;
+  top:66px;
+  left:150px;
+  z-index: 500;
+}
+.navitem{
+    background-color: violet;
+    border: 3px groove purple;
+    margin-right: 3px;
+    border-radius: 30px;
+    height: 50px;
+    width: 50px;
+    outline: none;
+}
+.settingsitem{
+  background-color: violet;
+  border: 3px groove purple;
+  font-weight: bold;
+  text-align: center;
+  color:purple;
+  margin-top: 10px;
+  border-radius: 12px;
+  height: 30px;
+  width: 200px;
+  outline: none;
+} 
+.search{
+  background-color: violet;
+  border: 3px groove purple;
+  font-weight: bold;
+  text-align: center;
+  color:purple;
+  border-radius: 25px;
+  height: 50px;
+  width: 33vw;
+  outline: none;
+}
+.gameitem{
+    display: inline-block;
+    width: 49.36vw;
+    height: 50vh;
+    cursor: pointer;
+    background-color: rgb(77, 77, 88);   
+}
+.gameinfo{
+  background-color: rgb(33, 33, 33);
+  height: 46vh;
+  text-align: center;
+  color: grey;
+  border-radius: 12px;
+  border: 50px solid ;
+  border-image: url("media/border.png") 150 ;
+}
+.gameimg{
+    height: 46vh;
+    width: 100%;
+    border-radius: 12px;
+}
+.disc{
+  margin-top: 2vw;
+}
+  .each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+  }
+  .each-fade {
+    display: flex;
+  }
+  .each-fade .image-container {
+    width: 75%;
+    overflow: hidden;
+  }
+  .each-fade .image-container img {
+    width: 100%;
+  }
+  .each-fade h2 {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #adceed;
+  }
+
+.games-container{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 50px 30px;
+  justify-content: center;
+  align-content: center;
+}
+footer {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.profile{
+  background-color: violet;
+  padding: 2vw;
+  border: 5px solid rgb(0, 0, 88);
+  border-radius: 12px;
+  height: 95%;
+  overflow: auto;
+}
+.profileimg{
+  width: 100px;
+  height: 100px;
+  margin-left: 1%;
+  border: 3px solid  rgb(0, 0, 88);
+  border-radius: 50px;
+  background-color: transparent;
+}
+input[type='file']{
+  opacity: 0;
+  position: absolute;
+  left:25%;
+}
+.up{
+  width: 300px;
+  border: 3px groove rgb(0, 0, 88);
+  border-radius: 50px;
+  margin-left:20%;
+}
+.edit{
+  margin: 10px;
+  width: 200px;
+  outline: none;
+  padding: 4px 30px;
+  border-radius: 50px;
+  background-color: violet;
+  border: 3px groove rgb(0, 0, 88);
+  font-weight: bold;
+  text-align: center;
+  color:white;
+}
+#i{
+  position: relative;
+}
+#footer {
+  font-size: 15px;
+  margin-top: 5px;
+}
+.scroll{
+  height: 100%;
+  width: 100%;
+  padding: 100px;
+  overflow: auto;
+}
