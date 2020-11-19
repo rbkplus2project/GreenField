@@ -8,12 +8,14 @@ class ResetPassword extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            newpass: false
         }
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         let input = $('#signin-form').serializeArray();
+        console.log(input)
         let options = {
             url: `http://localhost:3000/user/reset`,
             method: 'post',
@@ -25,8 +27,9 @@ class ResetPassword extends Component {
                 if (results.status === 200) {
                     this.props.sign(1);
                     localStorage.setItem('gamesio', results.data);
-                    this.setState({})
+                    this.setState({ newpass: true})
                 };
+
             })
             .catch((err) => {
                 console.error(err);
@@ -36,7 +39,11 @@ class ResetPassword extends Component {
     render() {
         if (localStorage.getItem('gamesio')) {
             return <Redirect to="/" />
-        } else {
+        }
+        else if (this.state.newpass){
+            return <Redirect to ="/reset/:token" />
+        }
+        else {
             return (
                 <div id="signin" className="center styled">
                     <form id="signin-form" onSubmit={this.handleSubmit}>

@@ -22,7 +22,16 @@ app.use('/user', require('./database/resources/userRouter'));
 // app.use('/game', require('./database/resources/gameRouter'));
 // app.use('/test', require('./database/resources/testpath'));
 
+// app.get('/set-cookies', (req, res) => {
 
+//   res.setHeader('Set-Cookie', 'newUser=true');
+
+//   // res.cookie('newUser', false);
+//   // res.cookie('isEmployee', true, { maxAge: 1000 * 60 * 60 * 24, httpOnly: true });
+
+//   res.send('you got the cookies!');
+
+// });
 
 let port = 3000;
 
