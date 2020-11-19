@@ -14,8 +14,6 @@ class NewPassword extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         let input = $('#signin-form').serializeArray();
-        // console.log(input)
-        // console.log(window.location.href);
         let currenturl = window.location.href;
         let index = currenturl.lastIndexOf("/");
         let token = currenturl.slice(index + 1);

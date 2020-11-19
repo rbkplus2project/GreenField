@@ -8,22 +8,10 @@ userRouter.route('/signup')
     userCtrl.create(req, res, next);
 
   })
-// .post((req, res) => {
-//   userCtrl.create(req.body, (err, data) => {
-//     if (err) {
-//       res.sendStatus(400);
-//     } else {
-//       res.sendStatus(200);
-//     }
-//   });
-//   // console.log(req.body);
-// });
 
 userRouter.route('/signin')
   .post((req, res, next) => {
     userCtrl.login(req, res, next);
-
-
     // userCtrl.find({ username: req.body.username }, async (err, data) => {
     //   if (err) {
     //     res.sendStatus(500);
@@ -46,7 +34,6 @@ userRouter.route('/signin')
     //   }
     // });
   });
-
 
 userRouter.route('/reset')
   .post((req, res, next) => {
