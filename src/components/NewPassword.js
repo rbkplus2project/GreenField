@@ -4,69 +4,75 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 const $ = require('jquery');
-class ResetPassword extends Component {
+class NewPassword extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            newpass: false
         }
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         let input = $('#signin-form').serializeArray();
-        console.log(input)
+        let currenturl = window.location.href;
+        let index = currenturl.lastIndexOf("/");
+        let token = currenturl.slice(index + 1);
+
+        if (input[0].value === input[1].value) {
         let options = {
-            url: `http://localhost:3000/user/reset`,
+            url: `http://localhost:3000/user/reset/:token`,
             method: 'post',
-            data: { email: input[0].value }
+            data: { password: input[0].value, token: token }
         }
 
         axios(options)
             .then((results) => {
                 if (results.status === 200) {
                     this.props.sign(1);
-                    localStorage.setItem('gamesio', results.data);
-                    this.setState({ newpass: true})
+                    // localStorage.setItem('gamesio', results.data);
+                    // this.setState({})
                 };
-
             })
             .catch((err) => {
                 console.error(err);
             })
+        }
+        else {
+            alert("Password doesn't match");
+        }
     }
 
     render() {
-        if (localStorage.getItem('gamesio')) {
-            return <Redirect to="/" />
-        }
-        else if (this.state.newpass){
-            return <Redirect to ="/reset/:token" />
-        }
-        else {
+        // if (localStorage.getItem('gamesio')) {
+        //     return <Redirect to="/" />
+        // } else {
             return (
                 <div id="signin" className="center styled">
                     <form id="signin-form" onSubmit={this.handleSubmit}>
-                        <h1>Forgot Password</h1>
+                        <h1>Reset Password</h1>
                         <br />
                         <div className="column">
-                            <label htmlFor="email">Email:</label>
-                            <input type="email" className="text" id="email" name="email" />
+                            <label htmlFor="password-n">New Password:</label>
+                            <input type="password" className="text" id="password-n" name="password-n" />
+                        </div>
+
+                        <div className="column">
+                            <label htmlFor="password-con">Comfirm Password:</label>
+                            <input type="password" className="text" id="password-con" name="password-con" />
                         </div>
                         <br />
-                        <button className="button">Reset Password</button><br />
+
+                        <button className="button">Update Password</button><br />
                     </form>
                 </div>
             )
         }
-    }
+    // }
 };
 
 const mapStateToProps = (state) => {
     return {
         showMenu: state.showMenu,
-        showSearch: state.showSearch,
-        showSign: state.showSign
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -75,4 +81,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ResetPassword);
+export default connect(mapStateToProps, mapDispatchToProps)(NewPassword);

@@ -3,7 +3,12 @@ const { send } = require('@sendgrid/mail');
 const User = require('./user.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const crypto = require('crypto');
 const handleErrors = require('./authController.js').handleErrors;
+// const hashed = require('../../middleware/hash.js').ash;
+require('dotenv').config()
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 const maxAge = 1 * 24 * 60 * 60;
 const createToken = (id) => {
@@ -17,8 +22,8 @@ exports.create = async function (req, res, next) {
   try {
     const user = await User.create({ username, email, password });
     const token = createToken(user._id);
-    console.log("+++++++>gh",token)
-    res.cookie('jwt', token, { httpOnly: false, maxAge: maxAge * 1000 }); 
+    // console.log("+++++++>gh", token)
+    res.cookie('jwt', token, { httpOnly: false, maxAge: maxAge * 1000 });
     res.status(201).json({ user: user._id });
     // res.status(201);
     // res.send(user._id);
@@ -33,15 +38,6 @@ exports.create = async function (req, res, next) {
 }
 
 exports.login = async function (req, res, next) {
-
-  // const { username, email, password } = req.body;
-
-  // try {
-  //   const user = await User.login(username, password);
-  //   res.status(200).json({ user: user._id });
-  // } catch (err) {
-  //   res.status(400).json({});
-  // }
   const { username, email, password } = req.body
 
   try {
@@ -56,12 +52,12 @@ exports.login = async function (req, res, next) {
         res.status(200).json({ user: user._id });
         // next();
         return user;
-        
+
       }
       throw Error('incorrect password');
     }
     throw Error('incorrect email');
-    
+
   }
 
   catch (err) {
@@ -70,6 +66,82 @@ exports.login = async function (req, res, next) {
   }
 
 };
+
+exports.reset = async function (req, res, next) {
+
+  const { username, email, password } = req.body
+  const user = await User.findOne({ email })
+  // console.log(user)
+  if (!user) {
+    // return res.json({ status: 'ok' })
+    return 'No user found with that email address.'
+  }
+
+  const token = crypto.randomBytes(32).toString('hex');
+
+  var expireDate = new Date();
+  expireDate.setHours(expireDate.getHours() + 3);
+
+  await User.findOneAndUpdate({ email: req.body.email }, { expiration: expireDate, token: token, used: 0 })
+
+  const msg = {
+    to: process.env.SENDGRID_TO, // Change to your recipient  //req.headers.host
+    from: user.email, // Change to your verified sender  //process.env.SENDGRID_FROM
+    subject: 'From gamsio.com',
+    text: 'Weclome to our host Gaming website, Hope you Enjoy your experience You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+      'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+      'http://' + "localhost:3001" + '/reset/' + token + '\n\n' +
+      'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+  }
+
+  // sgMail
+  //   .send(msg)
+  //   .then(() => {
+  //     console.log('Email sent')
+  //   })
+  //   .catch((error) => {
+  //     console.error(error)
+  //   })
+
+};
+
+exports.newPassword = async function (req, res, next) {
+  // console.log("=========", req.params)
+  const { username, email, password, token } = req.body
+  var salt = bcrypt.genSaltSync(10);
+  var hash = bcrypt.hashSync(password, salt);
+
+  const user = await User.findOne({ expiration: { $gt: Date.now() }, used: { $lt: 1 }})
+  // console.log(typeof hash)
+  if (!user) {
+    // return res.json({ status: 'ok' })
+    return 'Password reset token is invalid or has expired.'
+  }
+
+  await User.findOneAndUpdate({ token: req.body.token }, { password: hash, used: 1 });
+
+  /*
+    const msg = {
+      to: process.env.SENDGRID_TO, // Change to your recipient  //req.headers.host
+      from: process.env.SENDGRID_FROM, // Change to your verified sender
+      subject: 'From gamsio.com',
+      text: 'Weclome to our host Gaming website, Hope you Enjoy your experience You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+        'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+        'http://' + 3001 + '/reset/' + token + '\n\n' +
+        'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+    }
+    
+    sgMail
+      .send(msg)
+      .then(() => {
+        console.log('Email sent')
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+      */
+};
+
 
 exports.delete = function (req, res, next) {
   User.findOneAndDelete({ username: req.body.username })
@@ -81,4 +153,3 @@ exports.delete = function (req, res, next) {
       console.log(err);
     });
 };
-
