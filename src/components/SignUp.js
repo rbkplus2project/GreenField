@@ -12,29 +12,39 @@ class SignUp extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let input = $('#signup-form').serializeArray();
-        if (input[1].value === input[2].value) {
-            if (input[1].value.length >= 6) {
+        const usernameError = document.querySelector('.username.error');
+        const emailError = document.querySelector('.email.error');
+        const passwordError = document.querySelector('.password.error');
+        usernameError.textContent = '';
+        emailError.textContent = '';
+        passwordError.textContent = '';
 
+        let input = $('#signup-form').serializeArray();
+        console.log(input)
+
+        if (input[2].value === input[3].value) {
+            if (input[1].value.length >= 6) {
                 let options = {
-                url: '/user/signup',
+                url: 'http://localhost:3000/user/signup',
                 method: 'post',
-                data: { username: input[0].value, password: input[1].value }
+                data: { username: input[0].value, email: input[1].value, password: input[2].value }
                 }
             
-            axios(options)
-                .then((results) => {
-                    if (results.status === 200) {
+                 axios(options)
+                    .then((results) => {
+                    if (results.status === 201) {
                         this.setState({ redirect: true })
+                    }
+                    if (results.data.errors) {
+                        usernameError.textContent = results.data.errors.username;
+                        emailError.textContent = results.data.errors.email;
+                        passwordError.textContent = results.data.errors.password;
                     }
                 })
                 .catch((err) => {
                     console.log("error here ====>", err);
-                    alert('username taken')
                 })
-            } else {
-                alert("Password must be 6 characters long")
-            }
+            } 
         }
         else {
             alert("Password doesn't match");
@@ -53,19 +63,23 @@ class SignUp extends Component {
                         <div className="column">
                             <label htmlFor="newusername">User Name:</label>
                             <input type="text" className="text" id="newusername" name="newusername" />
+                            <div class="username error"></div>
+                            
+                            <label htmlFor="email">Email:</label>
+                            <input type="email" className="text" id="email" name="email" />
+                            <div class="email error"></div>
 
                             <label htmlFor="newPassword">Password:</label>
                             <input type="password" className="text" id="newPassword" name="newPassword" />
-
+                            
                             <label htmlFor="confirmPassword">Confirm Password:</label>
                             <input type="password" className="text" id="confirmPassword" name="confirmPassword" />
+                            <div class="password error"></div>
                         </div>
                         <br />
                         <button className="button">Sign Up</button><br />
                     </form>
-                    <Link to="/signin" style={{textDecoration: "none"}}>
-                    <p>Sign In</p>
-                    </Link>
+                    <p>Already have an account? <Link to="/signin" style={{ textDecoration: "none" }}>Sign In</Link></p>
                 </div>
             )
         }

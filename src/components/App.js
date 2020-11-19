@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import ResetPassword from './ResetPassword.js';
+import NewPassword from './NewPassword.js';
 import React, { Component } from 'react';
 import GameFrame from './GameFrame.js';
 import Particle from './Particles.js';
@@ -34,7 +36,9 @@ class App extends Component {
                     <Route path="/signout" component={SignOut}/>
                     <Route path="/frame" component={GameFrame}/>
                     <Route path="/addgame" component={AddGame}/>
-                    <Route path="/profile" component={Profile}/>
+                    <Route path="/profile" component={Profile} />
+                    <Route path="/reset" exact component={ResetPassword} />
+                    <Route path="/reset/:token" component={NewPassword} />
                     <Route path="/test" component={Test}/>
                 </Switch>
                 <Particle/>
