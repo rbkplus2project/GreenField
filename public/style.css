@@ -219,6 +219,7 @@ input[type='file']{
 #i{
   position: relative;
 }
+
 #footer {
   font-size: 15px;
   margin-top: 5px;
@@ -228,4 +229,74 @@ input[type='file']{
   width: 100%;
   padding: 100px;
   overflow: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .gameitem {
+    display: inline-block;
+    width: 50vw;
+    height: 25vh;
+    cursor: pointer;
+    background-color: rgb(77, 77, 88); 
+  }
+  .gameinfo{
+    background-color: rgb(33, 33, 33);
+    height: 23vh;
+    width: 100%;
+    text-align: center;
+    color: grey;
+    border-radius: 12px;
+    border: 50px solid ;
+    border-image: url("media/border.png") 150 ;
+  }
+  .gameimg{
+      height: 23vh;
+      width: 100%;
+      border-radius: 12px;
+  }
+  .each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 350px;
+  }
+   .contact {
+    margin-right: 5px;
+  } 
+}
+
+@media screen and (max-width: 480px) {
+  .gameitem {
+    display: inline-block;
+    width: 100vw;
+    height: 25vh;
+    cursor: pointer;
+    background-color: rgb(77, 77, 88); 
+  }
+  .gameinfo{
+    background-color: rgb(33, 33, 33);
+    height: 23vh;
+    text-align: center;
+    color: grey;
+    border-radius: 12px;
+    border: 50px solid ;
+    border-image: url("media/border.png") 150 ;
+  }
+  .gameimg{
+      height: 23vh;
+      width: 100%;
+      border-radius: 12px;
+  }
+  .each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 175px;
+  }
+   #A {
+    margin-right: 5px;
+    margin-left: 5px;
+  } 
 }
