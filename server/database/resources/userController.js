@@ -97,14 +97,14 @@ exports.reset = async function (req, res, next) {
       'If you did not request this, please ignore this email and your password will remain unchanged.\n'
   }
 
-  // sgMail
-  //   .send(msg)
-  //   .then(() => {
-  //     console.log('Email sent')
-  //   })
-  //   .catch((error) => {
-  //     console.error(error)
-  //   })
+  sgMail
+    .send(msg)
+    .then(() => {
+      console.log('Email sent')
+    })
+    .catch((error) => {
+      console.error(error)
+    })
 
 };
 
