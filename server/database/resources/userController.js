@@ -71,14 +71,11 @@ exports.reset = async function (req, res, next) {
 
   const { username, email, password } = req.body
   const user = await User.findOne({ email })
-
+  // console.log(user)
   if (!user) {
     // return res.json({ status: 'ok' })
     return 'No user found with that email address.'
   }
-
-  // await User.updateOne({ email }, { used: 1 });
-  // console.log(user);
 
   const token = crypto.randomBytes(32).toString('hex');
 
@@ -89,11 +86,11 @@ exports.reset = async function (req, res, next) {
 
   const msg = {
     to: process.env.SENDGRID_TO, // Change to your recipient  //req.headers.host
-    from: process.env.SENDGRID_FROM, // Change to your verified sender
+    from: user.email, // Change to your verified sender  //process.env.SENDGRID_FROM
     subject: 'From gamsio.com',
     text: 'Weclome to our host Gaming website, Hope you Enjoy your experience You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
       'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-      'http://' + req.headers.host + '/reset/' + token + '\n\n' +
+      'http://' + "localhost:3001" + '/reset/' + token + '\n\n' +
       'If you did not request this, please ignore this email and your password will remain unchanged.\n'
   }
 
@@ -120,10 +117,6 @@ exports.newPassword = async function (req, res, next) {
     // return res.json({ status: 'ok' })
     return 'Password reset token is invalid or has expired.'
   }
-
-  // var salt = bcrypt.genSalt(10);
-  // var hash = bcrypt.hash(password, salt);
-  // console.log(hash)
 
   await User.findOneAndUpdate({ token: req.body.token }, { password: hash, used: 1 });
 
