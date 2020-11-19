@@ -9,10 +9,19 @@ class SignUp extends Component {
             redirect: false
         }
     }
-    // this.handleSubmit = this.handleSubmit.bind(this);
-    handleSubmit = (e) => {
+    handleSubmit = this.handleSubmit.bind(this);
+    
+    async handleSubmit (e) {
         e.preventDefault();
+        const usernameError = document.querySelector('.username.error');
+        const emailError = document.querySelector('.email.error');
+        const passwordError = document.querySelector('.password.error');
+        usernameError.textContent = '';
+        emailError.textContent = '';
+        passwordError.textContent = '';
+
         let input = $('#signup-form').serializeArray();
+
         if (input[2].value === input[3].value) {
             let options = {
                 url: `http://localhost:3000/user/signup`,
@@ -20,21 +29,18 @@ class SignUp extends Component {
                 data: { username: input[0].value, email: input[1].value, password: input[2].value }
             }
 
-            axios(options)
+            await axios(options)
                 .then((results) => {
-                    console.log("results", results)
+                    // console.log("results", results.data.errors)
+                
                     if (results.status === 201) {
                         this.setState({ redirect: true })
                     };
-                    // const data = await res.json();
-                    // console.log(data);
-                    // if (data.errors) {
-                    //     emailError.textContent = data.errors.email;
-                    //     passwordError.textContent = data.errors.password;
-                    // }
-                    // if (data.user) {
-                    //     location.assign('/');
-                    // }
+                    if (results.data.errors) {
+                        usernameError.textContent = results.data.errors.username;
+                        emailError.textContent = results.data.errors.email;
+                        passwordError.textContent = results.data.errors.password;
+                    }
                 })
 
                 .catch((err) => {
@@ -58,7 +64,7 @@ class SignUp extends Component {
                         <div className="column">
                             <label htmlFor="newusername">User Name:</label>
                             <input type="text" className="text" id="newusername" name="newusername" />
-                            <div class="user error"></div>
+                            <div class="username error"></div>
 
                             <label htmlFor="email">Email:</label>
                             <input type="email" className="text" id="email" name="email" />

@@ -5,17 +5,22 @@ import { Link, Redirect } from 'react-router-dom';
 const axios = require('axios');
 const $ = require('jquery');
 class SignIn extends Component {
-     constructor(props) {
-         super(props);
-         this.state = {
-             redirect: false
-         }
-     }
+    constructor(props) {
+        super(props);
+        this.state = {
+            redirect: false
+        }
+    }
 
     handleSubmit = (e) => {
         e.preventDefault();
+        const usernameError = document.querySelector('.username.error');
+        const passwordError = document.querySelector('.password.error');
+        usernameError.textContent = '';
+        passwordError.textContent = '';
+
         let input = $('#signin-form').serializeArray();
-        console.log(input)
+        // console.log(input)
         let options = {
             url: `http://localhost:3000/user/signin`,
             method: 'post',
@@ -24,12 +29,16 @@ class SignIn extends Component {
 
         axios(options)
             .then((results) => {
-                if(results.status === 200){
+                if (results.status === 200 && results.data.errors == undefined) {
                     this.props.sign(1);
                     // localStorage.setItem('gamesio', results.data);
                     // this.setState({})
                     this.setState({ redirect: true })
                 };
+                if (results.data.errors) {
+                    usernameError.textContent = results.data.errors.username;
+                    passwordError.textContent = results.data.errors.password;
+                }
             })
             .catch((err) => {
                 console.error(err);
@@ -40,7 +49,7 @@ class SignIn extends Component {
     render() {
         // if (localStorage.getItem('gamesio')) {
         if (this.state.redirect) {
-            return <Redirect to="/"/>
+            return <Redirect to="/" />
         } else {
             return (
                 <div id="signin" className="center styled">
@@ -50,19 +59,21 @@ class SignIn extends Component {
                         <div className="column">
                             <label htmlFor="username">User Name:</label>
                             <input type="text" className="text" id="username" name="username" />
+                            <div class="username error"></div>
 
                             <label htmlFor="Password">Password:</label>
                             <input type="password" className="text" id="password" name="password" />
+                            <div class="password error"></div>
                         </div>
                         <br />
                         <button className="button">Sign In</button><br />
                     </form>
-                    <Link to="/reset" style={{textDecoration: "none"}}>
+                    <Link to="/reset" style={{ textDecoration: "none" }}>
                         <a href="http://localhost:3000/reset"><p>Forgot password?</p></a>
                     </Link>
                 </div>
             )
-        }   
+        }
     }
 };
 

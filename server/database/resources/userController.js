@@ -32,8 +32,10 @@ exports.create = async function (req, res, next) {
   }
   catch (err) {
     const errors = handleErrors(err);
-    res.status(400).json({ errors });
-    // res.status(400).send({errors});
+    console.log({errors})
+    // res.status(400).json({ errors });
+    res.send({errors});
+    // next();
   }
 }
 
@@ -49,7 +51,7 @@ exports.login = async function (req, res, next) {
       if (auth) {
         const token = createToken(user._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-        res.status(200).json({ user: user._id });
+        res.status(200).send({ user: user._id });
         // next();
         return user;
 
@@ -62,7 +64,8 @@ exports.login = async function (req, res, next) {
 
   catch (err) {
     const errors = handleErrors(err);
-    res.status(400).json({});
+    // res.status(400).json({});
+    res.send({ errors });
   }
 
 };
@@ -85,8 +88,8 @@ exports.reset = async function (req, res, next) {
   await User.findOneAndUpdate({ email: req.body.email }, { expiration: expireDate, token: token, used: 0 })
 
   const msg = {
-    to: process.env.SENDGRID_TO, // Change to your recipient  //req.headers.host
-    from: user.email, // Change to your verified sender  //process.env.SENDGRID_FROM
+    to: user.email, // Change to your recipient  //req.headers.host  //process.env.SENDGRID_TO
+    from: process.env.SENDGRID_FROM, // Change to your verified sender  
     subject: 'From gamsio.com',
     text: 'Weclome to our host Gaming website, Hope you Enjoy your experience You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
       'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
