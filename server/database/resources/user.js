@@ -22,9 +22,12 @@ let userSchema = new mongoose.Schema({
     minlength: [5, 'Minimum password length is 5 characters'],
   },  
   // salt: String,
+  token: String,
   games: Array,
-  resetPasswordToken: String,
-  resetPasswordExpires: Date
+  expiration: Date,
+  createdAt: Date,
+  updatedAt: Date,
+  used: Number
 });
 
 // userSchema.statics.login = async function (username, password) {
