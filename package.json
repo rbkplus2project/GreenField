@@ -2,7 +2,7 @@
   "name": "green-field",
   "version": "1.0.0",
   "description": "games website",
-  "main": "index.js",
+  "main": "server/server.js",
   "author": "titans",
   "private": false,
   "license": "none",
@@ -38,7 +38,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "server": "nodemon index.js",
+    "server": "nodemon server/server.js",
     "start": "set PORT=3001 && react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
