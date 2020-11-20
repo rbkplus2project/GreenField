@@ -1,4 +1,5 @@
 // import schemas
+const { send } = require('@sendgrid/mail');
 const User = require('./user.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
@@ -18,6 +19,7 @@ const createToken = (id) => {
 
 exports.create = async function (req, res, next) {
   try {
+    console.log("user data", req.body)
     const user = await User.create(req.body);
     const token = createToken(user._id);
     // console.log("+++++++>gh", token)
@@ -30,16 +32,12 @@ exports.create = async function (req, res, next) {
   }
   catch (err) {
     const errors = handleErrors(err);
-    console.log({errors})
-    // res.status(400).json({ errors });
-    res.status(400).send({errors});
+    console.log("errors server", { errors })
+    // res.status(400).json({ errors });  //donot change status code otherwise errors won't render
+    res.send({ errors });
     // next();
   }
 }
-
-exports.find = function (req, res) {
-  User.find(req, res);
-};
 
 exports.login = async function (req, res, next) {
   const { username, email, password } = req.body
@@ -53,8 +51,8 @@ exports.login = async function (req, res, next) {
       if (auth) {
         const token = createToken(user._id);
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-        let {username, games, _id, profile} = user
-        res.header('auth-token', token).send({username, games, _id, profile});
+        let { username, games, _id, profile } = user
+        res.header('auth-token', token).send({ username, games, _id, profile });
         // next();
         return user;
 
@@ -65,6 +63,7 @@ exports.login = async function (req, res, next) {
 
   }
   catch (err) {
+    console.log("hiiiiii", err)
     const errors = handleErrors(err);
     // res.status(400).json({});
     res.send({ errors });
@@ -83,8 +82,10 @@ exports.reset = async function (req, res, next) {
 
   const token = crypto.randomBytes(32).toString('hex');
 
-  var expireDate = new Date();
-  expireDate.setHours(expireDate.getHours() + 3);
+  var expireDate = new Date().getTime() + 10800000;
+
+  // var expireDate = new Date();
+  // expireDate.setHours(expireDate.getHours() + 3);
 
   await User.findOneAndUpdate({ email: req.body.email }, { expiration: expireDate, token: token, used: 0 })
 
@@ -98,13 +99,15 @@ exports.reset = async function (req, res, next) {
       'If you did not request this, please ignore this email and your password will remain unchanged.\n'
   }
   sgMail
-      .send(msg)
-      .then(() => {
-        console.log('Email sent')
-      })
-      .catch((error) => {
-        console.error(error)
-      })
+    .send(msg)
+    .then(() => {
+      console.log('Email sent')
+      res.status(200);
+
+    })
+    .catch((error) => {
+      console.error(error)
+    })
 
 };
 
@@ -113,21 +116,27 @@ exports.newPassword = async function (req, res, next) {
   const { username, email, password, token } = req.body
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(password, salt);
+  
+  const user = await User.findOne({token})
+  if (user.expiration > new Date().getTime() && user.used < 1){
+    await User.findOneAndUpdate({ token: req.body.token }, { password: hash, used: 1 });
+  }
 
-  const user = await User.findOne({ expiration: { $gt: Date.now() }, used: { $lt: 1 } })
+  // const user = await User.findOne({ expiration: { $gt: Date.now() }, used: { $lt: 1 } })
+  // console.log("=======", user.expiration)
   // console.log(typeof hash)
   if (!user) {
     // return res.json({ status: 'ok' })
     return 'Password reset token is invalid or has expired.'
   }
 
-  await User.findOneAndUpdate({ token: req.body.token }, { password: hash, used: 1 });
+  // await User.findOneAndUpdate({ token: req.body.token }, { password: hash, used: 1 });
 }
 
-exports.update = function(find, change, res) {
+exports.update = function (find, change, res) {
   User.update(find, change, res);
 };
 
-exports.delete = function(req, res) {
+exports.delete = function (req, res) {
   User.remove(req, res);
 };
