@@ -46,7 +46,7 @@ class SignIn extends Component {
             })
             .catch((err) => {
                 console.error(err);
-                alert('incorrect username or password')
+                // alert('incorrect username or password')
             })
     }
 
