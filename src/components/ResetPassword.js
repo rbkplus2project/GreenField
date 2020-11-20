@@ -17,7 +17,7 @@ class ResetPassword extends Component {
         e.preventDefault();
         let input = $('#reset-form').serializeArray();
         let options = {
-            url: `http://localhost:3000/user/reset`,
+            url: `/user/reset`,
             method: 'post',
             data: { email: input[0].value }
         }
