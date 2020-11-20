@@ -1,6 +1,5 @@
 const userRouter = require('express').Router();
 const userCtrl = require('./userController.js');
-const jwt = require('jsonwebtoken');
 const hash = require('../../middleware/hash')
 
 userRouter.route('/signup')
