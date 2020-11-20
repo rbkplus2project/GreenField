@@ -6,12 +6,12 @@ const axios = require('axios');
 const $ = require('jquery');
 
 class SignIn extends Component {
-     constructor(props) {
-         super(props);
-         this.state = {
+    constructor(props) {
+        super(props);
+        this.state = {
             redirect: false
-         }
-     }
+        }
+    }
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -29,7 +29,8 @@ class SignIn extends Component {
 
         axios(options)
             .then((results) => {
-                if (results.status === 200 && results.data.errors === undefined) {
+                console.log("+++++", results);
+                if (results.status === 200 && results.data.errors == undefined) {
                     console.log(results.data)
                     this.props.sign(1);
                     this.props.setUser(results.data)
@@ -43,13 +44,12 @@ class SignIn extends Component {
             })
             .catch((err) => {
                 console.error(err);
-                alert('incorrect username or password')
             })
     }
 
     render() {
-        if (localStorage.getItem('gamesio')) {
-            return <Redirect to="/"/>
+        if (this.state.redirect) {
+            return <Redirect to="/" />
         } else {
             return (
                 <div id="signin" className="center styled">
@@ -69,15 +69,13 @@ class SignIn extends Component {
                         <br />
                         <button className="button">Sign In</button><br />
                     </form>
-                    <Link to="/signup" style={{textDecoration: "none"}}>
-                        <p>Sign Up</p>
-                    </Link>
+                
                     <Link to="/reset" style={{ textDecoration: "none" }}>
                         <p>Forgot password?</p>
                     </Link>
                 </div>
             )
-        }   
+        }
     }
 };
 

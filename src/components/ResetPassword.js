@@ -1,5 +1,5 @@
-import { Redirect } from 'react-router-dom';
 import { showSign } from '../actions/actions.js';
+import { Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 const axios = require('axios');
@@ -24,6 +24,7 @@ class ResetPassword extends Component {
 
         axios(options)
             .then((results) => {
+                console.log("hii",results)
                 if (results.status === 200) {
                     this.props.sign(1);
                     localStorage.setItem('gamesio', results.data);
@@ -32,7 +33,7 @@ class ResetPassword extends Component {
 
             })
             .catch((err) => {
-                console.error(err);
+                console.error("err===== =>", err);
             })
     }
 
