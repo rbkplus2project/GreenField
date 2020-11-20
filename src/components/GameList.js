@@ -10,7 +10,7 @@ class GameList extends Component {
         }
       }
     componentDidMount() {
-        fetch('http://localhost:3000/game')
+        fetch('/game')
           .then(res => res.json())
             .then(res => {
                 this.props.getGames(res);
