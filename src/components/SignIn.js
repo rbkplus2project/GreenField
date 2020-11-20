@@ -70,7 +70,7 @@ class SignIn extends Component {
                         <button className="button">Sign In</button><br />
                     </form>
                     <Link to="/signup" style={{ textDecoration: "none" }}>
-                        <p>SignUp</p>
+                        <p>Sign Up</p>
                     </Link>
 
                     <Link to="/reset" style={{ textDecoration: "none" }}>
@@ -82,6 +82,7 @@ class SignIn extends Component {
     }
 };
 
+// Redux 
 const mapStateToProps = (state) => {
     return {
         showMenu: state.showMenu,

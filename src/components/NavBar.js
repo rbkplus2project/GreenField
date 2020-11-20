@@ -12,12 +12,15 @@ class NavBar extends Component {
     }
   }
 
+    // Loads this before this component renders
     UNSAFE_componentWillMount() {
         if (localStorage.getItem('gamesio')) {
             this.props.sign(1);
             this.props.setUser(JSON.parse(localStorage.getItem('gamesio')))
         }
     }
+
+  // NavBar buttons and what they do
   handleMenu = () => {
     this.props.settings(0)
     if (this.props.showMenu) {
@@ -126,6 +129,7 @@ class NavBar extends Component {
   }
 }
 
+// A lot of Redux variables
 const mapStateToProps = (state) => {
   return {
     showMenu: state.showMenu,

@@ -10,6 +10,8 @@ class AddGame extends Component {
             image: "image" + this.count
         }
     }
+
+    // Sends request to add new game to database through the server on successful upload button click
     handleSubmit = (e) => {
         e.preventDefault();
         let input = $('#addgame-form').serializeArray();
@@ -44,6 +46,8 @@ class AddGame extends Component {
                 console.log("error here ====>", err)
             })
     }
+
+    // Adds more image fields for the user to insert inside them
     addImageField = () => {
         this.setState({image: "image" + ++this.count})
         let newImageField = $(`<label class="delete" htmlFor=${this.state.image}>Game ${this.state.image}:</label><input type="text" class="text delete" name=${this.state.image} id=${this.state.image} /><br class="delete">`)

@@ -3,6 +3,7 @@ import React from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 
+// manually add selected header photos & id for onclick
 const slideImages   = [
   {url:"https://i.postimg.cc/FsJxjt79/2-1.png",href:"#a1"},
   {url:"https://i.postimg.cc/KjQhfK9M/1-1.png",href:"#a0"},
@@ -15,19 +16,21 @@ const slideImages   = [
   {url:"https://i.postimg.cc/xCcmtnKp/towers4.png",href:"#a8"}
 ];
 
+// Settings for the flip cards hover 
 const properties = {
     duration: 4444,
     transitionDuration: 1111,
     arrows: true
 };
 
+// Onclick on a header photo scrolls down to its game card
 const scroll=function(x) {
-  console.log(x,($(x)));
   $('html,body').animate({
       scrollTop: $(x).offset().top},
       'slow');
 };
 
+// Shows slideshow for the header pictures
 const GameView = () => {
   return (
     <div id="view">
