@@ -81,8 +81,10 @@ exports.reset = async function (req, res, next) {
 
   const token = crypto.randomBytes(32).toString('hex');
 
-  var expireDate = new Date();
-  expireDate.setHours(expireDate.getHours() + 3);
+  var expireDate = new Date().getTime() + 10800000;
+
+  // var expireDate = new Date();
+  // expireDate.setHours(expireDate.getHours() + 3);
 
   await User.findOneAndUpdate({ email: req.body.email }, { expiration: expireDate, token: token, used: 0 })
 
@@ -113,15 +115,21 @@ exports.newPassword = async function (req, res, next) {
   const { username, email, password, token } = req.body
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(password, salt);
+  
+  const user = await User.findOne({token})
+  if (user.expiration > new Date().getTime() && user.used < 1){
+    await User.findOneAndUpdate({ token: req.body.token }, { password: hash, used: 1 });
+  }
 
-  const user = await User.findOne({ expiration: { $gt: Date.now() }, used: { $lt: 1 } })
+  // const user = await User.findOne({ expiration: { $gt: Date.now() }, used: { $lt: 1 } })
+  // console.log("=======", user.expiration)
   // console.log(typeof hash)
   if (!user) {
     // return res.json({ status: 'ok' })
     return 'Password reset token is invalid or has expired.'
   }
 
-  await User.findOneAndUpdate({ token: req.body.token }, { password: hash, used: 1 });
+  // await User.findOneAndUpdate({ token: req.body.token }, { password: hash, used: 1 });
 }
 
 exports.update = function (find, change, res) {
