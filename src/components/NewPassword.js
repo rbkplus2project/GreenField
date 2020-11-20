@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 const axios = require('axios');
 const $ = require('jquery');
 
+// Changes password for a user who is not signed in and forgot the password
 class NewPassword extends Component {
     constructor(props) {
         super(props);
@@ -82,6 +83,7 @@ class NewPassword extends Component {
         }
 };
 
+// Redux 
 const mapStateToProps = (state) => {
     return {
         showMenu: state.showMenu,

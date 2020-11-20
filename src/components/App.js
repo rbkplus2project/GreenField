@@ -15,7 +15,8 @@ import Home from './Home';
 import $ from 'jquery';
 
 class App extends Component {
-
+    
+    // Plays click sound on clicks
     componentDidMount(){
         $("input").on("click", function(){
             $("#sound").attr({ 
@@ -23,9 +24,6 @@ class App extends Component {
                 'autoplay':'autoplay'
             })
         })
-        $(".i").on('mouseenter',function(e){
-            $(this).css({top:$(window).height()*0.5*Math.random()-($(this).height()*10*Math.random()), left:$(window).width()*0.5*Math.random()-($(this).height()*20*Math.random())})
-          })
     }
     render() {
         return (

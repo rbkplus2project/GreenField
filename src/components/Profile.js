@@ -5,6 +5,9 @@ import DisplayGame from './DisplayGame'
 const $ = require('jquery')
 
 class Profile extends Component {
+
+    // Gets the logged in user's info
+    
     componentDidMount() {
         fetch('/game')
           .then(res => res.json())
@@ -18,6 +21,8 @@ class Profile extends Component {
                 }
             })
     }
+
+    // Changes profile picture & saves in database
     updateImage = () => {
         let newImg = document.getElementById('newImg');
         let name = this.props.user.username
@@ -46,6 +51,8 @@ class Profile extends Component {
             reader.readAsDataURL(newImg.files[0])
         }
     }
+
+    // Changes name & saves in database
     updateName = () => {
         let newName = $('#change-name').val()
         let oldName = this.props.user.username
@@ -68,6 +75,8 @@ class Profile extends Component {
         })
         .catch(res => alert('username already taken'))
     }
+
+    // Changes password for the signed in user
     updatePass = () => {
         let newPass = $('#change-pass').val()
         let name = this.props.user.username

@@ -9,6 +9,8 @@ class GameFrame extends Component {
         this.state = {
         }
     }    
+
+    // Hides the Particles background
     componentDidMount(){
         $("#particles")[0].className="hide"
     }
@@ -30,6 +32,7 @@ class GameFrame extends Component {
     }
 }
 
+// Redux 
 const mapStateToProps = (state) => {
     return {
         Games: state.Games,
