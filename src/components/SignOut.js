@@ -40,7 +40,7 @@ class SignOut extends Component {
     }
     render() {
         return (
-            <div className=" center column styled">
+            <div className=" center column styled" style={{ display: this.props.showSign ? "" : "none" }}>
                 <h1>Sign Out?</h1>
                 <br></br>
                 <Link to="/">

@@ -9,7 +9,12 @@ class SignUp extends Component {
             redirect: false
         }
     }
-
+    checkPassWord = (password) => {
+        if (/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{5,})/.test(password)) {
+            return true;
+        }
+        return false;
+    }
     handleSubmit = (e) => {
         e.preventDefault();
         const usernameError = document.querySelector('.username.error');
@@ -20,18 +25,19 @@ class SignUp extends Component {
         passwordError.textContent = '';
 
         let input = $('#signup-form').serializeArray();
-        console.log(input)
+        // console.log(input)
 
-        if (input[2].value === input[3].value) {
-            if (input[1].value.length >= 6) {
-                let options = {
+        if (input[2].value === input[3].value && (this.checkPassWord(input[2].value)) === true) {
+            // if (input[1].value.length >= 6) {
+            let options = {
                 url: 'http://localhost:3000/user/signup',
                 method: 'post',
                 data: { username: input[0].value, email: input[1].value, password: input[2].value }
-                }
-            
-                 axios(options)
-                    .then((results) => {
+            }
+
+            axios(options)
+                .then((results) => {
+                    // console.log("+++++", results);
                     if (results.status === 201) {
                         this.setState({ redirect: true })
                     }
@@ -44,10 +50,19 @@ class SignUp extends Component {
                 .catch((err) => {
                     console.log("error here ====>", err);
                 })
-            } 
+            // } 
         }
         else {
-            alert("Password doesn't match");
+            // console.log(input[2].value.length)
+            if (input[2].value.length === 0 || input[3].value.length === 0 ){
+                passwordError.textContent = "Please enter a password";
+            }
+            else if (input[2].value.length !== input[3].value.length){
+                passwordError.textContent = "Password doesn't match";
+            }
+            else {
+                passwordError.textContent = "Password doesn't fulfill the requirement to be secure"
+            }
         }
     }
 
@@ -64,14 +79,15 @@ class SignUp extends Component {
                             <label htmlFor="newusername">User Name:</label>
                             <input type="text" className="text" id="newusername" name="newusername" />
                             <div class="username error"></div>
-                            
+
                             <label htmlFor="email">Email:</label>
                             <input type="email" className="text" id="email" name="email" />
                             <div class="email error"></div>
 
                             <label htmlFor="newPassword">Password:</label>
                             <input type="password" className="text" id="newPassword" name="newPassword" />
-                            
+                            <div class="password-req">Paaword must contain at least 1 lowercase, 1 uppercase, 1 symbol, 1 number and min.length of 5 char.</div><br/>
+
                             <label htmlFor="confirmPassword">Confirm Password:</label>
                             <input type="password" className="text" id="confirmPassword" name="confirmPassword" />
                             <div class="password error"></div>
