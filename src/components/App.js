@@ -23,7 +23,6 @@ class App extends Component {
                 'autoplay':'autoplay'
             })
         })
-        $("#i").on("mouseover",function(){$("#i").css({"left":"+=200"})})
     }
     render() {
         return (

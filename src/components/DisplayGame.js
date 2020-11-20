@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import React, { Component } from 'react';
 import { setUser } from '../actions/actions.js';
-
+import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
 class DisplayGame extends Component {
     removeGame = () => {
@@ -23,10 +23,17 @@ class DisplayGame extends Component {
     }
     render() {
         return (
-            <div className="display-game row">
-                <img src={this.props.game.imgs[0]} alt="Game" className="profileimg" />
-                <span>{this.props.game.disc.name}</span>
-                <button className="edit" onClick={this.removeGame}>remove</button>
+            <div className="row">
+            <Flippy flipOnHover={true} flipDirection="horizontal" ref={(r) => this.flippy = r}>
+                <FrontSide>
+                    <img src={this.props.game.imgs[0]} alt="Game" className="uploaded" />
+                </FrontSide>
+                <BackSide>
+                <div className="center">
+                    <button className="remove" onClick={this.removeGame}>X</button>
+                </div>
+                </BackSide>
+            </Flippy>
             </div>
         )
     }
