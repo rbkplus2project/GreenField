@@ -19,7 +19,8 @@ app.use('/user', require('./database/resources/userRouter'));
 app.use('/game', require('./database/resources/gameRouter'));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./build", "index.html"))
+  let path = req.params['0'].substring(1)
+  res.sendFile(`${__dirname}/build/${path}`)
 })
 
 const host = '0.0.0.0';
