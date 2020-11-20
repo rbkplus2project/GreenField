@@ -9,9 +9,8 @@ class SignUp extends Component {
             redirect: false
         }
     }
-    handleSubmit = this.handleSubmit.bind(this);
-    
-    async handleSubmit (e) {
+
+    handleSubmit = (e) => {
         e.preventDefault();
         const usernameError = document.querySelector('.username.error');
         const emailError = document.querySelector('.email.error');
@@ -21,18 +20,19 @@ class SignUp extends Component {
         passwordError.textContent = '';
 
         let input = $('#signup-form').serializeArray();
-        console.log(input)
+        // console.log(input)
 
         if (input[2].value === input[3].value) {
-            if (input[1].value.length >= 6) {
-                let options = {
+            // if (input[1].value.length >= 6) {
+            let options = {
                 url: 'http://localhost:3000/user/signup',
                 method: 'post',
                 data: { username: input[0].value, email: input[1].value, password: input[2].value }
-                }
-            
-                 axios(options)
-                    .then((results) => {
+            }
+
+            axios(options)
+                .then((results) => {
+                    console.log("+++++", results.data);
                     if (results.status === 201) {
                         this.setState({ redirect: true })
                     }
@@ -45,7 +45,7 @@ class SignUp extends Component {
                 .catch((err) => {
                     console.log("error here ====>", err);
                 })
-            } 
+            // } 
         }
         else {
             alert("Password doesn't match");
@@ -65,14 +65,14 @@ class SignUp extends Component {
                             <label htmlFor="newusername">User Name:</label>
                             <input type="text" className="text" id="newusername" name="newusername" />
                             <div class="username error"></div>
-                            
+
                             <label htmlFor="email">Email:</label>
                             <input type="email" className="text" id="email" name="email" />
                             <div class="email error"></div>
 
                             <label htmlFor="newPassword">Password:</label>
                             <input type="password" className="text" id="newPassword" name="newPassword" />
-                            
+
                             <label htmlFor="confirmPassword">Confirm Password:</label>
                             <input type="password" className="text" id="confirmPassword" name="confirmPassword" />
                             <div class="password error"></div>

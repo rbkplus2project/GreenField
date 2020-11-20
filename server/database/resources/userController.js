@@ -31,9 +31,9 @@ exports.create = async function (req, res, next) {
   }
   catch (err) {
     const errors = handleErrors(err);
-    console.log({errors})
-    // res.status(400).json({ errors });
-    res.status(400).send({errors});
+    console.log("====",{errors})
+    // res.status(400).json({ errors });  //donot change status code otherwise errors won't render
+    res.send({errors});
     // next();
   }
 }
@@ -98,14 +98,14 @@ exports.reset = async function (req, res, next) {
       'http://' + "localhost:3001" + '/reset/' + token + '\n\n' +
       'If you did not request this, please ignore this email and your password will remain unchanged.\n'
   }
-  sgMail
-      .send(msg)
-      .then(() => {
-        console.log('Email sent')
-      })
-      .catch((error) => {
-        console.error(error)
-      })
+  // sgMail
+  //     .send(msg)
+  //     .then(() => {
+  //       console.log('Email sent')
+  //     })
+  //     .catch((error) => {
+  //       console.error(error)
+  //     })
 
 };
 
