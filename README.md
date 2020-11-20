@@ -7,6 +7,7 @@
 ## Sub-Heading ##
   > Javascript based games
 
+
 ## How to Get Started ##
   > Fork
   > Clone your fork
@@ -38,3 +39,13 @@ var function = function(parameter){return parameter}
 
 let function = (parameter) => parameter
 ```
+
+### Todos
+
+ - Add Night Mode
+
+
+License
+---
+
+MIT
