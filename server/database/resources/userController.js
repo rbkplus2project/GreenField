@@ -1,12 +1,11 @@
 // imports the schema & does functionalities to database
-const { send } = require('@sendgrid/mail');
-const User = require('./user.js');
+const handleErrors = require('./authController.js').handleErrors;
+const sgMail = require('@sendgrid/mail');
 const jwt = require('jsonwebtoken');
+const User = require('./user.js');
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
-const handleErrors = require('./authController.js').handleErrors;
-require('dotenv').config()
-const sgMail = require('@sendgrid/mail')
+require('dotenv').config();
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
@@ -33,7 +32,7 @@ exports.create = async function (req, res, next) {
 }
 
 exports.login = async function (req, res, next) {
-  const { username, email, password } = req.body
+  const { username, password } = req.body
 
   try {
     const user = await User.findOne({ username });
@@ -53,7 +52,6 @@ exports.login = async function (req, res, next) {
 
   }
   catch (err) {
-    console.log("hiiiiii", err)
     const errors = handleErrors(err);
     res.send({ errors });
   }
@@ -61,7 +59,7 @@ exports.login = async function (req, res, next) {
 };
 exports.reset = async function (req, res, next) {
 
-  const { username, email, password } = req.body
+  const { email } = req.body
   const user = await User.findOne({ email })
   if (!user) {
     return 'No user found with that email address.'
@@ -79,7 +77,7 @@ exports.reset = async function (req, res, next) {
     subject: 'From gamsio.com',
     text: 'Weclome to our host Gaming website, Hope you Enjoy your experience You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
       'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-      'http://' + "localhost:3001" + '/reset/' + token + '\n\n' +
+      'http://' + req.headers.host + '/reset/' + token + '\n\n' +
       'If you did not request this, please ignore this email and your password will remain unchanged.\n'
   }
   sgMail
@@ -95,7 +93,7 @@ exports.reset = async function (req, res, next) {
 }
 
 exports.newPassword = async function (req, res, next) {
-  const { username, email, password, token } = req.body
+  const { password, token } = req.body
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(password, salt);
   
