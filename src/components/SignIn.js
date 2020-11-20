@@ -30,7 +30,7 @@ class SignIn extends Component {
         axios(options)
             .then((results) => {
                 console.log("+++++", results);
-                if (results.status === 200 && results.data.errors == undefined) {
+                if (results.status === 200 && results.data.errors === undefined) {
                     console.log(results.data)
                     this.props.sign(1);
                     this.props.setUser(results.data)
