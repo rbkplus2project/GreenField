@@ -4,9 +4,17 @@ import $ from 'jquery';
   class Test extends Component {
     // lol!
     componentDidMount(){
+        $("#particles")[0].className="hide"
+        $("body")[0].style.background="white"
+
         $(".i").on('mouseenter',function(e){
             $(this).css({top:$(window).height()*0.5*Math.random()-($(this).height()*10*Math.random()), left:$(window).width()*0.5*Math.random()-($(this).height()*20*Math.random())})
+            $(this).css("color","rgb("+Math.random()*250+","+Math.random()*250+","+Math.random()*250+")");
+            $(this).css("transform","rotate("+Math.random()*300+"deg)")
         })
+    }
+    componentWillUnmount(){
+        $("#particles")[0].className="Show"
     }
     render() {
         return (

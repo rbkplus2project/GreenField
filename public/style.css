@@ -4,7 +4,7 @@ html{
 }
 body{
     background-image: url('media/neon.jpg');
-    background-color: purple;
+    background-color: white;
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
@@ -330,9 +330,12 @@ input[type='file']{
   } 
 }
 
+/* Joke */
 .i{
   position: relative;
   transition: 2s;
+  font-size: 40px;
+  font-weight: bold;
 }
 .e{
   display: flex;
@@ -340,6 +343,6 @@ input[type='file']{
   justify-content: center;
   flex-flow: row;
   position: fixed;
-  left:30vw;
-  top:45vh;
+  left:35%;
+  top:45%;
 }
