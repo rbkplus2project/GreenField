@@ -9,7 +9,12 @@ class SignUp extends Component {
             redirect: false
         }
     }
-
+    checkPassWord = (password) => {
+        if (/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{5,})/.test(password)) {
+            return true;
+        }
+        return false;
+    }
     handleSubmit = (e) => {
         e.preventDefault();
         const usernameError = document.querySelector('.username.error');
@@ -22,7 +27,7 @@ class SignUp extends Component {
         let input = $('#signup-form').serializeArray();
         // console.log(input)
 
-        if (input[2].value === input[3].value) {
+        if (input[2].value === input[3].value && (this.checkPassWord(input[2].value)) === true) {
             // if (input[1].value.length >= 6) {
             let options = {
                 url: 'http://localhost:3000/user/signup',
@@ -48,7 +53,16 @@ class SignUp extends Component {
             // } 
         }
         else {
-            passwordError.textContent = "Password doesn't match";
+            // console.log(input[2].value.length)
+            if (input[2].value.length === 0 || input[3].value.length === 0 ){
+                passwordError.textContent = "Please enter a password";
+            }
+            else if (input[2].value.length !== input[3].value.length){
+                passwordError.textContent = "Password doesn't match";
+            }
+            else {
+                passwordError.textContent = "Password doesn't fulfill the requirement to be secure"
+            }
         }
     }
 
