@@ -1,7 +1,7 @@
 // create user schema
 const mongoose = require('mongoose');
 const { isEmail } = require('validator');
-const bcrypt = require('bcrypt');
+
 
 let userSchema = new mongoose.Schema({
   username: { 
@@ -25,9 +25,8 @@ let userSchema = new mongoose.Schema({
   token: String,
   games: Array,
   expiration: Date,
-  createdAt: Date,
-  updatedAt: Date,
-  used: Number
+  used: Number,
+  profile: String
 });
 
 // userSchema.statics.login = async function (username, password) {
