@@ -32,7 +32,7 @@ class SignUp extends Component {
 
             axios(options)
                 .then((results) => {
-                    console.log("+++++", results.data);
+                    // console.log("+++++", results);
                     if (results.status === 201) {
                         this.setState({ redirect: true })
                     }
