@@ -17,7 +17,7 @@ class GameItem extends Component {
     };
     render() {
         return (
-                <div className="gameitem">
+                <div className="gameitem" id={"a"+this.props.newKey}>
                     <Flippy flipOnHover={true} flipDirection="horizontal" ref={(r) => this.flippy = r}>
                         <FrontSide>
                             <Fade {...properties}>

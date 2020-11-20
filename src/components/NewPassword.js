@@ -3,6 +3,7 @@ import { showSign } from '../actions/actions.js';
 import { connect } from 'react-redux';
 const axios = require('axios');
 const $ = require('jquery');
+
 class NewPassword extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +22,7 @@ class NewPassword extends Component {
         const passwordError = document.querySelector('.password.error');
         passwordError.textContent = '';
 
-        let input = $('#signin-form').serializeArray();
+        let input = $('#newPassword-form').serializeArray();
         let currenturl = window.location.href;
         let index = currenturl.lastIndexOf("/");
         let token = currenturl.slice(index + 1);
@@ -37,8 +38,6 @@ class NewPassword extends Component {
             .then((results) => {
                 if (results.status === 200) {
                     this.props.sign(1);
-                    // localStorage.setItem('gamesio', results.data);
-                    // this.setState({})
                 };
             })
             .catch((err) => {
@@ -59,12 +58,9 @@ class NewPassword extends Component {
     }
 
     render() {
-        // if (localStorage.getItem('gamesio')) {
-        //     return <Redirect to="/" />
-        // } else {
             return (
-                <div id="signin" className="center styled">
-                    <form id="signin-form" onSubmit={this.handleSubmit}>
+                <div id="newPassword" className="center styled">
+                    <form id="newPassword-form" onSubmit={this.handleSubmit}>
                         <h1>Reset Password</h1>
                         <br />
                         <div className="column">
@@ -79,24 +75,22 @@ class NewPassword extends Component {
                             <div class="password error"></div>
                         </div>
                         <br />
-
                         <button className="button">Update Password</button><br />
                     </form>
                 </div>
             )
         }
-    // }
 };
 
 const mapStateToProps = (state) => {
     return {
         showMenu: state.showMenu,
     }
-}
+};
 const mapDispatchToProps = (dispatch) => {
     return {
         sign: (z) => { dispatch(showSign(z)) },
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewPassword);

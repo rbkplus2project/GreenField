@@ -3,9 +3,7 @@ import GameItem from './GameItem'
 import {connect} from 'react-redux'
 import { getGames, setUser, searchGames } from '../actions/actions.js';
 
-
 class GameList extends Component {
-    
     constructor(props) {
         super(props);
         this.state = {
@@ -40,13 +38,13 @@ const mapStateToProps = (state) => {
         GamesSearch: state.GamesSearch,
         user: state.user
     }
-}
+};
 const mapDispatchToProps = (dispatch) => {
     return {
         getGames: (z) => { dispatch(getGames(z)) },
         searchGames: (z) => { dispatch(searchGames(z)) },
         setUser: (z) => { dispatch(setUser(z)) }
     }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameList);

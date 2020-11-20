@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
 import { showSign } from '../actions/actions.js';
-import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 const axios = require('axios');
 const $ = require('jquery');
+
 class ResetPassword extends Component {
     constructor(props) {
         super(props);
@@ -14,11 +15,7 @@ class ResetPassword extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        // const passwordError = document.querySelector('.password.error');
-        // passwordError.textContent = '';
-
-        let input = $('#signin-form').serializeArray();
-        // console.log(input)
+        let input = $('#reset-form').serializeArray();
         let options = {
             url: `http://localhost:3000/user/reset`,
             method: 'post',
@@ -49,12 +46,12 @@ class ResetPassword extends Component {
         }
         else {
             return (
-                <div id="signin" className="center styled">
-                    <form id="signin-form" onSubmit={this.handleSubmit}>
+                <div id="reset" className="center styled">
+                    <form id="reset-form" onSubmit={this.handleSubmit}>
                         <h1>Forgot Password</h1>
                         <br />
                         <div className="column">
-                            <label htmlFor="email">Email:</label>
+                            <label htmlFor="email">Email</label>
                             <input type="email" className="text" id="email" name="email" />
                         </div>
                         <br />

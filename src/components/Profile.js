@@ -5,9 +5,6 @@ import DisplayGame from './DisplayGame'
 const $ = require('jquery')
 
 class Profile extends Component {
-    // constructor(props) {
-    //     super(props)
-    // }
     componentDidMount() {
         fetch('http://localhost:3000/game')
           .then(res => res.json())
@@ -91,7 +88,6 @@ class Profile extends Component {
         .catch(res => alert('Password must be longer than 6 characters'))
     }
     render() {
-        console.log(this.props)
         return (
             <div className="center styled profile">
                 <img className="profileimg" alt="Profile" src={this.props.user.profile ? this.props.user.profile : "./media/signin.png"} />
