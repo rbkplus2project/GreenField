@@ -48,7 +48,7 @@ class SignUp extends Component {
             // } 
         }
         else {
-            alert("Password doesn't match");
+            passwordError.textContent = "Password doesn't match";
         }
     }
 
