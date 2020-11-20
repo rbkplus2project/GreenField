@@ -32,7 +32,6 @@ class SignUp extends Component {
                 method: 'post',
                 data: { username: input[0].value, email: input[1].value, password: input[2].value }
             }
-
             axios(options)
                 .then((results) => {
                     console.log("+++++", results);
