@@ -95,10 +95,12 @@ exports.reset = async function (req, res, next) {
       'http://' + "localhost:3001" + '/reset/' + token + '\n\n' +
       'If you did not request this, please ignore this email and your password will remain unchanged.\n'
   }
-  sgMail
+  await sgMail
       .send(msg)
       .then(() => {
         console.log('Email sent')
+        res.status(200);
+           
       })
       .catch((error) => {
         console.error(error)

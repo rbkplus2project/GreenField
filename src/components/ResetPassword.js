@@ -18,7 +18,7 @@ class ResetPassword extends Component {
         // passwordError.textContent = '';
 
         let input = $('#signin-form').serializeArray();
-        console.log(input)
+        // console.log(input)
         let options = {
             url: `http://localhost:3000/user/reset`,
             method: 'post',
@@ -27,6 +27,7 @@ class ResetPassword extends Component {
 
         axios(options)
             .then((results) => {
+                console.log("hii",results)
                 if (results.status === 200) {
                     this.props.sign(1);
                     localStorage.setItem('gamesio', results.data);
@@ -35,7 +36,7 @@ class ResetPassword extends Component {
 
             })
             .catch((err) => {
-                console.error(err);
+                console.error("err===== =>", err);
             })
     }
 
