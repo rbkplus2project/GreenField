@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import $ from 'jquery';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 import { showMenu, showSearch, showSettings, showSign, setUser, searchGames } from '../actions/actions.js';
 
 
@@ -45,6 +46,8 @@ class NavBar extends Component {
   }
 
   search=(e)=>{
+    $("footer")[0].className="hide"
+    $("#view")[0].className="hide"
     let word = e.target.value.toLowerCase();
     let all = this.props.Games;
     if (word === '') {
@@ -63,51 +66,50 @@ class NavBar extends Component {
     }
   }
   render() {
-    // console.log(this.props.Games)
     return (
       <div className="menu" >
 
-        <input type="image" className="navitem" alt="" src="./media/rightarrow.png" onClick={this.handleMenu} style={{ display: this.props.showMenu ? "none" : "" }}></input>
+        <input type="image" className="navitem" alt="" src="./media/rightarrow2.png" onClick={this.handleMenu} style={{ display: this.props.showMenu ? "none" : "" }}></input>
 
         <nav id="img-logo" className="menu" style={{ display: this.props.showMenu ? "" : "none" }} >
 
-          <input type="image" className="navitem" alt="" src="./media/leftarrow.png" onClick={this.handleMenu}></input>
+          <input type="image" className="navitem" alt="" src="./media/leftarrow2.png" onClick={this.handleMenu}></input>
 
           <Link to="/">
-            <input type="image" className="navitem" alt="Home" src="./media/house.png"></input>
+            <input type="image" className="navitem" alt="Home" src="./media/house2.png"></input>
           </Link >
 
           <Link to="/signin">
-            <input type="image" className="navitem" alt="SignIn" style={{ display: this.props.showSign ? "none" : "" }} src="./media/signin.png"></input>
+            <input type="image" className="navitem" alt="SignIn" style={{ display: this.props.showSign ? "none" : "" }} src="./media/signin2.png"></input>
           </Link>
 
           <Link to="/signup">
-            <input type="image" className="navitem" alt="SignUp" style={{ display: this.props.showSign ? "none" : "" }} src="./media/signup.png"></input>
+            <input type="image" className="navitem" alt="SignUp" style={{ display: this.props.showSign ? "none" : "" }} src="./media/signup2.png"></input>
           </Link>
 
           <Link to="/profile">
-            <input type="image" className="navitem" alt="Profile" style={{ display: this.props.showSign ? "" : "none" }} src={this.props.user.profile ? this.props.user.profile : "./media/signin.png"}></input>
+            <input type="image" className="navitem" alt="Profile" style={{ display: this.props.showSign ? "" : "none" }} src={this.props.user.profile ? this.props.user.profile : "./media/signin2.png"}></input>
           </Link>
           
           <Link to="/addgame">
-            <input type="image" className="navitem" alt="Add" style={{ display: this.props.showSign ? "" : "none" }} src="./media/addgame.png"></input>
+            <input type="image" className="navitem" alt="Add" style={{ display: this.props.showSign ? "" : "none" }} src="./media/addgame2.png"></input>
           </Link>
 
-          <input type="image" className="navitem" alt="Settings" src="./media/cog.png" onClick={this.handleSettings}></input>
+          <input type="image" className="navitem" alt="Settings" src="./media/cog2.png" onClick={this.handleSettings}></input>
          
           <Link to="/test">
-            <input type="image" className="navitem" alt="Test" src="./media/star.png"></input>
+            <input type="image" className="navitem" alt="Test" src="./media/star2.png"></input>
           </Link>
 
           <Link to="/signout">
-            <input type="image" className="navitem" alt="SignOut" style={{ display: this.props.showSign ? "" : "none" }} src="./media/signout.png"></input>
+            <input type="image" className="navitem" alt="SignOut" style={{ display: this.props.showSign ? "" : "none" }} src="./media/signout2.png"></input>
           </Link>
 
-          <input type="image" className="navitem" alt="Search" src="./media/search.png" onClick={this.handleSearch}></input>
+          <input type="image" className="navitem" alt="Search" src="./media/search2.png" onClick={this.handleSearch}></input>
           
           <input type="serach" className="search" style={{ display: this.props.showSearch ? "" : "none" }} onChange={this.search} ></input>
 
-          <input type="image" className="navitem" alt="Find" style={{ display: this.props.showSearch ? "" : "none" }} src="./media/rightarrow.png" onClick={this.search}></input>
+          <input type="image" className="navitem" alt="Find" style={{ display: this.props.showSearch ? "" : "none" }} src="./media/leftarrow2.png" onClick={this.handleSearch}></input>
 
         </nav>
 
@@ -115,10 +117,6 @@ class NavBar extends Component {
             
             <Link to="/colors">
               <input type="button" className ='settingsitem' value="Colors"></input>
-            </Link>
-
-            <Link to="/language">
-              <input type="button" className ='settingsitem' value="Language"></input>
             </Link>
 
         </div>

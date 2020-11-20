@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
 import { showSign, setUser } from '../actions/actions.js';
-import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 const axios = require('axios');
 const $ = require('jquery');
+
 class SignIn extends Component {
     constructor(props) {
         super(props);
@@ -20,7 +21,6 @@ class SignIn extends Component {
         passwordError.textContent = '';
 
         let input = $('#signin-form').serializeArray();
-        // console.log(input)
         let options = {
             url: `http://localhost:3000/user/signin`,
             method: 'post',
@@ -33,8 +33,6 @@ class SignIn extends Component {
                 if (results.status === 200 && results.data.errors == undefined) {
                     console.log(results.data)
                     this.props.sign(1);
-                    // localStorage.setItem('gamesio', results.data);
-                    // this.setState({})
                     this.props.setUser(results.data)
                     localStorage.setItem('gamesio', JSON.stringify(results.data));
                     this.setState({ redirect: true })
@@ -46,12 +44,10 @@ class SignIn extends Component {
             })
             .catch((err) => {
                 console.error(err);
-                // alert('incorrect username or password')
             })
     }
 
     render() {
-        // if (localStorage.getItem('gamesio')) {
         if (this.state.redirect) {
             return <Redirect to="/" />
         } else {

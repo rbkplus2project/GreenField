@@ -25,10 +25,8 @@ class SignUp extends Component {
         passwordError.textContent = '';
 
         let input = $('#signup-form').serializeArray();
-        // console.log(input)
 
         if (input[2].value === input[3].value && (this.checkPassWord(input[2].value)) === true) {
-            // if (input[1].value.length >= 6) {
             let options = {
                 url: 'http://localhost:3000/user/signup',
                 method: 'post',
@@ -50,10 +48,8 @@ class SignUp extends Component {
                 .catch((err) => {
                     console.log("error here ====>", err);
                 })
-            // } 
         }
         else {
-            // console.log(input[2].value.length)
             if (input[2].value.length === 0 || input[3].value.length === 0 ){
                 passwordError.textContent = "Please enter a password";
             }
