@@ -5,9 +5,6 @@ import DisplayGame from './DisplayGame'
 const $ = require('jquery')
 
 class Profile extends Component {
-    // constructor(props) {
-    //     super(props)
-    // }
     componentDidMount() {
         fetch('http://localhost:3000/game')
           .then(res => res.json())

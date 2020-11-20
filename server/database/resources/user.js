@@ -29,6 +29,20 @@ let userSchema = new mongoose.Schema({
   profile: String
 });
 
-let User = mongoose.model('User', userSchema);
+// userSchema.statics.login = async function (username, password) {
+//   const user = await this.findOne({ username });
+//   console.log("+++++++>>",user)
+//   if (user) {
+//     const auth = await bcrypt.compare(password, user.password);
+//     console.log(auth)
+//     if (auth) {
+//       return user;
+//     }
+//     throw Error('incorrect password');
+//   }
+//   throw Error('incorrect email');
+// };
+
+let User = mongoose.model('user', userSchema);
 
 module.exports = User;
