@@ -10,6 +10,7 @@ var ash = async (req, res, next) => {
   // var valid = await schema.validate(req.body);
   // if (valid.error) { return res.status(400).send(valid.error.details[0].message); } 
 //   req.body.password;
+  // var salt = bcrypt.genSalt(10)
   var salt = bcrypt.genSaltSync(10);
   var hash = bcrypt.hashSync(req.body.password, salt);
   req.body.password = hash;

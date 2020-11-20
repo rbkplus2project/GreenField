@@ -1,4 +1,5 @@
 // import schemas
+const { send } = require('@sendgrid/mail');
 const User = require('./user.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
@@ -17,7 +18,7 @@ const createToken = (id) => {
 
 exports.create = async function (req, res, next) {
   try {
-    console.log(req.body)
+    console.log("user data",req.body)
     const user = await User.create(req.body);
     const token = createToken(user._id);
     // console.log("+++++++>gh", token)
@@ -30,16 +31,12 @@ exports.create = async function (req, res, next) {
   }
   catch (err) {
     const errors = handleErrors(err);
-    console.log({errors})
-    // res.status(400).json({ errors });
-    res.status(400).send({errors});
+    console.log("errors server",{errors})
+    // res.status(400).json({ errors });  //donot change status code otherwise errors won't render
+    res.send({errors});
     // next();
   }
 }
-
-exports.find = function (req, res) {
-  User.find(req, res);
-};
 
 exports.login = async function (req, res, next) {
   const { username, email, password } = req.body
@@ -61,10 +58,11 @@ exports.login = async function (req, res, next) {
       }
       throw Error('incorrect password');
     }
-    throw Error('incorrect email');
+    throw Error('incorrect username');
 
   }
   catch (err) {
+    console.log("hiiiiii",err)
     const errors = handleErrors(err);
     // res.status(400).json({});
     res.send({ errors });
@@ -97,10 +95,12 @@ exports.reset = async function (req, res, next) {
       'http://' + "localhost:3001" + '/reset/' + token + '\n\n' +
       'If you did not request this, please ignore this email and your password will remain unchanged.\n'
   }
-  sgMail
+  await sgMail
       .send(msg)
       .then(() => {
         console.log('Email sent')
+        res.status(200);
+           
       })
       .catch((error) => {
         console.error(error)
