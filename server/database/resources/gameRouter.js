@@ -16,7 +16,7 @@ gameRouter.route('/')
     console.log(req.body)
     gameCtrl.create(req.body, (err, data) => {
       if (err) {
-        res.sendStatus(400);
+        res.status(400).send(err);
       } else {
         res.json(data);
       }
@@ -36,6 +36,16 @@ gameRouter.route('/:game')
       }
     });
   });
+gameRouter.route('/:_id')
+  .delete ((req, res) => {
+    gameCtrl.remove(req.params, (err, data) => {
+      if (err) {
+        res.sendStatus(400)
+      } else {
+        res.sendStatus(200)
+      }
+    })
+  })
 // .post((req, res) => {
 //   req.params.url = 'https://memory-game-1.herokuapp.com/index.html';
 //   gameCtrl.create(req.params, (err, data) => {

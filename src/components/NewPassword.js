@@ -13,6 +13,9 @@ class NewPassword extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        const passwordError = document.querySelector('.password.error');
+        passwordError.textContent = '';
+
         let input = $('#signin-form').serializeArray();
         let currenturl = window.location.href;
         let index = currenturl.lastIndexOf("/");
@@ -38,7 +41,7 @@ class NewPassword extends Component {
             })
         }
         else {
-            alert("Password doesn't match");
+            passwordError.textContent = "Password doesn't match";
         }
     }
 
@@ -59,6 +62,7 @@ class NewPassword extends Component {
                         <div className="column">
                             <label htmlFor="password-con">Comfirm Password:</label>
                             <input type="password" className="text" id="password-con" name="password-con" />
+                            <div class="password error"></div>
                         </div>
                         <br />
 

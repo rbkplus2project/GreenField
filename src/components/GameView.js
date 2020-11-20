@@ -3,16 +3,20 @@ import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 
 const slideImages   = [
-    'https://www.zynga.com/storage/2020/09/HP_ZyngaHeaderBanner_web1-min-1.png',
-    'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
-    'https://tecake.com/wp-content/uploads/2020/10/images_uplayplus_hero.jpg'
+  "https://i.postimg.cc/FsJxjt79/2-1.png",
+  "https://i.postimg.cc/3x19wXkp/3-2.png",
+  "https://i.postimg.cc/N04hB2cP/6-3.png",
+  "https://i.postimg.cc/0QYz8fQ1/4-3.png",
+  "https://i.postimg.cc/tRcKqHKy/6-6.png",
+  "https://i.postimg.cc/bwp38Cwp/3-1.png",
+  "https://i.postimg.cc/wj8nNQxG/6-7.png",
+  "https://i.postimg.cc/2SRgHTCn/7-1.png",
+  "https://i.postimg.cc/6qDSQsWH/8-3.png"
 ];
 
 const properties = {
     duration: 4444,
     transitionDuration: 1111,
-    infinite: true,
-    indicators: true,
     arrows: true
 };
 
