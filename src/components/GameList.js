@@ -9,9 +9,11 @@ class GameList extends Component {
         this.state = {
         }
       }
+
+    // Fetches games array from database 
     componentDidMount() {
         fetch('http://localhost:3000/game')
-          .then(res => res.json())
+            .then(res => res.json())
             .then(res => {
                 this.props.getGames(res);
                 this.props.searchGames(res);
@@ -32,6 +34,7 @@ class GameList extends Component {
     }
 };
 
+// Redux 
 const mapStateToProps = (state) => {
     return {
         Games: state.Games,

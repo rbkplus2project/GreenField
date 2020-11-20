@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Particles from 'react-particles-js';
            
+// Creates Particles animated background
+// Creates Random Color Hex Value
 class Particle extends Component {
-
     render() {
       let r=Math.floor(Math.random()*16777215).toString(16);
       r="#"+r
