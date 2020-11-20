@@ -9,10 +9,10 @@ let app = express();
 mongo();
 
 app.use(cors());
-app.use(express.static(__dirname + '/../build'));
-app.use(express.json());
 app.use(cookieParser());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/../build'));
 
 app.use('/user/signup', require('./middleware/hash.js'));
 app.use('/user', require('./database/resources/userRouter'));
