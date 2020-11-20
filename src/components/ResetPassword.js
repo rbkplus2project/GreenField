@@ -14,6 +14,9 @@ class ResetPassword extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        // const passwordError = document.querySelector('.password.error');
+        // passwordError.textContent = '';
+
         let input = $('#signin-form').serializeArray();
         console.log(input)
         let options = {
