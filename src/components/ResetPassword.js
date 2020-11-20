@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 const axios = require('axios');
 const $ = require('jquery');
 
+// Sends a request to change password for a user that forgot the password
+// Using email verification
 class ResetPassword extends Component {
     constructor(props) {
         super(props);
@@ -24,7 +26,6 @@ class ResetPassword extends Component {
 
         axios(options)
             .then((results) => {
-                console.log("hii",results)
                 if (results.status === 200) {
                     this.props.sign(1);
                     localStorage.setItem('gamesio', results.data);

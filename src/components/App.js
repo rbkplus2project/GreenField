@@ -15,7 +15,8 @@ import Home from './Home';
 import $ from 'jquery';
 
 class App extends Component {
-
+    
+    // Plays click sound on clicks
     componentDidMount(){
         $("input").on("click", function(){
             $("#sound").attr({ 

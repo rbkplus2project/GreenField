@@ -4,6 +4,8 @@ import { setUser } from '../actions/actions.js';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
 class DisplayGame extends Component {
+
+    // Sends request to delete selected game on success
     removeGame = () => {
         let _id = this.props.game._id
         let newUser = this.props.user
@@ -39,6 +41,7 @@ class DisplayGame extends Component {
     }
 }
 
+// Redux 
 const mapStateToProps = (state) => {
     return {
         user: state.user

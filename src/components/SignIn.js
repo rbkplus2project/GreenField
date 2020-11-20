@@ -30,7 +30,7 @@ class SignIn extends Component {
         axios(options)
             .then((results) => {
                 console.log("+++++", results);
-                if (results.status === 200 && results.data.errors == undefined) {
+                if (results.status === 200 && results.data.errors === undefined) {
                     console.log(results.data)
                     this.props.sign(1);
                     this.props.setUser(results.data)
@@ -69,7 +69,10 @@ class SignIn extends Component {
                         <br />
                         <button className="button">Sign In</button><br />
                     </form>
-                
+                    <Link to="/signout" style={{ textDecoration: "none" }}>
+                        <p>Sign Out</p>
+                    </Link>
+
                     <Link to="/reset" style={{ textDecoration: "none" }}>
                         <p>Forgot password?</p>
                     </Link>
@@ -79,6 +82,7 @@ class SignIn extends Component {
     }
 };
 
+// Redux 
 const mapStateToProps = (state) => {
     return {
         showMenu: state.showMenu,

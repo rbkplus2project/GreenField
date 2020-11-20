@@ -1,7 +1,7 @@
 const gameRouter = require('express').Router();
 const gameCtrl = require('./gameController');
 
-
+// Loads all games to landing page
 gameRouter.route('/')
   .get((req, res) => {
     gameCtrl.find({}, (err, data) => {
@@ -12,6 +12,8 @@ gameRouter.route('/')
       }
     });
   })
+
+// adds a game to database
   .post((req, res) => {
     console.log(req.body)
     gameCtrl.create(req.body, (err, data) => {
@@ -23,9 +25,9 @@ gameRouter.route('/')
     })
   })
 
+// Finds one game from database
 gameRouter.route('/:game')
   .get((req, res) => {
-    //   res.json(req.params);
     gameCtrl.find(req.params, (err, data) => {
       if (err) {
         res.sendStatus(400);
@@ -36,6 +38,8 @@ gameRouter.route('/:game')
       }
     });
   });
+
+// Deletes a game from database
 gameRouter.route('/:_id')
   .delete ((req, res) => {
     gameCtrl.remove(req.params, (err, data) => {
@@ -46,15 +50,5 @@ gameRouter.route('/:_id')
       }
     })
   })
-// .post((req, res) => {
-//   req.params.url = 'https://memory-game-1.herokuapp.com/index.html';
-//   gameCtrl.create(req.params, (err, data) => {
-//     if (err) {
-//       res.sendStatus(400);
-//     } else {
-//       res.json(data);
-//     }
-//   });
-// });
 
 module.exports = gameRouter;
