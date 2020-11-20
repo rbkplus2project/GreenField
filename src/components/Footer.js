@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 class Footer extends Component {
     render() {
-        console.log(this.props.Games)
+        // console.log(this.props.Games)
         return (
             <footer className='footer'
              className="page-footer font-small stylish-color-dark pt-4" >

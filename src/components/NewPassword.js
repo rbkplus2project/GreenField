@@ -9,15 +9,24 @@ class NewPassword extends Component {
         this.state = {
         }
     }
+    checkPassWord = (password) => {
+        if (/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{5,})/.test(password)) {
+            return true;
+        }
+        return false;
+    }
 
     handleSubmit = (e) => {
         e.preventDefault();
+        const passwordError = document.querySelector('.password.error');
+        passwordError.textContent = '';
+
         let input = $('#signin-form').serializeArray();
         let currenturl = window.location.href;
         let index = currenturl.lastIndexOf("/");
         let token = currenturl.slice(index + 1);
 
-        if (input[0].value === input[1].value) {
+        if (input[0].value === input[1].value && (this.checkPassWord(input[0].value)) === true) {
         let options = {
             url: `http://localhost:3000/user/reset/:token`,
             method: 'post',
@@ -37,7 +46,15 @@ class NewPassword extends Component {
             })
         }
         else {
-            alert("Password doesn't match");
+            if (input[0].value.length === 0 || input[1].value.length === 0) {
+                passwordError.textContent = "Please enter a password";
+            }
+            else if (input[0].value.length !== input[1].value.length) {
+                passwordError.textContent = "Password doesn't match";
+            }
+            else {
+                passwordError.textContent = "Password doesn't fulfill the requirement to be secure"
+            }
         }
     }
 
@@ -53,11 +70,13 @@ class NewPassword extends Component {
                         <div className="column">
                             <label htmlFor="password-n">New Password:</label>
                             <input type="password" className="text" id="password-n" name="password-n" />
+                            <div class="password-req">Paaword must contain at least 1 lowercase, 1 uppercase, 1 symbol, 1 number and min.length of 5 char.</div><br />
                         </div>
 
                         <div className="column">
                             <label htmlFor="password-con">Comfirm Password:</label>
                             <input type="password" className="text" id="password-con" name="password-con" />
+                            <div class="password error"></div>
                         </div>
                         <br />
 
