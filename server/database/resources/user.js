@@ -1,8 +1,7 @@
-// create user schema
 const mongoose = require('mongoose');
 const { isEmail } = require('validator');
 
-
+// creates user schema
 let userSchema = new mongoose.Schema({
   username: { 
     type: String, 
@@ -21,7 +20,6 @@ let userSchema = new mongoose.Schema({
     required: [true, 'Please enter a password'],
     minlength: [5, 'Minimum password length is 5 characters'],
   },  
-  // salt: String,
   token: String,
   games: Array,
   expiration: Date,
@@ -29,20 +27,7 @@ let userSchema = new mongoose.Schema({
   profile: String
 });
 
-// userSchema.statics.login = async function (username, password) {
-//   const user = await this.findOne({ username });
-//   console.log("+++++++>>",user)
-//   if (user) {
-//     const auth = await bcrypt.compare(password, user.password);
-//     console.log(auth)
-//     if (auth) {
-//       return user;
-//     }
-//     throw Error('incorrect password');
-//   }
-//   throw Error('incorrect email');
-// };
-
+// adds user model
 let User = mongoose.model('user', userSchema);
 
 module.exports = User;

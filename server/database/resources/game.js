@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// new schema for hosted games
 let gameSchema = mongoose.Schema({
   url: String,
   imgs: Array,
@@ -7,12 +8,7 @@ let gameSchema = mongoose.Schema({
   postedBy: String
 });
 
-// {
-//   name: 'memory',
-//   type: 'puzzle',
-//   dificulty: 'easy and hard'
-// }
-
+// add the model to the database
 let Game = mongoose.model('Game', gameSchema);
 
 module.exports = Game;
