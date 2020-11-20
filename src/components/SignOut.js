@@ -13,9 +13,6 @@ class SignOut extends Component {
       }
     componentDidMount(){
       $("#particles")[0].className="hide"
-      $(".i").on('mouseenter',function(e){
-        $(this).css({top:$(window).height()*0.5*Math.random()-($(this).height()*10*Math.random()), left:$(window).width()*0.5*Math.random()-($(this).height()*20*Math.random())})
-      })
     }
     componentWillUnmount(){
         $("#particles")[0].className="Show"
