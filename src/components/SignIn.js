@@ -69,7 +69,10 @@ class SignIn extends Component {
                         <br />
                         <button className="button">Sign In</button><br />
                     </form>
-                
+                    <Link to="/signup" style={{ textDecoration: "none" }}>
+                        <p>SignUp</p>
+                    </Link>
+
                     <Link to="/reset" style={{ textDecoration: "none" }}>
                         <p>Forgot password?</p>
                     </Link>
