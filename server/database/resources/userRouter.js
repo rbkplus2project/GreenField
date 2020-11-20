@@ -1,11 +1,12 @@
+// Handles different routes on the website
 const userRouter = require('express').Router();
 const userCtrl = require('./userController.js');
 const hash = require('../../middleware/hash')
+const jwt = require('jsonwebtoken');
 
 userRouter.route('/signup')
   .post((req, res, next) => {
     userCtrl.create(req, res, next);
-
   })
 
 userRouter.route('/signin')
@@ -33,33 +34,22 @@ userRouter.route('/signin')
     //     }
     //   }
     // });
-  });
+  })
+
   userRouter.route('/reset')
   .post((req, res, next) => {
     userCtrl.reset(req, res, next)
-
-  });
+  })
 
   userRouter.route(`/reset/:token`)
   .post((req, res, next) => {
-    // console.log("=========",req)
     userCtrl.newPassword(req, res, next)
-    // res.redirect('/signin');
-
   })
-
-  // .get((req, res, next) => {
-  //   console.log("88888888",req.body)
-  //   // path.join(__dirname + './src/components/NewPassword.js')
-  //   // console.log(res)
-  //   // res.sendFile('./src/components/NewPassword.js', { root: __dirname });
-  //   next();
-  // })
 
 userRouter.route('/removeuser')
   .delete((req, res) => {
     userCtrl.delete();
-  });
+  })
   
   userRouter.route('/:username')
   .put((req, res) => {
@@ -72,6 +62,7 @@ userRouter.route('/removeuser')
       }
     })
   })
+
   .post(hash, (req, res) => {
     userCtrl.update(req.params, req.body, (err, data) => {
       if (data.ok === 0) {
@@ -81,4 +72,5 @@ userRouter.route('/removeuser')
       }
     })
   })
+
 module.exports = userRouter;

@@ -4,6 +4,7 @@ import GameView from './GameView';
 import Footer from './Footer.js';
 import $ from 'jquery';
 
+// Home Page
 class Home extends Component {
     componentDidMount(){
         $("#particles")[0].className="hide"

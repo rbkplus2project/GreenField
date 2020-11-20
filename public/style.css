@@ -1,9 +1,10 @@
+/* General Styles */
 html{
   min-height: 90vh;
 }
 body{
     background-image: url('media/neon.jpg');
-    background-color: purple;
+    background-color: white;
     background-repeat:no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
@@ -40,6 +41,8 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
     transition: 1s;
     background-color: cyan;
 }
+
+/* General Positions */
 .column{
     display: flex;
     justify-content: center;
@@ -62,11 +65,21 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
 .hide{
     display:none;
 }
+.scroll{
+  height: 100%;
+  width: 100%;
+  padding: 100px;
+  overflow: auto;
+}
+
+/* Default Color */
 .styled{
   color:royalblue;
   font-weight: bold;
   text-align: center;
 }
+
+/* NavBar */
 .menu{
     position:fixed;
     top:10px;
@@ -113,6 +126,8 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
   width: 33vw;
   outline: none;
 }
+
+/* Slide & Fade Effects */
 .gameitem{
     display: inline-block;
     width: 49.36vw;
@@ -162,7 +177,6 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
     align-items: center;
     background: #adceed;
   }
-
 .games-container{
   display: grid;
   grid-template-columns: auto auto;
@@ -171,12 +185,20 @@ input:hover, textarea:hover, button:hover, .profileitem:hover{
   justify-content: center;
   align-content: center;
 }
+
+/* Footer */
 footer {
     position: relative;
     left: 0;
     right: 0;
     bottom: 0;
 }
+#footer {
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+/* Account Profile */
 .profile{
   background-color: violet;
   padding: 2vw;
@@ -234,20 +256,9 @@ input[type='file']{
   font-size:50px;
   outline: none;
 }
-.i{
-  position: relative;
-}
-#footer {
-  font-size: 15px;
-  margin-top: 5px;
-}
-.scroll{
-  height: 100%;
-  width: 100%;
-  padding: 100px;
-  overflow: auto;
-}
 
+/* Responsiveness */
+/* iPad */
 @media screen and (max-width: 768px) {
   .gameitem {
     display: inline-block;
@@ -283,6 +294,7 @@ input[type='file']{
   } 
 }
 
+/* iPhone */
 @media screen and (max-width: 480px) {
   .gameitem {
     display: inline-block;
@@ -316,4 +328,21 @@ input[type='file']{
     margin-right: 5px;
     margin-left: 5px;
   } 
+}
+
+/* Joke */
+.i{
+  position: relative;
+  transition: 2s;
+  font-size: 40px;
+  font-weight: bold;
+}
+.e{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-flow: row;
+  position: fixed;
+  left:35%;
+  top:45%;
 }

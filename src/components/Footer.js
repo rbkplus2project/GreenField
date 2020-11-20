@@ -17,7 +17,7 @@ class Footer extends Component {
                          <div className="col-md-2 mx-auto">
                              <h4 className="font-weight-bold text-uppercase mt-3 mb-4" id="foo">FEATURED GAMES</h4>
                              <ul className="list-unstyled">
-                                 {this.props.Games.slice(0, 5).map((elem, i) => <li key={i}><a href={elem.url}>{elem.disc.name}</a></li>)}
+                                 {this.props.Games.map((elem, i) => <li key={i}><a href={elem.url}>{elem.disc.name}</a></li>)}
                              </ul>
                          </div>
 
