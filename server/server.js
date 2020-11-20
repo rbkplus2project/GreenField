@@ -18,7 +18,7 @@ app.use('/user/signup', require('./middleware/hash.js'));
 app.use('/user', require('./database/resources/userRouter'));
 app.use('/game', require('./database/resources/gameRouter'));
 
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, "./build", "index.html"))
 })
 
