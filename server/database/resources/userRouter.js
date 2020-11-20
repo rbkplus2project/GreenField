@@ -59,13 +59,7 @@ userRouter.route('/signin')
 
 userRouter.route('/removeuser')
   .delete((req, res) => {
-    userCtrl.delete(req.body, (err, data) => {
-      if (err) {
-        res.sendStatus(500);
-      } else {
-        res.json(data);
-      }
-    });
+    userCtrl.delete();
   });
   
   userRouter.route('/:username')

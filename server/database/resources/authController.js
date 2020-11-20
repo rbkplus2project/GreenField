@@ -3,8 +3,8 @@ exports.handleErrors = function (err) {
     let errors = { username: '', email: '', password: '' };
 
     // incorrect email
-    if (err.message === 'incorrect email') {
-        errors.email = 'That email is not registered';
+    if (err.message === 'incorrect username') {
+        errors.username = 'That user is not registered';
     }
 
     // incorrect password
