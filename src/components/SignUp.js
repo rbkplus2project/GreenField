@@ -9,9 +9,13 @@ class SignUp extends Component {
             redirect: false
         }
     }
-    handleSubmit = this.handleSubmit.bind(this);
-    
-    async handleSubmit (e) {
+    checkPassWord = (password) => {
+        if (/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])(?=.{5,})/.test(password)) {
+            return true;
+        }
+        return false;
+    }
+    handleSubmit = (e) => {
         e.preventDefault();
         const usernameError = document.querySelector('.username.error');
         const emailError = document.querySelector('.email.error');
@@ -21,34 +25,44 @@ class SignUp extends Component {
         passwordError.textContent = '';
 
         let input = $('#signup-form').serializeArray();
+        // console.log(input)
 
-        if (input[2].value === input[3].value) {
+        if (input[2].value === input[3].value && (this.checkPassWord(input[2].value)) === true) {
+            // if (input[1].value.length >= 6) {
             let options = {
-                url: `http://localhost:3000/user/signup`,
+                url: 'http://localhost:3000/user/signup',
                 method: 'post',
                 data: { username: input[0].value, email: input[1].value, password: input[2].value }
             }
 
-            await axios(options)
+            axios(options)
                 .then((results) => {
-                    // console.log("results", results.data.errors)
-                
+                    // console.log("+++++", results);
                     if (results.status === 201) {
                         this.setState({ redirect: true })
-                    };
+                    }
                     if (results.data.errors) {
                         usernameError.textContent = results.data.errors.username;
                         emailError.textContent = results.data.errors.email;
                         passwordError.textContent = results.data.errors.password;
                     }
                 })
-
                 .catch((err) => {
                     console.log("error here ====>", err);
                 })
+            // } 
         }
         else {
-            alert("Password doesn't match");
+            // console.log(input[2].value.length)
+            if (input[2].value.length === 0 || input[3].value.length === 0 ){
+                passwordError.textContent = "Please enter a password";
+            }
+            else if (input[2].value.length !== input[3].value.length){
+                passwordError.textContent = "Password doesn't match";
+            }
+            else {
+                passwordError.textContent = "Password doesn't fulfill the requirement to be secure"
+            }
         }
     }
 
@@ -80,10 +94,7 @@ class SignUp extends Component {
                         <br />
                         <button className="button">Sign Up</button><br />
                     </form>
-
-                    <Link to="/signin" style={{ textDecoration: "none" }}>
-                        <p>Already have an account? <a href="http://localhost:3000/signin">Sign In</a></p>
-                    </Link>
+                    <p>Already have an account? <Link to="/signin" style={{ textDecoration: "none" }}>Sign In</Link></p>
                 </div>
             )
         }
