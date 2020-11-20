@@ -6,6 +6,7 @@ const crypto = require('crypto');
 const handleErrors = require('./authController.js').handleErrors;
 require('dotenv').config()
 const sgMail = require('@sendgrid/mail')
+
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 const maxAge = 1 * 24 * 60 * 60;
@@ -17,7 +18,6 @@ const createToken = (id) => {
 
 exports.create = async function (req, res, next) {
   try {
-    console.log(req.body)
     const user = await User.create(req.body);
     const token = createToken(user._id);
     // console.log("+++++++>gh", token)
@@ -61,7 +61,7 @@ exports.login = async function (req, res, next) {
       }
       throw Error('incorrect password');
     }
-    throw Error('incorrect email');
+    throw Error('user not found');
 
   }
   catch (err) {

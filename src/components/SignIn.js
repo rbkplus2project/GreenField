@@ -21,7 +21,7 @@ class SignIn extends Component {
 
         let input = $('#signin-form').serializeArray();
         let options = {
-            url: `/user/signin`,
+            url: `http://localhost:3000/user/signin`,
             method: 'post',
             data: { username: input[0].value, password: input[1].value }
         }

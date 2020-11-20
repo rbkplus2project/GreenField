@@ -1,10 +1,10 @@
   const bcrypt = require('bcrypt');
 const Joi = require('joi');
 
-// var schema = Joi.object({
-//   username: Joi.string().min(4).required(),
-//   password: Joi.string().min(6).required()
-// });
+var schema = Joi.object({
+  username: Joi.string().min(4).required(),
+  password: Joi.string().min(5).required()
+});
 
 var ash = async (req, res, next) => {
   // var valid = await schema.validate(req.body);
