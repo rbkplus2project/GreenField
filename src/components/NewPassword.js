@@ -67,7 +67,6 @@ class NewPassword extends Component {
                         <div className="column">
                             <label htmlFor="password-n">New Password:</label>
                             <input type="password" className="text" id="password-n" name="password-n" />
-                            <div class="password-req">Paaword must contain at least 1 lowercase, 1 uppercase, 1 symbol, 1 number and min.length of 5 char.</div><br />
                         </div>
 
                         <div className="column">
@@ -77,6 +76,7 @@ class NewPassword extends Component {
                         </div>
                         <br />
                         <button className="button">Update Password</button><br />
+                        <div className="password-req">Password must contain at least 1 lowercase, 1 uppercase, 1 symbol, 1 number and min.length of 5 char.</div><br />
                     </form>
                 </div>
             )

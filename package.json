@@ -6,7 +6,7 @@
   "author": "titans",
   "private": false,
   "license": "none",
-  "homepage": "https://greenfield1.herokuapp.com/",
+  "homepage": "https://gamesio.herokuapp.com/",
   "dependencies": {
     "@sendgrid/mail": "^7.4.0",
     "@testing-library/jest-dom": "^5.11.6",
