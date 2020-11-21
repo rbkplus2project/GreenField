@@ -17,7 +17,7 @@ class NavBar extends Component {
         if (localStorage.getItem('gamesio')) {
             this.props.sign(1);
             this.props.setUser(JSON.parse(localStorage.getItem('gamesio')));
-            this.props.color(localStorage.getItem('gamesio').colors)
+            this.props.color(localStorage.getItem('gamesio').colors || this.props.colors)
         }
     }
 
