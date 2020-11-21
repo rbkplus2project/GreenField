@@ -23,7 +23,7 @@ class GameItem extends Component {
                         <FrontSide>
                             <Fade {...properties}>
                                 {this.props.game.imgs.map((img, i) => <img className="gameimg" key={i} src={img} alt=""/>)}
-                                </Fade>
+                            </Fade>
                         </FrontSide>
                     <Link to='/frame'>
                        <BackSide>

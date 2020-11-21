@@ -28,11 +28,11 @@ class DisplayGame extends Component {
             <div className="row">
             <Flippy flipOnHover={true} flipDirection="horizontal" ref={(r) => this.flippy = r}>
                 <FrontSide>
-                    <img src={this.props.game.imgs[0]} alt="Game" className="uploaded" />
+                    <img src={this.props.game.imgs[0]} alt="Game" style={{borderColor:this.props.colors[1]}} className="uploaded" />
                 </FrontSide>
                 <BackSide>
                 <div className="center">
-                    <button className="remove" onClick={this.removeGame}>X</button>
+                    <button className="remove" style={{borderColor:this.props.colors[1]}} onClick={this.removeGame}>X</button>
                 </div>
                 </BackSide>
             </Flippy>
@@ -44,7 +44,8 @@ class DisplayGame extends Component {
 // Redux 
 const mapStateToProps = (state) => {
     return {
-        user: state.user
+        user: state.user,
+        colors: state.colors
     }
 }
 const mapDispatchToProps = (dispatch) => {

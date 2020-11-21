@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 const axios = require('axios');
 const $ = require('jquery');
 
@@ -56,22 +57,22 @@ class AddGame extends Component {
     render() {
         return (
             <div className="center styled scroll">
-                <h1>Upload Your Own Game!</h1>
+                <h1 style={{color:this.props.colors[3]}}>Upload Your Own Game!</h1>
                 <br/>
                 <form id="addgame-form" className="column" onSubmit={this.handleSubmit}>
-                    <label htmlFor="title">Game Title:</label>
+                    <label htmlFor="title" style={{color:this.props.colors[3]}}>Game Title:</label>
                     <input type="text" className="text" name="title" id="title" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} required/>
                     
-                    <label htmlFor="url">Game URL:</label>
+                    <label htmlFor="url" style={{color:this.props.colors[3]}}>Game URL:</label>
                     <input type="url" className="text" name="url" id="url" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} required/>
 
-                    <label htmlFor="type">Game Type:</label>
+                    <label htmlFor="type" style={{color:this.props.colors[3]}}>Game Type:</label>
                     <input type="text" className="text" name="type" id="type" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} required/>
 
-                    <label htmlFor="difficulty">Game difficulty:</label>
+                    <label htmlFor="difficulty" style={{color:this.props.colors[3]}}>Game difficulty:</label>
                     <input type="text" className="text" name="difficulty" id="difficulty" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} required/>
 
-                    <label htmlFor="image1">Game image1:</label>
+                    <label htmlFor="image1" style={{color:this.props.colors[3]}}>Game image1:</label>
                     <input type="text" className="text" name="image1" id="image1" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} required/>
 
                     <br/>
@@ -84,4 +85,11 @@ class AddGame extends Component {
     }
 }
 
-export default AddGame;
+// Redux 
+const mapStateToProps = (state) => {
+    return {
+        colors: state.colors
+    }
+}
+
+export default connect(mapStateToProps)(AddGame);
