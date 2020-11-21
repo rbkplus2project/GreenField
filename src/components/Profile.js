@@ -108,7 +108,7 @@ class Profile extends Component {
                 <span>Password</span>  <input type="password" className="text" id="change-pass" name="change-pass" />  <button className="edit" onClick={this.updatePass}>Change Password</button>
                 <div>
                     <p>My Games</p>
-                    <div className="column">
+                    <div className="row">
                         {this.props.user.games.map((elem, i) => <DisplayGame game={elem} key={i} item={i} rerender={() => this.setState({})} />)}
                     </div>
                 </div>
