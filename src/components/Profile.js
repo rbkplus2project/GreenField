@@ -1,8 +1,8 @@
 import { setUser } from '../actions/actions.js';
 import React, { Component } from 'react';
+import DisplayGame from './DisplayGame';
 import { connect } from 'react-redux';
-import DisplayGame from './DisplayGame'
-const $ = require('jquery')
+const $ = require('jquery');
 
 class Profile extends Component {
 
@@ -99,15 +99,15 @@ class Profile extends Component {
     render() {
         return (
             <div className="center styled profile">
-                <img className="profileimg" alt="Profile" src={this.props.user.profile ? this.props.user.profile : "./media/signin.png"} />
+                <img className="profileimg" alt="Profile" src={this.props.user.profile ? this.props.user.profile : "./media/signin.png"} style={{color:this.props.colors[3],borderColor:this.props.colors[1]}}/>
                 <br />
                 <br />
-                <input type="file" id="newImg" onChange={()=>{this.updateImage(this)}}/><p className="up">Change Picture</p> 
-                <span>Username</span>  <input type="text" className="text" id="change-name" name="change-name" />  <button className="edit" onClick={this.updateName}>Change Name</button>
+                <input type="file" id="newImg" onChange={()=>{this.updateImage(this)}} style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}/><p className="up" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}>Change Picture</p> 
+                <span style={{color:this.props.colors[3]}}>Username</span>  <input type="text" className="text" id="change-name" name="change-name" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}/>  <button className="edit" onClick={this.updateName} style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}>Change Name</button>
                 <br/>
-                <span>Password</span>  <input type="password" className="text" id="change-pass" name="change-pass" />  <button className="edit" onClick={this.updatePass}>Change Password</button>
+                <span style={{color:this.props.colors[3]}}>Password</span>  <input type="password" className="text" id="change-pass" name="change-pass" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}/>  <button className="edit" onClick={this.updatePass} style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}>Change Password</button>
                 <div>
-                    <p>My Games</p>
+                    <p style={{color:this.props.colors[3]}}>My Games</p>
                     <div className="row">
                         {this.props.user.games.map((elem, i) => <DisplayGame game={elem} key={i} item={i} rerender={() => this.setState({})} />)}
                     </div>
@@ -119,7 +119,8 @@ class Profile extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user
+        user: state.user,
+        colors: state.colors
     }
 }
 const mapDispatchToProps = (dispatch) => {
