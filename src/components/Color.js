@@ -6,11 +6,19 @@ import $ from 'jquery';
 
 class Color extends Component {
   colorize=()=>{
-    let x=[]
+    let colors=[]
     for(var i=0;i<$(".color").length;i++){
-      x.push($(".color")[i].value)
+      colors.push($(".color")[i].value)
     }
-    this.props.color(x)
+    let options = {
+      method: 'put',
+      body: JSON.stringify({colors: colors})
+    }
+    fetch(`http://localhost:3000/user/${this.props.user.username}`, options)
+      .then(res => {
+        this.props.color(colors)
+      })
+      .catch(err => console.log(err))
   }
 
     render() {
@@ -34,7 +42,8 @@ class Color extends Component {
 // A lot of Redux variables
 const mapStateToProps = (state) => {
   return {
-    colors: state.colors
+    colors: state.colors,
+    user: state.user
   }
 }
 const mapDispatchToProps = (dispatch) => {
