@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
@@ -20,15 +19,15 @@ class SignOut extends Component {
         return (
             <div className=" center column styled">
                 <div className="row">
-                <h1>Sign Out?</h1>
+                <h1 style={{color:this.props.colors[3]}}>Sign Out?</h1>
                 </div>
                 <br></br>
                 <Link to="/">
-                    <button className="button" onClick={this.handleClick}>Yes</button>
+                    <button className="button" onClick={this.handleClick} style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}>Yes</button>
                 </Link>
                 <br></br>
                 <Link to="/">
-                    <button className="button">No</button>
+                    <button className="button" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}>No</button>
                 </Link>
             </div>
         )
@@ -40,7 +39,8 @@ const mapStateToProps = (state) => {
     return {
         showMenu: state.showMenu,
         showSearch: state.showSearch,
-        showSign: state.showSign
+        showSign: state.showSign,
+        colors: state.colors
     }
 }
 const mapDispatchToProps = (dispatch) => {
