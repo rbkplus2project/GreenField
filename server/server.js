@@ -1,6 +1,7 @@
 var cookieParser = require('cookie-parser');
 const mongo = require('./database');
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 
 // Creates a server
@@ -20,9 +21,9 @@ app.use('/user', require('./database/resources/userRouter'));
 app.use('/game', require('./database/resources/gameRouter'));
 
 // Responds to all get requests
-app.get('*', (req, res) => {
-  let path = req.params['0'].substring(1)
-  res.sendFile(`${__dirname}/build/${path}`)
+app.get('/*', (req, res) => {
+  console.log('asdfghjklkjhgfdsasdfghjk -------------------> ', __dirname)
+  res.sendFile(path.join(__dirname, '../build', 'index.html'));
 })
 
 const host = '0.0.0.0';
