@@ -66,3 +66,9 @@ export const color = (z) => {
         colors: z
     }
 }
+export const refreshApp = (z) => {
+    return {
+        type: 'REFRESH_APP',
+        refreshApp: z
+    }
+}
