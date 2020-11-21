@@ -11,13 +11,6 @@ class SignOut extends Component {
         this.state = {
         }
       }
-    componentDidMount(){
-        $("#particles")[0].className="hide"
-    }
-    componentWillUnmount() {
-        
-        $("#particles")[0].className="Show"
-    }
     handleClick = (e) => {
         localStorage.removeItem('gamesio'); 
         this.props.setUser({});
