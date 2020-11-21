@@ -85,7 +85,7 @@ class Profile extends Component {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({password: newPass, username: name})
         }
-        fetch('http://localhost:3001/user/' + name, options)
+        fetch('http://localhost:3000/user/' + name, options)
             .then(res => {
             console.log(res)
             if (res.status === 200) {
