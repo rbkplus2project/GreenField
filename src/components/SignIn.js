@@ -22,16 +22,14 @@ class SignIn extends Component {
 
         let input = $('#signin-form').serializeArray();
         let options = {
-            url: `/user/signin`,
+            url: `http://localhost:3000/user/signin`,
             method: 'post',
             data: { username: input[0].value, password: input[1].value }
         }
 
         axios(options)
             .then((results) => {
-                console.log("+++++", results);
                 if (results.status === 200 && results.data.errors === undefined) {
-                    console.log(results.data)
                     this.props.sign(1);
                     this.props.setUser(results.data)
                     localStorage.setItem('gamesio', JSON.stringify(results.data));
