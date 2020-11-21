@@ -20,7 +20,7 @@ app.use('/user', require('./database/resources/userRouter'));
 app.use('/game', require('./database/resources/gameRouter'));
 
 // Responds to all get requests
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   let path = req.params['0'].substring(1)
   res.sendFile(`${__dirname}/build/${path}`)
 })
