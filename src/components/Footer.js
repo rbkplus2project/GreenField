@@ -3,10 +3,8 @@ import { connect } from 'react-redux';
 
 class Footer extends Component {
     render() {
-        // console.log(this.props.Games)
         return (
-            <footer className='footer'
-             className="page-footer font-small stylish-color-dark pt-4" >
+            <footer className="page-footer font-small stylish-color-dark pt-4 footer" >
                  <div className="container text-center text-md-left" id="footer">
                      <div className="row">
                          <div className="col-md-4 mx-auto" id="A">
@@ -19,12 +17,12 @@ class Footer extends Component {
                          <div className="col-md-2 mx-auto">
                              <h4 className="font-weight-bold text-uppercase mt-3 mb-4" id="foo">FEATURED GAMES</h4>
                              <ul className="list-unstyled">
-                                 {this.props.Games.slice(0, 5).map((elem, i) => <li key={i}><a href={elem.url}>{elem.disc.name}</a></li>)}
+                                 {this.props.Games.map((elem, i) => <li key={i}><a href={elem.url}>{elem.disc.name}</a></li>)}
                              </ul>
                          </div>
 
                          <hr className="clearfix w-100 d-md-none"></hr>
-                         <div className="col-md-2 mx-auto" className="contact">
+                         <div className="col-md-2 mx-auto contact">
                              <h4 className="font-weight-bold text-uppercase mt-3 mb-4" id="foo">CONTACT US</h4>
                              <ul className="list-unstyled">
                                  <div className="contact">

@@ -10,12 +10,14 @@ import SignOut from './SignOut.js';
 import SignIn from './SignIn.js';
 import SignUp from './SignUp.js';
 import NavBar from './NavBar.js';
+import Color from './Color.js';
 import Test from './Test.js';
 import Home from './Home';
 import $ from 'jquery';
 
 class App extends Component {
-
+    
+    // Plays click sound on clicks
     componentDidMount(){
         $("input").on("click", function(){
             $("#sound").attr({ 
@@ -23,23 +25,23 @@ class App extends Component {
                 'autoplay':'autoplay'
             })
         })
-        $("#i").on("mouseover",function(){$("#i").css({"left":"+=200"})})
     }
     render() {
         return (
             <Router>
                 <NavBar/>
                 <Switch>
+                    <Route path="/test" component={Test}/>
                     <Route path="/" exact component={Home}/>
+                    <Route path="/colors" component={Color}/>
                     <Route path="/signin" component={SignIn}/>
                     <Route path="/signup" component={SignUp}/>
                     <Route path="/signout" component={SignOut}/>
                     <Route path="/frame" component={GameFrame}/>
                     <Route path="/addgame" component={AddGame}/>
-                    <Route path="/profile" component={Profile} />
-                    <Route path="/reset" exact component={ResetPassword} />
-                    <Route path="/reset/:token" component={NewPassword} />
-                    <Route path="/test" component={Test}/>
+                    <Route path="/profile" component={Profile}/>
+                    <Route path="/reset/:token" component={NewPassword}/>
+                    <Route path="/reset" exact component={ResetPassword}/>
                 </Switch>
                 <Particle/>
             </Router>

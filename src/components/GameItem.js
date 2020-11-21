@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Fade } from 'react-slideshow-image';
-import { Link } from 'react-router-dom';
-import {connect} from 'react-redux'
-import { gameIndex } from '../actions/actions.js';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
+import { gameIndex } from '../actions/actions.js';
+import { Fade } from 'react-slideshow-image';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 class GameItem extends Component {
     constructor(props) {
@@ -11,19 +11,20 @@ class GameItem extends Component {
         this.state = {
         }
       }
-      
+
+    // A click on the flip card sends to the playing page if signed in
     handleClick = (e) => {
         this.props.saveIndex(this.props.newKey)
     };
     render() {
         return (
-                <div className="gameitem">
+                <div className="gameitem" id={"a"+this.props.newKey}>
                     <Flippy flipOnHover={true} flipDirection="horizontal" ref={(r) => this.flippy = r}>
                         <FrontSide>
                             <Fade {...properties}>
                                 {this.props.game.imgs.map((img, i) => <img className="gameimg" key={i} src={img} alt=""/>)}
                                 </Fade>
-                    </FrontSide>
+                        </FrontSide>
                     <Link to='/frame'>
                        <BackSide>
                            <pre className="gameinfo" onClick={this.handleClick}>
@@ -39,6 +40,7 @@ class GameItem extends Component {
     }
 }
 
+// Settings for the flip cards hover 
 const properties = {
    duration: 2222,
    transitionDuration: 1111,
@@ -46,6 +48,7 @@ const properties = {
    arrows: false
 };
 
+// Redux 
 const mapStateToProps = (state) => {
     return {
         gameIndex: state.gameIndex

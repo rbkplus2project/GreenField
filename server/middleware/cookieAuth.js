@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 
+// Checks if the user has cookie || is signed in
 var verifyCookie = (req, res, next) => {
   const token = req.header('auth-token');
   console.log(token);

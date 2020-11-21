@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import Particles from 'react-particles-js';
            
+// Creates Particles animated background
+// Creates Random Color Hex Value
 class Particle extends Component {
-
     render() {
-      this.r=Math.floor(Math.random()*16777215).toString(16);
+      let r=Math.floor(Math.random()*16777215).toString(16);
+      r="#"+r
         return (
           <div id="particles">
             <Particles
               params={{
                 background: {
                   color: {
-                    value: "#000000",
+                    value: "#ffffff",
                   },
                 },
                 interactivity: {
@@ -27,7 +29,7 @@ class Particle extends Component {
                   },
                   modes: {
                     push: {
-                      quantity: 2,
+                      quantity: 7,
                     },
                     repulse: {
                       distance: 222,
@@ -37,10 +39,10 @@ class Particle extends Component {
                 },
                 particles: {
                   color: {
-                    value: "#"+this.r,
+                    value: r,
                   },
                   links: {
-                    color: "#"+this.r,
+                    color: r,
                     distance: 222,
                     width: 2,
                     opacity: 0.7

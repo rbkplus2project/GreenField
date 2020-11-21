@@ -1,3 +1,4 @@
+// Creates the Redux variables
 const initState = {
     test: [
         { username: "ahamd", password: "123" }
@@ -12,6 +13,7 @@ const initState = {
     user: {}
 }
 
+// Edits the Redux variables
 const rootReducer = (state = initState, action) => {
     if (action.type === "SHOW_MENU") {
         return {

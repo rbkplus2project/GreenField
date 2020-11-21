@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import $ from 'jquery';
 
 class GameFrame extends Component {
     constructor(props) {
@@ -8,7 +9,14 @@ class GameFrame extends Component {
         this.state = {
         }
     }    
-    
+
+    // Hides the Particles background
+    componentDidMount(){
+        $("#particles")[0].className="hide"
+    }
+    componentWillUnmount(){
+        $("#particles")[0].className="Show"
+    }
     render() {
     if (localStorage.getItem('gamesio') && this.props.gameIndex !== -1) {
         return (
@@ -24,6 +32,7 @@ class GameFrame extends Component {
     }
 }
 
+// Redux 
 const mapStateToProps = (state) => {
     return {
         Games: state.Games,

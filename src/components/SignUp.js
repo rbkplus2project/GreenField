@@ -25,16 +25,13 @@ class SignUp extends Component {
         passwordError.textContent = '';
 
         let input = $('#signup-form').serializeArray();
-        // console.log(input)
 
         if (input[2].value === input[3].value && (this.checkPassWord(input[2].value)) === true) {
-            // if (input[1].value.length >= 6) {
             let options = {
                 url: 'http://localhost:3000/user/signup',
                 method: 'post',
                 data: { username: input[0].value, email: input[1].value, password: input[2].value }
             }
-
             axios(options)
                 .then((results) => {
                     console.log("+++++", results);
@@ -50,10 +47,8 @@ class SignUp extends Component {
                 .catch((err) => {
                     console.log("error here ====>", err);
                 })
-            // } 
         }
         else {
-            // console.log(input[2].value.length)
             if (input[2].value.length === 0 || input[3].value.length === 0 ){
                 passwordError.textContent = "Please enter a password";
             }
@@ -86,7 +81,6 @@ class SignUp extends Component {
 
                             <label htmlFor="newPassword">Password:</label>
                             <input type="password" className="text" id="newPassword" name="newPassword" />
-                            <div class="password-req">Paaword must contain at least 1 lowercase, 1 uppercase, 1 symbol, 1 number and min.length of 5 char.</div><br/>
 
                             <label htmlFor="confirmPassword">Confirm Password:</label>
                             <input type="password" className="text" id="confirmPassword" name="confirmPassword" />
@@ -95,6 +89,7 @@ class SignUp extends Component {
                         <br />
                         <button className="button">Sign Up</button><br />
                     </form>
+                    <div class="password-req">Paaword must contain at least 1 lowercase, 1 uppercase, 1 symbol, 1 number and min.length of 5 char.</div><br/>
                     <p>Already have an account? <Link to="/signin" style={{ textDecoration: "none" }}>Sign In</Link></p>
                 </div>
             )

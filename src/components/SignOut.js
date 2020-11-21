@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
@@ -10,41 +11,26 @@ class SignOut extends Component {
         this.state = {
         }
       }
-      
+    componentDidMount(){
+        $("#particles")[0].className="hide"
+    }
+    componentWillUnmount(){
+        $("#particles")[0].className="Show"
+    }
     handleClick = (e) => {
-        /*
-        let options = {
-            url: `http://localhost:3000/user/signout`,
-            method: 'post',
-            data: { "signout": "true" }
-        }
-
-        axios(options)
-            .then((results) => {
-                // localStorage.setItem('gamesio', results.data);
-                // this.setState({ redirect: true })
-                // if (results.status === 200) {
-                //     this.props.sign("show")
-                // };
-            })
-
-            .catch((err) => {
-                console.log("error here ====>", err);
-            })
-        */
-
-        ////// temporary solution, should be handled upon signout response from the server
         localStorage.removeItem('gamesio'); 
         this.props.setUser({});
         this.props.sign(0);
     }
     render() {
         return (
-            <div className=" center column styled" style={{ display: this.props.showSign ? "" : "none" }}>
+            <div className=" center column styled">
+                <div className="row">
                 <h1>Sign Out?</h1>
+                </div>
                 <br></br>
                 <Link to="/">
-                    <button id="i" className="button" onClick={this.handleClick}>Yes</button>
+                    <button className="button" onClick={this.handleClick}>Yes</button>
                 </Link>
                 <br></br>
                 <Link to="/">
@@ -55,6 +41,7 @@ class SignOut extends Component {
     }
 }
 
+// Redux 
 const mapStateToProps = (state) => {
     return {
         showMenu: state.showMenu,
