@@ -11,7 +11,7 @@ mongo();
 
 // Define what the server will use
 app.use(cors());
-app.use(express.static(path.join(__dirname + 'build')));
+app.use(express.static(__dirname + '/../build'));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
