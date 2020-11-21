@@ -14,7 +14,8 @@ class SignOut extends Component {
     componentDidMount(){
         $("#particles")[0].className="hide"
     }
-    componentWillUnmount(){
+    componentWillUnmount() {
+        
         $("#particles")[0].className="Show"
     }
     handleClick = (e) => {
