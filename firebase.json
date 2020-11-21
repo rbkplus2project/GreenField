@@ -5,9 +5,6 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "headers": [
-      {"source": "/server.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}]}
     ]
   }
 }
