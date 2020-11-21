@@ -11,7 +11,7 @@ const initState = {
     Games: [],
     GamesSearch: [],
     user: {},
-    colors: ["violet","purple","purple","royalblue","gold","white","black","white"]
+    colors: ["#ec5fdc","#63017e","#63017e","#1e51c8","#ffff00","#ffffff","#000000","#ffffff"]
 }
 
 // Edits the Redux variables
@@ -62,6 +62,12 @@ const rootReducer = (state = initState, action) => {
         return  {
             ...state,
             user: action.user
+        }
+    }
+    if (action.type === "GET_COLORS") {
+        return  {
+            ...state,
+            colors: action.colors
         }
     }
     return state;

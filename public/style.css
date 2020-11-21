@@ -11,22 +11,18 @@ body{
     min-height: 90vh;
 }
 .button{
-  border: 4px solid purple;
+  border: 4px solid;
   border-radius: 12px;
   font-weight: bold;
   text-align: center;
-  color:royalblue;
   padding: 0 0 5px;
-  background-color: violet;
   height:30px;
   width:200px;
   outline: none;
 }
 .text{
-  color:royalblue;
   font-weight: bold;
   text-align: center;
-  background-color: violet;
   border-radius: 12px;
   height:30px;
   width:200px;
@@ -70,7 +66,6 @@ input[type='text']::placeholder,input[type='number']::placeholder, input[type='p
 
 /* Default Color */
 .styled{
-  color:royalblue;
   font-weight: bold;
   text-align: center;
   font-size:16px;
@@ -92,8 +87,7 @@ input[type='text']::placeholder,input[type='number']::placeholder, input[type='p
   z-index: 500;
 }
 .navitem{
-    background-color: violet;
-    border: 3px solid purple;
+    border: 3px solid;
     margin-right: 3px;
     border-radius: 30px;
     height: 50px;
@@ -101,11 +95,9 @@ input[type='text']::placeholder,input[type='number']::placeholder, input[type='p
     outline: none;
 }
 .settingsitem{
-  background-color: violet;
-  border: 3px solid purple;
+  border: 3px solid ;
   font-weight: bold;
   text-align: center;
-  color:purple;
   margin-top: 10px;
   border-radius: 12px;
   height: 30px;
@@ -113,11 +105,9 @@ input[type='text']::placeholder,input[type='number']::placeholder, input[type='p
   outline: none;
 } 
 .search{
-  background-color: violet;
-  border: 3px solid purple;
+  border: 3px solid ;
   font-weight: bold;
   text-align: center;
-  color:purple;
   border-radius: 25px;
   height: 50px;
   width: 33vw;
@@ -197,9 +187,8 @@ footer {
 
 /* Account Profile */
 .profile{
-  background-color: violet;
   padding: 2vw;
-  border: 5px solid purple;
+  border: 5px solid;
   border-radius: 12px;
   height: 95%;
   overflow: auto;
@@ -208,9 +197,8 @@ footer {
   width: 100px;
   height: 100px;
   margin-left: 1%;
-  border: 3px solid  purple;
+  border: 3px solid;
   border-radius: 50px;
-  background-color: violet;
 }
 input[type='file']{
   opacity: 0;
@@ -219,7 +207,7 @@ input[type='file']{
 }
 .up{
   width: 300px;
-  border: 3px solid purple;
+  border: 3px solid;
   border-radius: 50px;
   margin-left:20%;
 }
@@ -229,25 +217,21 @@ input[type='file']{
   outline: none;
   padding: 4px 30px;
   border-radius: 50px;
-  background-color: violet;
-  border: 3px solid purple;
+  border: 3px solid;
   font-weight: bold;
   text-align: center;
-  color:royalblue;
 }
 .uploaded{
   width: 120px;
   height: 120px;
-  border: 3px solid  purple;
+  border: 3px solid;
   border-radius: 30px;
-  background-color: violet;
 }
 .remove{
-  border: 4px solid purple;
+  border: 4px solid;
   border-radius: 66px;
   font-weight: bold;
   color:red;
-  background-color: violet;
   height:6vw;
   width:6vw;
   font-size:50px;
