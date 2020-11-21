@@ -9,7 +9,7 @@ class Profile extends Component {
     // Gets the logged in user's info
     
     componentDidMount() {
-        fetch('/game')
+        fetch('http://localhost:3000/game')
           .then(res => res.json())
             .then(res => {
                 if (localStorage.getItem('gamesio')) {
@@ -35,7 +35,7 @@ class Profile extends Component {
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify({"profile": e.target.result})
                 }
-                fetch('/user/' + name, options)
+                fetch('http://localhost:3000/user/' + name, options)
                 .then(res => {
                     if (res.status === 200) {
                         newUser.profile = e.target.result
@@ -61,7 +61,7 @@ class Profile extends Component {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({"username": newName})
         }
-        fetch('/user/' + oldName, options)
+        fetch('http://localhost:3000/user/' + oldName, options)
         .then(res => {
             if (res.status === 200) {
                 let newUser = this.props.user
@@ -85,7 +85,7 @@ class Profile extends Component {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({password: newPass, username: name})
         }
-        fetch('/user/' + name, options)
+        fetch('http://localhost:3000/user/' + name, options)
             .then(res => {
             console.log(res)
             if (res.status === 200) {
@@ -108,7 +108,7 @@ class Profile extends Component {
                 <span>Password</span>  <input type="password" className="text" id="change-pass" name="change-pass" />  <button className="edit" onClick={this.updatePass}>Change Password</button>
                 <div>
                     <p>My Games</p>
-                    <div className="column">
+                    <div className="row">
                         {this.props.user.games.map((elem, i) => <DisplayGame game={elem} key={i} item={i} rerender={() => this.setState({})} />)}
                     </div>
                 </div>
