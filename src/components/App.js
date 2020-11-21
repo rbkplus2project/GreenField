@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { refreshApp } from '../actions/actions.js';
 import ResetPassword from './ResetPassword.js';
 import NewPassword from './NewPassword.js';
 import React, { Component } from 'react';
 import GameFrame from './GameFrame.js';
+import { connect } from 'react-redux';
 import Particle from './Particles.js';
 import AddGame from './AddGame.js';
 import Profile from './Profile.js';
@@ -49,4 +51,15 @@ class App extends Component {
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+return {
+    refreshApp: (z) => { dispatch(refreshApp(z)) }
+    }
+}
+  
+export default connect(mapStateToProps, mapDispatchToProps)(App);

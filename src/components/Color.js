@@ -1,16 +1,33 @@
-import { color } from '../actions/actions.js';
+import { color, setUser, refreshApp } from '../actions/actions.js';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import $ from 'jquery';
 
 class Color extends Component {
-  colorize=()=>{
-    let x=[]
-    for(var i=0;i<$(".color").length;i++){
-      x.push($(".color")[i].value)
+    colorize=()=>{
+      let colors=[]
+      for(var i=0;i<$(".color").length;i++){
+        colors.push($(".color")[i].value)
+      }
+      let options = {
+        method: 'put',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({colors: colors})
+      }
+      fetch(`/user/${this.props.user.username}`, options)
+        .then(res => {
+          if (res.status === 200) {
+            let newUser = this.props.user
+            newUser.colors = colors
+            this.props.setUser(newUser)
+            localStorage.setItem('gamesio', JSON.stringify(newUser))
+            this.props.color(colors);
+            this.props.refreshApp()
+          }
+        })
+        .catch(err => console.log(err))
     }
-    this.props.color(x)
-  }
+  
 
     render() {
         return (
@@ -34,12 +51,15 @@ class Color extends Component {
 // Redux
 const mapStateToProps = (state) => {
   return {
-    colors: state.colors
+    colors: state.colors,
+    user: state.user
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    color: (z) => { dispatch(color(z)) }
+    color: (z) => { dispatch(color(z)) },
+    setUser: (z) => { dispatch(setUser(z)) },
+    refreshApp: (z) => { dispatch(refreshApp(z)) }
   }
 }
 

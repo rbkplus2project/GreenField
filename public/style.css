@@ -33,6 +33,9 @@ input[type='text']::placeholder,input[type='number']::placeholder, input[type='p
     font-weight: bold;
     text-align: center;
 }
+input:hover, button:hover{
+  background-color:"gold";
+}
 
 /* General Positions */
 .column{
@@ -234,7 +237,7 @@ input[type='file']{
   color:red;
   height:6vw;
   width:6vw;
-  font-size:5vw;
+  font-size:3vw;
   outline: none;
 }
 

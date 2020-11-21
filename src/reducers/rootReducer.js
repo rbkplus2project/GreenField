@@ -11,7 +11,8 @@ const initState = {
     Games: [],
     GamesSearch: [],
     user: {},
-    colors: ["#ec5fdc","#63017e","#63017e","#1e51c8","#ffff00","#ffffff","#000000","#ffffff"]
+    colors: ["#ec5fdc","#63017e","#63017e","#1e51c8","#ffff00","#000000","#ffffff","#000000"],
+    refreshApp: ()=>{}
 }
 
 // Edits the Redux variables
@@ -68,6 +69,12 @@ const rootReducer = (state = initState, action) => {
         return  {
             ...state,
             colors: action.colors
+        }
+    }
+    if (action.type === "REFRESH_APP") {
+        return  {
+            ...state,
+            refreshApp: action.refreshApp
         }
     }
     return state;
