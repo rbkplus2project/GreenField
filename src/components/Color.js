@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import $ from 'jquery';
 
-
 class Color extends Component {
   colorize=()=>{
     let colors=[]
@@ -47,7 +46,8 @@ class Color extends Component {
         )
     }
 }
-// A lot of Redux variables
+
+// Redux
 const mapStateToProps = (state) => {
   return {
     colors: state.colors,
