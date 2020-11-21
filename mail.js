@@ -1,13 +1,3 @@
-// const sgTransport = require('nodemailer-sendgrid-transport');
-// var session = require('express-session')
-// var nodemailer = require('nodemailer');
-// var passport = require('passport');
-// var LocalStrategy = require('passport-local').Strategy;
-// var bcrypt = require('bcrypt-nodejs');
-// var async = require('async');
-// var crypto = require('crypto');
-
-
 // Create Email Options
 require('dotenv').config()
 const sgMail = require('@sendgrid/mail')
@@ -27,3 +17,4 @@ sgMail
     .catch((error) => {
         console.error(error)
     })
+    
