@@ -24,17 +24,17 @@ class Color extends Component {
     render() {
         return (
           <div className="center column styled">
-            <div>Containers Color : <input type="color" className="color"/></div>
-            <div>Borders Color : <input type="color" className="color"/></div>
-            <div>Menu Color : <input type="color" className="color"/></div>
-            <div>Font Color : <input type="color" className="color"/></div>
-            <div>Hover : <input type="color" className="color"/></div>
+            <div style={{color:this.props.colors[3]}}>Containers Color : <input type="color" className="color"/></div>
+            <div style={{color:this.props.colors[3]}}>Borders Color : <input type="color" className="color"/></div>
+            <div style={{color:this.props.colors[3]}}>Menu Color : <input type="color" className="color"/></div>
+            <div style={{color:this.props.colors[3]}}>Font Color : <input type="color" className="color"/></div>
+            <div style={{color:this.props.colors[3]}}>Hover : <input type="color" className="color"/></div>
             <br/>  
-            <div>Background Color : <input type="color" className="color"/></div>
-            <div>Particles Color : <input type="color" className="color"/></div>
-            <div>Links Color : <input type="color" className="color"/></div>
+            <div style={{color:this.props.colors[3]}}>Background Color : <input type="color" className="color"/></div>
+            <div style={{color:this.props.colors[3]}}>Particles Color : <input type="color" className="color"/></div>
+            <div style={{color:this.props.colors[3]}}>Links Color : <input type="color" className="color"/></div>
             <br/>  
-            <button onClick={this.colorize}>Set Colors</button>
+            <button  style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} onClick={this.colorize}>Set Colors</button>
           </div>
         )
     }
