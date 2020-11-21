@@ -34,6 +34,7 @@ class SignIn extends Component {
                     this.props.setUser(results.data)
                     localStorage.setItem('gamesio', JSON.stringify(results.data));
                     this.setState({ redirect: true })
+                    
                 };
                 if (results.data.errors) {
                     usernameError.textContent = results.data.errors.username;

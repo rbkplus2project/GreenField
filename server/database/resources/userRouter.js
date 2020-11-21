@@ -54,6 +54,7 @@ userRouter.route('/removeuser')
   userRouter.route('/:username')
   .put((req, res) => {
     userCtrl.update(req.params, req.body, (err, data) => {
+      console.log(req.params, req.body, data)
       if (data.ok === 0) {
         res.sendStatus(400)
       }
