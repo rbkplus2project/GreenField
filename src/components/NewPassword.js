@@ -30,7 +30,7 @@ class NewPassword extends Component {
 
         if (input[0].value === input[1].value && (this.checkPassWord(input[0].value)) === true) {
         let options = {
-            url: `/user/reset/:token`,
+            url: `http://localhost:3001/user/reset/:token`,
             method: 'post',
             data: { password: input[0].value, token: token }
         }
