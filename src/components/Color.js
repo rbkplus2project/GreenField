@@ -5,8 +5,12 @@ import $ from 'jquery';
 
 
 class Color extends Component {
-  colorize(){
-    console.log($(".color").val())
+  colorize=()=>{
+    let x=[]
+    for(var i=0;i<$(".color").length;i++){
+      x.push($(".color")[i].value)
+    }
+    this.props.color(x)
   }
 
     render() {

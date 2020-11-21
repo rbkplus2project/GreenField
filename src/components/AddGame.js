@@ -75,7 +75,7 @@ class AddGame extends Component {
                     <input type="text" className="text" name="image1" id="image1" required/>
 
                     <br/>
-                    <input type="button" alt="plop" className="button plus" value="+" style={{width:'2vw'}} name="addmoreimgs" id="addmoreimgs" onClick={this.addImageField} />
+                    <input type="button" className="button plus" value="+" style={{width:'2vw'}} name="addmoreimgs" id="addmoreimgs" onClick={this.addImageField} />
                     <br/>
                     <button className="button">Upload</button>
                 </form>
