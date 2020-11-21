@@ -22,7 +22,7 @@ app.use('/game', require('./database/resources/gameRouter'));
 // Responds to all get requests
 app.get('/*', (req, res) => {
   let path = req.params['0'].substring(1)
-  res.sendFile(`${__dirname}/${path}`)
+  res.sendFile(`${__dirname}/build/${path}`)
 })
 
 const host = '0.0.0.0';
