@@ -26,7 +26,7 @@ class AddGame extends Component {
             postedBy: JSON.parse(localStorage.getItem('gamesio'))._id
         }
         let options = {
-            url: 'http://localhost:3000/game',
+            url: '/game',
             method: 'post',
             data: request
         }
