@@ -12,7 +12,7 @@ class GameList extends Component {
 
     // Fetches games array from database 
     componentDidMount() {
-        fetch('/game')
+        fetch('http://localhost:3001/game')
             .then(res => res.json())
             .then(res => {
                 this.props.getGames(res);
