@@ -28,8 +28,8 @@ class SignUp extends Component {
 
         if (input[2].value === input[3].value && (this.checkPassWord(input[2].value)) === true) {
             let options = {
-                url: '/user/signup',
-                method: 'post',
+                url: 'http://localhost:3000/user/signup',
+                method: 'POST',
                 data: { username: input[0].value, email: input[1].value, password: input[2].value }
             }
             axios(options)

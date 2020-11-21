@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 
 userRouter.route('/signup')
   .post((req, res, next) => {
+    console.log(req.body)
     userCtrl.create(req, res, next);
   })
 
