@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 const axios = require('axios');
 const $ = require('jquery');
 class SignUp extends Component {
@@ -71,30 +72,37 @@ class SignUp extends Component {
                         <h1>Sign Up</h1>
                         <br />
                         <div className="column">
-                            <label htmlFor="newusername">User Name:</label>
-                            <input type="text" className="text" id="newusername" name="newusername" />
-                            <div class="username error"></div>
+                            <label htmlFor="newusername" style={{color:this.props.colors[3]}}>User Name:</label>
+                            <input type="text" className="text" id="newusername" name="newusername"  style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}/>
+                            <div className="username error" style={{color:this.props.colors[3]}}></div>
 
-                            <label htmlFor="email">Email:</label>
-                            <input type="email" className="text" id="email" name="email" />
-                            <div class="email error"></div>
+                            <label htmlFor="email" style={{color:this.props.colors[3]}}>Email:</label>
+                            <input type="email" className="text" id="email" name="email"  style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}/>
+                            <div className="email error" style={{color:this.props.colors[3]}}></div>
 
-                            <label htmlFor="newPassword">Password:</label>
-                            <input type="password" className="text" id="newPassword" name="newPassword" />
+                            <label htmlFor="newPassword" style={{color:this.props.colors[3]}}>Password:</label>
+                            <input type="password" className="text" id="newPassword" name="newPassword" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} />
 
-                            <label htmlFor="confirmPassword">Confirm Password:</label>
-                            <input type="password" className="text" id="confirmPassword" name="confirmPassword" />
-                            <div class="password error"></div>
+                            <label htmlFor="confirmPassword" style={{color:this.props.colors[3]}}>Confirm Password:</label>
+                            <input type="password" className="text" id="confirmPassword" name="confirmPassword" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}/>
+                            <div className="password error" style={{color:this.props.colors[3]}}></div>
                         </div>
                         <br />
-                        <button className="button">Sign Up</button><br />
+                        <button className="button" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}>Sign Up</button><br />
                     </form>
-                    <div class="password-req">Paaword must contain at least 1 lowercase, 1 uppercase, 1 symbol, 1 number and min.length of 5 char.</div><br/>
-                    <p>Already have an account? <Link to="/signin" style={{ textDecoration: "none" }}>Sign In</Link></p>
+                    <div class="password-req" style={{color:this.props.colors[3]}}>Password must contain at least 1 lowercase, 1 uppercase, 1 symbol, 1 number and min.length of 5 char.</div><br/>
+                    <p style={{color:this.props.colors[3]}}>Already have an account? <Link to="/signin" style={{ textDecoration: "none" }}>Sign In</Link></p>
                 </div>
             )
         }
     }
 };
 
-export default SignUp;
+// Redux 
+const mapStateToProps = (state) => {
+    return {
+        colors: state.colors
+    }
+}
+
+export default connect(mapStateToProps)(SignUp);
