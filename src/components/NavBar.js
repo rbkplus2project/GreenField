@@ -1,8 +1,8 @@
-import $ from 'jquery';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
 import { showMenu, showSearch, showSettings, showSign, setUser, searchGames, color } from '../actions/actions.js';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import $ from 'jquery';
 
 
 class NavBar extends Component {
@@ -70,6 +70,7 @@ class NavBar extends Component {
     }
   }
   render() {
+    console.log(this.props)
     return (
       <div className="menu" >
 
@@ -120,7 +121,7 @@ class NavBar extends Component {
         <div className ='settings column' style={{ display: this.props.showSettings ? "" : "none" }}>
             
             <Link to="/colors">
-              <input type="button" className ='settingsitem' value="Colors"></input>
+              <input type="button" className ='settingsitem' value="Colors" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}></input>
             </Link>
 
         </div>
@@ -133,13 +134,14 @@ class NavBar extends Component {
 // A lot of Redux variables
 const mapStateToProps = (state) => {
   return {
-    showMenu: state.showMenu,
+    showSettings: state.showSettings,
+    GamesRefresh: state.GamesRefresh,
+    GamesSearch: state.GamesSearch,
     showSearch: state.showSearch,
     showSign: state.showSign,
-    showSettings: state.showSettings,
+    showMenu: state.showMenu,
+    colors: state.colors,
     Games: state.Games,
-    GamesSearch: state.GamesSearch,
-    GamesRefresh: state.GamesRefresh,
     user: state.user
   }
 }
