@@ -49,14 +49,14 @@ class ResetPassword extends Component {
             return (
                 <div id="reset" className="center styled">
                     <form id="reset-form" onSubmit={this.handleSubmit}>
-                        <h1>Forgot Password</h1>
+                        <h1 style={{color:this.props.colors[3]}}>Forgot Password</h1>
                         <br />
                         <div className="column">
-                            <label htmlFor="email">Email</label>
-                            <input type="email" className="text" id="email" name="email" />
+                            <label htmlFor="email" style={{color:this.props.colors[3]}}>Email</label>
+                            <input type="email" className="text" id="email" name="email" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}/>
                         </div>
                         <br />
-                        <button className="button">Reset Password</button><br />
+                        <button className="button" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}>Reset Password</button><br/>
                     </form>
                 </div>
             )
@@ -64,11 +64,14 @@ class ResetPassword extends Component {
     }
 };
 
+
+// Redux 
 const mapStateToProps = (state) => {
     return {
         showMenu: state.showMenu,
         showSearch: state.showSearch,
-        showSign: state.showSign
+        showSign: state.showSign,
+        colors: state.colors
     }
 }
 const mapDispatchToProps = (dispatch) => {
