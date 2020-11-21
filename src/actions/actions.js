@@ -60,3 +60,9 @@ export const gameurl = (z) => {
         gameUrl: z
     }
 }
+export const color = (z) => {
+    return {
+        type: 'GET_COLOR',
+        colors: z
+    }
+}

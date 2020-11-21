@@ -10,7 +10,8 @@ const initState = {
     gameIndex: -1,
     Games: [],
     GamesSearch: [],
-    user: {}
+    user: {},
+    colors: ["violet","purple","purple","royalblue","gold","white","black","white"]
 }
 
 // Edits the Redux variables
