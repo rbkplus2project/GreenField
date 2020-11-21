@@ -22,7 +22,7 @@ class SignIn extends Component {
 
         let input = $('#signin-form').serializeArray();
         let options = {
-            url: `http://localhost:3000/user/signin`,
+            url: `/user/signin`,
             method: 'post',
             data: { username: input[0].value, password: input[1].value }
         }
@@ -34,6 +34,7 @@ class SignIn extends Component {
                     this.props.setUser(results.data)
                     localStorage.setItem('gamesio', JSON.stringify(results.data));
                     this.setState({ redirect: true })
+                    
                 };
                 if (results.data.errors) {
                     usernameError.textContent = results.data.errors.username;

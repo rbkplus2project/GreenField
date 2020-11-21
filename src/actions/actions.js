@@ -36,12 +36,6 @@ export const searchGames = (z) => {
         GamesSearch: z
     }
 }
-export const refreshGames = (z) => {
-    return {
-        type: 'REFRESH_GAMES',
-        GamesSearch: z
-    }
-}
 export const gameIndex = (z) => {
     return {
         type: 'GAME_INDEX',
@@ -64,5 +58,11 @@ export const color = (z) => {
     return {
         type: 'GET_COLORS',
         colors: z
+    }
+}
+export const refreshApp = (z) => {
+    return {
+        type: 'REFRESH_APP',
+        refreshApp: z
     }
 }

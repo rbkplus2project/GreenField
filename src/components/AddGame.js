@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { color } from '../actions/actions.js';
 import { connect } from 'react-redux';
 const axios = require('axios');
 const $ = require('jquery');
+
 
 class AddGame extends Component {
     constructor(props) {
@@ -27,7 +29,7 @@ class AddGame extends Component {
             postedBy: JSON.parse(localStorage.getItem('gamesio'))._id
         }
         let options = {
-            url: 'http://localhost:3000/game',
+            url: '/game',
             method: 'post',
             data: request
         }
@@ -84,12 +86,24 @@ class AddGame extends Component {
         )
     }
 }
-
-// Redux 
 const mapStateToProps = (state) => {
     return {
-        colors: state.colors
+      showSettings: state.showSettings,
+      GamesRefresh: state.GamesRefresh,
+      GamesSearch: state.GamesSearch,
+      showSearch: state.showSearch,
+      showSign: state.showSign,
+      showMenu: state.showMenu,
+      colors: state.colors,
+      Games: state.Games,
+      user: state.user
     }
-}
+  }
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      color: (z) => { dispatch(color(z)) }
+    }
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(AddGame);
 
-export default connect(mapStateToProps)(AddGame);
