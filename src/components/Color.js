@@ -1,49 +1,46 @@
+import { color } from '../actions/actions.js';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import $ from 'jquery';
 
-class Color extends Component {
-  containers(){
-    
-  }
-  borders(){
-    
-  }
-  menu(){
-    
-  }
-  font(){
-    ($('.button').css({color:$("#c4").val()}))
-  }
-  hover(){
 
+class Color extends Component {
+  colorize=()=>{
+    let x=[]
+    for(var i=0;i<$(".color").length;i++){
+      x.push($(".color")[i].value)
+    }
+    this.props.color(x)
   }
-  background(){
-    
-  }
-  particles(){
-    
-  }
-  links(){
-    
-  }
+
     render() {
         return (
           <div className="center column styled">
-            <div>Containers Color : <input type="color" id="c1" onChange={this.containers} /></div>
-            <div>Borders Color : <input type="color" id="c2" onChange={this.borders} /></div>
-            <div>Menu Color : <input type="color" id="c3" onChange={this.menu} /></div>
-            <div>Font Color : <input type="color" id="c4" onChange={this.font} /></div>
-            <div>Hover : <input type="color" id="c5" onChange={this.hover} /></div>
-             <br/>  
-            <div>Background Color : <input type="color" id="c6" onChange={this.background} /></div>
-            <div>Particles Color : <input type="color" id="c7" onChange={this.particles} /></div>
-            <div>Links Color : <input type="color" id="c9" onChange={this.links} /></div>
-            <div className="button">H
-            </div>
-
+            <div>Containers Color : <input type="color" className="color"/></div>
+            <div>Borders Color : <input type="color" className="color"/></div>
+            <div>Menu Color : <input type="color" className="color"/></div>
+            <div>Font Color : <input type="color" className="color"/></div>
+            <div>Hover : <input type="color" className="color"/></div>
+            <br/>  
+            <div>Background Color : <input type="color" className="color"/></div>
+            <div>Particles Color : <input type="color" className="color"/></div>
+            <div>Links Color : <input type="color" className="color"/></div>
+            <br/>  
+            <button onClick={this.colorize}>Set Colors</button>
           </div>
         )
     }
 }
+// A lot of Redux variables
+const mapStateToProps = (state) => {
+  return {
+    colors: state.colors
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    color: (z) => { dispatch(color(z)) }
+  }
+}
 
-export default Color;
+export default connect(mapStateToProps, mapDispatchToProps)(Color);
