@@ -15,7 +15,7 @@ class Color extends Component {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({colors: colors})
     }
-    fetch(`http://localhost:3000/user/${this.props.user.username}`, options)
+    fetch(`/user/${this.props.user.username}`, options)
       .then(res => {
         if (res.status === 200) {
           let newUser = this.props.user
