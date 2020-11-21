@@ -1,8 +1,8 @@
-import $ from 'jquery';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
 import { showMenu, showSearch, showSettings, showSign, setUser, searchGames } from '../actions/actions.js';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import $ from 'jquery';
 
 
 class NavBar extends Component {
