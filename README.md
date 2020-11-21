@@ -1,5 +1,5 @@
 # Project Name #
-  > [gamezio](https://gamezio.web.app/)
+  > [gamesio](https://gamesio.herokuapp.com/)
 
 ## Heading ##
   > Games Website
@@ -39,13 +39,3 @@ var function = function(parameter){return parameter}
 
 let function = (parameter) => parameter
 ```
-
-### Todos
-
- - Add Night Mode
-
-
-License
----
-
-MIT

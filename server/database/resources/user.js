@@ -24,7 +24,8 @@ let userSchema = new mongoose.Schema({
   games: Array,
   expiration: Date,
   used: Number,
-  profile: String
+  profile: String,
+  colors: Array
 });
 
 // adds user model

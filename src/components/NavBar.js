@@ -1,8 +1,8 @@
-import $ from 'jquery';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { showMenu, showSearch, showSettings, showSign, setUser, searchGames, color } from '../actions/actions.js';
 import React, { Component } from 'react';
-import { showMenu, showSearch, showSettings, showSign, setUser, searchGames } from '../actions/actions.js';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import $ from 'jquery';
 
 
 class NavBar extends Component {
@@ -16,7 +16,8 @@ class NavBar extends Component {
     UNSAFE_componentWillMount() {
         if (localStorage.getItem('gamesio')) {
             this.props.sign(1);
-            this.props.setUser(JSON.parse(localStorage.getItem('gamesio')))
+            this.props.setUser(JSON.parse(localStorage.getItem('gamesio')));
+            this.props.color(localStorage.getItem('gamesio').colors || this.props.colors)
         }
     }
 
@@ -69,57 +70,58 @@ class NavBar extends Component {
     }
   }
   render() {
+    console.log(this.props)
     return (
       <div className="menu" >
 
-        <input type="image" className="navitem" alt="" src="./media/rightarrow2.png" onClick={this.handleMenu} style={{ display: this.props.showMenu ? "none" : "" }}></input>
+        <input type="image" className="navitem" alt="" src="./media/rightarrow2.png" onClick={this.handleMenu} style={{ display: this.props.showMenu ? "none" : "" , backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}></input>
 
         <nav id="img-logo" className="menu" style={{ display: this.props.showMenu ? "" : "none" }} >
 
-          <input type="image" className="navitem" alt="" src="./media/leftarrow2.png" onClick={this.handleMenu}></input>
+          <input type="image" className="navitem" alt="" style={{backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/leftarrow2.png" onClick={this.handleMenu}></input>
 
           <Link to="/">
-            <input type="image" className="navitem" alt="Home" src="./media/house2.png"></input>
+            <input type="image" className="navitem" alt="Home" style={{backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/house2.png"></input>
           </Link >
 
           <Link to="/signin">
-            <input type="image" className="navitem" alt="SignIn" style={{ display: this.props.showSign ? "none" : "" }} src="./media/signin2.png"></input>
+            <input type="image" className="navitem" alt="SignIn" style={{ display: this.props.showSign ? "none" : "" , backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/signin2.png"></input>
           </Link>
 
           <Link to="/signup">
-            <input type="image" className="navitem" alt="SignUp" style={{ display: this.props.showSign ? "none" : "" }} src="./media/signup2.png"></input>
+            <input type="image" className="navitem" alt="SignUp" style={{ display: this.props.showSign ? "none" : "" , backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/signup2.png"></input>
           </Link>
 
           <Link to="/profile">
-            <input type="image" className="navitem" alt="Profile" style={{ display: this.props.showSign ? "" : "none" }} src={this.props.user.profile ? this.props.user.profile : "./media/signin2.png"}></input>
+            <input type="image" className="navitem" alt="Profile" style={{ display: this.props.showSign ? "" : "none" , backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src={this.props.user.profile ? this.props.user.profile : "./media/signin2.png"}></input>
           </Link>
           
           <Link to="/addgame">
-            <input type="image" className="navitem" alt="Add" style={{ display: this.props.showSign ? "" : "none" }} src="./media/addgame2.png"></input>
+            <input type="image" className="navitem" alt="Add" style={{ display: this.props.showSign ? "" : "none" , backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/addgame2.png"></input>
           </Link>
 
-          <input type="image" className="navitem" alt="Settings" src="./media/cog2.png" onClick={this.handleSettings}></input>
+          <input type="image" className="navitem" alt="Settings" style={{backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/cog2.png" onClick={this.handleSettings}></input>
          
           <Link to="/test">
-            <input type="image" className="navitem" alt="Test" src="./media/star2.png"></input>
+            <input type="image" className="navitem" alt="Test" style={{backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/star2.png"></input>
           </Link>
 
           <Link to="/signout">
-            <input type="image" className="navitem" alt="SignOut" style={{ display: this.props.showSign ? "" : "none" }} src="./media/signout2.png"></input>
+            <input type="image" className="navitem" alt="SignOut" style={{ display: this.props.showSign ? "" : "none", backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/signout2.png"></input>
           </Link>
 
-          <input type="image" className="navitem" alt="Search" src="./media/search2.png" onClick={this.handleSearch}></input>
+          <input type="image" className="navitem" alt="Search" src="./media/search2.png" style={{backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} onClick={this.handleSearch}></input>
           
-          <input type="serach" className="search" style={{ display: this.props.showSearch ? "" : "none" }} onChange={this.search} ></input>
+          <input type="serach" className="search" style={{ display: this.props.showSearch ? "" : "none",color:this.props.colors[3],backgroundColor:this.props.colors[2],borderColor:this.props.colors[1] }} onChange={this.search} ></input>
 
-          <input type="image" className="navitem" alt="Find" style={{ display: this.props.showSearch ? "" : "none" }} src="./media/leftarrow2.png" onClick={this.handleSearch}></input>
+          <input type="image" className="navitem" alt="Find" style={{ display: this.props.showSearch ? "" : "none",backgroundColor:this.props.colors[2],borderColor:this.props.colors[1]}} src="./media/leftarrow2.png" onClick={this.handleSearch}></input>
 
         </nav>
 
         <div className ='settings column' style={{ display: this.props.showSettings ? "" : "none" }}>
             
             <Link to="/colors">
-              <input type="button" className ='settingsitem' value="Colors"></input>
+              <input type="button" className ='settingsitem' value="Colors" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}></input>
             </Link>
 
         </div>
@@ -132,18 +134,20 @@ class NavBar extends Component {
 // A lot of Redux variables
 const mapStateToProps = (state) => {
   return {
-    showMenu: state.showMenu,
+    showSettings: state.showSettings,
+    GamesRefresh: state.GamesRefresh,
+    GamesSearch: state.GamesSearch,
     showSearch: state.showSearch,
     showSign: state.showSign,
-    showSettings: state.showSettings,
+    showMenu: state.showMenu,
+    colors: state.colors,
     Games: state.Games,
-    GamesSearch: state.GamesSearch,
-    GamesRefresh: state.GamesRefresh,
     user: state.user
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
+    color: (z) => { dispatch(color(z)) },
     sign: (z) => { dispatch(showSign(z)) },
     menu: (z) => { dispatch(showMenu(z)) },
     setUser: (z) => { dispatch(setUser(z)) },

@@ -60,24 +60,24 @@ class AddGame extends Component {
                 <br/>
                 <form id="addgame-form" className="column" onSubmit={this.handleSubmit}>
                     <label htmlFor="title">Game Title:</label>
-                    <input type="text" className="text" name="title" id="title" required/>
+                    <input type="text" className="text" name="title" id="title" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} required/>
                     
                     <label htmlFor="url">Game URL:</label>
-                    <input type="url" className="text" name="url" id="url" required/>
+                    <input type="url" className="text" name="url" id="url" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} required/>
 
                     <label htmlFor="type">Game Type:</label>
-                    <input type="text" className="text" name="type" id="type" required/>
+                    <input type="text" className="text" name="type" id="type" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} required/>
 
                     <label htmlFor="difficulty">Game difficulty:</label>
-                    <input type="text" className="text" name="difficulty" id="difficulty" required/>
+                    <input type="text" className="text" name="difficulty" id="difficulty" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} required/>
 
                     <label htmlFor="image1">Game image1:</label>
-                    <input type="text" className="text" name="image1" id="image1" required/>
+                    <input type="text" className="text" name="image1" id="image1" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} required/>
 
                     <br/>
-                    <input type="button" alt="plop" className="button plus" value="+" style={{width:'2vw'}} name="addmoreimgs" id="addmoreimgs" onClick={this.addImageField} />
+                    <input type="button" className="button plus" value="+" style={{width:'2vw', color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} name="addmoreimgs" id="addmoreimgs" onClick={this.addImageField} />
                     <br/>
-                    <button className="button">Upload</button>
+                    <button className="button" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}>Upload</button>
                 </form>
             </div>
         )
