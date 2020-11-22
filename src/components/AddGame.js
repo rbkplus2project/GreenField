@@ -86,6 +86,8 @@ class AddGame extends Component {
         )
     }
 }
+
+// Redux 
 const mapStateToProps = (state) => {
     return {
       showSettings: state.showSettings,
@@ -100,17 +102,10 @@ const mapStateToProps = (state) => {
     }
   }
 
-  // Redux 
   const mapDispatchToProps = (dispatch) => {
     return {
       color: (z) => { dispatch(color(z)) }
     }
-  }
-  
-  const mapStateToProps = (state) => {
-  return {
-      colors: state.colors
-  }
   }
 
   export default connect(mapStateToProps, mapDispatchToProps)(AddGame);
