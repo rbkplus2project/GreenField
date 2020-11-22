@@ -36,7 +36,7 @@
   > React Router
   > React Redux
   > Bootstrap
-  > Carousel - slideshow + fade
+  > Carousel --- slideshow + fade
   > Particles
   > Axios
   > Express
