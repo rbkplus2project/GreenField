@@ -25,7 +25,7 @@ let userSchema = new mongoose.Schema({
   expiration: Date,
   used: Number,
   profile: String,
-  colors: Object
+  colors: Array
 });
 
 // adds user model

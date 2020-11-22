@@ -36,12 +36,6 @@ export const searchGames = (z) => {
         GamesSearch: z
     }
 }
-export const refreshGames = (z) => {
-    return {
-        type: 'REFRESH_GAMES',
-        GamesSearch: z
-    }
-}
 export const gameIndex = (z) => {
     return {
         type: 'GAME_INDEX',

@@ -15,7 +15,7 @@ class NavBar extends Component {
     // Loads this before this component renders
     UNSAFE_componentWillMount() {
         if (localStorage.getItem('gamesio')) {
-          this.props.sign(1);
+            this.props.sign(1);
             this.props.setUser(JSON.parse(localStorage.getItem('gamesio')));
             this.props.color(JSON.parse(localStorage.getItem('gamesio')).colors || this.props.colors)
         }
@@ -70,6 +70,7 @@ class NavBar extends Component {
     }
   }
   render() {
+    console.log(this.props)
     return (
       <div className="menu" >
 
