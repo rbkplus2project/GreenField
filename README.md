@@ -54,6 +54,7 @@ var function = function(parameter){return parameter}
 
 let function = (parameter) => parameter
 ```
+
 ## Before you deploy ##
   > Remove all (http://localhost:3000) from all the react files [AddGame + DisplayGame + NewPassword + Profile + ResetPassword + SignIn + SignOut]
 
@@ -62,3 +63,4 @@ let function = (parameter) => parameter
 *  Use react spring technology
 *  Design and sizes
 *  Use firebase functions
+*  Make some games playable online by 2 players like the connect-4 game
