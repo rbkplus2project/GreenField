@@ -62,3 +62,4 @@ let function = (parameter) => parameter
   > Use react spring technology
   > Design and sizes
   > Use firebase functions
+  > Make some games playable online by 2 players like the connect-4 game
