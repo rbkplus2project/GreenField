@@ -1,5 +1,5 @@
 # Project Name #
-  > [![gamesio](https://i.postimg.cc/7Y1YVQFd/banner.png)](https://gamesio.herokuapp.com/)
+  > [![gamesio](https://superstarcommunicator.com/wp-content/uploads/2019/05/SSC-Banner-cyan.png)](https://gamesio.herokuapp.com/)
 
 ## Heading ##
   > Games Website
@@ -54,6 +54,7 @@ var function = function(parameter){return parameter}
 
 let function = (parameter) => parameter
 ```
+
 ## Before you deploy ##
   > Remove all (http://localhost:3000) from all the react files [AddGame + DisplayGame + NewPassword + Profile + ResetPassword + SignIn + SignOut]
 
