@@ -1,5 +1,5 @@
 # Project Name #
-> [![gamesio](https://superstarcommunicator.com/wp-content/uploads/2019/05/SSC-Banner-cyan.png)](https://gamesio.herokuapp.com/)
+  > [![gamesio](https://i.postimg.cc/7Y1YVQFd/banner.png)](https://gamesio.herokuapp.com/)
 
   
 
