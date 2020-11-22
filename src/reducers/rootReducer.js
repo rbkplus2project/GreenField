@@ -11,7 +11,7 @@ const initState = {
     Games: [],
     GamesSearch: [],
     user: {},
-    colors: ["#ec5fdc", "#63017e", "#63017e", "#1e51c8", "#ffff00", "#ffffff", "#000000", "#ffffff"],
+    colors: ["#ec5fdc","#63017e","#63017e","#1e51c8","#ffff00","#000000","#ffffff","#000000"],
     refreshApp: ()=>{}
 }
 
