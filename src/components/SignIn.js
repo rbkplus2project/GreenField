@@ -22,7 +22,7 @@ class SignIn extends Component {
 
         let input = $('#signin-form').serializeArray();
         let options = {
-            url: `/user/signin`,
+            url: `http://localhost:3000/user/signin`,
             method: 'post',
             data: { username: input[0].value, password: input[1].value }
         }
@@ -34,7 +34,6 @@ class SignIn extends Component {
                     this.props.setUser(results.data)
                     localStorage.setItem('gamesio', JSON.stringify(results.data));
                     this.setState({ redirect: true })
-                    
                 };
                 if (results.data.errors) {
                     usernameError.textContent = results.data.errors.username;
@@ -58,11 +57,11 @@ class SignIn extends Component {
                         <div className="column">
                             <label htmlFor="username" style={{color:this.props.colors[3]}}>User Name:</label>
                             <input type="text" className="text" id="username" name="username" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}/>
-                            <div class="username error" style={{color:this.props.colors[3]}}></div>
+                            <div className="username error" style={{color:this.props.colors[3]}}></div>
                             
                             <label htmlFor="Password" style={{color:this.props.colors[3]}}>Password:</label>
                             <input type="password" className="text" id="password" name="password" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}/>
-                            <div class="password error" style={{color:this.props.colors[3]}}></div>
+                            <div className="password error" style={{color:this.props.colors[3]}}></div>
 
                         </div>
                         <br />

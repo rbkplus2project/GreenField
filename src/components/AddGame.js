@@ -29,7 +29,7 @@ class AddGame extends Component {
             postedBy: JSON.parse(localStorage.getItem('gamesio'))._id
         }
         let options = {
-            url: '/game',
+            url: 'http://localhost:3000/game',
             method: 'post',
             data: request
         }
@@ -99,11 +99,18 @@ const mapStateToProps = (state) => {
       user: state.user
     }
   }
+
+  // Redux 
   const mapDispatchToProps = (dispatch) => {
     return {
       color: (z) => { dispatch(color(z)) }
     }
   }
   
-  export default connect(mapStateToProps, mapDispatchToProps)(AddGame);
+  const mapStateToProps = (state) => {
+  return {
+      colors: state.colors
+  }
+  }
 
+  export default connect(mapStateToProps, mapDispatchToProps)(AddGame);

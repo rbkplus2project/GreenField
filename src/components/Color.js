@@ -1,4 +1,4 @@
-import { color, setUser } from '../actions/actions.js';
+import { color, setUser, refreshApp } from '../actions/actions.js';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import $ from 'jquery';
@@ -58,7 +58,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     color: (z) => { dispatch(color(z)) },
-    setUser: (z) => { dispatch(setUser(z)) }
+    setUser: (z) => { dispatch(setUser(z)) },
+    refreshApp: (z) => { dispatch(refreshApp(z)) }
   }
 }
 

@@ -27,11 +27,11 @@ class Footer extends Component {
                              <h4 className="font-weight-bold text-uppercase mt-3 mb-4" id="foo">CONTACT US</h4>
                              <ul className="list-unstyled">
                                  <div className="contact">
-                                     <i class="glyphicon glyphicon-envelope"></i>
+                                     <i className="glyphicon glyphicon-envelope"></i>
                                      <span id='email'>  gamesio@gmail.com</span>
                                  </div>
                                  <div className="contact">
-                                     <i class='fas fa-phone-alt '></i>
+                                     <i className='fas fa-phone-alt '></i>
                                      <span id='phone'>  + 1235 2355 98</span>
                                  </div>
                              </ul>
