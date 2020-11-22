@@ -39,3 +39,5 @@ var function = function(parameter){return parameter}
 
 let function = (parameter) => parameter
 ```
+## Things to do ##
+> Make some game playable online by 2 players like the connect-4 game
