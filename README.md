@@ -19,6 +19,7 @@
 *  Pick a game
 *  Enjoy!
 
+
 ## Summary ##
   > A small website with small games that give huge joy! I would suggest you try playing each one of them ;)
 
@@ -46,6 +47,10 @@
 *  jQuery
 *  Css
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ce644d1e2ccc7b002d026c6b6103446bf3113399
 ## Random Javascript Flex ##
   > These 2 lines under are equal but written using es5 & es6
 
@@ -64,3 +69,7 @@ let function = (parameter) => parameter
 *  Design and sizes
 *  Use firebase functions
 *  Make some games playable online by 2 players like the connect-4 game
+<<<<<<< HEAD
+=======
+
+>>>>>>> ce644d1e2ccc7b002d026c6b6103446bf3113399

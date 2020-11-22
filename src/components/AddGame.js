@@ -107,5 +107,5 @@ const mapStateToProps = (state) => {
       color: (z) => { dispatch(color(z)) }
     }
   }
-
+  
   export default connect(mapStateToProps, mapDispatchToProps)(AddGame);
