@@ -113,4 +113,25 @@ const mapStateToProps = (state) => {
   }
   }
 
+
+  // Redux 
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      color: (z) => { dispatch(color(z)) }
+    }
+  }
+const mapStateToProps = (state) => {
+    return {
+        showSettings: state.showSettings,
+        GamesRefresh: state.GamesRefresh,
+        GamesSearch: state.GamesSearch,
+        showSearch: state.showSearch,
+        showSign: state.showSign,
+        showMenu: state.showMenu,
+        colors: state.colors,
+        Games: state.Games,
+        user: state.user
+    }
+} 
+ 
   export default connect(mapStateToProps, mapDispatchToProps)(AddGame);
