@@ -1,5 +1,7 @@
 # Project Name #
-  > [![gamesio](https://i.postimg.cc/7Y1YVQFd/banner.png)](https://gamesio.herokuapp.com/)
+> [![gamesio](https://superstarcommunicator.com/wp-content/uploads/2019/05/SSC-Banner-cyan.png)](https://gamesio.herokuapp.com/)
+
+  
 
 ## Heading ##
   > Games Website
@@ -7,17 +9,18 @@
 ## Sub-Heading ##
   > Javascript based games
 
+
 ## How to Get Started ##
-*  Fork
-*  Clone your fork
-*  Fill (.env) file
-*  npm install
-*  npm start & npm run server
-*  Chrome : 127.0.0.1:3001
-*  Sign up
-*  Sign in
-*  Pick a game
-*  Enjoy!
+  > Fork
+  > Clone your fork
+  > npm install
+  > npm start & npm run server
+  > Chrome : 127.0.0.1:3001
+  > Sign up
+  > Sign in
+  > Pick a game
+  > Enjoy!
+
 
 ## Summary ##
   > A small website with small games that give huge joy! I would suggest you try playing each one of them ;)
@@ -30,6 +33,8 @@
 
 ## Quote from us ##
   > "A day spent without a smile is a day wasted" ;) :) :D
+
+
 
 ## Technologies used ##
 *  React Create App
@@ -45,6 +50,7 @@
 *  Nodemailer
 *  jQuery
 *  Css
+
 
 ## Random Javascript Flex ##
   > These 2 lines under are equal but written using es5 & es6
@@ -64,3 +70,4 @@ let function = (parameter) => parameter
 *  Design and sizes
 *  Use firebase functions
 *  Make some games playable online by 2 players like the connect-4 game
+

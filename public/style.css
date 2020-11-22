@@ -1,0 +1,332 @@
+/* General Styles */
+html{
+  min-height: 90vh;
+}
+body{
+    background-image: url('media/neon.jpg');
+    background-color: white;
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    min-height: 90vh;
+}
+.button{
+  border: 4px solid;
+  border-radius: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0 0 5px;
+  height:30px;
+  width:200px;
+  outline: none;
+}
+.text{
+  font-weight: bold;
+  text-align: center;
+  border-radius: 12px;
+  height:30px;
+  width:200px;
+  outline: none;
+}
+input[type='text']::placeholder,input[type='number']::placeholder, input[type='password']::placeholder, textarea::placeholder{
+    color:gray;
+    font-weight: bold;
+    text-align: center;
+}
+input:hover, button:hover{
+  background-color:"gold";
+}
+
+/* General Positions */
+.column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+}
+.center{
+    position: fixed;
+    z-index: 5;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+.hide{
+    display:none;
+}
+.scroll{
+  height: 100%;
+  width: 100%;
+  padding: 100px;
+  overflow: auto;
+}
+
+/* Default Color */
+.styled{
+  font-weight: bold;
+  text-align: center;
+  font-size:16px;
+}
+
+/* NavBar */
+.menu{
+    position:fixed;
+    top:10px;
+    left:10px;
+    z-index: 500;
+    display: flex;
+    flex-flow: row wrap;
+}
+.settings{
+  position:fixed;
+  top:66px;
+  left:150px;
+  z-index: 500;
+}
+.navitem{
+    border: 3px solid;
+    margin-right: 3px;
+    border-radius: 30px;
+    height: 50px;
+    width: 50px;
+    outline: none;
+}
+.settingsitem{
+  border: 3px solid ;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 12px;
+  height: 30px;
+  width: 200px;
+  outline: none;
+} 
+.search{
+  border: 3px solid ;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 25px;
+  height: 50px;
+  width: 33vw;
+  outline: none;
+}
+
+/* Slide & Fade Effects */
+.gameitem{
+    display: inline-block;
+    width: 49.36vw;
+    height: 50vh;
+    cursor: pointer;
+    background-color: rgb(77, 77, 88);   
+}
+.gameinfo{
+  background-color: rgb(33, 33, 33);
+  height: 46vh;
+  text-align: center;
+  color: grey;
+  border-radius: 12px;
+  border: 50px solid ;
+  border-image: url("media/border.png") 150 ;
+}
+.gameimg{
+    height: 46vh;
+    width: 100%;
+    border-radius: 12px;
+}
+.disc{
+  margin-top: 2vw;
+}
+  .each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+  }
+  .each-fade {
+    display: flex;
+  }
+  .each-fade .image-container {
+    width: 75%;
+    overflow: hidden;
+  }
+  .each-fade .image-container img {
+    width: 100%;
+  }
+  .each-fade h2 {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #adceed;
+  }
+.games-container{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 50px 30px;
+  justify-content: center;
+  align-content: center;
+}
+
+/* Footer */
+footer {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+#footer {
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+/* Account Profile */
+.profile{
+  padding: 2vw;
+  border: 5px solid;
+  border-radius: 12px;
+  height: 95%;
+  overflow: auto;
+}
+.profileimg{
+  width: 100px;
+  height: 100px;
+  margin-left: 1%;
+  border: 3px solid;
+  border-radius: 50px;
+}
+input[type='file']{
+  opacity: 0;
+  position: absolute;
+  left:25%;
+}
+.up{
+  width: 300px;
+  border: 3px solid;
+  border-radius: 50px;
+  margin-left:20%;
+}
+.edit{
+  margin: 10px;
+  width: 200px;
+  outline: none;
+  padding: 4px 30px;
+  border-radius: 50px;
+  border: 3px solid;
+  font-weight: bold;
+  text-align: center;
+}
+.uploaded{
+  width: 120px;
+  height: 120px;
+  border: 3px solid;
+  border-radius: 30px;
+}
+.remove{
+  border: 4px solid;
+  border-radius: 66px;
+  font-weight: bold;
+  color:red;
+  height:6vw;
+  width:6vw;
+  font-size:3vw;
+  outline: none;
+}
+
+/* Responsiveness */
+/* iPad */
+@media screen and (max-width: 768px) {
+  .gameitem {
+    display: inline-block;
+    width: 50vw;
+    height: 25vh;
+    cursor: pointer;
+    background-color: rgb(77, 77, 88); 
+  }
+  .gameinfo{
+    background-color: rgb(33, 33, 33);
+    height: 23vh;
+    width: 100%;
+    text-align: center;
+    color: grey;
+    border-radius: 12px;
+    border: 50px solid ;
+    border-image: url("media/border.png") 150 ;
+  }
+  .gameimg{
+      height: 23vh;
+      width: 100%;
+      border-radius: 12px;
+  }
+  .each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 350px;
+  }
+   .contact {
+    margin-right: 5px;
+  } 
+}
+
+/* iPhone */
+@media screen and (max-width: 480px) {
+  .gameitem {
+    display: inline-block;
+    width: 100vw;
+    height: 25vh;
+    cursor: pointer;
+    background-color: rgb(77, 77, 88); 
+  }
+  .gameinfo{
+    background-color: rgb(33, 33, 33);
+    height: 23vh;
+    text-align: center;
+    color: grey;
+    border-radius: 12px;
+    border: 50px solid ;
+    border-image: url("media/border.png") 150 ;
+  }
+  .gameimg{
+      height: 23vh;
+      width: 100%;
+      border-radius: 12px;
+  }
+  .each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 175px;
+  }
+   #A {
+    margin-right: 5px;
+    margin-left: 5px;
+  } 
+}
+
+/* Joke */
+.i{
+  position: relative;
+  transition: 2s;
+  font-size: 40px;
+  font-weight: bold;
+}
+.e{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-flow: row;
+  position: fixed;
+  left:35%;
+  top:45%;
+}
