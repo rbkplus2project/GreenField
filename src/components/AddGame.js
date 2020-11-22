@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { color } from '../actions/actions.js';
 import { connect } from 'react-redux';
 const axios = require('axios');
 const $ = require('jquery');
+
 
 class AddGame extends Component {
     constructor(props) {
@@ -84,12 +86,31 @@ class AddGame extends Component {
         )
     }
 }
-
-// Redux 
 const mapStateToProps = (state) => {
     return {
-        colors: state.colors
+      showSettings: state.showSettings,
+      GamesRefresh: state.GamesRefresh,
+      GamesSearch: state.GamesSearch,
+      showSearch: state.showSearch,
+      showSign: state.showSign,
+      showMenu: state.showMenu,
+      colors: state.colors,
+      Games: state.Games,
+      user: state.user
     }
-}
+  }
 
-export default connect(mapStateToProps)(AddGame);
+  // Redux 
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      color: (z) => { dispatch(color(z)) }
+    }
+  }
+  
+  const mapStateToProps = (state) => {
+  return {
+      colors: state.colors
+  }
+  }
+
+  export default connect(mapStateToProps, mapDispatchToProps)(AddGame);
