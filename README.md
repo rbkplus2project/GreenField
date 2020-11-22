@@ -57,7 +57,8 @@ let function = (parameter) => parameter
 ```
 
 ## Before you deploy ##
-  > Remove all (http://localhost:3000) from all the react files [AddGame + DisplayGame + NewPassword + Profile + ResetPassword + SignIn + SignOut]
+  > Remove all (http://localhost:3000) from all the react files 
+  * [AddGame + DisplayGame + NewPassword + Profile + ResetPassword + SignIn + SignOut]
 
 ## Todo ##
 *  Create more games
