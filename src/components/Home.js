@@ -6,7 +6,7 @@ import $ from 'jquery';
 
 // Home Page
 class Home extends Component {
-    componentDidMount(){
+    componentDidMount() {
         $("#particles")[0].className="hide"
     }
     componentWillUnmount(){

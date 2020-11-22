@@ -4,30 +4,29 @@ import { connect } from 'react-redux';
 import $ from 'jquery';
 
 class Color extends Component {
-    colorize=()=>{
-      let colors=[]
-      for(var i=0;i<$(".color").length;i++){
-        colors.push($(".color")[i].value)
-      }
-      let options = {
-        method: 'put',
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({colors: colors})
-      }
-      fetch(`/user/${this.props.user.username}`, options)
-        .then(res => {
-          if (res.status === 200) {
-            let newUser = this.props.user
-            newUser.colors = colors
-            this.props.setUser(newUser)
-            localStorage.setItem('gamesio', JSON.stringify(newUser))
-            this.props.color(colors);
-            this.props.refreshApp()
-          }
-        })
-        .catch(err => console.log(err))
+  colorize=()=>{
+    let colors=[]
+    for(var i=0;i<$(".color").length;i++){
+      colors.push($(".color")[i].value)
     }
-  
+    let options = {
+      method: 'put',
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({colors: colors})
+    }
+    fetch(`/user/${this.props.user.username}`, options)
+      .then(res => {
+        if (res.status === 200) {
+          let newUser = this.props.user
+          newUser.colors = colors
+          this.props.setUser(newUser)
+          localStorage.setItem('gamesio', JSON.stringify(newUser))
+          this.props.color(colors);
+          this.props.refreshApp()
+        }
+      })
+      .catch(err => console.log(err))
+  }
 
     render() {
         return (
@@ -52,7 +51,8 @@ class Color extends Component {
 const mapStateToProps = (state) => {
   return {
     colors: state.colors,
-    user: state.user
+    user: state.user,
+    refreshApp: state.refreshApp
   }
 }
 const mapDispatchToProps = (dispatch) => {
