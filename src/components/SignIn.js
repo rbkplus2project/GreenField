@@ -52,27 +52,27 @@ class SignIn extends Component {
             return (
                 <div id="signin" className="center styled">
                     <form id="signin-form" onSubmit={this.handleSubmit}>
-                        <h1>Sign In</h1>
+                        <h1 style={{color:this.props.colors[3]}}>Sign In</h1>
                         <br />
                         <div className="column">
-                            <label htmlFor="username">User Name:</label>
-                            <input type="text" className="text" id="username" name="username" />
-                            <div class="username error"></div>
+                            <label htmlFor="username" style={{color:this.props.colors[3]}}>User Name:</label>
+                            <input type="text" className="text" id="username" name="username" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}/>
+                            <div className="username error" style={{color:this.props.colors[3]}}></div>
                             
-                            <label htmlFor="Password">Password:</label>
-                            <input type="password" className="text" id="password" name="password" />
-                            <div class="password error"></div>
+                            <label htmlFor="Password" style={{color:this.props.colors[3]}}>Password:</label>
+                            <input type="password" className="text" id="password" name="password" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}/>
+                            <div className="password error" style={{color:this.props.colors[3]}}></div>
 
                         </div>
                         <br />
-                        <button className="button">Sign In</button><br />
+                        <button className="button" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}>Sign In</button><br />
                     </form>
                     <Link to="/signup" style={{ textDecoration: "none" }}>
-                        <p>Sign Up</p>
+                        <p style={{color:this.props.colors[3]}}>Sign Up</p>
                     </Link>
 
                     <Link to="/reset" style={{ textDecoration: "none" }}>
-                        <p>Forgot password?</p>
+                        <p style={{color:this.props.colors[3]}}>Forgot password?</p>
                     </Link>
                 </div>
             )
@@ -86,7 +86,8 @@ const mapStateToProps = (state) => {
         showMenu: state.showMenu,
         showSearch: state.showSearch,
         showSign: state.showSign,
-        user: state.user
+        user: state.user,
+        colors: state.colors
     }
 }
 const mapDispatchToProps = (dispatch) => {

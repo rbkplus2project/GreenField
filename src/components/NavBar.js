@@ -17,7 +17,7 @@ class NavBar extends Component {
         if (localStorage.getItem('gamesio')) {
             this.props.sign(1);
             this.props.setUser(JSON.parse(localStorage.getItem('gamesio')));
-            this.props.color(localStorage.getItem('gamesio').colors || this.props.colors)
+            this.props.color(JSON.parse(localStorage.getItem('gamesio')).colors || this.props.colors)
         }
     }
 
@@ -74,45 +74,45 @@ class NavBar extends Component {
     return (
       <div className="menu" >
 
-        <input type="image" className="navitem" alt="" src="./media/rightarrow2.png" onClick={this.handleMenu} style={{ display: this.props.showMenu ? "none" : "" , backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}></input>
+        <input type="image" className="navitem" alt="" src="./media/rightarrow2.png" onClick={this.handleMenu} style={{ display: this.props.showMenu ? "none" : "" , backgroundColor:this.props.colors[2],borderColor:this.props.colors[1]}}></input>
 
         <nav id="img-logo" className="menu" style={{ display: this.props.showMenu ? "" : "none" }} >
 
-          <input type="image" className="navitem" alt="" style={{backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/leftarrow2.png" onClick={this.handleMenu}></input>
+          <input type="image" className="navitem" alt="" style={{backgroundColor:this.props.colors[2],borderColor:this.props.colors[1]}} src="./media/leftarrow2.png" onClick={this.handleMenu}></input>
 
           <Link to="/">
-            <input type="image" className="navitem" alt="Home" style={{backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/house2.png"></input>
+            <input type="image" className="navitem" alt="Home" style={{backgroundColor:this.props.colors[2],borderColor:this.props.colors[1]}} src="./media/house2.png"></input>
           </Link >
 
           <Link to="/signin">
-            <input type="image" className="navitem" alt="SignIn" style={{ display: this.props.showSign ? "none" : "" , backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/signin2.png"></input>
+            <input type="image" className="navitem" alt="SignIn" style={{ display: this.props.showSign ? "none" : "" , backgroundColor:this.props.colors[2],borderColor:this.props.colors[1]}} src="./media/signin2.png"></input>
           </Link>
 
           <Link to="/signup">
-            <input type="image" className="navitem" alt="SignUp" style={{ display: this.props.showSign ? "none" : "" , backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/signup2.png"></input>
+            <input type="image" className="navitem" alt="SignUp" style={{ display: this.props.showSign ? "none" : "" , backgroundColor:this.props.colors[2],borderColor:this.props.colors[1]}} src="./media/signup2.png"></input>
           </Link>
 
           <Link to="/profile">
-            <input type="image" className="navitem" alt="Profile" style={{ display: this.props.showSign ? "" : "none" , backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src={this.props.user.profile ? this.props.user.profile : "./media/signin2.png"}></input>
+            <input type="image" className="navitem" alt="Profile" style={{ display: this.props.showSign ? "" : "none" , backgroundColor:this.props.colors[2],borderColor:this.props.colors[1]}} src={this.props.user.profile ? this.props.user.profile : "./media/signin2.png"}></input>
           </Link>
           
           <Link to="/addgame">
-            <input type="image" className="navitem" alt="Add" style={{ display: this.props.showSign ? "" : "none" , backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/addgame2.png"></input>
+            <input type="image" className="navitem" alt="Add" style={{ display: this.props.showSign ? "" : "none" , backgroundColor:this.props.colors[2],borderColor:this.props.colors[1]}} src="./media/addgame2.png"></input>
           </Link>
 
-          <input type="image" className="navitem" alt="Settings" style={{backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/cog2.png" onClick={this.handleSettings}></input>
+          <input type="image" className="navitem" alt="Settings" style={{backgroundColor:this.props.colors[2],borderColor:this.props.colors[1]}} src="./media/cog2.png" onClick={this.handleSettings}></input>
          
           <Link to="/test">
-            <input type="image" className="navitem" alt="Test" style={{backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/star2.png"></input>
+            <input type="image" className="navitem" alt="Test" style={{backgroundColor:this.props.colors[2],borderColor:this.props.colors[1]}} src="./media/star2.png"></input>
           </Link>
 
           <Link to="/signout">
-            <input type="image" className="navitem" alt="SignOut" style={{ display: this.props.showSign ? "" : "none", backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} src="./media/signout2.png"></input>
+            <input type="image" className="navitem" alt="SignOut" style={{ display: this.props.showSign ? "" : "none", backgroundColor:this.props.colors[2],borderColor:this.props.colors[1]}} src="./media/signout2.png"></input>
           </Link>
 
-          <input type="image" className="navitem" alt="Search" src="./media/search2.png" style={{backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}} onClick={this.handleSearch}></input>
+          <input type="image" className="navitem" alt="Search" src="./media/search2.png" style={{backgroundColor:this.props.colors[2],borderColor:this.props.colors[1]}} onClick={this.handleSearch}></input>
           
-          <input type="serach" className="search" style={{ display: this.props.showSearch ? "" : "none",color:this.props.colors[3],backgroundColor:this.props.colors[2],borderColor:this.props.colors[1] }} onChange={this.search} ></input>
+          <input type="serach" className="search" style={{ display: this.props.showSearch ? "" : "none",color:this.props.colors[3],backgroundColor:"#ec5fdc",borderColor:this.props.colors[1] }} onChange={this.search} ></input>
 
           <input type="image" className="navitem" alt="Find" style={{ display: this.props.showSearch ? "" : "none",backgroundColor:this.props.colors[2],borderColor:this.props.colors[1]}} src="./media/leftarrow2.png" onClick={this.handleSearch}></input>
 

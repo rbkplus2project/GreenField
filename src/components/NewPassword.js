@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import { showSign } from '../actions/actions.js';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 const axios = require('axios');
 const $ = require('jquery');
@@ -62,21 +62,21 @@ class NewPassword extends Component {
             return (
                 <div id="newPassword" className="center styled">
                     <form id="newPassword-form" onSubmit={this.handleSubmit}>
-                        <h1>Reset Password</h1>
+                        <h1 style={{color:this.props.colors[3]}}>Reset Password</h1>
                         <br />
                         <div className="column">
-                            <label htmlFor="password-n">New Password:</label>
-                            <input type="password" className="text" id="password-n" name="password-n" />
+                            <label htmlFor="password-n" style={{color:this.props.colors[3]}}>New Password:</label>
+                            <input type="password" className="text" id="password-n" name="password-n" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}/>
                         </div>
 
                         <div className="column">
-                            <label htmlFor="password-con">Comfirm Password:</label>
-                            <input type="password" className="text" id="password-con" name="password-con" />
-                            <div class="password error"></div>
+                            <label htmlFor="password-con" style={{color:this.props.colors[3]}}>Comfirm Password:</label>
+                            <input type="password" className="text" id="password-con" name="password-con" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}/>
+                            <div className="password error"></div>
                         </div>
                         <br />
-                        <button className="button">Update Password</button><br />
-                        <div className="password-req">Password must contain at least 1 lowercase, 1 uppercase, 1 symbol, 1 number and min.length of 5 char.</div><br />
+                        <button className="button" style={{color:this.props.colors[3],backgroundColor:this.props.colors[0],borderColor:this.props.colors[1]}}>Update Password</button><br />
+                        <div className="password-req" style={{color:this.props.colors[3]}}>Password must contain at least 1 lowercase, 1 uppercase, 1 symbol, 1 number and min.length of 5 char.</div><br />
                     </form>
                 </div>
             )
@@ -87,6 +87,7 @@ class NewPassword extends Component {
 const mapStateToProps = (state) => {
     return {
         showMenu: state.showMenu,
+        colors: state.colors
     }
 };
 const mapDispatchToProps = (dispatch) => {

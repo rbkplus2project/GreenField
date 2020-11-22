@@ -1,8 +1,7 @@
-import { color } from '../actions/actions.js';
+import { color, setUser, refreshApp } from '../actions/actions.js';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import $ from 'jquery';
-
 
 class Color extends Component {
   colorize=()=>{
@@ -12,11 +11,19 @@ class Color extends Component {
     }
     let options = {
       method: 'put',
+      headers: {"Content-Type": "application/json"},
       body: JSON.stringify({colors: colors})
     }
-    fetch(`http://localhost:3000/user/${this.props.user.username}`, options)
+    fetch(`/user/${this.props.user.username}`, options)
       .then(res => {
-        this.props.color(colors)
+        if (res.status === 200) {
+          let newUser = this.props.user
+          newUser.colors = colors
+          this.props.setUser(newUser)
+          localStorage.setItem('gamesio', JSON.stringify(newUser))
+          this.props.color(colors);
+          this.props.refreshApp()
+        }
       })
       .catch(err => console.log(err))
   }
@@ -39,16 +46,20 @@ class Color extends Component {
         )
     }
 }
-// A lot of Redux variables
+
+// Redux
 const mapStateToProps = (state) => {
   return {
     colors: state.colors,
-    user: state.user
+    user: state.user,
+    refreshApp: state.refreshApp
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    color: (z) => { dispatch(color(z)) }
+    color: (z) => { dispatch(color(z)) },
+    setUser: (z) => { dispatch(setUser(z)) },
+    refreshApp: (z) => { dispatch(refreshApp(z)) }
   }
 }
 

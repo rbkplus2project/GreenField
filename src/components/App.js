@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { refreshApp } from '../actions/actions.js';
 import ResetPassword from './ResetPassword.js';
 import NewPassword from './NewPassword.js';
 import React, { Component } from 'react';
 import GameFrame from './GameFrame.js';
+import { connect } from 'react-redux';
 import Particle from './Particles.js';
 import AddGame from './AddGame.js';
 import Profile from './Profile.js';
@@ -18,7 +20,8 @@ import $ from 'jquery';
 class App extends Component {
     
     // Plays click sound on clicks
-    componentDidMount(){
+    componentDidMount() {
+        this.props.refreshApp(() => this.setState({a:1}))
         $("input").on("click", function(){
             $("#sound").attr({ 
                 'src':'media/point.mp3', 
@@ -27,6 +30,7 @@ class App extends Component {
         })
     }
     render() {
+        console.log(this.props)
         return (
             <Router>
                 <NavBar/>
@@ -48,5 +52,15 @@ class App extends Component {
         );
     }
 }
-
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+return {
+    refreshApp: (z) => { dispatch(refreshApp(z)) }
+}
+}
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(App);

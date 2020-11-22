@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
 import Particles from 'react-particles-js';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
            
 // Creates Particles animated background
 // Creates Random Color Hex Value
 class Particle extends Component {
     render() {
-      let r=Math.floor(Math.random()*16777215).toString(16);
-      r="#"+r
         return (
           <div id="particles">
             <Particles
               params={{
                 background: {
                   color: {
-                    value: "#ffffff",
+                    value: this.props.colors[6],
                   },
                 },
                 interactivity: {
@@ -39,10 +38,10 @@ class Particle extends Component {
                 },
                 particles: {
                   color: {
-                    value: r,
+                    value: this.props.colors[7],
                   },
                   links: {
-                    color: r,
+                    color: this.props.colors[8],
                     distance: 222,
                     width: 2,
                     opacity: 0.7
@@ -64,4 +63,10 @@ class Particle extends Component {
       }
     }
 
-export default Particle;
+// Redux 
+const mapStateToProps = (state) => {
+    return {
+        colors: state.colors
+    }
+}
+export default connect(mapStateToProps)(Particle);
